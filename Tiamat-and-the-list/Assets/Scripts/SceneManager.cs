@@ -9,7 +9,10 @@ public class SceneManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        for (int i = 0; i < interoperables.Count; i++)
+        {
+            interoperables[i].Index = i;
+        }
 	}
 	
 	// Update is called once per frame

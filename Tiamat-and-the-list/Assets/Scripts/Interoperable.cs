@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Interoperable : MonoBehaviour {
-    
+
+    private int index = 0;
+    public int Index { get; set; }
+
     //判定在主角附近的检测范围，交错按比例计算
     public int detectDist = 2;
 
