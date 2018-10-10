@@ -7,6 +7,9 @@ public class Interoperable : MonoBehaviour {
     private int index = 0;
     public int Index { get; set; }
 
+    //该道具类别
+    public string itemType = "";
+
     //判定在主角附近的检测范围，交错按比例计算
     public int detectDist = 2;
 

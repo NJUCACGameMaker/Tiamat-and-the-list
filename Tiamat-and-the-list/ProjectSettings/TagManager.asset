@@ -50,3 +50,9 @@ TagManager:
   - name: Player
     uniqueID: 2858966525
     locked: 0
+  - name: ForeItem
+    uniqueID: 535378899
+    locked: 0
+  - name: FG
+    uniqueID: 2987364565
+    locked: 0
