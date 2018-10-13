@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class SceneManager : MonoBehaviour {
 
+    public string levelName;
+    public string sceneName;
+    public static SceneManager instance;
     public List<Interoperable> interoperables;
     public Transform playerTrans;
 
-	// Use this for initialization
-	void Start () {
+    private void Awake()
+    {
+        instance = this;
+    }
+
+    // Use this for initialization
+    void Start () {
         for (int i = 0; i < interoperables.Count; i++)
         {
             interoperables[i].Index = i;
@@ -55,5 +63,15 @@ public class SceneManager : MonoBehaviour {
                 }
             }
         }
+    }
+
+    public static string GetLevelName()
+    {
+        return instance.levelName;
+    }
+
+    public static string GetSceneName()
+    {
+        return instance.sceneName;
     }
 }

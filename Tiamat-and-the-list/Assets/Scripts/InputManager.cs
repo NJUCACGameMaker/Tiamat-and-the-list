@@ -37,31 +37,32 @@ public class InputManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.F))
+        bool dialogOn = DialogManager.IsDialogOn();
+		if (Input.GetKeyDown(KeyCode.F) && !dialogOn)
         {
             OnPick();
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && !dialogOn)
         {
             OnInteract();
         }
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && !dialogOn)
         {
             OnSwitchItemState();
         }
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) && !dialogOn)
         {
             OnUpStair();
         }
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S) && !dialogOn)
         {
             OnDownStair();
         }
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A) && !dialogOn)
         {
             OnLeftMove();
         }
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D) && !dialogOn)
         {
             OnRightMove();
         }
