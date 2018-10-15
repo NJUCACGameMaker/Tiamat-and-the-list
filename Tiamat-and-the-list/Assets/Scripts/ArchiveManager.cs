@@ -12,25 +12,23 @@ using SimpleJSON;
 public class ArchiveManager {
 
     //存档文件名（不含.json）
-    private string archiveName;
+    private readonly string archiveName;
     //存档关卡标志（关卡名）
-    private string levelTag;
+    private readonly string levelTag;
     //存档场景标志（场景名）
-    private string sceneTag;
+    private readonly string sceneTag;
 
     //构造函数，构造一个对应场景的存档管理器
-    ArchiveManager(string archiveName, string levelTag, string sceneTag)
+    public ArchiveManager(string archiveName, string levelTag, string sceneTag)
     {
         this.archiveName = archiveName;
         this.levelTag = levelTag;
         this.sceneTag = sceneTag;
     }
 
-    //存档加载，返回一个index与存档内容的字典，若index存在而存档为空表示与关卡布置时道具状态无变化，若index不存在则表示该道具以因使用等
-    //原因消失，与关卡布置时相比多余的index表示后续交互中增加的道具。
-    Dictionary<int, string> LoadArchive()
+    //存档加载，参数为场景内所有初始布局的列表，根据存档修正场景布局，生成额外物品。
+    public void LoadArchive(List<Interoperable> interoperables)
     {
-        var objectsToLoad = new Dictionary<int, string>();
         try
         {
             FileStream archiveFile = new FileStream(Application.persistentDataPath + "\\" + archiveName + ".json", FileMode.Open);
@@ -39,41 +37,67 @@ public class ArchiveManager {
 
             foreach (JSONNode itemNode in sceneNode.Childs)
             {
-                objectsToLoad.Add(itemNode["index"].AsInt, itemNode["archive"]);
+                int index = itemNode["index"].AsInt;
+                string archiveLine = itemNode["archive"];
+                if (index != -1 && index < interoperables.Count)
+                {
+                    interoperables[index].LoadArchive(archiveLine);
+                }
+                else if (index == -1)
+                {
+                    string resourcesPath = itemNode["resources-path"];
+                    GameObject pickableItem = Object.Instantiate(Resources.Load(resourcesPath)) as GameObject;
+                    pickableItem.GetComponent<Interoperable>().LoadArchive(archiveLine);
+                    pickableItem.GetComponent<Interoperable>().generated = true;
+                }
             }
         }
         catch (IOException e)
         {
-            Debug.Log("Archive Doesn't Exist");
+            Debug.Log("Archive Doesn't Exist: " + e.HelpLink);
         }
-
-        return objectsToLoad;
     }
 
     //保存存档
-    void SaveArchive(List<GameObject> objectsToSave)
+    public void SaveArchive(List<GameObject> objectsToSave)
     {
         var sceneArchive = new JSONArray();
         for (int i = 0; i < objectsToSave.Count; i++)
         {
             Interoperable interoperable = objectsToSave[i].GetComponent<Interoperable>();
-            if (interoperable.GetArchive() != null)
+            if (!interoperable.generated)
             {
-                var archivePiece = new JSONClass
+                if (interoperable.GetArchive() != null)
+                {
+                    var archivePiece = new JSONClass
                 {
                     { "index", new JSONData(interoperable.Index) },
                     { "archive", new JSONData(interoperable.GetArchive()) }
                 };
-                sceneArchive.Add(archivePiece);
-            }
-            else
-            {
-                var archivePiece = new JSONClass
+                    sceneArchive.Add(archivePiece);
+                }
+                else
+                {
+                    var archivePiece = new JSONClass
                 {
                     { "index", new JSONData(interoperable.Index) },
                     { "archive", new JSONData("") }
                 };
-                sceneArchive.Add(archivePiece);
+                    sceneArchive.Add(archivePiece);
+                }
+            }
+            else
+            {
+                Pickable pickable = interoperable as Pickable;
+                if (pickable != null)
+                {
+                    var archivePiece = new JSONClass
+                    {
+                        { "index", new JSONData(-1) },
+                        { "resources-path", new JSONData(pickable.resourcesPath) },
+                        { "archive", new JSONData(interoperable.GetArchive()) }
+                    };
+                }
             }
         }
 

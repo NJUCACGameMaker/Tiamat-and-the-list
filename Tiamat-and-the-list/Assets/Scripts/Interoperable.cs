@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Interoperable : MonoBehaviour {
 
+    //index，用于加载存档时，存档项和物品的匹配。
     private int index = 0;
     public int Index { get; set; }
+    //是否是由于其他原因后续生成的而非初始布置在场景中
+    [HideInInspector]
+    public bool generated = false;
 
-    //该道具类别
-    public string itemType = "";
+    public bool interoperable = true;
 
     //判定在主角附近的检测范围，交错按比例计算
     public int detectDist = 2;
