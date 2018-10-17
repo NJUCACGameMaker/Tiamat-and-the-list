@@ -42,7 +42,7 @@ public class SceneManager : MonoBehaviour {
         {
             float distance = Mathf.Abs(playerTrans.position.x - interoperable.transform.position.x);
             
-            if (distance <= interoperable.detectDist && radio > (distance / interoperable.detectDist))
+            if (interoperable.interoperable && distance <= interoperable.detectDist && radio > (distance / interoperable.detectDist))
             {
                 radio = distance / interoperable.detectDist;
                 tempNearest = interoperable;
