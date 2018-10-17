@@ -58,11 +58,11 @@ public class InputManager : MonoBehaviour {
         {
             OnDownStair();
         }
-        if (Input.GetKeyDown(KeyCode.A) && !dialogOn)
+        if (Input.GetKey(KeyCode.A) && !dialogOn)
         {
             OnLeftMove();
         }
-        if (Input.GetKeyDown(KeyCode.D) && !dialogOn)
+        if (Input.GetKey(KeyCode.D) && !dialogOn)
         {
             OnRightMove();
         }

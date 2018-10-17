@@ -1290,7 +1290,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -7, y: 0.04, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2083,6 +2083,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7670d053fc62eb2458587d69ec4d7025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelName: Tutorial
+  sceneName: Scene1
   interoperables:
   - {fileID: 502646027}
   - {fileID: 1814738700}
@@ -2091,8 +2093,6 @@ MonoBehaviour:
   - {fileID: 1457842504}
   - {fileID: 121517530}
   playerTrans: {fileID: 868496699}
-  levelName: Tutorial
-  sceneName: Scene1
 --- !u!1 &941285607
 GameObject:
   m_ObjectHideFlags: 0
