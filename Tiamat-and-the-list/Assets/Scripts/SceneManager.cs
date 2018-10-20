@@ -8,7 +8,8 @@ public class SceneManager : MonoBehaviour {
     public string sceneName;
     public static SceneManager instance;
     public List<Interoperable> interoperables;
-    public Transform playerTrans;
+    public PlayerManager player;
+    private ArchiveManager archiveManager;
 
     private void Awake()
     {
@@ -17,10 +18,14 @@ public class SceneManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        //为每个场景中的原生物品生成index
         for (int i = 0; i < interoperables.Count; i++)
         {
             interoperables[i].Index = i;
         }
+        //构建相应的存档管理器
+        archiveManager = new ArchiveManager("Normal-Archive", levelName, sceneName);
+        archiveManager.LoadArchive(interoperables);
 	}
 	
 	// Update is called once per frame
@@ -35,9 +40,10 @@ public class SceneManager : MonoBehaviour {
 
         foreach (Interoperable interoperable in interoperables)
         {
-            float distance = Mathf.Abs(playerTrans.position.x - interoperable.transform.position.x);
+            float distance = Mathf.Abs(player.transform.position.x - interoperable.transform.position.x);
             
-            if (distance <= interoperable.detectDist && radio > (distance / interoperable.detectDist))
+            if (interoperable.floorLayer == player.floorLayer && interoperable.interoperable && 
+                distance <= interoperable.detectDist && radio > (distance / interoperable.detectDist))
             {
                 radio = distance / interoperable.detectDist;
                 tempNearest = interoperable;

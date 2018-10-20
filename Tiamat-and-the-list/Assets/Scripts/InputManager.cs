@@ -38,35 +38,35 @@ public class InputManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         bool dialogOn = DialogManager.IsDialogOn();
-		if (Input.GetKeyDown(KeyCode.F) && !dialogOn)
+		if (Input.GetKeyDown(KeyCode.F) && OnPick != null && !dialogOn)
         {
             OnPick();
         }
-        if (Input.GetKeyDown(KeyCode.E) && !dialogOn)
+        if (Input.GetKeyDown(KeyCode.E) && OnInteract != null && !dialogOn)
         {
             OnInteract();
         }
-        if (Input.GetKeyDown(KeyCode.Q) && !dialogOn)
+        if (Input.GetKeyDown(KeyCode.Q) && OnSwitchItemState != null && !dialogOn)
         {
             OnSwitchItemState();
         }
-        if (Input.GetKeyDown(KeyCode.W) && !dialogOn)
+        if (Input.GetKeyDown(KeyCode.W) && OnUpStair != null && !dialogOn)
         {
             OnUpStair();
         }
-        if (Input.GetKeyDown(KeyCode.S) && !dialogOn)
+        if (Input.GetKeyDown(KeyCode.S) && OnDownStair != null && !dialogOn)
         {
             OnDownStair();
         }
-        if (Input.GetKeyDown(KeyCode.A) && !dialogOn)
+        if (Input.GetKeyDown(KeyCode.A) && OnLeftMove != null && !dialogOn)
         {
             OnLeftMove();
         }
-        if (Input.GetKeyDown(KeyCode.D) && !dialogOn)
+        if (Input.GetKeyDown(KeyCode.D) && OnRightMove !=null && !dialogOn)
         {
             OnRightMove();
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && OnEscape != null)
         {
             OnEscape();
         }

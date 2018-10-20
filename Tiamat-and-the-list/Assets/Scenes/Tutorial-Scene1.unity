@@ -425,9 +425,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadd658e3010f5940859ba0cca97a095, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 
+  generated: 0
+  interoperable: 1
   detectDist: 2
   dialogSection: 
+  floorLayer: 0
 --- !u!1 &251914764
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,11 +967,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d7f4208711a7834aa7a6865658dfb6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 
+  generated: 0
+  interoperable: 1
   detectDist: 2
   dialogSection1: 
   dialogSection2: 
   dialogSection3: 
+  floorLayer: 0
 --- !u!1 &443552551
 GameObject:
   m_ObjectHideFlags: 0
@@ -1132,9 +1136,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadd658e3010f5940859ba0cca97a095, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 
+  generated: 0
+  interoperable: 1
   detectDist: 2
   dialogSection: 
+  floorLayer: 0
 --- !u!1 &502646024
 GameObject:
   m_ObjectHideFlags: 0
@@ -1222,9 +1228,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadd658e3010f5940859ba0cca97a095, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 
+  generated: 0
+  interoperable: 1
   detectDist: 2
   dialogSection: 
+  floorLayer: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3309,9 +3317,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadd658e3010f5940859ba0cca97a095, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 
+  generated: 0
+  interoperable: 1
   detectDist: 2
   dialogSection: 
+  floorLayer: 0
 --- !u!1 &1471881950
 GameObject:
   m_ObjectHideFlags: 0
@@ -3924,7 +3934,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee524dea775b1444bb3d64a69a46e8d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 
   detectDist: 2
   dialogSection: 
   test: 0
@@ -4078,6 +4087,48 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1734423089
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4365565766188428, guid: 5ac357d618aa68445bde4dd830d0a809, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365565766188428, guid: 5ac357d618aa68445bde4dd830d0a809, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -3.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365565766188428, guid: 5ac357d618aa68445bde4dd830d0a809, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365565766188428, guid: 5ac357d618aa68445bde4dd830d0a809, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365565766188428, guid: 5ac357d618aa68445bde4dd830d0a809, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365565766188428, guid: 5ac357d618aa68445bde4dd830d0a809, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365565766188428, guid: 5ac357d618aa68445bde4dd830d0a809, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365565766188428, guid: 5ac357d618aa68445bde4dd830d0a809, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5ac357d618aa68445bde4dd830d0a809, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1814738697
 GameObject:
   m_ObjectHideFlags: 0
@@ -4165,9 +4216,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadd658e3010f5940859ba0cca97a095, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 
+  generated: 0
+  interoperable: 1
   detectDist: 2
   dialogSection: 
+  floorLayer: 0
 --- !u!1 &1831124266
 GameObject:
   m_ObjectHideFlags: 0
@@ -4856,7 +4909,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b2851f357705243b64366318d9e8a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 
   detectDist: 2
   dialogSection: 
   test: 0
