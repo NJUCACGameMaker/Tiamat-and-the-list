@@ -8,7 +8,7 @@ public class SceneManager : MonoBehaviour {
     public string sceneName;
     public static SceneManager instance;
     public List<Interoperable> interoperables;
-    public Transform playerTrans;
+    public PlayerManager player;
     private ArchiveManager archiveManager;
 
     private void Awake()
@@ -40,9 +40,10 @@ public class SceneManager : MonoBehaviour {
 
         foreach (Interoperable interoperable in interoperables)
         {
-            float distance = Mathf.Abs(playerTrans.position.x - interoperable.transform.position.x);
+            float distance = Mathf.Abs(player.transform.position.x - interoperable.transform.position.x);
             
-            if (interoperable.interoperable && distance <= interoperable.detectDist && radio > (distance / interoperable.detectDist))
+            if (interoperable.floorLayer == player.floorLayer && interoperable.interoperable && 
+                distance <= interoperable.detectDist && radio > (distance / interoperable.detectDist))
             {
                 radio = distance / interoperable.detectDist;
                 tempNearest = interoperable;

@@ -2,7 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Equipment
-{
-    FlashLight
+public class Equipment {
+
+    public EquipmentType type;
+
+    public void OnUpdate()
+    {
+
+    }
+
 }
