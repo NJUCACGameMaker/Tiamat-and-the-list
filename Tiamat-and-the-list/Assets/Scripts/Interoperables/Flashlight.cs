@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Flashlight : Interoperable
+public class Flashlight : Pickable
 {
     public string dialogSection;
-    float Movespeed = 1000f;
 
     public bool test;
 
@@ -33,8 +32,7 @@ public class Flashlight : Interoperable
     }
     void OnPick()
     {
-        float step = Movespeed * Time.deltaTime;
-        gameObject.transform.localPosition = Vector3.MoveTowards(gameObject.transform.localPosition, new Vector3(48, -20, 0), step);
+        gameObject.transform.position = new Vector3(48.0f, -20.0f, 0.0f);
 
     }
 }

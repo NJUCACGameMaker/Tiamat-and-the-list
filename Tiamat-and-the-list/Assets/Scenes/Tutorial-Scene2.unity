@@ -200,8 +200,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c698343ea06e2bb438dd8256e7b41ab8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  generated: 0
   interoperable: 1
   detectDist: 2
+  floorLayer: 0
   lightController: {fileID: 1613430737}
   dialogSection: 
   on: 1
@@ -992,7 +994,7 @@ MonoBehaviour:
   - {fileID: 1276579236}
   - {fileID: 2051842229}
   - {fileID: 63751518}
-  playerTrans: {fileID: 1751808921}
+  player: {fileID: 1751808922}
 --- !u!1 &888830291
 GameObject:
   m_ObjectHideFlags: 0
@@ -1337,8 +1339,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8c2ea80fd6d9744e970a97a60db8539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 
+  generated: 0
+  interoperable: 1
   detectDist: 2
+  floorLayer: 0
   dialogSection: 
 --- !u!1 &1326228944
 GameObject:
@@ -1931,8 +1935,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1751808921}
   - component: {fileID: 1751808920}
+  - component: {fileID: 1751808922}
   m_Layer: 0
-  m_Name: "\u4E3B\u89D2\u4EBA\u7269"
+  m_Name: Main Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1997,6 +2002,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1751808922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1751808919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff5998679f82dd040b87dd044179f9cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floorLayer: 0
 --- !u!1 &1786185293
 GameObject:
   m_ObjectHideFlags: 0
@@ -2386,8 +2403,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a16b679b7fe96664ca144de1a8896674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 
+  generated: 0
+  interoperable: 1
   detectDist: 2
+  floorLayer: 0
   dialogSection: 
 --- !u!1 &2063468677
 GameObject:

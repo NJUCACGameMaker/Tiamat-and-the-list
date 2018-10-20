@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour {
     private int moveSpeed;
     //摄像机
     private GameObject camera;
+    
 
     // Use this for initialization
     void Start () {
