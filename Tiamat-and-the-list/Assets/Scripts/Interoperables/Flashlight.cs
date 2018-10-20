@@ -1,21 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-
-
-public class Door : Interoperable
+public class Flashlight : Interoperable
 {
-
-
     public string dialogSection;
+    float Movespeed = 1000f;
+
     public bool test;
 
     // Use this for initialization
     void Start()
     {
-
         InputManager.AddOnInteract(OnInteract);
         InputManager.AddOnPick(OnPick);
     }
@@ -25,15 +21,20 @@ public class Door : Interoperable
     {
 
         if (test)
-        {
-            test = false;
-        }
+            OnPick();
     }
     void OnInteract()
     {
-        DialogManager.ShowDialog(dialogSection);
+        if (NearPlayer)
+        {
+            DialogManager.ShowDialog(dialogSection);
+
+        }
     }
     void OnPick()
     {
+        float step = Movespeed * Time.deltaTime;
+        gameObject.transform.localPosition = Vector3.MoveTowards(gameObject.transform.localPosition, new Vector3(48, -20, 0), step);
+
     }
 }
