@@ -18,7 +18,6 @@ public class PlayerManager : MonoBehaviour {
         InputManager.AddOnLeftMove(LeftMove);
         InputManager.AddOnRightMove(RightMove);
         InputManager.AddOnSwitchItemState(UseEquip);
-        InputManager.AddOnPick(setEquip);
         camera = GameObject.Find("Main Camera");
         moveSpeed = 8;
         
@@ -88,13 +87,9 @@ public class PlayerManager : MonoBehaviour {
     void turnOnTorch()
     {
         torchPrefab.GetComponent<Torch>().TurnOnTorch();
-        //SpriteRenderer sr = torchPrefab.GetComponent<SpriteRenderer>();
-        //sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0.5f);
     }
     void turnOffTorch()
     {
         torchPrefab.GetComponent<Torch>().TurnOffTorch();
-        //SpriteRenderer sr = torchPrefab.GetComponent<SpriteRenderer>();
-        //sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0f);
     }
 }
