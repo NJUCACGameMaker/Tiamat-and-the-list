@@ -3,19 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using SimpleJSON;
 
-public class Switch : Interoperable {
+public class Switch : Interoperable
+{
 
     public wholeLightController lightController;
+    public string dialogSection;
     public bool on = true;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (on)
+    // Use this for initialization
+    void Start()
+    {
+        InputManager.AddOnInteract(OnInteract);
+        InputManager.AddOnPick(OnPick);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        if (on)
         {
             StartCoroutine(SetLightAlpha(0f));
         }
@@ -23,7 +29,18 @@ public class Switch : Interoperable {
         {
             StartCoroutine(SetLightAlpha(0.8f));
         }
-	}
+    }
+
+    void OnInteract()
+    {
+        DialogManager.ShowDialog(dialogSection);
+    }
+    void OnPick()
+    {
+        if (on)
+            on = false;
+        else on = true;
+    }
 
     public new string GetArchive()
     {
