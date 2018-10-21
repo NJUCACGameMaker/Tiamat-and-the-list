@@ -1966,6 +1966,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5998679f82dd040b87dd044179f9cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  torchPrefab: {fileID: 1053981596962310, guid: 0dcac60b19d3d034793e371c3bed4da1,
+    type: 2}
   floorLayer: 0
 --- !u!1 &904161488
 GameObject:

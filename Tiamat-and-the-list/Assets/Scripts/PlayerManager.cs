@@ -8,12 +8,16 @@ public class PlayerManager : MonoBehaviour {
     private int moveSpeed;
     //摄像机
     private GameObject camera;
-    
+    //手电筒
+    public GameObject torchPrefab;
+    //判断是否使用道具
+    bool itemOn = false;
 
     // Use this for initialization
     void Start () {
         InputManager.AddOnLeftMove(LeftMove);
         InputManager.AddOnRightMove(RightMove);
+        InputManager.AddOnSwitchItemState(UseEquip);
         camera = GameObject.Find("Main Camera");
         moveSpeed = 8;
         
@@ -60,5 +64,35 @@ public class PlayerManager : MonoBehaviour {
                 camera.transform.position = new Vector3(Vector3.Lerp(new Vector3(camera.transform.position.x,0,0), targetCamPos, moveSpeed * Time.deltaTime/2).x,camera.transform.position.y, camera.transform.position.z);
         }
         
+    }
+
+    void setEquip()
+    {
+        torchPrefab = Instantiate(torchPrefab) as GameObject;
+        torchPrefab.transform.parent = transform;
+    }
+
+    void UseEquip()
+    {
+        if (itemOn)
+        {
+            turnOffTorch();
+            itemOn = false;
+        }
+        else
+        {
+            
+            turnOnTorch();
+            itemOn = true;
+        }
+    }
+
+    void turnOnTorch()
+    {
+        torchPrefab.GetComponent<Torch>().TurnOnTorch();
+    }
+    void turnOffTorch()
+    {
+        torchPrefab.GetComponent<Torch>().TurnOffTorch();
     }
 }
