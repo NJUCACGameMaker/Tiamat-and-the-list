@@ -65,7 +65,7 @@ public class DialogManager : MonoBehaviour
     private void displayDialog(Dialog dialog)
     {
         Image characterImage = DialogBox.transform.Find("Character").GetComponent<Image>();
-        Sprite sp = Resources.Load(dialog.imagePath, typeof(Sprite)) as Sprite;
+        Sprite sp = Resources.Load("CharacterTachie\\" + dialog.imagePath, typeof(Sprite)) as Sprite;
         Debug.Log(dialog.imagePath);
         characterImage.sprite = sp;
         tempDialog = "";
@@ -96,6 +96,7 @@ public class DialogManager : MonoBehaviour
 
     void Start()
     {
+        InputManager.AddOnNextDialog(OnNextDialog);
         loader = new DialogLoader();
         loader.loadData();
         //initDialog("Scene1");
@@ -230,9 +231,9 @@ public class DialogManager : MonoBehaviour
         displayDialog(currentDialog);
     }
 
-    private void OnGUI()
+    private void OnNextDialog()
     {
-        if (!animationLock && DialogBox != null && Event.current != null && Event.current.type == EventType.MouseDown) {
+        if (!animationLock && DialogBox != null) {
             // 如果当前文字已经全部出现，则进入下一句
             // 否则将当前这句话直接显示出来
             if (tempDialog == currentDialog.text) {

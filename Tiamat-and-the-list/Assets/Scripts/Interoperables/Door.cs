@@ -30,10 +30,16 @@ public class Door : Interoperable
     }
     void OnInteract()
     {
-        DialogManager.ShowDialog(dialogSection);
+        if (NearPlayer)
+        {
+            DialogManager.ShowDialog(dialogSection);
+        }
     }
     void OnPick()
     {
-        SceneManager.LoadScene(nextSceneName);
+        if (NearPlayer)
+        {
+            SceneManager.LoadScene(nextSceneName);
+        }
     }
 }
