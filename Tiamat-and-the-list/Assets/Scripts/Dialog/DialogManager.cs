@@ -20,6 +20,10 @@ public class DialogManager : MonoBehaviour
     private double timer;
     private bool animationLock;                // 在播放特定动画的时候锁死交互
 
+    //委托，当对话结束时调用
+    public delegate void NoneParaVoid();
+    private NoneParaVoid OnEnd;
+
     public static bool IsDialogOn()
     {
         return instance._IsDialogOn();
@@ -37,6 +41,11 @@ public class DialogManager : MonoBehaviour
     //显示对话栏
     public static void ShowDialog(string section)
     {
+        instance.InitDialog(section);
+    }
+    public static void ShowDialog(string section, NoneParaVoid OnEnd)
+    {
+        instance.OnEnd += OnEnd;
         instance.InitDialog(section);
     }
     public void InitDialog(string section)
@@ -125,6 +134,8 @@ public class DialogManager : MonoBehaviour
 
     private IEnumerator initializeAnimation()
     {
+        Sprite initialSprite = Resources.Load("CharacterTachie\\" + currentDialog.imagePath, typeof(Sprite)) as Sprite;
+        DialogBox.transform.Find("Character").GetComponent<Image>().sprite = initialSprite;
         Vector3 targetNamePanelPosition = DialogBox.transform.Find("NamePanel").transform.position;
         Vector3 targetDialogPanelPosition = DialogBox.transform.Find("DialogPanel").transform.position;
         Color targetNamePanelColor = DialogBox.transform.Find("NamePanel").GetComponent<Image>().color;
@@ -210,6 +221,13 @@ public class DialogManager : MonoBehaviour
 
         Destroy(DialogBox);
         DialogBox = null;
+
+        //调用对话结束时委托
+        if (OnEnd != null)
+        {
+            OnEnd();
+            OnEnd = null;
+        }
     }
 
     private void setNextDialog()

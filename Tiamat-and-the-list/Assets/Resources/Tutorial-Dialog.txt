@@ -30,7 +30,7 @@
 30|Scence1|A|向我证明，那个传说是真的……|A_default|0
 31|Scence1|Apkal|该死，门窗都自动关闭了。电力系统也全瘫痪了，看来要赶紧想办法出去才行。|Apkal_serious|0
 32|Scence1|Apkal|这个混球死也不让人安宁。他最后提到的传说又是什么？不不不现在不是考虑这个的时候。|Apkal_serious|0
-33|Scence1|Apkal|从这里出去才是最重要的。诶?那里还有光?|Apkal_serious|0
+33|Scence1|Apkal|从这里出去才是最重要的。诶?那里还有光?\（按A/D键移动）|Apkal_serious|0
 
 34|Hint1|0|（按E可和场景道具互动）|0|0
 
