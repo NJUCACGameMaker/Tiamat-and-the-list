@@ -28,4 +28,9 @@ public class Paint : Interoperable
         }
     }
 
+    public override void ShowHint()
+    {
+        Debug.Log("ShowHint");
+    }
+
 }

@@ -10,12 +10,12 @@ public class Scenario : MonoBehaviour {
     [HideInInspector]
     public bool scenarioHintOn = false;
 
-    public string GetArchive()
+    public virtual string GetArchive()
     {
         return null;
     }
 
-    public void LoadArchive(string archiveLine)
+    public virtual void LoadArchive(string archiveLine)
     {
 
     }

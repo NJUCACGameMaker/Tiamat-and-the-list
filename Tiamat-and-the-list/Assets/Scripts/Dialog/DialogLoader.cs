@@ -40,7 +40,6 @@ public class DialogLoader {
                         dialog.branches.Add(branch);
                     }
                 }
-                Debug.Log(dialog.text);
                 context.Add(dialog);
             }
         }

@@ -7,49 +7,80 @@ using SimpleJSON;
 /*
  * 存档管理器，保存每个可交互道具的状态，具体道具存档格式由道具自己维护
  * 目前只存了道具，之后人物和持有道具形式出来后将修改。
+ * 心态崩了，之后一定重构
  */
 
-public class ArchiveManager {
+public class ArchiveManager : MonoBehaviour {
 
+    private static ArchiveManager instance;
+
+    public PlayerManager player;
+    public Scenario scenario;
     //存档文件名（不含.json）
-    private readonly string archiveName;
+    public string archiveName;
     //存档关卡标志（关卡名）
-    private readonly string levelTag;
+    private string levelTag;
     //存档场景标志（场景名）
-    private readonly string sceneTag;
+    private string sceneTag;
+    private string filePath;
 
-    //构造函数，构造一个对应场景的存档管理器
-    public ArchiveManager(string archiveName, string levelTag, string sceneTag)
+    private void Awake()
     {
-        this.archiveName = archiveName;
-        this.levelTag = levelTag;
-        this.sceneTag = sceneTag;
+        instance = this;
     }
 
-    //存档加载，参数为场景内所有初始布局的列表，根据存档修正场景布局，生成额外物品。
-    public void LoadArchive(List<Interoperable> interoperables)
+    //初始化，因为Start会和SceneItemManager中的冲突，导致path未被复制，就先这样
+    public static void Init() { instance._Init(); }
+    private void _Init()
     {
+        levelTag = SceneItemManager.GetLevelName();
+        sceneTag = SceneItemManager.GetSceneName();
+        filePath = Application.persistentDataPath + "\\" + archiveName + ".json";
+    }
+
+    public static void LoadArchive(List<Interoperable> interoperables) { instance._LoadArchive(interoperables); }
+    //存档加载，参数为场景内所有初始布局的列表，根据存档修正场景布局，生成额外物品。
+    private void _LoadArchive(List<Interoperable> interoperables)
+    {
+        Debug.Log("_LoadArchive");
         try
         {
-            FileStream archiveFile = new FileStream(Application.persistentDataPath + "\\" + archiveName + ".json", FileMode.Open);
-            JSONNode root = JSON.Parse(archiveFile.ToString());
-            JSONNode sceneNode = root[levelTag][sceneTag];
-
-            foreach (JSONNode itemNode in sceneNode.Childs)
+            PlayerPrefs.SetString("LastSceneName", levelTag + "-" + sceneTag);
+            StreamReader streamReader = new StreamReader(filePath, System.Text.Encoding.UTF8);
+            JSONNode root = JSON.Parse(streamReader.ReadToEnd());
+            streamReader.Close();
+            Debug.Log("Try");
+            //加载场景物件
+            if (root != null)
             {
-                int index = itemNode["index"].AsInt;
-                string archiveLine = itemNode["archive"];
-                if (index != -1 && index < interoperables.Count)
+                Debug.Log("root != null");
+                JSONNode sceneNode = root[levelTag][sceneTag];
+
+
+                foreach (JSONNode itemNode in sceneNode["Items"].Childs)
                 {
-                    interoperables[index].LoadArchive(archiveLine);
+                    int index = itemNode["index"].AsInt;
+                    string archiveLine = itemNode["archive"];
+                    if (index != -1 && index < interoperables.Count)
+                    {
+                        interoperables[index].LoadArchive(archiveLine);
+                    }
+                    else if (index == -1)
+                    {
+                        string resourcesPath = itemNode["resources-path"];
+                        GameObject pickableItem = Object.Instantiate(Resources.Load(resourcesPath)) as GameObject;
+                        pickableItem.GetComponent<Interoperable>().LoadArchive(archiveLine);
+                        pickableItem.GetComponent<Interoperable>().generated = true;
+                    }
                 }
-                else if (index == -1)
+
+                JSONNode scenarioNode = sceneNode["Scenario"];
+                if (scenarioNode != null)
                 {
-                    string resourcesPath = itemNode["resources-path"];
-                    GameObject pickableItem = Object.Instantiate(Resources.Load(resourcesPath)) as GameObject;
-                    pickableItem.GetComponent<Interoperable>().LoadArchive(archiveLine);
-                    pickableItem.GetComponent<Interoperable>().generated = true;
+                    Debug.Log("scenarioNode !=null");
+                    scenario.LoadArchive(scenarioNode["archive"]);
                 }
+
             }
         }
         catch (IOException e)
@@ -58,34 +89,40 @@ public class ArchiveManager {
         }
     }
 
+
+    public static void SaveArchive(List<Interoperable> objectsToSave) { instance._SaveArchive(objectsToSave); }
     //保存存档
-    public void SaveArchive(List<GameObject> objectsToSave)
+    private void _SaveArchive(List<Interoperable> objectsToSave)
     {
-        var sceneArchive = new JSONArray();
+        var sceneArchive = new JSONClass();
+        var sceneItemArchive = new JSONArray();
+        sceneArchive.Add("Items", sceneItemArchive);
+        //存储每一个物件的存档
         for (int i = 0; i < objectsToSave.Count; i++)
         {
-            Interoperable interoperable = objectsToSave[i].GetComponent<Interoperable>();
+            Interoperable interoperable = objectsToSave[i];
             if (!interoperable.generated)
             {
                 if (interoperable.GetArchive() != null)
                 {
                     var archivePiece = new JSONClass
-                {
-                    { "index", new JSONData(interoperable.Index) },
-                    { "archive", new JSONData(interoperable.GetArchive()) }
-                };
-                    sceneArchive.Add(archivePiece);
+                    {
+                        { "index", new JSONData(interoperable.Index) },
+                        { "archive", new JSONData(interoperable.GetArchive()) }
+                    };
+                    sceneItemArchive.Add(archivePiece);
                 }
                 else
                 {
                     var archivePiece = new JSONClass
-                {
-                    { "index", new JSONData(interoperable.Index) },
-                    { "archive", new JSONData("") }
-                };
-                    sceneArchive.Add(archivePiece);
+                    {
+                        { "index", new JSONData(interoperable.Index) },
+                        { "archive", new JSONData("") }
+                    };
+                    sceneItemArchive.Add(archivePiece);
                 }
             }
+            //后续生成的物件额外存储
             else
             {
                 Pickable pickable = interoperable as Pickable;
@@ -97,15 +134,55 @@ public class ArchiveManager {
                         { "resources-path", new JSONData(pickable.resourcesPath) },
                         { "archive", new JSONData(interoperable.GetArchive()) }
                     };
+                    sceneItemArchive.Add(archivePiece);
                 }
             }
         }
 
-        FileStream archiveFile = new FileStream(Application.persistentDataPath + "\\" + archiveName + ".json", FileMode.OpenOrCreate);
-        JSONNode levelNode = JSON.Parse(archiveFile.ToString())[levelTag];
+        //存储剧本进度
+        var scenarioNode = new JSONClass()
+        {
+            { "archive", new JSONData(scenario.GetArchive()) }
+        };
+        sceneArchive.Add("Scenario", scenarioNode);
 
-        levelNode.Remove(sceneTag);
-        levelNode.Add(sceneArchive);
+        if (PlayerPrefs.GetInt("HasArchive", 0) == 1)
+        {
+            StreamReader streamReader = new StreamReader(filePath, System.Text.Encoding.UTF8);
+            JSONNode root = JSON.Parse(streamReader.ReadToEnd());
+            JSONNode levelNode = root[levelTag];
+            if (levelNode != null)
+            {
+                levelNode.Remove(sceneTag);
+            }
+            else
+            {
+                root.Add(levelTag, new JSONNode());
+            }
+            levelNode.Add(sceneTag, sceneArchive);
+            streamReader.Close();
+
+            StreamWriter streamWriter = new StreamWriter(filePath, false, System.Text.Encoding.UTF8);
+            streamWriter.WriteLine(root.ToString());
+            streamWriter.Flush();
+            streamWriter.Close();
+        }
+        else
+        {
+            JSONClass root = new JSONClass();
+            JSONClass levelNode = new JSONClass();
+            levelNode.Add(sceneTag, sceneArchive);
+            root.Add(levelTag, levelNode);
+
+            StreamWriter streamWriter = new StreamWriter(filePath, false, System.Text.Encoding.UTF8);
+            streamWriter.WriteLine(root.ToString());
+            streamWriter.Flush();
+            streamWriter.Close();
+        }
+
+        PlayerPrefs.SetInt("HasArchive", 1);
+        PlayerPrefs.SetString("LastSceneName", levelTag + "-" + sceneTag);
+        PlayerPrefs.Save();
     }
 
 }

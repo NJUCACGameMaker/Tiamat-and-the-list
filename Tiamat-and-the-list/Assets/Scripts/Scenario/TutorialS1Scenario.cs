@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SimpleJSON;
 
 public class TutorialS1Scenario : Scenario {
 
@@ -51,6 +52,28 @@ public class TutorialS1Scenario : Scenario {
             DialogManager.ShowDialog("Hint3", OnDoorOpenHintEnd);
         }
 	}
+
+    public override string GetArchive()
+    {
+        JSONNode root = new JSONClass()
+        {
+            { "Scene1Shown", new JSONData(scene1Shown) },
+            { "PressEHint", new JSONData(pressEHint) },
+            { "ItemPickHint", new JSONData(itemPickHint) },
+            { "DoorOpenHint", new JSONData(doorOpenHint) }
+        };
+        return root.ToString();
+    }
+
+    public override void LoadArchive(string archiveLine)
+    {
+        Debug.Log("ScenarioLoadArchive");
+        JSONNode root = JSON.Parse(archiveLine);
+        scene1Shown = root["Scene1Shown"].AsBool;
+        pressEHint = root["PressEHint"].AsBool;
+        itemPickHint = root["ItemPickHint"].AsBool;
+        doorOpenHint = root["DoorOpenHint"].AsBool;
+    }
 
     void OnScene1End()
     {
