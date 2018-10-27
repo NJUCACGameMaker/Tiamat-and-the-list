@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Torch : MonoBehaviour {
+public class Torch : Equipment {
+
 
 
     public void Start()
     {
+        type = EquipmentType.Torch;
     }
 
     public void TurnOnTorch()

@@ -428,8 +428,8 @@ MonoBehaviour:
   generated: 0
   interoperable: 1
   detectDist: 2
-  dialogSection: 
   floorLayer: 0
+  dialogSection: 
 --- !u!1 &251914764
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,10 +970,10 @@ MonoBehaviour:
   generated: 0
   interoperable: 1
   detectDist: 2
+  floorLayer: 0
   dialogSection1: 
   dialogSection2: 
   dialogSection3: 
-  floorLayer: 0
 --- !u!1 &443552551
 GameObject:
   m_ObjectHideFlags: 0
@@ -1139,8 +1139,8 @@ MonoBehaviour:
   generated: 0
   interoperable: 1
   detectDist: 2
-  dialogSection: 
   floorLayer: 0
+  dialogSection: 
 --- !u!1 &502646024
 GameObject:
   m_ObjectHideFlags: 0
@@ -1231,8 +1231,8 @@ MonoBehaviour:
   generated: 0
   interoperable: 1
   detectDist: 2
-  dialogSection: 
   floorLayer: 0
+  dialogSection: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1243,6 +1243,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1257,6 +1258,20 @@ AudioListener:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2e764f3a04d4944e83431d6e1e8f0f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxX: 45.7
+  minX: 1.8
+  player: {fileID: 868496699}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1304,7 +1319,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7, y: 0.04, z: -10}
+  m_LocalPosition: {x: 1.8, y: 0.04, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1876,8 +1891,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5998679f82dd040b87dd044179f9cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxX:
+  - 56
+  minX:
+  - -8.4
+  camera: {fileID: 519420031}
   torchPrefab: {fileID: 1053981596962310, guid: 0dcac60b19d3d034793e371c3bed4da1,
     type: 2}
+  floorLayer: 0
 --- !u!1 &904161488
 GameObject:
   m_ObjectHideFlags: 0
@@ -2057,7 +2078,7 @@ Transform:
   - {fileID: 960184498}
   - {fileID: 1422261943}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &929980845
 GameObject:
@@ -2110,7 +2131,7 @@ MonoBehaviour:
   - {fileID: 121517530}
   - {fileID: 2131993726}
   - {fileID: 1616299423}
-  playerTrans: {fileID: 868496699}
+  player: {fileID: 0}
 --- !u!1 &941285607
 GameObject:
   m_ObjectHideFlags: 0
@@ -2365,7 +2386,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1140960936
 GameObject:
@@ -3322,8 +3343,8 @@ MonoBehaviour:
   generated: 0
   interoperable: 1
   detectDist: 2
-  dialogSection: 
   floorLayer: 0
+  dialogSection: 
 --- !u!1 &1471881950
 GameObject:
   m_ObjectHideFlags: 0
@@ -3936,7 +3957,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee524dea775b1444bb3d64a69a46e8d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  generated: 0
+  interoperable: 1
   detectDist: 2
+  floorLayer: 0
   dialogSection: 
   test: 0
 --- !u!1 &1625051402
@@ -4221,8 +4245,8 @@ MonoBehaviour:
   generated: 0
   interoperable: 1
   detectDist: 2
-  dialogSection: 
   floorLayer: 0
+  dialogSection: 
 --- !u!1 &1831124266
 GameObject:
   m_ObjectHideFlags: 0
@@ -4822,7 +4846,7 @@ Transform:
   - {fileID: 1503509687}
   - {fileID: 263316218}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2131993722
 GameObject:
@@ -4898,7 +4922,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2131993726
 MonoBehaviour:
@@ -4911,7 +4935,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b2851f357705243b64366318d9e8a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  generated: 0
+  interoperable: 1
   detectDist: 2
+  floorLayer: 0
   dialogSection: 
   test: 0
 --- !u!1 &2144191569
