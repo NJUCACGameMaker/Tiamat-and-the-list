@@ -10,7 +10,7 @@ public class DialogLoader {
     
     public void loadData()
     {
-        dialogDataPath = Application.dataPath + "/Resources/" + SceneManager.GetLevelName() + "-Dialog.txt";
+        dialogDataPath = Application.dataPath + "/Resources/" + SceneItemManager.GetLevelName() + "-Dialog.txt";
         Debug.Log(File.Exists(dialogDataPath));
         if (File.Exists(dialogDataPath))
         {

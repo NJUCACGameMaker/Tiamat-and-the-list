@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SceneManager : MonoBehaviour {
+public class SceneItemManager : MonoBehaviour {
 
     public string levelName;
     public string sceneName;
-    public static SceneManager instance;
+    public static SceneItemManager instance;
     public List<Interoperable> interoperables;
     public PlayerManager player;
     private ArchiveManager archiveManager;

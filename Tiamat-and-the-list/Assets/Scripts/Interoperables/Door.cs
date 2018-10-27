@@ -8,14 +8,13 @@ using UnityEngine.SceneManagement;
 public class Door : Interoperable
 {
 
-
+    public string nextSceneName = "";
     public string dialogSection;
     public bool test;
 
     // Use this for initialization
     void Start()
     {
-
         InputManager.AddOnInteract(OnInteract);
         InputManager.AddOnPick(OnPick);
     }
@@ -35,5 +34,6 @@ public class Door : Interoperable
     }
     void OnPick()
     {
+        SceneManager.LoadScene(nextSceneName);
     }
 }
