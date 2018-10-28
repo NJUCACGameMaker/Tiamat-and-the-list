@@ -6,8 +6,8 @@ using SimpleJSON;
 public class Flashlight : Pickable
 {
     public string dialogSection;
-
-    bool picked = false;
+    public PlayerManager player;
+    public bool test;
 
     // Use this for initialization
     void Start()
@@ -40,8 +40,14 @@ public class Flashlight : Pickable
     }
     void OnPick()
     {
-        gameObject.transform.position = new Vector3(48.0f, -20.0f, 0.0f);
-        picked = true;
+        if (NearPlayer)
+        {
+            gameObject.transform.position = new Vector3(48.0f, -20.0f, 0.0f);
+            gameObject.GetComponent<Interoperable>().interoperable = false;
+            UIManager.SetEquipmentIcon("EquipmentSprite\\Stage00_shoudiantong");
+            player.setEquip(EquipmentType.FlashLight);
+            picked = true;
+        }
     }
     public override string GetArchive()
     {

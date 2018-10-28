@@ -24,6 +24,8 @@ public class InputManager : MonoBehaviour {
     private event KeyInputDown OnRightMove;
     //敲击Esc退出事件
     private event KeyInputDown OnEscape;
+    //对话下一句事件
+    private event KeyInputDown OnNextDialog;
 
     private void Awake()
     {
@@ -69,6 +71,9 @@ public class InputManager : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape) && OnEscape != null)
         {
             OnEscape();
+        }
+        if ((Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.E)) && OnNextDialog != null && dialogOn){
+            OnNextDialog();
         }
 	}
 
@@ -119,5 +124,11 @@ public class InputManager : MonoBehaviour {
     private void _AddOnEscape(KeyInputDown onEsc)
     {
         this.OnEscape += onEsc;
+    }
+
+    public static void AddOnNextDialog(KeyInputDown onNextDialog) { instance._AddOnNextDialog(onNextDialog); }
+    private void _AddOnNextDialog(KeyInputDown onNextDialog)
+    {
+        this.OnNextDialog += onNextDialog;
     }
 }

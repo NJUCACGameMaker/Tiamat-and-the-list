@@ -1,24 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour {
 
+    public List<float> maxX;
+    public List<float> minX;
+
+
     //移动速度
     private int moveSpeed;
-    //摄像机
-    private GameObject camera;
     //手电筒
     public GameObject torchPrefab;
     //判断是否使用道具
     bool itemOn = false;
+    //当前道具
+    private Equipment currentEquip=new Equipment();
+
 
     // Use this for initialization
     void Start () {
         InputManager.AddOnLeftMove(LeftMove);
         InputManager.AddOnRightMove(RightMove);
+        InputManager.AddOnUpStair(UpMove);
+        InputManager.AddOnDownStair(DownMove);
         InputManager.AddOnSwitchItemState(UseEquip);
-        camera = GameObject.Find("Main Camera");
         moveSpeed = 8;
         
     }
@@ -33,17 +41,12 @@ public class PlayerManager : MonoBehaviour {
     void LeftMove()
     {
         float playerX = transform.localPosition.x;
-        GameObject bg_1 = GameObject.Find("bg-1");
-        float bg_1_x = bg_1.transform.localPosition.x;
+        float bg_1_x = minX[floorLayer];
         if (playerX >= bg_1_x)
         {
             transform.Translate(Time.deltaTime * Vector3.left * moveSpeed, Space.World);
 
-            Vector3 targetCamPos = new Vector3((transform.position).x, 0, 0);
-
-            if(camera.transform.position.x - 5.3/2.0 >=bg_1_x)
-                // 给摄像机移动到应该在的位置的过程中加上延迟效果
-                camera.transform.position = new Vector3(Vector3.Lerp(new Vector3(camera.transform.position.x, 0, 0), targetCamPos, moveSpeed * Time.deltaTime/2).x, camera.transform.position.y, camera.transform.position.z);
+          
         }
         
     }
@@ -51,39 +54,58 @@ public class PlayerManager : MonoBehaviour {
     void RightMove()
     {
         float playerX = transform.localPosition.x;
-        GameObject bg_1 = GameObject.Find("bg-1 (23)");
-        float bg_1_x = bg_1.transform.localPosition.x;
+        float bg_1_x = maxX[floorLayer];
         if (playerX <= bg_1_x)
         {
             transform.Translate(Time.deltaTime * Vector3.right * moveSpeed, Space.World);
-
-            Vector3 targetCamPos = new Vector3((transform.position).x,0,0);
-
-            if (camera.transform.position.x + 5.3/2.0 <= bg_1_x)
-                // 给摄像机移动到应该在的位置的过程中加上延迟效果
-                camera.transform.position = new Vector3(Vector3.Lerp(new Vector3(camera.transform.position.x,0,0), targetCamPos, moveSpeed * Time.deltaTime/2).x,camera.transform.position.y, camera.transform.position.z);
+            
         }
         
     }
 
-    void setEquip()
+    void UpMove()
     {
-        torchPrefab = Instantiate(torchPrefab) as GameObject;
-        torchPrefab.transform.parent = transform;
+
+    }
+
+    void DownMove()
+    {
+
+    }
+
+    public void setEquip(EquipmentType equipmentType)
+    {
+        while (transform.childCount > 0)
+        {
+            DestroyImmediate(transform.GetChild(0).gameObject);
+        }
+        itemOn = false;
+        switch (equipmentType) {
+            case EquipmentType.Torch:
+                currentEquip.type = EquipmentType.Torch;
+                torchPrefab = Instantiate(torchPrefab) as GameObject;
+                torchPrefab.transform.position = new Vector3(transform.position.x + 3.1f, transform.position.y, transform.position.z);
+                torchPrefab.transform.parent = transform;
+            break;
+        }
     }
 
     void UseEquip()
     {
-        if (itemOn)
-        {
-            turnOffTorch();
-            itemOn = false;
-        }
-        else
-        {
-            
-            turnOnTorch();
-            itemOn = true;
+        switch (currentEquip.type) {
+            case EquipmentType.Torch:
+                if (itemOn)
+                {
+                    turnOffTorch();
+                    itemOn = false;
+                }
+                else
+                {
+
+                    turnOnTorch();
+                    itemOn = true;
+                }
+                break;
         }
     }
 
@@ -94,5 +116,30 @@ public class PlayerManager : MonoBehaviour {
     void turnOffTorch()
     {
         torchPrefab.GetComponent<Torch>().TurnOffTorch();
+    }
+
+    private PlayerSave CreateSavePlayer()
+    {
+        PlayerSave save = new PlayerSave();
+        save.x = transform.position.x;
+        save.y = transform.position.y;
+        save.z = transform.position.z;
+        save.floorLayer = floorLayer;
+
+        save.currentEquipType = currentEquip.type;
+        save.itemOn = itemOn;
+
+        return save;
+    }
+
+    public void SavePlayer()
+    {
+        PlayerSave save = new PlayerSave();
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath+"/player.save");
+        bf.Serialize(file, save);
+        file.Close();
+
+        Debug.Log("Player Saved");
     }
 }

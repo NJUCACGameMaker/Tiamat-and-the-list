@@ -34,5 +34,4 @@ public class Paint : Interoperable
     {
         spriteRender.color = new Color(spriteRender.color.r,spriteRender.color.g, spriteRender.color.b, 0f);
     }
-     
 }

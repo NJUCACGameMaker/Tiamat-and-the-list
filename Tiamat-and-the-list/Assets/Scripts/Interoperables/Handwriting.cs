@@ -29,7 +29,10 @@ public class Handwriting : Interoperable
     }
     void OnInteract()
     {
-        DialogManager.ShowDialog(dialogSection);
+        if (NearPlayer)
+        {
+            DialogManager.ShowDialog(dialogSection);
+        }
     }
 }
 

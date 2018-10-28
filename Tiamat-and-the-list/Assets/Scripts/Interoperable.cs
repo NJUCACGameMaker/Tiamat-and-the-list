@@ -34,13 +34,13 @@ public class Interoperable : MonoBehaviour {
     }
 
     //显示提示交互，例如浮现一个UI：标有F什么的
-    public virtual  void ShowHint()
+    public virtual void ShowHint()
     {
         
     }
 
     //提示交互消失
-    public virtual  void UnshowHint()
+    public virtual void UnshowHint()
     {
 
     }
