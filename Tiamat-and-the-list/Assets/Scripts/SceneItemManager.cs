@@ -9,7 +9,6 @@ public class SceneItemManager : MonoBehaviour {
     public static SceneItemManager instance;
     public List<Interoperable> interoperables;
     public PlayerManager player;
-    private ArchiveManager archiveManager;
 
     private void Awake()
     {
@@ -23,15 +22,22 @@ public class SceneItemManager : MonoBehaviour {
         {
             interoperables[i].Index = i;
         }
-        //构建相应的存档管理器
-        archiveManager = new ArchiveManager("Normal-Archive", levelName, sceneName);
-        archiveManager.LoadArchive(interoperables);
+        //加载存档
+        ArchiveManager.Init();
+        Debug.Log("SceneItemManager.Start");
+        ArchiveManager.LoadArchive(interoperables);
 	}
 	
 	// Update is called once per frame
 	void Update () {
         SetNearPlayer();
 	}
+
+    private void OnDestroy()
+    {
+        ArchiveManager.SaveArchive(interoperables);
+    }
+    
 
     void SetNearPlayer()
     {

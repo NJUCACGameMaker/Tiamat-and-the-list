@@ -5,13 +5,12 @@ using UnityEngine.EventSystems;
 
 public class Specialpaint : Interoperable
 {
-
-
-
     public string dialogSection1;
     public string dialogSection2;
     public string dialogSection3;
     private int section = 0;
+
+    public Animator dropAnimator;
 
     // Use this for initialization
     void Start()
@@ -38,7 +37,7 @@ public class Specialpaint : Interoperable
             else if (section == 3)
             {
                 DialogManager.ShowDialog(dialogSection3);
-
+                dropAnimator.SetBool("drop", true);
             }
         }
     }

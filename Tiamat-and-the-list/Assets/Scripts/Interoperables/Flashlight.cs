@@ -5,7 +5,7 @@ using UnityEngine;
 public class Flashlight : Pickable
 {
     public string dialogSection;
-
+    public PlayerManager player;
     public bool test;
 
     // Use this for initialization
@@ -32,7 +32,13 @@ public class Flashlight : Pickable
     }
     void OnPick()
     {
-        gameObject.transform.position = new Vector3(48.0f, -20.0f, 0.0f);
+        if (NearPlayer)
+        {
+            gameObject.transform.position = new Vector3(48.0f, -20.0f, 0.0f);
+            gameObject.GetComponent<Interoperable>().interoperable = false;
+            UIManager.SetEquipmentIcon("EquipmentSprite\\Stage00_shoudiantong");
+            player.setEquip(EquipmentType.FlashLight);
+        }
 
     }
 }

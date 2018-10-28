@@ -24,24 +24,24 @@ public class Interoperable : MonoBehaviour {
     private bool nearPlayer = false;
     public bool NearPlayer { get; set; }
 
-	public string GetArchive()
+	public virtual string GetArchive()
     {
         return null;
     }
 
-    public void LoadArchive(string archiveLine)
+    public virtual void LoadArchive(string archiveLine)
     {
         
     }
 
     //显示提示交互，例如浮现一个UI：标有F什么的
-    public void ShowHint()
+    public virtual void ShowHint()
     {
 
     }
 
     //提示交互消失
-    public void UnshowHint()
+    public virtual void UnshowHint()
     {
 
     }

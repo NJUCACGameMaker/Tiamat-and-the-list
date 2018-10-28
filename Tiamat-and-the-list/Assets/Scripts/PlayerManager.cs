@@ -8,7 +8,6 @@ public class PlayerManager : MonoBehaviour {
 
     public List<float> maxX;
     public List<float> minX;
-    public GameObject camera;
 
 
     //移动速度
@@ -74,14 +73,14 @@ public class PlayerManager : MonoBehaviour {
 
     }
 
-    void setEquip(Equipment equipment)
+    public void setEquip(EquipmentType equipmentType)
     {
         while (transform.childCount > 0)
         {
             DestroyImmediate(transform.GetChild(0).gameObject);
         }
         itemOn = false;
-        switch (equipment.type) {
+        switch (equipmentType) {
             case EquipmentType.Torch:
                 currentEquip.type = EquipmentType.Torch;
                 torchPrefab = Instantiate(torchPrefab) as GameObject;

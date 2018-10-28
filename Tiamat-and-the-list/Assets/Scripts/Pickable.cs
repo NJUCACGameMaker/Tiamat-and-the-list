@@ -7,6 +7,6 @@ using UnityEngine;
 public class Pickable : Interoperable {
 
     public string resourcesPath = "";
-    public Equipment equipmentType;
+    public EquipmentType equipmentType;
 
 }
