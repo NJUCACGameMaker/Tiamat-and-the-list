@@ -5,7 +5,7 @@ using SimpleJSON;
 
 public class Switch : Interoperable
 {
-
+    public SpriteRenderer spriteRender;
     public wholeLightController lightController;
     public string dialogSection;
     public bool on = true;
@@ -30,7 +30,15 @@ public class Switch : Interoperable
             StartCoroutine(SetLightAlpha(0.8f));
         }
     }
-
+    
+    public override void ShowHint()
+    {
+        spriteRender.color = new Color(spriteRender.color.r, spriteRender.color.g, spriteRender.color.b, 1f);
+    }
+    public override void UnshowHint()
+    {
+        spriteRender.color = new Color(spriteRender.color.r, spriteRender.color.g, spriteRender.color.b, 0f);
+    }
     void OnInteract()
     {
         DialogManager.ShowDialog(dialogSection);

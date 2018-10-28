@@ -2,21 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ball : Interoperable
-{
+public class StairUp : Interoperable {
 
-    public string dialogSection;
-    // Use this for initialization
-    void Start()
-    {
-        InputManager.AddOnInteract(OnInteract);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    PlayerManager player;
+	// Use this for initialization
+	void Start () {
+        InputManager.AddOnUpStair(OnUp);
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
     public SpriteRenderer spriteRender;
     public override void ShowHint()
     {
@@ -26,8 +23,12 @@ public class Ball : Interoperable
     {
         spriteRender.color = new Color(spriteRender.color.r, spriteRender.color.g, spriteRender.color.b, 0f);
     }
-    void OnInteract()
+    void OnUp()
     {
-        DialogManager.ShowDialog(dialogSection);
+        if (NearPlayer)
+        {
+            player.floorLayer++;
+            player.transform.position =new Vector3(13.98f, 2.57f, 0);
+        }
     }
 }
