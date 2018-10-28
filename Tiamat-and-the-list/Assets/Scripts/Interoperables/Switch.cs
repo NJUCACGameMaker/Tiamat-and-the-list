@@ -16,30 +16,30 @@ public class Switch : Interoperable
         InputManager.AddOnInteract(OnInteract);
         InputManager.AddOnPick(OnPick);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-        if (on)
-        {
-            StartCoroutine(SetLightAlpha(0f));
-        }
-        else
-        {
-            StartCoroutine(SetLightAlpha(0.8f));
-        }
-    }
+    
 
     void OnInteract()
     {
-        DialogManager.ShowDialog(dialogSection);
+        if (NearPlayer)
+        {
+            DialogManager.ShowDialog(dialogSection);
+        }
     }
     void OnPick()
     {
-        if (on)
-            on = false;
-        else on = true;
+        if (NearPlayer)
+        {
+            if (on)
+            {
+                on = false;
+                StartCoroutine(SetLightAlpha(0.8f));
+            }
+            else
+            {
+                on = true;
+                StartCoroutine(SetLightAlpha(0f));
+            }
+        }
     }
 
     public new string GetArchive()

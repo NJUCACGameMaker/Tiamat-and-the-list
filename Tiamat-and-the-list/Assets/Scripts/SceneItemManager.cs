@@ -33,11 +33,11 @@ public class SceneItemManager : MonoBehaviour {
         SetNearPlayer();
 	}
 
-    //应用退出时保存存档
-    private void OnApplicationQuit()
+    private void OnDestroy()
     {
         ArchiveManager.SaveArchive(interoperables);
     }
+    
 
     void SetNearPlayer()
     {

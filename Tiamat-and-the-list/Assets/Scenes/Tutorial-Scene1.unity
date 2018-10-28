@@ -1292,6 +1292,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1306,6 +1307,20 @@ AudioListener:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2e764f3a04d4944e83431d6e1e8f0f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxX: 48
+  minX: 0
+  player: {fileID: 868496699}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1353,7 +1368,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7, y: 0.04, z: -10}
+  m_LocalPosition: {x: 0, y: 0.04, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1398,24 +1413,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 212440994027967098, guid: 5ac357d618aa68445bde4dd830d0a809,
+    - target: {fileID: 114440308575445240, guid: 5ac357d618aa68445bde4dd830d0a809,
         type: 2}
-      propertyPath: m_Sprite
+      propertyPath: player
       value: 
-      objectReference: {fileID: 21300050, guid: 5640fb0153e472a458aaee8cf3f39fc1,
-        type: 3}
-    - target: {fileID: 4089816922258210, guid: 5ac357d618aa68445bde4dd830d0a809, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 4089816922258210, guid: 5ac357d618aa68445bde4dd830d0a809, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 4089816922258210, guid: 5ac357d618aa68445bde4dd830d0a809, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 51.51
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 868496700}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ac357d618aa68445bde4dd830d0a809, type: 2}
   m_IsPrefabAsset: 0
@@ -2079,6 +2081,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5998679f82dd040b87dd044179f9cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxX:
+  - 56.3
+  minX:
+  - -8.7
   torchPrefab: {fileID: 1053981596962310, guid: 0dcac60b19d3d034793e371c3bed4da1,
     type: 2}
   floorLayer: 0

@@ -46,14 +46,14 @@ public class ArchiveManager : MonoBehaviour {
         try
         {
             PlayerPrefs.SetString("LastSceneName", levelTag + "-" + sceneTag);
+            Debug.Log("Stream Create 50");
             StreamReader streamReader = new StreamReader(filePath, System.Text.Encoding.UTF8);
             JSONNode root = JSON.Parse(streamReader.ReadToEnd());
             streamReader.Close();
-            Debug.Log("Try");
+            Debug.Log("Stream Close 52");
             //加载场景物件
             if (root != null)
             {
-                Debug.Log("root != null");
                 JSONNode sceneNode = root[levelTag][sceneTag];
 
 
@@ -148,18 +148,30 @@ public class ArchiveManager : MonoBehaviour {
 
         if (PlayerPrefs.GetInt("HasArchive", 0) == 1)
         {
+            Debug.Log("Stream Create 152");
             StreamReader streamReader = new StreamReader(filePath, System.Text.Encoding.UTF8);
             JSONNode root = JSON.Parse(streamReader.ReadToEnd());
-            JSONNode levelNode = root[levelTag];
-            if (levelNode != null)
+            if (root != null)
             {
-                levelNode.Remove(sceneTag);
+                JSONNode levelNode = root[levelTag];
+                if (levelNode != null)
+                {
+                    levelNode.Remove(sceneTag);
+                }
+                else
+                {
+                    levelNode = new JSONClass();
+                    root.Add(levelTag, levelNode);
+                }
+                levelNode.Add(sceneTag, sceneArchive);
             }
             else
             {
-                root.Add(levelTag, new JSONNode());
+                root = new JSONClass();
+                JSONClass levelNode = new JSONClass();
+                levelNode.Add(sceneTag, sceneArchive);
+                root.Add(levelTag, levelNode);
             }
-            levelNode.Add(sceneTag, sceneArchive);
             streamReader.Close();
 
             StreamWriter streamWriter = new StreamWriter(filePath, false, System.Text.Encoding.UTF8);
@@ -174,10 +186,12 @@ public class ArchiveManager : MonoBehaviour {
             levelNode.Add(sceneTag, sceneArchive);
             root.Add(levelTag, levelNode);
 
+            Debug.Log("Stream Create 192");
             StreamWriter streamWriter = new StreamWriter(filePath, false, System.Text.Encoding.UTF8);
             streamWriter.WriteLine(root.ToString());
             streamWriter.Flush();
             streamWriter.Close();
+            Debug.Log("Stream Close 196");
         }
 
         PlayerPrefs.SetInt("HasArchive", 1);
