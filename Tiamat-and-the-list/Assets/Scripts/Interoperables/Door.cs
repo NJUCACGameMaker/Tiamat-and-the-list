@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Door : Interoperable
 {
-
+    
     public string nextSceneName = "";
     public string dialogSection;
     public bool test;
@@ -23,10 +23,6 @@ public class Door : Interoperable
     void Update()
     {
 
-        if (test)
-        {
-            test = false;
-        }
     }
     void OnInteract()
     {
@@ -49,5 +45,14 @@ public class Door : Interoperable
     {
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(name);
         yield return asyncOperation;
+    }
+    public SpriteRenderer spriteRender;
+    public override void ShowHint()
+    {
+        spriteRender.color = new Color(spriteRender.color.r, spriteRender.color.g, spriteRender.color.b, 1f);
+    }
+    public override void UnshowHint()
+    {
+        spriteRender.color = new Color(spriteRender.color.r, spriteRender.color.g, spriteRender.color.b, 0f);
     }
 }

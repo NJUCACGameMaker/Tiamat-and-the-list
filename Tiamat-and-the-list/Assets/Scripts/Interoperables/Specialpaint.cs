@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using SimpleJSON;
 
 public class Specialpaint : Interoperable
 {
@@ -37,8 +38,35 @@ public class Specialpaint : Interoperable
             else if (section == 3)
             {
                 DialogManager.ShowDialog(dialogSection3);
+                interoperable = false;
                 dropAnimator.SetBool("drop", true);
             }
         }
+    }
+    public override string GetArchive()
+    {
+        var specialpaint = new JSONClass();
+        specialpaint.Add("section", new JSONData(section));
+
+        return specialpaint.ToString();
+    }
+    public override void LoadArchive(string archiveLine)
+    {
+        var root = JSON.Parse(archiveLine);
+        var sectionNode = root["section"];
+        section = sectionNode.AsInt;
+        if (section == 3)
+            interoperable = false;
+
+    }
+    public SpriteRenderer spriteRender;
+    public override void ShowHint()
+    {
+        if(section<=3)
+        spriteRender.color = new Color(spriteRender.color.r, spriteRender.color.g, spriteRender.color.b, 1f);
+    }
+    public override void UnshowHint()
+    {
+        spriteRender.color = new Color(spriteRender.color.r, spriteRender.color.g, spriteRender.color.b, 0f);
     }
 }

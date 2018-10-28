@@ -18,6 +18,15 @@ public class Handwriting : Interoperable
     {
 
     }
+    public SpriteRenderer spriteRender;
+    public override void ShowHint()
+    {
+        spriteRender.color = new Color(spriteRender.color.r, spriteRender.color.g, spriteRender.color.b, 1f);
+    }
+    public override void UnshowHint()
+    {
+        spriteRender.color = new Color(spriteRender.color.r, spriteRender.color.g, spriteRender.color.b, 0f);
+    }
     void OnInteract()
     {
         if (NearPlayer)

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Interoperable : MonoBehaviour {
-
     //index，用于加载存档时，存档项和物品的匹配。
     private int index = 0;
     public int Index { get; set; }
@@ -37,7 +36,7 @@ public class Interoperable : MonoBehaviour {
     //显示提示交互，例如浮现一个UI：标有F什么的
     public virtual void ShowHint()
     {
-
+        
     }
 
     //提示交互消失
