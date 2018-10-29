@@ -74,9 +74,16 @@ public class DialogManager : MonoBehaviour
     private void displayDialog(Dialog dialog)
     {
         Image characterImage = DialogBox.transform.Find("Character").GetComponent<Image>();
-        Sprite sp = Resources.Load("CharacterTachie\\" + dialog.imagePath, typeof(Sprite)) as Sprite;
-        Debug.Log(dialog.imagePath);
-        characterImage.sprite = sp;
+        if (dialog.imagePath == "0")
+        {
+            characterImage.color = new Color(1, 1, 1, 0);
+        }
+        else
+        {
+            characterImage.color = new Color(1, 1, 1, 1);
+            Sprite sp = Resources.Load("CharacterTachie\\" + dialog.imagePath, typeof(Sprite)) as Sprite;
+            characterImage.sprite = sp;
+        }
         tempDialog = "";
         timer = 0;
         dialogFlag = true;

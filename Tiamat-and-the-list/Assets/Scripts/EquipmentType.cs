@@ -4,5 +4,5 @@ using UnityEngine;
 
 public enum EquipmentType
 {
-    FlashLight,Torch
+    FlashLight
 }

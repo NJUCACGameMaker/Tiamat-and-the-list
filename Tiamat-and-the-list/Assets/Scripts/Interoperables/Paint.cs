@@ -5,6 +5,7 @@ using UnityEngine;
 public class Paint : Interoperable
 {
     public string dialogSection;
+    public SpriteRenderer hintSprite;
     // Use this for initialization
     void Start()
     {
@@ -25,13 +26,12 @@ public class Paint : Interoperable
             DialogManager.ShowDialog(dialogSection);
         }
     }
-    public SpriteRenderer spriteRender;
     public override void ShowHint()
     {
-        spriteRender.color = new Color(spriteRender.color.r, spriteRender.color.g, spriteRender.color.b, 1f);
+        hintSprite.color = new Color(hintSprite.color.r, hintSprite.color.g, hintSprite.color.b, 1f);
     }
     public override void UnshowHint()
     {
-        spriteRender.color = new Color(spriteRender.color.r,spriteRender.color.g, spriteRender.color.b, 0f);
+        hintSprite.color = new Color(hintSprite.color.r,hintSprite.color.g, hintSprite.color.b, 0f);
     }
 }

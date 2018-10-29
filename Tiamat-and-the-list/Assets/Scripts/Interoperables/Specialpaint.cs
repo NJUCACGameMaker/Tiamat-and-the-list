@@ -12,6 +12,7 @@ public class Specialpaint : Interoperable
     private int section = 0;
 
     public Animator dropAnimator;
+    public SpriteRenderer hintSprite;
 
     // Use this for initialization
     void Start()
@@ -56,17 +57,19 @@ public class Specialpaint : Interoperable
         var sectionNode = root["section"];
         section = sectionNode.AsInt;
         if (section == 3)
+        {
             interoperable = false;
+            dropAnimator.SetTrigger("dropped");
+        }
 
     }
-    public SpriteRenderer spriteRender;
     public override void ShowHint()
     {
         if(section<=3)
-        spriteRender.color = new Color(spriteRender.color.r, spriteRender.color.g, spriteRender.color.b, 1f);
+        hintSprite.color = new Color(hintSprite.color.r, hintSprite.color.g, hintSprite.color.b, 1f);
     }
     public override void UnshowHint()
     {
-        spriteRender.color = new Color(spriteRender.color.r, spriteRender.color.g, spriteRender.color.b, 0f);
+        hintSprite.color = new Color(hintSprite.color.r, hintSprite.color.g, hintSprite.color.b, 0f);
     }
 }

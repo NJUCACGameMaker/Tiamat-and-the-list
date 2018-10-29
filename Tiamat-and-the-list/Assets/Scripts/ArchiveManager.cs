@@ -27,12 +27,6 @@ public class ArchiveManager : MonoBehaviour {
     private void Awake()
     {
         instance = this;
-    }
-
-    //初始化，因为Start会和SceneItemManager中的冲突，导致path未被复制，就先这样
-    public static void Init() { instance._Init(); }
-    private void _Init()
-    {
         levelTag = SceneItemManager.GetLevelName();
         sceneTag = SceneItemManager.GetSceneName();
         filePath = Application.persistentDataPath + "\\" + archiveName + ".json";
@@ -45,15 +39,16 @@ public class ArchiveManager : MonoBehaviour {
         Debug.Log("_LoadArchive");
         try
         {
-            PlayerPrefs.SetString("LastSceneName", levelTag + "-" + sceneTag);
-            Debug.Log("Stream Create 50");
             StreamReader streamReader = new StreamReader(filePath, System.Text.Encoding.UTF8);
             JSONNode root = JSON.Parse(streamReader.ReadToEnd());
             streamReader.Close();
-            Debug.Log("Stream Close 52");
             //加载场景物件
             if (root != null)
             {
+                //加载角色信息
+                var playerNode = root["Player"];
+                player.LoadArchive(playerNode["archive"]);
+
                 JSONNode sceneNode = root[levelTag][sceneTag];
 
 
@@ -61,10 +56,12 @@ public class ArchiveManager : MonoBehaviour {
                 {
                     int index = itemNode["index"].AsInt;
                     string archiveLine = itemNode["archive"];
+                    //正常物品则令其加载存档
                     if (index != -1 && index < interoperables.Count)
                     {
                         interoperables[index].LoadArchive(archiveLine);
                     }
+                    //游戏中生成物品额外生成，然后加载存档
                     else if (index == -1)
                     {
                         string resourcesPath = itemNode["resources-path"];
@@ -94,6 +91,11 @@ public class ArchiveManager : MonoBehaviour {
     //保存存档
     private void _SaveArchive(List<Interoperable> objectsToSave)
     {
+        var playerNode = new JSONClass()
+        {
+            { "archive", new JSONData(player.SaveArchive()) }
+        };
+
         var sceneArchive = new JSONClass();
         var sceneItemArchive = new JSONArray();
         sceneArchive.Add("Items", sceneItemArchive);
@@ -146,13 +148,15 @@ public class ArchiveManager : MonoBehaviour {
         };
         sceneArchive.Add("Scenario", scenarioNode);
 
+        //更新节点信息
         if (PlayerPrefs.GetInt("HasArchive", 0) == 1)
         {
-            Debug.Log("Stream Create 152");
             StreamReader streamReader = new StreamReader(filePath, System.Text.Encoding.UTF8);
             JSONNode root = JSON.Parse(streamReader.ReadToEnd());
             if (root != null)
             {
+                root.Remove("Player");
+                root.Add("Player", playerNode);
                 JSONNode levelNode = root[levelTag];
                 if (levelNode != null)
                 {
@@ -168,6 +172,7 @@ public class ArchiveManager : MonoBehaviour {
             else
             {
                 root = new JSONClass();
+                root.Add("Player", playerNode);
                 JSONClass levelNode = new JSONClass();
                 levelNode.Add(sceneTag, sceneArchive);
                 root.Add(levelTag, levelNode);
@@ -182,16 +187,15 @@ public class ArchiveManager : MonoBehaviour {
         else
         {
             JSONClass root = new JSONClass();
+            root.Add("Player", playerNode);
             JSONClass levelNode = new JSONClass();
             levelNode.Add(sceneTag, sceneArchive);
             root.Add(levelTag, levelNode);
-
-            Debug.Log("Stream Create 192");
+            
             StreamWriter streamWriter = new StreamWriter(filePath, false, System.Text.Encoding.UTF8);
             streamWriter.WriteLine(root.ToString());
             streamWriter.Flush();
             streamWriter.Close();
-            Debug.Log("Stream Close 196");
         }
 
         PlayerPrefs.SetInt("HasArchive", 1);

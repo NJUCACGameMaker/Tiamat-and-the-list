@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Torch : Equipment {
+public class FlashLightEquipment : Equipment {
 
 
 
     public void Start()
     {
-        type = EquipmentType.Torch;
+        type = EquipmentType.FlashLight;
     }
 
     public void TurnOnTorch()

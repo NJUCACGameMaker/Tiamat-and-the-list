@@ -23,8 +23,6 @@ public class SceneItemManager : MonoBehaviour {
             interoperables[i].Index = i;
         }
         //加载存档
-        ArchiveManager.Init();
-        Debug.Log("SceneItemManager.Start");
         ArchiveManager.LoadArchive(interoperables);
 	}
 	
@@ -33,11 +31,15 @@ public class SceneItemManager : MonoBehaviour {
         SetNearPlayer();
 	}
 
-    private void OnDestroy()
+    private void OnApplicationQuit()
     {
         ArchiveManager.SaveArchive(interoperables);
     }
-    
+    public static void SaveArchive()
+    {
+        ArchiveManager.SaveArchive(instance.interoperables);
+    }
+
 
     void SetNearPlayer()
     {
