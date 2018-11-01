@@ -43,6 +43,7 @@ public class Flashlight : Pickable
         if (NearPlayer)
         {
             gameObject.transform.position = new Vector3(48.0f, -20.0f, 0.0f);
+            hintSprite.transform.position = new Vector3(48.0f, -18.0f, 0.0f);
             gameObject.GetComponent<Interoperable>().interoperable = false;
             UIManager.SetEquipmentIcon("EquipmentSprite\\Stage00_shoudiantong");
             player.setEquip(EquipmentType.FlashLight);
@@ -60,7 +61,11 @@ public class Flashlight : Pickable
         var root = JSON.Parse(archiveLine);
         var pickedNode = root["picked"];
         picked = pickedNode.AsBool;
-        if(picked==true)
+        if (picked == true)
+        {
             gameObject.transform.position = new Vector3(48.0f, -20.0f, 0.0f);
+            hintSprite.transform.position = new Vector3(48.0f, -18.0f, 0.0f);
+
+        }
     }
 }
