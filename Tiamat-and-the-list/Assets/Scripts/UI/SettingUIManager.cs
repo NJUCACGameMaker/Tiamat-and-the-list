@@ -11,11 +11,15 @@ public class SettingUIManager : MonoBehaviour {
     public RectTransform cgSectionTrans;
     public RectTransform musicSectionTrans;
 
+    public RectTransform mainRightTrans;
+
     private RectTransform currentLeft;
+    private RectTransform currentRight;
 
     private void Start()
     {
         currentLeft = mainLeftTrans;
+        currentRight = mainRightTrans;
     }
 
     public void ShowNote()
@@ -38,9 +42,10 @@ public class SettingUIManager : MonoBehaviour {
         ShowSectionLeft(musicSectionTrans);
     }
 
-    public void LeftMenu()
+    public void BackMain()
     {
         ShowSectionLeft(mainLeftTrans);
+        ShowSectionRight(mainRightTrans);
     }
 
     public void Title()
@@ -54,6 +59,14 @@ public class SettingUIManager : MonoBehaviour {
         section.position = currentLeft.position;
         currentLeft.position = tempPos;
         currentLeft = section;
+    }
+
+    public void ShowSectionRight(RectTransform section)
+    {
+        var tempPos = section.position;
+        section.position = currentRight.position;
+        currentRight.position = tempPos;
+        currentRight = section;
     }
 
 }
