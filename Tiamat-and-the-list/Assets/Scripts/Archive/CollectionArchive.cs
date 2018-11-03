@@ -86,6 +86,7 @@ public class CollectionArchive {
     }
     public static string GetArchive()
     {
+        if (instance == null) { Init(); }
         var noteNode = new JSONArray();
         var collectionNode = new JSONArray();
         var cgNode = new JSONArray();
