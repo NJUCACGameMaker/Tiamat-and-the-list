@@ -42,6 +42,11 @@ public class CoverUIManager : MonoBehaviour {
         SceneManager.LoadScene(PlayerPrefs.GetString("LastSceneName", "Tutorial-Scene1"));
     }
 
+    public void Setting()
+    {
+        SceneManager.LoadScene("Setting", LoadSceneMode.Additive);
+    }
+
     //退出游戏button
     public void Exit()
     {

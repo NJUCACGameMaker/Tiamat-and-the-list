@@ -12,6 +12,7 @@ public class ScrollListManager : MonoBehaviour {
     public SettingUIManager mainUIManager;
     public GameObject noteDetail;
     public GameObject collectionDetail;
+    public GameObject cgDetail;
 
     private VerticalLayoutGroup layoutGroup;
     //内容
@@ -46,11 +47,11 @@ public class ScrollListManager : MonoBehaviour {
         rectTrans.sizeDelta = new Vector2(width, rectTrans.sizeDelta.y);
 
         height += rectTrans.sizeDelta.y;
-        btnToShow.transform.parent = gameObject.transform;
+        btnToShow.transform.SetParent(gameObject.transform, false);
         GetComponent<RectTransform>().sizeDelta = new Vector2(width, height);
     }
 
-    public void AddPureTextItem(string shortLine, string detail)
+    public void AddNoteButton(string shortLine, string detail)
     {
         GameObject textBtnInstance = Instantiate(pureTextBtn) as GameObject;
         if (textBtnInstance != null)
@@ -67,14 +68,15 @@ public class ScrollListManager : MonoBehaviour {
         noteDetail.transform.Find("Panel").Find("Text").GetComponent<Text>().text = detail;
     }
 
-    public void AddDetailButton(string shortLine, string detail, string picPath)
+    public void AddCollectionButton(string shortLine, string detail, string picPath)
     {
         GameObject picTextBtnInstance = Instantiate(picTextBtn) as GameObject;
         if (picTextBtnInstance != null)
         {
             picTextBtnInstance.transform.Find("Text").GetComponent<Text>().text = shortLine;
-            Sprite sprite = Resources.Load(picPath) as Sprite;
+            Sprite sprite = Resources.Load<Sprite>(picPath) as Sprite;
             picTextBtnInstance.transform.Find("Image").GetComponent<Image>().sprite = sprite;
+            picTextBtnInstance.transform.Find("Image").GetComponent<ThumbnailPicAdjust>().Adjust();
             picTextBtnInstance.GetComponent<Button>().onClick.AddListener(() => PicTextOnClick(detail, sprite));
             Add(picTextBtnInstance);
         }
@@ -87,4 +89,24 @@ public class ScrollListManager : MonoBehaviour {
         collectionDetail.transform.Find("Panel").Find("Content Panel").Find("Image").GetComponent<Image>().sprite = picSprite;
     }
     
+    public void AddCGButton(string shortLine, string picPath)
+    {
+        GameObject picTextBtnInstance = Instantiate(picTextBtn) as GameObject;
+        if (picTextBtnInstance != null)
+        {
+            picTextBtnInstance.transform.Find("Text").GetComponent<Text>().text = shortLine;
+            Sprite sprite = Resources.Load<Sprite>(picPath) as Sprite;
+            picTextBtnInstance.transform.Find("Image").GetComponent<Image>().sprite = sprite;
+            picTextBtnInstance.transform.Find("Image").GetComponent<ThumbnailPicAdjust>().Adjust();
+            picTextBtnInstance.GetComponent<Button>().onClick.AddListener(() => PicOnClick(sprite));
+            Add(picTextBtnInstance);
+        }
+    }
+
+    public void PicOnClick(Sprite picSprite)
+    {
+        mainUIManager.ShowSectionRight(cgDetail.GetComponent<RectTransform>());
+        cgDetail.transform.Find("Panel").Find("Image").GetComponent<Image>().sprite = picSprite;
+    }
+
 }
