@@ -48,6 +48,7 @@ public class Flashlight : Pickable
             UIManager.SetEquipmentIcon("EquipmentSprite\\Stage00_shoudiantong");
             player.setEquip(EquipmentType.FlashLight);
             picked = true;
+            CollectionArchive.CollectionCollect("Flashlight");
         }
     }
     public override string GetArchive()

@@ -5,6 +5,7 @@ using UnityEngine;
 public class InputManager : MonoBehaviour {
 
     public static InputManager instance;
+    public static bool gamePaused = false;
 
     //键盘按下时委托
     public delegate void KeyInputDown();
@@ -40,31 +41,31 @@ public class InputManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         bool dialogOn = DialogManager.IsDialogOn();
-		if (Input.GetKeyDown(KeyCode.F) && OnPick != null && !dialogOn)
+		if (Input.GetKeyDown(KeyCode.F) && OnPick != null && !dialogOn && !gamePaused)
         {
             OnPick();
         }
-        if (Input.GetKeyDown(KeyCode.E) && OnInteract != null && !dialogOn)
+        if (Input.GetKeyDown(KeyCode.E) && OnInteract != null && !dialogOn && !gamePaused)
         {
             OnInteract();
         }
-        if (Input.GetKeyDown(KeyCode.Q) && OnSwitchItemState != null && !dialogOn)
+        if (Input.GetKeyDown(KeyCode.Q) && OnSwitchItemState != null && !dialogOn && !gamePaused)
         {
             OnSwitchItemState();
         }
-        if (Input.GetKeyDown(KeyCode.W) && OnUpStair != null && !dialogOn)
+        if (Input.GetKeyDown(KeyCode.W) && OnUpStair != null && !dialogOn && !gamePaused)
         {
             OnUpStair();
         }
-        if (Input.GetKeyDown(KeyCode.S) && OnDownStair != null && !dialogOn)
+        if (Input.GetKeyDown(KeyCode.S) && OnDownStair != null && !dialogOn && !gamePaused)
         {
             OnDownStair();
         }
-        if (Input.GetKey(KeyCode.A) && OnLeftMove != null && !dialogOn)
+        if (Input.GetKey(KeyCode.A) && OnLeftMove != null && !dialogOn && !gamePaused)
         {
             OnLeftMove();
         }
-        if (Input.GetKey(KeyCode.D) && OnRightMove !=null && !dialogOn)
+        if (Input.GetKey(KeyCode.D) && OnRightMove !=null && !dialogOn && !gamePaused)
         {
             OnRightMove();
         }
@@ -72,7 +73,8 @@ public class InputManager : MonoBehaviour {
         {
             OnEscape();
         }
-        if ((Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.E)) && OnNextDialog != null && dialogOn){
+        if ((Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.E)) && OnNextDialog != null && dialogOn && !gamePaused)
+        {
             OnNextDialog();
         }
 	}
