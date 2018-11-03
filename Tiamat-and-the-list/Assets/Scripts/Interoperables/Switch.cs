@@ -5,7 +5,7 @@ using SimpleJSON;
 
 public class Switch : Interoperable
 {
-
+    public SpriteRenderer hintSprite;
     public wholeLightController lightController;
     public string dialogSection;
     public bool on = true;
@@ -16,30 +16,41 @@ public class Switch : Interoperable
         InputManager.AddOnInteract(OnInteract);
         InputManager.AddOnPick(OnPick);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-        if (on)
-        {
-            StartCoroutine(SetLightAlpha(0f));
-        }
-        else
-        {
-            StartCoroutine(SetLightAlpha(0.8f));
-        }
-    }
+    
 
     void OnInteract()
     {
-        DialogManager.ShowDialog(dialogSection);
+        if (NearPlayer)
+        {
+            DialogManager.ShowDialog(dialogSection);
+        }
     }
+    
+    public override void ShowHint()
+    {
+        hintSprite.color = new Color(hintSprite.color.r, hintSprite.color.g, hintSprite.color.b, 1f);
+    }
+
+    public override void UnshowHint()
+    {
+        hintSprite.color = new Color(hintSprite.color.r, hintSprite.color.g, hintSprite.color.b, 0f);
+    }
+
     void OnPick()
     {
-        if (on)
-            on = false;
-        else on = true;
+        if (NearPlayer)
+        {
+            if (on)
+            {
+                on = false;
+                StartCoroutine(SetLightAlpha(0.8f));
+            }
+            else
+            {
+                on = true;
+                StartCoroutine(SetLightAlpha(0f));
+            }
+        }
     }
 
     public new string GetArchive()

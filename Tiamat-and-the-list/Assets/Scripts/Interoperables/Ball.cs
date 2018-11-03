@@ -5,6 +5,7 @@ using UnityEngine;
 public class Ball : Interoperable
 {
 
+    public SpriteRenderer hintSprite;
     public string dialogSection;
     // Use this for initialization
     void Start()
@@ -17,8 +18,19 @@ public class Ball : Interoperable
     {
 
     }
+    public override void ShowHint()
+    {
+        hintSprite.color = new Color(hintSprite.color.r, hintSprite.color.g, hintSprite.color.b, 1f);
+    }
+    public override void UnshowHint()
+    {
+        hintSprite.color = new Color(hintSprite.color.r, hintSprite.color.g, hintSprite.color.b, 0f);
+    }
     void OnInteract()
     {
-        DialogManager.ShowDialog(dialogSection);
+        if (NearPlayer)
+        {
+            DialogManager.ShowDialog(dialogSection);
+        }
     }
 }

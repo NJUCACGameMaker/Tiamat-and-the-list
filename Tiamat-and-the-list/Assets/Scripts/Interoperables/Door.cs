@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Door : Interoperable
 {
-
+    
     public string nextSceneName = "";
     public string dialogSection;
     public bool test;
@@ -23,17 +23,37 @@ public class Door : Interoperable
     void Update()
     {
 
-        if (test)
-        {
-            test = false;
-        }
     }
     void OnInteract()
     {
-        DialogManager.ShowDialog(dialogSection);
+        if (NearPlayer)
+        {
+            DialogManager.ShowDialog(dialogSection);
+        }
     }
     void OnPick()
     {
-        SceneManager.LoadScene(nextSceneName);
+        if (NearPlayer)
+        {
+            SceneItemManager.SaveArchive();
+            //先不管这些，本来想试试这样能不能做加载页面，结果资源太少了闪过去了，先放着吧——NA
+            SceneManager.LoadScene("Loading");
+            StartCoroutine(LoadAnotherScene(nextSceneName));
+        }
+    }
+
+    IEnumerator LoadAnotherScene(string name)
+    {
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(name);
+        yield return asyncOperation;
+    }
+    public SpriteRenderer spriteRender;
+    public override void ShowHint()
+    {
+        spriteRender.color = new Color(spriteRender.color.r, spriteRender.color.g, spriteRender.color.b, 1f);
+    }
+    public override void UnshowHint()
+    {
+        spriteRender.color = new Color(spriteRender.color.r, spriteRender.color.g, spriteRender.color.b, 0f);
     }
 }

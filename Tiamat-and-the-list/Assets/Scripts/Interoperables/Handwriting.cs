@@ -6,6 +6,8 @@ public class Handwriting : Interoperable
 {
 
     public string dialogSection;
+    public SpriteRenderer hintSprite;
+    public Switch getSwitch;
     // Use this for initialization
 
     void Start()
@@ -18,9 +20,25 @@ public class Handwriting : Interoperable
     {
 
     }
+
+    public override void ShowHint()
+    {
+        if(getSwitch.on)
+        hintSprite.color = new Color(hintSprite.color.r, hintSprite.color.g, hintSprite.color.b, 1f);
+    }
+
+    public override void UnshowHint()
+    {
+        if(getSwitch.on)
+        hintSprite.color = new Color(hintSprite.color.r, hintSprite.color.g, hintSprite.color.b, 0f);
+    }
+
     void OnInteract()
     {
-        DialogManager.ShowDialog(dialogSection);
+        if (NearPlayer&&getSwitch.on==true)
+        {
+            DialogManager.ShowDialog(dialogSection);
+        }
     }
 }
 
