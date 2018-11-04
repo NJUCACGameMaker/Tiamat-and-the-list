@@ -3666,7 +3666,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxX: 21.3
   minX: 4.7
-  maxH: 0
+  maxH: 3.06
   player: {fileID: 1751808921}
 --- !u!1 &2051842226
 GameObject:
