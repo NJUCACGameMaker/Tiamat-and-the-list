@@ -1801,6 +1801,7 @@ MonoBehaviour:
   - {fileID: 952375090}
   - {fileID: 264231583}
   player: {fileID: 1751808922}
+  paused: 0
 --- !u!1 &856989248
 GameObject:
   m_ObjectHideFlags: 0
@@ -3346,7 +3347,8 @@ MonoBehaviour:
   - 13.6
   scenario: {fileID: 856989249}
   moveSpeed: 8
-  torchPrefab: {fileID: 0}
+  torchPrefab: {fileID: 1053981596962310, guid: 0dcac60b19d3d034793e371c3bed4da1,
+    type: 2}
   floorLayer: 0
 --- !u!1 &1786185293
 GameObject:
@@ -3664,6 +3666,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxX: 21.3
   minX: 4.7
+  maxH: 0
   player: {fileID: 1751808921}
 --- !u!1 &2051842226
 GameObject:

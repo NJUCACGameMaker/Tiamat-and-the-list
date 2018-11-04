@@ -43,6 +43,7 @@ public class PlayerManager : MonoBehaviour {
     {
         float playerX = transform.localPosition.x;
         float bg_1_x = minX[floorLayer];
+        transform.LookAt(new Vector3(transform.position.x-5,transform.position.y,transform.position.z));
         if (playerX >= bg_1_x)
         {
             transform.Translate(Time.deltaTime * Vector3.left * moveSpeed, Space.World);
@@ -54,6 +55,7 @@ public class PlayerManager : MonoBehaviour {
     {
         float playerX = transform.localPosition.x;
         float bg_1_x = maxX[floorLayer];
+        transform.LookAt(new Vector3(transform.position.x + 5, transform.position.y, transform.position.z));
         if (playerX <= bg_1_x)
         {
             transform.Translate(Time.deltaTime * Vector3.right * moveSpeed, Space.World);

@@ -7,6 +7,8 @@ public class CameraManager : MonoBehaviour {
     public float maxX;
     public float minX;
 
+    public float maxH;
+
     public Transform player;
 
     private int moveSpeed=8;
@@ -32,6 +34,10 @@ public class CameraManager : MonoBehaviour {
             transform.position = new Vector3(minX, transform.position.y, transform.position.z) ;
         if(transform.position.x > maxX)
             transform.position = new Vector3(maxX, transform.position.y, transform.position.z);
+        if (transform.position.y > maxH)
+        {
+            transform.position = new Vector3(transform.position.x, maxH, transform.position.z);
+        }
     }
 
 

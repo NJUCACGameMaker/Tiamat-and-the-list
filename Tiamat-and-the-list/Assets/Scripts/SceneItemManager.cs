@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneItemManager : MonoBehaviour {
 
@@ -9,6 +10,7 @@ public class SceneItemManager : MonoBehaviour {
     public static SceneItemManager instance;
     public List<Interoperable> interoperables;
     public PlayerManager player;
+    public bool paused = false;
 
     private void Awake()
     {
@@ -24,6 +26,7 @@ public class SceneItemManager : MonoBehaviour {
         }
         //加载存档
         ArchiveManager.LoadArchive(interoperables);
+        InputManager.AddOnEscape(OnEscape);
 	}
 	
 	// Update is called once per frame
@@ -77,6 +80,29 @@ public class SceneItemManager : MonoBehaviour {
                 }
             }
         }
+    }
+
+    void OnEscape()
+    {
+        if (!paused)
+        {
+            SceneManager.LoadScene("Setting", LoadSceneMode.Additive);
+            Pause();
+        }
+    }
+
+    void Pause()
+    {
+        Time.timeScale = 0.0f;
+        paused = true;
+        InputManager.gamePaused = true;
+    }
+
+    public void Resume()
+    {
+        Time.timeScale = 1.0f;
+        paused = false;
+        InputManager.gamePaused = false;
     }
 
     public static string GetLevelName()

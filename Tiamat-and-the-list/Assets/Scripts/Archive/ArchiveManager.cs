@@ -201,6 +201,8 @@ public class ArchiveManager : MonoBehaviour {
         PlayerPrefs.SetInt("HasArchive", 1);
         PlayerPrefs.SetString("LastSceneName", levelTag + "-" + sceneTag);
         PlayerPrefs.Save();
+
+        CollectionArchive.SaveArchive();
     }
 
 }
