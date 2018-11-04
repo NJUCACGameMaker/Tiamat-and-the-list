@@ -5,7 +5,8 @@ using UnityEngine;
 public class Handwriting : Interoperable
 {
 
-    public string dialogSection;
+    public string dialogSection1;
+    public string dialogSection2;
     public SpriteRenderer hintSprite;
     public Switch getSwitch;
     // Use this for initialization
@@ -23,21 +24,22 @@ public class Handwriting : Interoperable
 
     public override void ShowHint()
     {
-        if(getSwitch.on)
         hintSprite.color = new Color(hintSprite.color.r, hintSprite.color.g, hintSprite.color.b, 1f);
     }
 
     public override void UnshowHint()
     {
-        if(getSwitch.on)
         hintSprite.color = new Color(hintSprite.color.r, hintSprite.color.g, hintSprite.color.b, 0f);
     }
 
     void OnInteract()
     {
-        if (NearPlayer&&getSwitch.on==true)
+        if (NearPlayer)
         {
-            DialogManager.ShowDialog(dialogSection);
+            if (getSwitch.on == false)
+                DialogManager.ShowDialog(dialogSection2);
+            else
+                DialogManager.ShowDialog(dialogSection1);
         }
     }
 }
