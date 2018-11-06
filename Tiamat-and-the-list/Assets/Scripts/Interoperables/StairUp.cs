@@ -7,6 +7,8 @@ public class StairUp : Interoperable {
     public PlayerManager player;
     public Vector3 targetPos;
     public SpriteRenderer hintSprite;
+
+    public SpriteRenderer stairSprite;
     // Use this for initialization
     void Start () {
         InputManager.AddOnUpStair(OnUp);
@@ -33,6 +35,7 @@ public class StairUp : Interoperable {
         {
             player.floorLayer++;
             player.transform.position = targetPos;
+            stairSprite.sortingLayerName = "ForeItem";
         }
     }
 }
