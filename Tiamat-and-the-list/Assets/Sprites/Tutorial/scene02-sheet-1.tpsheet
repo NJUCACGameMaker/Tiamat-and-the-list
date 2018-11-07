@@ -1,0 +1,21 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# https://www.codeandweb.com/texturepacker/unity
+#
+# $TexturePacker:SmartUpdate:780f896ff0e57d75d9d25ede2b42cd2d:d8658de2aceb20f0e437c219c1476e08:43dbe9c5447dc35689d29cbb5d772d86$
+#
+:format=40300
+:texture=scene02-sheet-1.png
+:size=2048x2048
+:pivotpoints=enabled
+:borders=disabled
+
+Stage00_bg02-2-0;3;1235;864;810; 0.5;0.5; 0;0;0;0; 4;864;0;0;0;0;810;864;810; 2;1;2;3;0;1;3
+Stage00_bg02-2-1;877;1235;864;810; 0.5;0.5; 0;0;0;0; 4;864;0;0;0;0;810;864;810; 2;1;2;3;0;1;3
+Stage00_bg02-3-0;3;415;864;810; 0.5;0.5; 0;0;0;0; 4;864;0;0;0;0;810;864;810; 2;1;2;3;0;1;3
+Stage00_bg02-3-1;877;415;864;810; 0.5;0.5; 0;0;0;0; 4;864;0;0;0;0;810;864;810; 2;1;2;3;0;1;3
+Stage00_doorframe;3;5;300;400; 0.5;0.5; 0;0;0;0; 4;300;0;0;0;0;400;300;400; 2;1;2;3;0;1;3
+Stage00_tianchuangclose;1123;120;295;285; 0.4915254237288136;0.48070175438596496; 0;0;0;0; 4;295;18;277;0;0;251;0;285; 2;0;1;2;0;2;3
+Stage00_tishi;313;105;800;300; 0.5;0.5; 0;0;0;0; 4;800;0;0;0;0;300;800;300; 2;1;2;3;0;1;3

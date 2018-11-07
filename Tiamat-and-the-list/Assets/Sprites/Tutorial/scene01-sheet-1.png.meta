@@ -27,6 +27,7 @@ TextureImporter:
     21300044: Stage00_paint04
     21300046: Stage00_paint05
     21300048: Stage00_paint06
+    21300050: Stage00_bg01-5-1
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -101,8 +102,8 @@ TextureImporter:
       name: Stage00_bg01-2-0
       rect:
         serializedVersion: 2
-        x: 585
-        y: 1507
+        x: 293
+        y: 403
         width: 280
         height: 540
       alignment: 0
@@ -112,7 +113,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cda221d65d1f0d94ab63128ba8cb7b5f
+      spriteID: 388e4d902ff9c924d971249d4f0498fe
       vertices: []
       indices: 
       edges: []
@@ -122,6 +123,26 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 585
+        y: 1507
+        width: 280
+        height: 540
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7199405f31256414b950053aac3adba3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage00_bg01-3-0
+      rect:
+        serializedVersion: 2
+        x: 1169
         y: 955
         width: 280
         height: 540
@@ -132,13 +153,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 39f3251c31e654d41929b23db2c83373
+      spriteID: f15f43766a10457458dec565f7a81a66
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage00_bg01-3-0
+      name: Stage00_bg01-3-1
       rect:
         serializedVersion: 2
         x: 1169
@@ -152,27 +173,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 320aa61c506389e43a27a90ce84e2070
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Stage00_bg01-3-1
-      rect:
-        serializedVersion: 2
-        x: 1461
-        y: 955
-        width: 280
-        height: 540
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e51fe03996a19fa43b78afa43d056c8a
+      spriteID: 38889c94512c7cc468d757ddce294bab
       vertices: []
       indices: 
       edges: []
@@ -181,6 +182,26 @@ TextureImporter:
       name: Stage00_bg01-4-0
       rect:
         serializedVersion: 2
+        x: 1461
+        y: 955
+        width: 280
+        height: 540
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06289e9744b58184b9a86b3debb57ba3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage00_bg01-4-1
+      rect:
+        serializedVersion: 2
         x: 1753
         y: 955
         width: 280
@@ -192,13 +213,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d9d9e87bde64ed418fd5edaeec3ef96
+      spriteID: 8d6ac4735aede794396962b2b3c9a97f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage00_bg01-4-1
+      name: Stage00_bg01-5-0
       rect:
         serializedVersion: 2
         x: 1461
@@ -212,13 +233,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e7d1b5b5926500a448c0cfc5911b314d
+      spriteID: 05a9fdfbc7aeabd4dbcdb4119b5aab0c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage00_bg01-5-0
+      name: Stage00_bg01-5-1
       rect:
         serializedVersion: 2
         x: 1753
@@ -232,27 +253,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b3a5725b0be6e944bb29f9555ce736f8
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Stage00_bg01-17-0
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 1507
-        width: 280
-        height: 540
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 90276ccc761bdcc498dce3b8b1a9b10e
+      spriteID: 3a1642dec7acd4b47a6d92708567fc90
       vertices: []
       indices: 
       edges: []
@@ -262,6 +263,26 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
+        y: 1507
+        width: 280
+        height: 540
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b772a334a7fdf694eaa09b2379de28f3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage00_bg01-18-0
+      rect:
+        serializedVersion: 2
+        x: 1
         y: 955
         width: 280
         height: 540
@@ -272,13 +293,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 664837a2e88e8ca409e6e88ca5373a1d
+      spriteID: 4cb8fea7462c30f44b35ae79e13cbfb2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage00_bg01-18-0
+      name: Stage00_bg01-18-1
       rect:
         serializedVersion: 2
         x: 1
@@ -292,13 +313,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a345d732120a20d4ab5806cfd7d9f795
+      spriteID: abbe4ac28042e594db5c634b4f42cb8c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage00_bg01-18-1
+      name: Stage00_bg01-19-0
       rect:
         serializedVersion: 2
         x: 293
@@ -312,13 +333,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a4733dee47655fa4cbbc473cf8991f3e
+      spriteID: fac99e8eb21a6aa44aaeeed19d014d37
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage00_bg01-19-0
+      name: Stage00_bg01-19-1
       rect:
         serializedVersion: 2
         x: 293
@@ -332,17 +353,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 065262eaebfb88e43be3a2f37de24892
+      spriteID: 0516203e29b6aae4a8398f4898056206
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage00_bg01-19-1
+      name: Stage00_bg01-20-0
       rect:
         serializedVersion: 2
-        x: 293
-        y: 403
+        x: 585
+        y: 955
         width: 280
         height: 540
       alignment: 0
@@ -352,13 +373,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6c5cd2c96e4287f41bf751ce5ba699fe
+      spriteID: 40906888bc9e762419a7dfe7d63687fa
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage00_bg01-20-0
+      name: Stage00_bg01-20-1
       rect:
         serializedVersion: 2
         x: 585
@@ -372,13 +393,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 31700bf8224a72a449c2974b8b1018e7
+      spriteID: 055e1ff3cf7e76544bf71f3fff760f53
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage00_bg01-20-1
+      name: Stage00_bg01-21-0
       rect:
         serializedVersion: 2
         x: 877
@@ -392,13 +413,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 427274b7ef4855a48a19b60d362ecf4d
+      spriteID: 1dbf86df96c2edd489925a85c1197c36
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage00_bg01-21-0
+      name: Stage00_bg01-21-1
       rect:
         serializedVersion: 2
         x: 877
@@ -412,13 +433,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fafaec196d0ac5a45a3e6e58d3bafbef
+      spriteID: 82815fc01d824dd4abea5a907c9476d1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage00_bg01-21-1
+      name: Stage00_bg01-22-0
       rect:
         serializedVersion: 2
         x: 877
@@ -432,13 +453,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 742f332465a6dce49afcf9d4d3949d6c
+      spriteID: 7395a1a7b494493429e92286ac678db1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage00_bg01-22-0
+      name: Stage00_bg01-22-1
       rect:
         serializedVersion: 2
         x: 1169
@@ -452,13 +473,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 887b506758d8f224bb9c5707aebad163
+      spriteID: c2ab8abaa7ff4a846a93d54c0d4736a8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage00_bg01-22-1
+      name: Stage00_bg01-23-0
       rect:
         serializedVersion: 2
         x: 1461
@@ -472,13 +493,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6637b0cd7fa9525459aecc2b742d4b3e
+      spriteID: 748a8a0f5b6f58c4bafa2d1b59fdb349
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stage00_bg01-23-0
+      name: Stage00_bg01-23-1
       rect:
         serializedVersion: 2
         x: 1753
@@ -492,27 +513,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7716f91950f648640a33a6920eedead6
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Stage00_bg01-23-1
-      rect:
-        serializedVersion: 2
-        x: 1169
-        y: 955
-        width: 280
-        height: 540
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 929cebc0c42c99146b7db118afbf7fcc
+      spriteID: d54f602e42bac8046bd90959750188b5
       vertices: []
       indices: 
       edges: []
@@ -532,7 +533,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aea65c9df0758a546b61e19a24114e07
+      spriteID: 0f967df6aa11e9543b4126528401c2bc
       vertices: []
       indices: 
       edges: []
@@ -552,7 +553,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0608d36d8ee9fe948a5d58f9363bd0d2
+      spriteID: b7e686e748d9be842b8f29f9796cf10a
       vertices: []
       indices: 
       edges: []
@@ -572,7 +573,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d7aa3858e3461664ea16b23679afe140
+      spriteID: c4a769c64ba41424dbf916bd6c426ad5
       vertices: []
       indices: 
       edges: []
