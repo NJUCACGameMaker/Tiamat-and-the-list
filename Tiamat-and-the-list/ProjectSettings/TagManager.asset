@@ -57,3 +57,6 @@ TagManager:
   - name: FG
     uniqueID: 2987364565
     locked: 0
+  - name: Hint
+    uniqueID: 676568959
+    locked: 0

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class wholeLightController : MonoBehaviour {
+public class WholeLightController : MonoBehaviour {
 
     public List<SpriteRenderer> sprites;
     private float alpha;

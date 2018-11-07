@@ -208,6 +208,7 @@ MonoBehaviour:
   hintSprite: {fileID: 470550020}
   lightController: {fileID: 1613430737}
   dialogSection: 
+  lightAnimator: {fileID: 848759582}
   on: 1
 --- !u!1 &81888319
 GameObject:
@@ -257,8 +258,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 676568959
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d6a89b9d348c5084fa835198abdb8c53, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
@@ -407,8 +408,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 676568959
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: bd99aaa94b706514bb3a610eaff07120, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
@@ -980,8 +981,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 676568959
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f5ccc5ba39f782f4881fe282dc869812, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
@@ -1188,8 +1189,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 535378899
-  m_SortingLayer: 3
+  m_SortingLayerID: 676568959
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 855b42a6b3b26ad40bc0e49436ec4ea1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
@@ -1250,8 +1251,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 676568959
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8c27aea58dd19ac42a3f521367f9d3cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
@@ -1631,6 +1632,7 @@ GameObject:
   m_Component:
   - component: {fileID: 848759581}
   - component: {fileID: 848759580}
+  - component: {fileID: 848759582}
   m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
@@ -1697,6 +1699,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &848759582
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 848759579}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4e592f959be12ba4686c555a09d3248b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &856989248
 GameObject:
   m_ObjectHideFlags: 0
@@ -2002,8 +2022,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 676568959
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d6a89b9d348c5084fa835198abdb8c53, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
