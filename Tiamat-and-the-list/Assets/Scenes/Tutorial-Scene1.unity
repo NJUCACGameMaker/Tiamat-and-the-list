@@ -1403,7 +1403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxX: 48
   minX: 0
-  maxH: 0
+  maxH: 0.04
   player: {fileID: 868496699}
 --- !u!20 &519420031
 Camera:
