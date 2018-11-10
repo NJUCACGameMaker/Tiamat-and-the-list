@@ -100,7 +100,7 @@ public class PlayerManager : MonoBehaviour {
                     torch.transform.position = new Vector3(transform.position.x + 3.1f, transform.position.y, transform.position.z);
                 else
                     torch.transform.position = new Vector3(transform.position.x - 3.1f, transform.position.y, transform.position.z);
-                torchPrefab.transform.parent = transform;
+                torch.transform.parent = transform;
             break;
         }
     }
