@@ -9,7 +9,7 @@ public class Specialpaint : Interoperable
     public string dialogSection1;
     public string dialogSection2;
     public string dialogSection3;
-    private int section = 0;
+    public int section = 0;
 
     public Animator dropAnimator;
     public SpriteRenderer hintSprite;
