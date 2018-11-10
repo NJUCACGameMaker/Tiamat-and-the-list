@@ -294,6 +294,7 @@ GameObject:
   m_Component:
   - component: {fileID: 89635875}
   - component: {fileID: 89635874}
+  - component: {fileID: 89635876}
   m_Layer: 0
   m_Name: stair
   m_TagString: Untagged
@@ -333,9 +334,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 535378899
-  m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingLayerID: -1330987047
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300002, guid: 4e40e4fa8ce32534cbd187aed4929940, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -360,6 +361,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &89635876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 89635873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be8ddd8b081ed2a419de001508e8d7d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 0
+  <Index>k__BackingField: 0
+  generated: 0
+  interoperable: 1
+  detectDist: 2
+  floorLayer: 0
+  nearPlayer: 0
+  <NearPlayer>k__BackingField: 0
+  player: {fileID: 0}
 --- !u!1 &93564121
 GameObject:
   m_ObjectHideFlags: 0
@@ -1148,7 +1169,7 @@ MonoBehaviour:
   nextSceneName: Tutorial-Scene1
   dialogSection: 
   test: 0
-  spriteRender: {fileID: 93564122}
+  hintRender: {fileID: 93564122}
 --- !u!4 &264231584
 Transform:
   m_ObjectHideFlags: 0

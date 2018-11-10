@@ -48,6 +48,7 @@ public class Flashlight : Pickable
             UIManager.SetEquipmentIcon("EquipmentSprite\\Stage00_shoudiantong");
             player.setEquip(EquipmentType.FlashLight);
             picked = true;
+            interoperable = false;
             CollectionArchive.CollectionCollect("Flashlight");
         }
     }
@@ -66,6 +67,7 @@ public class Flashlight : Pickable
         {
             gameObject.transform.position = new Vector3(48.0f, -20.0f, 0.0f);
             hintSprite.transform.position = new Vector3(48.0f, -18.0f, 0.0f);
+            interoperable = false;
 
         }
     }

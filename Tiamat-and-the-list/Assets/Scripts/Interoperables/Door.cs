@@ -47,13 +47,13 @@ public class Door : Interoperable
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(name);
         yield return asyncOperation;
     }
-    public SpriteRenderer spriteRender;
+    public SpriteRenderer hintRender;
     public override void ShowHint()
     {
-        spriteRender.color = new Color(spriteRender.color.r, spriteRender.color.g, spriteRender.color.b, 1f);
+        hintRender.color = new Color(hintRender.color.r, hintRender.color.g, hintRender.color.b, 1f);
     }
     public override void UnshowHint()
     {
-        spriteRender.color = new Color(spriteRender.color.r, spriteRender.color.g, spriteRender.color.b, 0f);
+        hintRender.color = new Color(hintRender.color.r, hintRender.color.g, hintRender.color.b, 0f);
     }
 }
