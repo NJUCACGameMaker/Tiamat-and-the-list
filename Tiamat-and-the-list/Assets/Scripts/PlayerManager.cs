@@ -87,11 +87,12 @@ public class PlayerManager : MonoBehaviour {
 
     public void setEquip(EquipmentType equipmentType)
     {
+        Debug.Log(transform.childCount);
         while (transform.childCount > 0)
         {
             Destroy(transform.GetChild(0).gameObject);
         }
-        itemOn = false;
+        itemOn = true;
         switch (equipmentType) {
             case EquipmentType.FlashLight:
                 currentEquip.type = EquipmentType.FlashLight;
@@ -100,9 +101,10 @@ public class PlayerManager : MonoBehaviour {
                     torch.transform.position = new Vector3(transform.position.x + 3.1f, transform.position.y, transform.position.z);
                 else
                     torch.transform.position = new Vector3(transform.position.x - 3.1f, transform.position.y, transform.position.z);
-                torchPrefab.transform.parent = transform;
+                torch.transform.parent = transform;
             break;
         }
+        UseEquip();
     }
 
     void UseEquip()
@@ -126,11 +128,12 @@ public class PlayerManager : MonoBehaviour {
 
     void turnOnTorch()
     {
-        torchPrefab.GetComponent<FlashLightEquipment>().TurnOnTorch();
+        Debug.Log(transform.childCount);
+        transform.GetChild(0).GetComponent<FlashLightEquipment>().TurnOnTorch();
     }
     void turnOffTorch()
     {
-        torchPrefab.GetComponent<FlashLightEquipment>().TurnOffTorch();
+        transform.GetChild(0).GetComponent<FlashLightEquipment>().TurnOffTorch();
     }
 
     private PlayerSave CreateSavePlayer()
