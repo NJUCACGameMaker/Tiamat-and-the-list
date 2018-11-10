@@ -23,6 +23,10 @@ public class InputManager : MonoBehaviour {
     private event KeyInputDown OnLeftMove;
     //向右移动事件
     private event KeyInputDown OnRightMove;
+    //移动前事件
+    private event KeyInputDown BeforeMove;
+    //移动后事件
+    private event KeyInputDown AfterMove;
     //敲击Esc退出事件
     private event KeyInputDown OnEscape;
     //对话下一句事件
@@ -68,6 +72,13 @@ public class InputManager : MonoBehaviour {
         if (Input.GetKey(KeyCode.D) && OnRightMove !=null && !dialogOn && !gamePaused)
         {
             OnRightMove();
+        }
+        if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)) && BeforeMove != null && !dialogOn && !gamePaused){
+            BeforeMove();
+        }
+        if ((Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D)) && AfterMove != null && !dialogOn && !gamePaused)
+        {
+            AfterMove();
         }
         if (Input.GetKeyDown(KeyCode.Escape) && OnEscape != null)
         {
@@ -120,6 +131,18 @@ public class InputManager : MonoBehaviour {
     private void _AddOnRightMove(KeyInputDown onRight)
     {
         this.OnRightMove += onRight;
+    }
+
+    public static void AddBeforMove(KeyInputDown beforeMove) { instance._AddBeforeMove(beforeMove); }
+    private void _AddBeforeMove(KeyInputDown beforeMove)
+    {
+        this.BeforeMove += beforeMove;
+    }
+
+    public static void AddAfterMove(KeyInputDown afterMove) { instance._AddAfterMove(afterMove); }
+    private void _AddAfterMove(KeyInputDown afterMove)
+    {
+        this.AfterMove += afterMove;
     }
 
     public static void AddOnEscape(KeyInputDown onEsc) { instance._AddOnEscape(onEsc); }
