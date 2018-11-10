@@ -20,20 +20,22 @@ public class PlayerManager : MonoBehaviour {
     //判断是否使用道具
     bool itemOn = false;
     //当前道具
-    private Equipment currentEquip=new Equipment();
+    private EquipmentType currentEquipType = EquipmentType.None;
 
     //高度层，最低为0，向上递增，用于判断是否与道具在同一层从而判断是否可交互。
     public int floorLayer = 0;
+
+    //角色动画控制器
+    public Animator playerAnima;
 
     private bool isLeft = false;
     // Use this for initialization
     void Start () {
         InputManager.AddOnLeftMove(LeftMove);
         InputManager.AddOnRightMove(RightMove);
-        InputManager.AddOnUpStair(UpMove);
-        InputManager.AddOnDownStair(DownMove);
         InputManager.AddOnSwitchItemState(UseEquip);
-        
+        InputManager.AddAfterMove(AfterMove);
+        InputManager.AddBeforMove(BeforeMove);
     }
 
 	
@@ -74,28 +76,29 @@ public class PlayerManager : MonoBehaviour {
         }
         
     }
-
-    void UpMove()
+    
+    void BeforeMove()
     {
-
+        playerAnima.SetFloat("MoveSpeed", 1.0f);
     }
 
-    void DownMove()
+    void AfterMove()
     {
-
+        playerAnima.SetFloat("MoveSpeed", 0f);
     }
+
 
     public void setEquip(EquipmentType equipmentType)
     {
-        Debug.Log(transform.childCount);
-        while (transform.childCount > 0)
+        var existedTorch = transform.Find("Torch(Clone)");
+        if (existedTorch != null)
         {
-            Destroy(transform.GetChild(0).gameObject);
+            Destroy(existedTorch.gameObject);
         }
         itemOn = true;
         switch (equipmentType) {
             case EquipmentType.FlashLight:
-                currentEquip.type = EquipmentType.FlashLight;
+                currentEquipType = EquipmentType.FlashLight;
                 GameObject torch = Instantiate(torchPrefab) as GameObject;
                 if(!isLeft)
                     torch.transform.position = new Vector3(transform.position.x + 3.1f, transform.position.y, transform.position.z);
@@ -109,7 +112,7 @@ public class PlayerManager : MonoBehaviour {
 
     void UseEquip()
     {
-        switch (currentEquip.type) {
+        switch (currentEquipType) {
             case EquipmentType.FlashLight:
                 if (itemOn)
                 {
@@ -129,11 +132,11 @@ public class PlayerManager : MonoBehaviour {
     void turnOnTorch()
     {
         Debug.Log(transform.childCount);
-        transform.GetChild(0).GetComponent<FlashLightEquipment>().TurnOnTorch();
+        transform.Find("Torch(Clone)").GetComponent<FlashLightEquipment>().TurnOnTorch();
     }
     void turnOffTorch()
     {
-        transform.GetChild(0).GetComponent<FlashLightEquipment>().TurnOffTorch();
+        transform.Find("Torch(Clone)").GetComponent<FlashLightEquipment>().TurnOffTorch();
     }
 
     private PlayerSave CreateSavePlayer()
@@ -144,7 +147,7 @@ public class PlayerManager : MonoBehaviour {
         save.z = transform.position.z;
         save.floorLayer = floorLayer;
 
-        save.currentEquipType = currentEquip.type;
+        save.currentEquipType = currentEquipType;
         save.itemOn = itemOn;
 
         return save;
@@ -169,7 +172,7 @@ public class PlayerManager : MonoBehaviour {
         setEquip((EquipmentType)Enum.Parse(typeof(EquipmentType), root["currentEquipType"]));
         itemOn = root["itemOn"].AsBool;
 
-        switch (currentEquip.type)
+        switch (currentEquipType)
         {
             case EquipmentType.FlashLight:
                 UIManager.SetEquipmentIcon("EquipmentSprite\\Stage00_shoudiantong");
@@ -195,7 +198,7 @@ public class PlayerManager : MonoBehaviour {
         {
             { "position", pos },
             { "floorLayer", new JSONData(floorLayer) },
-            { "currentEquipType", new JSONData(currentEquip.type.ToString()) },
+            { "currentEquipType", new JSONData(currentEquipType.ToString()) },
             { "itemOn", new JSONData(itemOn) }
         };
 

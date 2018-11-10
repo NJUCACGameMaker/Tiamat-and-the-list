@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  torchMaskPrefab: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 83226ad91fc89b646bd947ddef71da72, type: 3}
 --- !u!212 &212558851219791048
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -136,7 +136,7 @@ SpriteMask:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b8cfa3e32cd72624da2b9a6b15c3badc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 83226ad91fc89b646bd947ddef71da72, type: 3}
   m_MaskAlphaCutoff: 0.228
   m_FrontSortingLayerID: 0
   m_BackSortingLayerID: 0
