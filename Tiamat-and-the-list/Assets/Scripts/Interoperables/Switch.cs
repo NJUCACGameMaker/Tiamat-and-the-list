@@ -6,8 +6,9 @@ using SimpleJSON;
 public class Switch : Interoperable
 {
     public SpriteRenderer hintSprite;
-    public wholeLightController lightController;
+    public WholeLightController lightController;
     public string dialogSection;
+    public Animator lightAnimator;
     public bool on = true;
 
     // Use this for initialization
@@ -50,10 +51,11 @@ public class Switch : Interoperable
                 on = true;
                 StartCoroutine(SetLightAlpha(0f));
             }
+            lightAnimator.SetBool("LightOn", on);
         }
     }
 
-    public new string GetArchive()
+    public override string GetArchive()
     {
         JSONClass archive = new JSONClass
         {
@@ -62,17 +64,21 @@ public class Switch : Interoperable
         return archive.ToString();
     }
 
-    public new void LoadArchive(string archiveLine)
+    public override void LoadArchive(string archiveLine)
     {
-        JSONNode archive = JSON.Parse(archiveLine);
-        on = archive["state"].AsBool;
-        if (on)
+        if (archiveLine != null && archiveLine != "")
         {
-            lightController.Alpha = 0.8f;
-        }
-        else
-        {
-            lightController.Alpha = 0f;
+            JSONNode archive = JSON.Parse(archiveLine);
+            on = archive["state"].AsBool;
+            if (on)
+            {
+                lightController.Alpha = 0f;
+            }
+            else
+            {
+                lightController.Alpha = 0.8f;
+            }
+            lightAnimator.SetBool("LightOn", on);
         }
     }
 

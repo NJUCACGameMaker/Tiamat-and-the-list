@@ -163,7 +163,7 @@ public class PlayerManager : MonoBehaviour {
         var root = JSON.Parse(archiveLine);
         transform.position = new Vector3(root["position"][0].AsFloat, root["position"][1].AsFloat, root["position"][2].AsFloat);
         floorLayer = root["floorLayer"].AsInt;
-        currentEquip.type = (EquipmentType)Enum.Parse(typeof(EquipmentType), root["currentEquipType"]);
+        setEquip((EquipmentType)Enum.Parse(typeof(EquipmentType), root["currentEquipType"]));
         itemOn = root["itemOn"].AsBool;
 
         switch (currentEquip.type)
