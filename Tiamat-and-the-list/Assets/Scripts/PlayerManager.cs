@@ -89,17 +89,17 @@ public class PlayerManager : MonoBehaviour {
     {
         while (transform.childCount > 0)
         {
-            DestroyImmediate(transform.GetChild(0).gameObject);
+            Destroy(transform.GetChild(0).gameObject);
         }
         itemOn = false;
         switch (equipmentType) {
             case EquipmentType.FlashLight:
                 currentEquip.type = EquipmentType.FlashLight;
-                torchPrefab = Instantiate(torchPrefab) as GameObject;
+                GameObject torch = Instantiate(torchPrefab) as GameObject;
                 if(!isLeft)
-                    torchPrefab.transform.position = new Vector3(transform.position.x + 3.1f, transform.position.y, transform.position.z);
+                    torch.transform.position = new Vector3(transform.position.x + 3.1f, transform.position.y, transform.position.z);
                 else
-                    torchPrefab.transform.position = new Vector3(transform.position.x - 3.1f, transform.position.y, transform.position.z);
+                    torch.transform.position = new Vector3(transform.position.x - 3.1f, transform.position.y, transform.position.z);
                 torchPrefab.transform.parent = transform;
             break;
         }
