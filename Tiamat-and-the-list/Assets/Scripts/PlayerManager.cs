@@ -25,6 +25,7 @@ public class PlayerManager : MonoBehaviour {
     //高度层，最低为0，向上递增，用于判断是否与道具在同一层从而判断是否可交互。
     public int floorLayer = 0;
 
+    private bool isLeft = false;
     // Use this for initialization
     void Start () {
         InputManager.AddOnLeftMove(LeftMove);
@@ -32,6 +33,7 @@ public class PlayerManager : MonoBehaviour {
         InputManager.AddOnUpStair(UpMove);
         InputManager.AddOnDownStair(DownMove);
         InputManager.AddOnSwitchItemState(UseEquip);
+        
     }
 
 	
@@ -44,6 +46,11 @@ public class PlayerManager : MonoBehaviour {
         float playerX = transform.localPosition.x;
         float bg_1_x = minX[floorLayer];
         //transform.LookAt(new Vector3(transform.position.x-5,transform.position.y,transform.position.z));
+        if (!isLeft)
+        {
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            isLeft = true;
+        }
         if (playerX >= bg_1_x)
         {
             transform.Translate(Time.deltaTime * Vector3.left * moveSpeed, Space.World);
@@ -56,6 +63,11 @@ public class PlayerManager : MonoBehaviour {
         float playerX = transform.localPosition.x;
         float bg_1_x = maxX[floorLayer];
         //transform.LookAt(new Vector3(transform.position.x + 5, transform.position.y, transform.position.z));
+        if (isLeft)
+        {
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            isLeft = false;
+        }
         if (playerX <= bg_1_x)
         {
             transform.Translate(Time.deltaTime * Vector3.right * moveSpeed, Space.World);
@@ -84,7 +96,10 @@ public class PlayerManager : MonoBehaviour {
             case EquipmentType.FlashLight:
                 currentEquip.type = EquipmentType.FlashLight;
                 torchPrefab = Instantiate(torchPrefab) as GameObject;
-                torchPrefab.transform.position = new Vector3(transform.position.x + 3.1f, transform.position.y, transform.position.z);
+                if(!isLeft)
+                    torchPrefab.transform.position = new Vector3(transform.position.x + 3.1f, transform.position.y, transform.position.z);
+                else
+                    torchPrefab.transform.position = new Vector3(transform.position.x - 3.1f, transform.position.y, transform.position.z);
                 torchPrefab.transform.parent = transform;
             break;
         }
