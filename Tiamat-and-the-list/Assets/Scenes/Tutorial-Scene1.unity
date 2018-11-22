@@ -6125,6 +6125,7 @@ MonoBehaviour:
   hintSprite: {fileID: 2119729301}
   if_picked: 0
   diaologsection1: Coll
+  noteKey: L1S1Note1
 --- !u!1 &1415022313
 GameObject:
   m_ObjectHideFlags: 0

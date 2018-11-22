@@ -9,6 +9,7 @@ public class NoteInstance : Interoperable {
     public SpriteRenderer hintSprite;
     public bool if_picked = false;
     public string diaologsection1;
+    public string noteKey;
     
 	// Use this for initialization
 	void Start () {
@@ -35,6 +36,8 @@ public class NoteInstance : Interoperable {
             if_picked = true;
             transform.position = new Vector3(48.0f, -10.0f, 0.0f);
             hintSprite.transform.position = new Vector3(48.0f, -8.0f, 0.0f);
+
+            CollectionArchive.NoteCollect(noteKey);
         }
     }
     public override void ShowHint()

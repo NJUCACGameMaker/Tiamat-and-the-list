@@ -10,6 +10,7 @@ public class SceneItemManager : MonoBehaviour {
     public static SceneItemManager instance;
     public List<Interoperable> interoperables;
     public PlayerManager player;
+    [HideInInspector]
     public bool paused = false;
 
     private void Awake()
@@ -68,7 +69,6 @@ public class SceneItemManager : MonoBehaviour {
                 {
                     interoperable.ShowHint();
                     interoperable.NearPlayer = true;
-                    Debug.Log("ShowHintAbout:" + interoperable);
                 }
             }
             else
@@ -88,6 +88,7 @@ public class SceneItemManager : MonoBehaviour {
         {
             SceneManager.LoadScene("Setting", LoadSceneMode.Additive);
             Pause();
+            Debug.Log("Pause");
         }
     }
 
