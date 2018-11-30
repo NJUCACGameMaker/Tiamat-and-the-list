@@ -10,14 +10,14 @@ public class DialogLoader {
     
     public void loadData()
     {
-        dialogDataPath = Application.dataPath + "/Resources/" + SceneItemManager.GetLevelName() + "-Dialog.txt";
-        Debug.Log(File.Exists(dialogDataPath));
-        if (File.Exists(dialogDataPath))
+        var dialogText = Resources.Load<TextAsset>(SceneItemManager.GetLevelName() + "-Dialog");
+        dialogDataPath = Application.persistentDataPath + SceneItemManager.GetLevelName() + "-Dialog.txt";
+        if (dialogText != null)
         {
-            string[] strs = File.ReadAllLines(dialogDataPath);
+            string[] strs = dialogText.text.Split('\n');
             foreach (string rawData in strs)
             {
-                if (rawData == "")
+                if (rawData == "" || rawData == "\r")
                     continue;
                 string[] data = rawData.Replace("\\", "\n").Split('|');
                 Dialog dialog = new Dialog

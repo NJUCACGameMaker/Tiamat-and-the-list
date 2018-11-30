@@ -1,4 +1,4 @@
-﻿1|Scence1|A|哼，终于搞定那帮虫子了。|A_default|0
+1|Scence1|A|哼，终于搞定那帮虫子了。|A_default|0
 2|Scence1|A|普通的人类真是脆弱，稍微一点点小能力就足够让他们俯首称臣了。|A_default|0
 3|Scence1|A|又能大赚一笔了，开瓶酒庆祝一下吧——|A_default|0
 4|Scence1|？？？|不必了，这瓶酒你应该是喝不到了。|0|0

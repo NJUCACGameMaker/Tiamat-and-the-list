@@ -28,6 +28,7 @@ public class TutorialS1Scenario : Scenario {
             deadBodyOriginalPos = deadBody.transform.position;
             deadBody.transform.position = new Vector3(0.0f, -100.0f);
             CollectionArchive.CGCollect("Apkal_serious");
+            CollectionArchive.CGCollect("A_default");
             DialogManager.ShowDialog("Scence1", OnScene1End);
         }
 
