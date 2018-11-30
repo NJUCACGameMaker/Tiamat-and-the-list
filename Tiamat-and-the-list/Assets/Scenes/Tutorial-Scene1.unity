@@ -4567,7 +4567,7 @@ AudioListener:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1167355714}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!4 &1167355717
 Transform:
   m_ObjectHideFlags: 0

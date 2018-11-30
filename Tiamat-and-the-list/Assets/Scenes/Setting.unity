@@ -147,7 +147,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000017341228}
+  m_AnchoredPosition: {x: 0, y: 0.000010099802}
   m_SizeDelta: {x: 750, y: 500}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &6086808
@@ -889,7 +889,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000017341228}
+  m_AnchoredPosition: {x: 0, y: 0.000010099802}
   m_SizeDelta: {x: 750, y: 500}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &546076923
@@ -1492,7 +1492,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000017341228}
+  m_AnchoredPosition: {x: 0, y: 0.000010099802}
   m_SizeDelta: {x: 750, y: 500}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &873960754
@@ -2634,7 +2634,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 600, y: 800}
+  m_SizeDelta: {x: 800, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1639507368
 MonoBehaviour:
@@ -3112,7 +3112,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000017341228}
+  m_AnchoredPosition: {x: 0, y: 0.000010099802}
   m_SizeDelta: {x: 0, y: 41}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1766712110
@@ -3590,7 +3590,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000017341228}
+  m_AnchoredPosition: {x: 0, y: 0.000010099802}
   m_SizeDelta: {x: 750, y: 500}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1909720156
@@ -4207,7 +4207,7 @@ AudioListener:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2075233665}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &2075233667
 Camera:
   m_ObjectHideFlags: 0
