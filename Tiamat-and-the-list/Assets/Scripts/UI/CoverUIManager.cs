@@ -9,6 +9,7 @@ public class CoverUIManager : MonoBehaviour {
 
     public RectTransform newGameConfirmTrans;
     public Button continueButton;
+    public GameObject backgroundMusic;
 
 	// Use this for initialization
 	void Start () {
@@ -16,6 +17,7 @@ public class CoverUIManager : MonoBehaviour {
         {
             continueButton.interactable = false;
         }
+        backgroundMusic = GameObject.Find("BackgroundMusic_Cover");
 	}
 	
 	// Update is called once per frame
@@ -32,6 +34,7 @@ public class CoverUIManager : MonoBehaviour {
         }
         else
         {
+            backgroundMusic.GetComponent<AudioManager>().SceneChange();
             SceneManager.LoadScene("Tutorial-Scene1");
         }
     }
@@ -39,6 +42,7 @@ public class CoverUIManager : MonoBehaviour {
     //继续游戏button
     public void ContinueGame()
     {
+        backgroundMusic.GetComponent<AudioManager>().SceneChange();
         SceneManager.LoadScene(PlayerPrefs.GetString("LastSceneName", "Tutorial-Scene1"));
     }
 
@@ -59,6 +63,7 @@ public class CoverUIManager : MonoBehaviour {
         File.Delete(Application.persistentDataPath + "\\" + "Normal-Archive.json");
         PlayerPrefs.SetInt("HasArchive", 0);
         PlayerPrefs.Save();
+        backgroundMusic.GetComponent<AudioManager>().SceneChange();
         SceneManager.LoadScene("Tutorial-Scene1");
     }
 
