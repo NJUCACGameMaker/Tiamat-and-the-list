@@ -38,7 +38,7 @@
 
 37|Pic1|Apkal|吸血鬼家族的合照吗？明明是怪物却保留了奇怪的传统呢。|Apkal_serious|0
 
-38|Pic2|Apkal|Большая чистка，大清洗吗，和十年前很像呢，吸血鬼和人，也差不了太多。|Apkal_serious|0
+38|Pic2|Apkal|Большая чистка\大清洗吗，和十年前很像呢，吸血鬼和人，也差不了太多。|Apkal_serious|0
 
 39|Pic3-1|Apkal|冰川，有些怀念呢，虽然不知道怎么回事，从大清洗的过去回过神来时，就已经在冰川里了呢|Apkal_serious|0
 40|Pic3-1|Apkal|嗯？似乎画框有点不对劲？|Apkal_serious|0
