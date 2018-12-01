@@ -29,6 +29,10 @@ public class PlayerManager : MonoBehaviour {
     private float currentSpeed = 0f;
     private float lastPositionX;
 
+    //音效控制器
+    public AudioClip audioTorchSwitch;
+    private AudioSource audioSource;
+
     //角色动画控制器
     public Animator playerAnima;
 
@@ -39,6 +43,8 @@ public class PlayerManager : MonoBehaviour {
         InputManager.AddOnRightMove(RightMove);
         InputManager.AddOnSwitchItemState(UseEquip);
         lastPositionX = this.transform.position.x;
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = audioTorchSwitch;
     }
 
 	
@@ -102,15 +108,6 @@ public class PlayerManager : MonoBehaviour {
                 else
                     torch.transform.position = new Vector3(transform.position.x - 3.1f, transform.position.y, transform.position.z);
                 torch.transform.parent = transform;
-            break;
-        }
-        UseEquip();
-    }
-
-    void UseEquip()
-    {
-        switch (currentEquipType) {
-            case EquipmentType.FlashLight:
                 if (itemOn)
                 {
                     turnOffTorch();
@@ -118,7 +115,25 @@ public class PlayerManager : MonoBehaviour {
                 }
                 else
                 {
+                    turnOnTorch();
+                    itemOn = true;
+                }
+                break;
+        }
+    }
 
+    void UseEquip()
+    {
+        switch (currentEquipType) {
+            case EquipmentType.FlashLight:
+                audioSource.Play();
+                if (itemOn)
+                {
+                    turnOffTorch();
+                    itemOn = false;
+                }
+                else
+                {
                     turnOnTorch();
                     itemOn = true;
                 }
@@ -128,7 +143,6 @@ public class PlayerManager : MonoBehaviour {
 
     void turnOnTorch()
     {
-        Debug.Log(transform.childCount);
         transform.Find("Torch(Clone)").GetComponent<FlashLightEquipment>().TurnOnTorch();
     }
     void turnOffTorch()

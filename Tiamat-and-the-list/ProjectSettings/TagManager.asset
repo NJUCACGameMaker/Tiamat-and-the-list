@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Torch
+  - BackgroundMusic
   layers:
   - Default
   - TransparentFX
