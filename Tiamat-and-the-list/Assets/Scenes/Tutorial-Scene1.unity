@@ -850,6 +850,7 @@ MonoBehaviour:
   floorLayer: 0
   dialogSection: Pic6
   hintSprite: {fileID: 1428382460}
+  audioPainting: {fileID: 8300000, guid: 4213f7c5fb377744694130e513a226e5, type: 3}
 --- !u!1 &136992927
 GameObject:
   m_ObjectHideFlags: 0
@@ -1881,6 +1882,8 @@ MonoBehaviour:
   section: 0
   dropAnimator: {fileID: 441231643}
   hintSprite: {fileID: 38141786}
+  audioPainting: {fileID: 8300000, guid: 4213f7c5fb377744694130e513a226e5, type: 3}
+  audioPaintingDrop: {fileID: 8300000, guid: 5a9c1b0502cb4434db0fb7b349d3d141, type: 3}
 --- !u!1 &443552551
 GameObject:
   m_ObjectHideFlags: 0
@@ -2146,6 +2149,7 @@ MonoBehaviour:
   floorLayer: 0
   dialogSection: Pic4
   hintSprite: {fileID: 1304928006}
+  audioPainting: {fileID: 8300000, guid: 4213f7c5fb377744694130e513a226e5, type: 3}
 --- !u!1 &471447790
 GameObject:
   m_ObjectHideFlags: 0
@@ -2271,6 +2275,7 @@ MonoBehaviour:
   floorLayer: 0
   dialogSection: Pic1
   hintSprite: {fileID: 1052528561}
+  audioPainting: {fileID: 8300000, guid: 4213f7c5fb377744694130e513a226e5, type: 3}
 --- !u!1 &503458427
 GameObject:
   m_ObjectHideFlags: 0
@@ -6364,6 +6369,7 @@ MonoBehaviour:
   if_picked: 0
   diaologsection1: Coll
   noteKey: L1S1Note1
+  audioNote: {fileID: 8300000, guid: 378eed9ccab70d2449c34fa50eaeeecc, type: 3}
 --- !u!1 &1415022313
 GameObject:
   m_ObjectHideFlags: 0
@@ -6723,6 +6729,7 @@ MonoBehaviour:
   floorLayer: 0
   dialogSection: Pic5
   hintSprite: {fileID: 1887460898}
+  audioPainting: {fileID: 8300000, guid: 4213f7c5fb377744694130e513a226e5, type: 3}
 --- !u!1 &1470117543
 GameObject:
   m_ObjectHideFlags: 0
@@ -9027,6 +9034,7 @@ MonoBehaviour:
   floorLayer: 0
   dialogSection: Pic2
   hintSprite: {fileID: 1287610705}
+  audioPainting: {fileID: 8300000, guid: 4213f7c5fb377744694130e513a226e5, type: 3}
 --- !u!1 &1831124266
 GameObject:
   m_ObjectHideFlags: 0
@@ -10390,6 +10398,7 @@ MonoBehaviour:
   player: {fileID: 868496700}
   picked: 0
   hintSprite: {fileID: 1646145086}
+  audioPick: {fileID: 8300000, guid: 5cfc15a8812cb2c46b86050732eb2b78, type: 3}
 --- !u!1 &2144191569
 GameObject:
   m_ObjectHideFlags: 0

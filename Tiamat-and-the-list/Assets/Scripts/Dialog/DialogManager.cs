@@ -147,9 +147,9 @@ public class DialogManager : MonoBehaviour
                     }
                     dialogText.text = tempDialog.Replace("#","");
                     timer += Time.deltaTime;
-
+                   
                     // 播放音效
-                    if (!audioSource.isPlaying)
+                    if (!audioSource.isPlaying && pauseTime<=0)
                     {
                         audioSource.Play();
                     }

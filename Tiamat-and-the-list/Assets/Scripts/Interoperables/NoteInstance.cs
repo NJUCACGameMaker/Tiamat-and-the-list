@@ -13,12 +13,17 @@ public class NoteInstance : Interoperable {
 
     private float hintAlpha = 0f;
     private bool showHint = false;
+    
+    public AudioClip audioNote;
+    private AudioSource audioSource;
 
     // Use this for initialization
     void Start () {
         InputManager.AddOnInteract(OnInteract);
         interoperable = false;
-	}
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = audioNote;
+    }
 	
 	// Update is called once per frame
 	void Update () { 
@@ -49,6 +54,7 @@ public class NoteInstance : Interoperable {
     {
         if (NearPlayer&&interoperable)
         {
+            audioSource.Play();
             DialogManager.ShowDialog(diaologsection1);
             interoperable = false;
             if_picked = true;

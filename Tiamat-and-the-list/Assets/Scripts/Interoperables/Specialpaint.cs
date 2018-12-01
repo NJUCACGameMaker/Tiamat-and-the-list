@@ -14,6 +14,9 @@ public class Specialpaint : Interoperable
     public Animator dropAnimator;
     public SpriteRenderer hintSprite;
 
+    public AudioClip audioPainting;
+    public AudioClip audioPaintingDrop;
+    private AudioSource audioSource;
 
     private float hintAlpha = 0f;
     private bool showHint = false;
@@ -22,6 +25,8 @@ public class Specialpaint : Interoperable
     void Start()
     {
         InputManager.AddOnInteract(OnInteract);
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = audioPainting;
 
     }
 
@@ -49,6 +54,9 @@ public class Specialpaint : Interoperable
         if (NearPlayer)
         {
             section++;
+            if (section == 3)
+                audioSource.clip = audioPaintingDrop;
+            audioSource.Play();
             if (section == 1)
                 DialogManager.ShowDialog(dialogSection1);
             else if (section == 2)

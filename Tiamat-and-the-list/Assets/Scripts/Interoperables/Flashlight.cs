@@ -12,12 +12,17 @@ public class Flashlight : Pickable
 
     private float hintAlpha = 0f;
     private bool showHint = false;
+    
+    public AudioClip audioPick;
+    private AudioSource audioSource;
 
     // Use this for initialization
     void Start()
     {
         InputManager.AddOnInteract(OnInteract);
         InputManager.AddOnPick(OnPick);
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = audioPick;
     }
 
     // Update is called once per frame
@@ -58,6 +63,7 @@ public class Flashlight : Pickable
     {
         if (NearPlayer)
         {
+            audioSource.Play();
             gameObject.transform.position = new Vector3(48.0f, -20.0f, 0.0f);
             hintSprite.transform.position = new Vector3(48.0f, -18.0f, 0.0f);
             gameObject.GetComponent<Interoperable>().interoperable = false;

@@ -9,11 +9,15 @@ public class Paint : Interoperable
 
     private float hintAlpha = 0f;
     private bool showHint = false;
+
+    public AudioClip audioPainting;
+    private AudioSource audioSource;
     // Use this for initialization
     void Start()
     {
         InputManager.AddOnInteract(OnInteract);
-       
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = audioPainting;
     }
 
     // Update is called once per frame
@@ -39,6 +43,7 @@ public class Paint : Interoperable
     {
         if (NearPlayer)
         {
+            audioSource.Play();
             DialogManager.ShowDialog(dialogSection);
         }
     }
