@@ -14,19 +14,13 @@ public class FlashLightEquipment : Equipment {
     public void TurnOnTorch()
     {
         SpriteRenderer torch = GetComponent<SpriteRenderer>();
-        torch.color = new Color(torch.color.r, torch.color.g, torch.color.b, 0.3f);
-        this.gameObject.AddComponent<SpriteMask>();
-        SpriteMask mask = transform.GetComponent<SpriteMask>();
-        mask.sprite = sprite;
-        mask.alphaCutoff = 0.228f;
-        mask.spriteSortPoint = SpriteSortPoint.Center;
+        torch.color = new Color(torch.color.r, torch.color.g, torch.color.b, 0.8f);
+        
     }
 
     public void TurnOffTorch()
     {
         SpriteRenderer torch = GetComponent<SpriteRenderer>();
         torch.color = new Color(torch.color.r, torch.color.g, torch.color.b, 0f);
-        SpriteMask mask = transform.GetComponent<SpriteMask>();
-        Destroy(mask);
     }
 }

@@ -25,6 +25,10 @@ public class PlayerManager : MonoBehaviour {
     //高度层，最低为0，向上递增，用于判断是否与道具在同一层从而判断是否可交互。
     public int floorLayer = 0;
 
+    //当前移动速度
+    private float currentSpeed = 0f;
+    private float lastPositionX;
+
     //角色动画控制器
     public Animator playerAnima;
 
@@ -34,15 +38,18 @@ public class PlayerManager : MonoBehaviour {
         InputManager.AddOnLeftMove(LeftMove);
         InputManager.AddOnRightMove(RightMove);
         InputManager.AddOnSwitchItemState(UseEquip);
-        InputManager.AddAfterMove(AfterMove);
-        InputManager.AddBeforMove(BeforeMove);
+        lastPositionX = this.transform.position.x;
     }
 
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        float currentPositionX = this.transform.position.x;
+        currentSpeed = Math.Abs(currentPositionX - lastPositionX) / Time.deltaTime;
+        lastPositionX = currentPositionX;
+        playerAnima.SetFloat("MoveSpeed", currentSpeed);
+    }
+
     void LeftMove()
     {
         float playerX = transform.localPosition.x;
@@ -75,16 +82,6 @@ public class PlayerManager : MonoBehaviour {
             transform.Translate(Time.deltaTime * Vector3.right * moveSpeed, Space.World);
         }
         
-    }
-    
-    void BeforeMove()
-    {
-        playerAnima.SetFloat("MoveSpeed", 1.0f);
-    }
-
-    void AfterMove()
-    {
-        playerAnima.SetFloat("MoveSpeed", 0f);
     }
 
 

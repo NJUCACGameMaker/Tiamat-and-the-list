@@ -372,15 +372,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8ddd8b081ed2a419de001508e8d7d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 0
-  <Index>k__BackingField: 0
-  generated: 0
-  interoperable: 1
-  detectDist: 2
-  floorLayer: 0
-  nearPlayer: 0
-  <NearPlayer>k__BackingField: 0
-  player: {fileID: 0}
 --- !u!1 &93564121
 GameObject:
   m_ObjectHideFlags: 0

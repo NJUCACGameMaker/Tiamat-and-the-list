@@ -10,9 +10,12 @@ public class NoteInstance : Interoperable {
     public bool if_picked = false;
     public string diaologsection1;
     public string noteKey;
-    
-	// Use this for initialization
-	void Start () {
+
+    private float hintAlpha = 0f;
+    private bool showHint = false;
+
+    // Use this for initialization
+    void Start () {
         InputManager.AddOnInteract(OnInteract);
         interoperable = false;
 	}
@@ -24,7 +27,22 @@ public class NoteInstance : Interoperable {
             interoperable = true;
         }
         else interoperable = false;
-	}
+
+        if (showHint && hintAlpha < 1.0f)
+        {
+            hintAlpha += Time.deltaTime * 4;
+            if (hintAlpha > 1.0f)
+                hintAlpha = 1.0f;
+            hintSprite.color = new Color(hintSprite.color.r, hintSprite.color.g, hintSprite.color.b, hintAlpha);
+        }
+        if (!showHint && hintAlpha > 0f)
+        {
+            hintAlpha -= Time.deltaTime * 4;
+            if (hintAlpha < 0f)
+                hintAlpha = 0.0f;
+            hintSprite.color = new Color(hintSprite.color.r, hintSprite.color.g, hintSprite.color.b, hintAlpha);
+        }
+    }
 
 
     void OnInteract()
@@ -42,13 +60,13 @@ public class NoteInstance : Interoperable {
     }
     public override void ShowHint()
     {
-        if(interoperable)
-            hintSprite.color = new Color(hintSprite.color.r, hintSprite.color.g, hintSprite.color.b, 1f);
+        if (interoperable)
+            showHint = true;
     }
 
     public override void UnshowHint()
     {
-            hintSprite.color = new Color(hintSprite.color.r, hintSprite.color.g, hintSprite.color.b, 0f);
+        showHint = false;
     }
 
     public override string GetArchive()
