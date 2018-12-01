@@ -20,6 +20,9 @@ public class DialogManager : MonoBehaviour
     private double timer;
     private bool animationLock;                // 在播放特定动画的时候锁死交互
 
+    public AudioClip typingSound;
+    private AudioSource audioSource;
+
     //委托，当对话结束时调用
     public delegate void NoneParaVoid();
     private NoneParaVoid OnEnd;
@@ -36,6 +39,8 @@ public class DialogManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = typingSound;
     }
 
     //显示对话栏
@@ -135,6 +140,12 @@ public class DialogManager : MonoBehaviour
                 }
                 dialogText.text = tempDialog;
                 timer += Time.deltaTime;
+
+                // 播放音效
+                if (!audioSource.isPlaying)
+                {
+                    audioSource.Play();
+                }
             }
         }
     }
