@@ -19,6 +19,7 @@ public class DialogManager : MonoBehaviour
     private bool dialogFlag;                   // 判断是否在逐字显示
     private double timer;
     private bool animationLock;                // 在播放特定动画的时候锁死交互
+    private float pauseTime = 0f;              // 用于会话停顿
 
     public AudioClip typingSound;
     private AudioSource audioSource;
@@ -132,19 +133,26 @@ public class DialogManager : MonoBehaviour
             }
             if (dialogFlag)
             {
-                Text dialogText = DialogBox.transform.Find("DialogPanel").Find("DialogText").GetComponent<Text>();
-                if (timer > textSpeed)
+                if (pauseTime > 0f)
                 {
-                    timer = 0;
-                    tempDialog = currentDialog.text.Substring(0, tempDialog.Length + 1);
-                }
-                dialogText.text = tempDialog;
-                timer += Time.deltaTime;
+                    pauseTime -= Time.deltaTime;
+                } else { 
+                    Text dialogText = DialogBox.transform.Find("DialogPanel").Find("DialogText").GetComponent<Text>();
+                    if (timer > textSpeed)
+                    {
+                        timer = 0;
+                        if (currentDialog.text[tempDialog.Length] == '#')
+                            pauseTime = 0.3f;
+                        tempDialog = currentDialog.text.Substring(0, tempDialog.Length + 1);
+                    }
+                    dialogText.text = tempDialog.Replace("#","");
+                    timer += Time.deltaTime;
 
-                // 播放音效
-                if (!audioSource.isPlaying)
-                {
-                    audioSource.Play();
+                    // 播放音效
+                    if (!audioSource.isPlaying)
+                    {
+                        audioSource.Play();
+                    }
                 }
             }
         }
@@ -278,7 +286,7 @@ public class DialogManager : MonoBehaviour
             else { 
                 tempDialog = currentDialog.text;
                 Text dialogText = DialogBox.transform.Find("DialogPanel").Find("DialogText").GetComponent<Text>();
-                dialogText.text = tempDialog;
+                dialogText.text = tempDialog.Replace("#", "");
             }
         }
     }
