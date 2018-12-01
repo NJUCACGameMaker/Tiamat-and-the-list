@@ -187,6 +187,7 @@ public class DialogManager : MonoBehaviour
     {
         GameObject replacedName = Instantiate(DialogBox.transform.Find("NamePanel").Find("NameText").gameObject) as GameObject;
         replacedName.transform.position = DialogBox.transform.Find("NamePanel").Find("NameText").position - new Vector3(20f, 0, 0);
+        replacedName.transform.localScale = DialogBox.transform.localScale;
         replacedName.GetComponent<Text>().text = name2;
         Color c1 = DialogBox.transform.Find("NamePanel").Find("NameText").GetComponent<Text>().color;
         Color c2 = replacedName.GetComponent<Text>().color;
