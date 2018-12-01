@@ -11,6 +11,10 @@ public class Switch : Interoperable
     public Animator lightAnimator;
     public bool on = true;
 
+    public AudioClip audioSwitchOn;
+    public AudioClip audioSwitchOff;
+    private AudioSource audioSource;
+
     private float hintAlpha = 0f;
     private bool showHint = false;
 
@@ -19,6 +23,7 @@ public class Switch : Interoperable
     {
         InputManager.AddOnInteract(OnInteract);
         InputManager.AddOnPick(OnPick);
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -64,11 +69,15 @@ public class Switch : Interoperable
             if (on)
             {
                 on = false;
+                audioSource.clip = audioSwitchOff;
+                audioSource.Play();
                 StartCoroutine(SetLightAlpha(0.8f));
             }
             else
             {
                 on = true;
+                audioSource.clip = audioSwitchOn;
+                audioSource.Play();
                 StartCoroutine(SetLightAlpha(0f));
             }
             lightAnimator.SetBool("LightOn", on);
