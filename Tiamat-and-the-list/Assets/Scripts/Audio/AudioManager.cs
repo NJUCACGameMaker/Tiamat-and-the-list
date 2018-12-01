@@ -13,19 +13,11 @@ public class AudioManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (destroy && t<=1.0f) {
-            volume = 1 - t;
-            this.GetComponent<AudioSource>().volume = volume;
-            t += Time.deltaTime;
-        }
-        if (t>1.0f)
-        {
-            Destroy(this.gameObject);
-        }
+            
     }
 
     public void SceneChange()
     {
-        destroy = true;
+        Destroy(this.gameObject);
     }
 }

@@ -17,7 +17,7 @@ public class CoverUIManager : MonoBehaviour {
         {
             continueButton.interactable = false;
         }
-        backgroundMusic = GameObject.Find("BackgroundMusic_Cover");
+        backgroundMusic = GameObject.FindGameObjectWithTag("BackgroundMusic");
 	}
 	
 	// Update is called once per frame

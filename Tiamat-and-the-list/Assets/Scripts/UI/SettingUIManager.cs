@@ -16,6 +16,8 @@ public class SettingUIManager : MonoBehaviour {
     private RectTransform currentLeft;
     private RectTransform currentRight;
 
+    public GameObject backgroundMusic;
+
     private void Start()
     {
         currentLeft = mainLeftTrans;
@@ -38,6 +40,8 @@ public class SettingUIManager : MonoBehaviour {
         {
             cgList.AddCGButton(cgPiece.shortLine, cgPiece.picPath);
         }
+
+        
     }
 
     private void Update()
@@ -76,6 +80,10 @@ public class SettingUIManager : MonoBehaviour {
 
     public void Title()
     {
+        backgroundMusic = GameObject.FindGameObjectWithTag("BackgroundMusic");
+        Debug.Log(backgroundMusic.name);
+        if (backgroundMusic.name != "BackgroundMusic_Cover")
+            backgroundMusic.GetComponent<AudioManager>().SceneChange();
         SceneManager.LoadScene("Cover");
     }
 
