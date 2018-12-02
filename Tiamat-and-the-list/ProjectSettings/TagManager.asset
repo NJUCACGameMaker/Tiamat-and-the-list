@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Torch
   - BackgroundMusic
+  - AudioManager
   layers:
   - Default
   - TransparentFX

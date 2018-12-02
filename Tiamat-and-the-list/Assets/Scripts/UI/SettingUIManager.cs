@@ -83,7 +83,7 @@ public class SettingUIManager : MonoBehaviour {
         backgroundMusic = GameObject.FindGameObjectWithTag("BackgroundMusic");
         Debug.Log(backgroundMusic.name);
         if (backgroundMusic.name != "BackgroundMusic_Cover")
-            backgroundMusic.GetComponent<AudioManager>().SceneChange();
+            backgroundMusic.GetComponent<BackgroundAudioManager>().SceneChange();
         SceneManager.LoadScene("Cover");
     }
 

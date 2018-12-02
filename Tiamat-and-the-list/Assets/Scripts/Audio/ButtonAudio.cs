@@ -20,6 +20,7 @@ public class ButtonAudio : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
         
         
     }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         uiAudioPlayer = new GameObject();
@@ -29,6 +30,7 @@ public class ButtonAudio : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
         audioSource.clip = audioButtonSlide;
         audioSource.Play();
     }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         uiAudioPlayer = new GameObject();
