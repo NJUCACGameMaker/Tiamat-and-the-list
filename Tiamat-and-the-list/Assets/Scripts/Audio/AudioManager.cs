@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour {
     public bool muteBackgroundMusic = false;
     public bool muteEffectSound = false;
     // Use this for initialization
-    void Start () {
+    void Awake () {
         // 同一场景不能有两个Manager
         if (GameObject.FindGameObjectWithTag("AudioManager") != null)
             Destroy(this.gameObject);
