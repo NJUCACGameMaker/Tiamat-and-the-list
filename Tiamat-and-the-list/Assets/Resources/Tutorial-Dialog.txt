@@ -12,33 +12,32 @@
 12|Scence1|Apkal|仅仅因为吸血鬼家族里出了一个耻辱的人类。|Apkal_serious|0
 13|Scence1|Apkal|我本该在那次事件中重伤死去。|Apkal_serious|0
 14|Scence1|Apkal|不过，既然你们会因为诅咒而成为吸血鬼，#我因为诅咒而活下来也不是不可能吧。|Apkal_serious|0
-15|Scence1|Apkal|我被你们夺走了一切，#而现在，|Apkal_serious|0
-16|Scence1|Apkal|轮到我来让你们尝一尝一无所有的感受了。|Apkal_serious|0
-17|Scence1|A|哼，#这个世界可比你个毛头小子想的残酷。|A_default|0
-18|Scence1|A|我倒要看看乳臭未干的你，#要怎么向我复仇。|A_default|0
-19|Scence1|Apkal|这就不劳您费心了……#3，#2，#1|Apkal_serious|0
-20|Scence1|A|使不上劲了，#怎么会……？!|A_default|0
-21|Scence1|Apkal|针对吸血鬼的毒气哦，无色无味，#可是我找了好久才发现的好东西。|Apkal_serious|0
-22|Scence1|Apkal|我从不做没有准备的事情。|Apkal_serious|0
-23|Scence1|Apkal|再见了，#叔叔。|Apkal_serious|0
-24|Scence1|A|该死的小鬼，#没想到还真有点本事。|A_default|0
-25|Scence1|A|这个世界可比你想的复杂。|A_default|0
-26|Scence1|0|(响声）|0|0
-27|Scence1|A|这套住宅有我的生命体征检测自卫系统。|A_default|0
-28|Scence1|A|我死了，#你也将被困在这，#为我陪葬！|A_default|0
-29|Scence1|A|臭小鬼，#如果你真有本事就从这里逃出去吧。|A_default|0
-30|Scence1|A|向我证明，#那个传说是真的……|A_default|0
-31|Scence1|Apkal|该死，门窗都自动关闭了。#电力系统也全瘫痪了，看来要赶紧想办法出去才行。|Apkal_serious|0
-32|Scence1|Apkal|这个混球死也不让人安宁。#他最后提到的传说又是什么？\##不不不现在不是考虑这个的时候。|Apkal_serious|0
-33|Scence1|Apkal|从这里出去才是最重要的。###诶?那里还有光?|Apkal_serious|0
-34|Scence1|0|（按A/D键移动）|0|0
+15|Scence1|Apkal|我被你们夺走了一切，#而现在，轮到我来让你们尝一尝一无所有的感受了。|Apkal_serious|0
+16|Scence1|A|哼，#这个世界可比你个毛头小子想的残酷。|A_default|0
+17|Scence1|A|我倒要看看乳臭未干的你，#要怎么向我复仇。|A_default|0
+18|Scence1|Apkal|这就不劳您费心了……#3，#2，#1$|Apkal_serious|0|fingerSnap
+19|Scence1|A|使不上劲了，#怎么会……？!|A_default|0
+20|Scence1|Apkal|针对吸血鬼的毒气哦，#无色无味，#可是我找了好久才发现的好东西。|Apkal_serious|0
+21|Scence1|Apkal|我从不做没有准备的事情。|Apkal_serious|0
+22|Scence1|Apkal|再见了，#叔叔。|Apkal_serious|0
+23|Scence1|A|该死的小鬼，#没想到还真有点本事。|A_default|0
+24|Scence1|A|这个世界可比你想的$复杂。|A_default|0|explode
+25|Scence1|A|$这套住宅有我的生命体征检测自卫系统。|A_default|0|alarm
+26|Scence1|A|我死了，#你也将被困在这，#为我陪葬！|A_default|0
+27|Scence1|A|臭小鬼，#如果你真有本事就从这里逃出去吧。|A_default|0
+28|Scence1|A|向我证明，#那个传说是真的……|A_default|0
+29|Scence1|Apkal|该死，门窗都自动关闭了。#电力系统也全瘫痪了，#看来要赶紧想办法出去才行。|Apkal_serious|0
+30|Scence1|Apkal|这个混球死也不让人安宁。#他最后提到的传说又是什么？\#不不不，现在不是考虑这个的时候。|Apkal_serious|0
+31|Scence1|Apkal|从这里出去才是最重要的。|Apkal_serious|0
+32|Scence1|Apkal|诶？#那里还有光？|Apkal_serious|0
+33|Scence1|0|（按A/D键移动）|0|0
 
 35|Hint1|Apkal|吸血鬼家族的合照吗？#明明是怪物却保留了奇怪的传统呢。|Apkal_serious|0
 36|Hint1|0|（按E可和场景道具互动）|0|0
 
 37|Pic1|Apkal|吸血鬼家族的合照吗？#明明是怪物却保留了奇怪的传统呢。|Apkal_serious|0
 
-38|Pic2|Apkal|Большая чистка##\大清洗吗，和十年前很像呢，吸血鬼和人，也差不了太多。|Apkal_serious|0
+38|Pic2|Apkal|Большая чистка##\大清洗吗，和十年前很像呢，#吸血鬼和人，也差不了太多。|Apkal_serious|0
 
 39|Pic3-1|Apkal|冰川，#有些怀念呢，#虽然不知道怎么回事，#从大清洗的过去回过神来时，#就已经在冰川里了呢。|Apkal_serious|0
 40|Pic3-1|Apkal|嗯？#似乎画框有点不对劲？|Apkal_serious|0
