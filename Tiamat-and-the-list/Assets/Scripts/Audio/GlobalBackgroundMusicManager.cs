@@ -26,6 +26,8 @@ public class GlobalBackgroundMusicManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        GameObject uiAudioPlayer = GameObject.Find("UIAudioPlayer");
+        if (uiAudioPlayer != null && !uiAudioPlayer.GetComponent<AudioSource>().isPlaying)
+            Destroy(uiAudioPlayer.gameObject);
+    }
 }

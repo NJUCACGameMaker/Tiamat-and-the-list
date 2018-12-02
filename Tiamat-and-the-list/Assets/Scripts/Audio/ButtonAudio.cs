@@ -11,29 +11,30 @@ public class ButtonAudio : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
 	// Use this for initialization
 	void Start () {
         uiAudioPlayer = GameObject.Find("UIAudioPlayer");
-        if (uiAudioPlayer == null)
-        {
-            uiAudioPlayer = new GameObject();
-            uiAudioPlayer.name = "UIAudioPlayer";
-            audioSource = uiAudioPlayer.AddComponent<AudioSource>();
-            DontDestroyOnLoad(uiAudioPlayer);
-        } else { 
-            audioSource = uiAudioPlayer.GetComponent<AudioSource>();
-        }
+        
         
     }
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        
+        
+    }
     public void OnPointerEnter(PointerEventData eventData)
     {
+        uiAudioPlayer = new GameObject();
+        uiAudioPlayer.name = "UIAudioPlayer";
+        audioSource = uiAudioPlayer.AddComponent<AudioSource>();
+        DontDestroyOnLoad(uiAudioPlayer);
         audioSource.clip = audioButtonSlide;
         audioSource.Play();
     }
     public void OnPointerClick(PointerEventData eventData)
     {
+        uiAudioPlayer = new GameObject();
+        uiAudioPlayer.name = "UIAudioPlayer";
+        audioSource = uiAudioPlayer.AddComponent<AudioSource>();
+        DontDestroyOnLoad(uiAudioPlayer);
         audioSource.clip = audioButtonClick;
         audioSource.Play();
     }
