@@ -10,17 +10,38 @@ public class Flashlight : Pickable
     public bool picked = false;
     public SpriteRenderer hintSprite;
 
+    private float hintAlpha = 0f;
+    private bool showHint = false;
+    
+    public AudioClip audioPick;
+    private AudioSource audioSource;
+
     // Use this for initialization
     void Start()
     {
         InputManager.AddOnInteract(OnInteract);
         InputManager.AddOnPick(OnPick);
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = audioPick;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (showHint && hintAlpha < 1.0f)
+        {
+            hintAlpha += Time.deltaTime * 4;
+            if (hintAlpha > 1.0f)
+                hintAlpha = 1.0f;
+            hintSprite.color = new Color(hintSprite.color.r, hintSprite.color.g, hintSprite.color.b, hintAlpha);
+        }
+        if (!showHint && hintAlpha > 0f)
+        {
+            hintAlpha -= Time.deltaTime * 4;
+            if (hintAlpha < 0f)
+                hintAlpha = 0.0f;
+            hintSprite.color = new Color(hintSprite.color.r, hintSprite.color.g, hintSprite.color.b, hintAlpha);
+        }
     }
     void OnInteract()
     {
@@ -32,16 +53,17 @@ public class Flashlight : Pickable
     }
     public override void ShowHint()
     {
-        hintSprite.color = new Color(hintSprite.color.r, hintSprite.color.g, hintSprite.color.b, 1f);
+        showHint = true;
     }
     public override void UnshowHint()
     {
-        hintSprite.color = new Color(hintSprite.color.r, hintSprite.color.g, hintSprite.color.b, 0f);
+        showHint = false;
     }
     void OnPick()
     {
         if (NearPlayer)
         {
+            audioSource.Play();
             gameObject.transform.position = new Vector3(48.0f, -20.0f, 0.0f);
             hintSprite.transform.position = new Vector3(48.0f, -18.0f, 0.0f);
             gameObject.GetComponent<Interoperable>().interoperable = false;

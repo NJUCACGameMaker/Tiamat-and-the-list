@@ -5,6 +5,7 @@ using UnityEngine;
 public class GlobalBackgroundMusicManager : MonoBehaviour {
     public GameObject BackgroundMusic;
     GameObject myMusic;
+    AudioManager manager;
     public AudioClip clip;
 
 	// Use this for initialization
@@ -26,6 +27,16 @@ public class GlobalBackgroundMusicManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        
+    }
+
+    public void setVolume(float volume)
+    {
+        myMusic.GetComponent<AudioSource>().volume = volume;
+    }
+
+    public void setMute(bool mute)
+    {
+        myMusic.GetComponent<AudioSource>().mute = mute;
+    }
 }

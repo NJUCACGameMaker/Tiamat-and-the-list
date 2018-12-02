@@ -14,17 +14,39 @@ public class Specialpaint : Interoperable
     public Animator dropAnimator;
     public SpriteRenderer hintSprite;
 
+    public AudioClip audioPainting;
+    public AudioClip audioPaintingDrop;
+    private AudioSource audioSource;
+
+    private float hintAlpha = 0f;
+    private bool showHint = false;
+
     // Use this for initialization
     void Start()
     {
         InputManager.AddOnInteract(OnInteract);
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = audioPainting;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (showHint && hintAlpha < 1.0f)
+        {
+            hintAlpha += Time.deltaTime * 4;
+            if (hintAlpha > 1.0f)
+                hintAlpha = 1.0f;
+            hintSprite.color = new Color(hintSprite.color.r, hintSprite.color.g, hintSprite.color.b, hintAlpha);
+        }
+        if (!showHint && hintAlpha > 0f)
+        {
+            hintAlpha -= Time.deltaTime * 4;
+            if (hintAlpha < 0f)
+                hintAlpha = 0.0f;
+            hintSprite.color = new Color(hintSprite.color.r, hintSprite.color.g, hintSprite.color.b, hintAlpha);
+        }
     }
 
     void OnInteract()
@@ -32,6 +54,9 @@ public class Specialpaint : Interoperable
         if (NearPlayer)
         {
             section++;
+            if (section == 3)
+                audioSource.clip = audioPaintingDrop;
+            audioSource.Play();
             if (section == 1)
                 DialogManager.ShowDialog(dialogSection1);
             else if (section == 2)
@@ -66,10 +91,10 @@ public class Specialpaint : Interoperable
     public override void ShowHint()
     {
         if(section<=3)
-        hintSprite.color = new Color(hintSprite.color.r, hintSprite.color.g, hintSprite.color.b, 1f);
+            showHint = true;
     }
     public override void UnshowHint()
     {
-        hintSprite.color = new Color(hintSprite.color.r, hintSprite.color.g, hintSprite.color.b, 0f);
+        showHint = false;
     }
 }

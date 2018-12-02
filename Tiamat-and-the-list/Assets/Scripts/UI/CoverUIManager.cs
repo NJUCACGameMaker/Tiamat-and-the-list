@@ -17,7 +17,7 @@ public class CoverUIManager : MonoBehaviour {
         {
             continueButton.interactable = false;
         }
-        backgroundMusic = GameObject.Find("BackgroundMusic_Cover");
+        backgroundMusic = GameObject.FindGameObjectWithTag("BackgroundMusic");
 	}
 	
 	// Update is called once per frame
@@ -34,7 +34,7 @@ public class CoverUIManager : MonoBehaviour {
         }
         else
         {
-            backgroundMusic.GetComponent<AudioManager>().SceneChange();
+            backgroundMusic.GetComponent<BackgroundAudioManager>().SceneChange();
             SceneManager.LoadScene("Tutorial-Scene1");
         }
     }
@@ -42,7 +42,7 @@ public class CoverUIManager : MonoBehaviour {
     //继续游戏button
     public void ContinueGame()
     {
-        backgroundMusic.GetComponent<AudioManager>().SceneChange();
+        backgroundMusic.GetComponent<BackgroundAudioManager>().SceneChange();
         SceneManager.LoadScene(PlayerPrefs.GetString("LastSceneName", "Tutorial-Scene1"));
     }
 
@@ -63,7 +63,7 @@ public class CoverUIManager : MonoBehaviour {
         File.Delete(Application.persistentDataPath + "\\" + "Normal-Archive.json");
         PlayerPrefs.SetInt("HasArchive", 0);
         PlayerPrefs.Save();
-        backgroundMusic.GetComponent<AudioManager>().SceneChange();
+        backgroundMusic.GetComponent<BackgroundAudioManager>().SceneChange();
         SceneManager.LoadScene("Tutorial-Scene1");
     }
 
