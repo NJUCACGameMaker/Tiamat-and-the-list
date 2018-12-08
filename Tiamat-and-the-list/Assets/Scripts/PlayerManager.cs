@@ -17,6 +17,8 @@ public class PlayerManager : MonoBehaviour {
     public float moveSpeed = 8.0f;
     //手电筒
     public GameObject torchPrefab;
+    //技能分身
+    public GameObject SkillPrefab;
     //判断是否使用道具
     [HideInInspector]
     public bool itemOn = false;
@@ -40,11 +42,13 @@ public class PlayerManager : MonoBehaviour {
 
     [HideInInspector]
     public bool isLeft = false;
+    private bool canMove = true;
     // Use this for initialization
     void Start () {
         InputManager.AddOnLeftMove(LeftMove);
         InputManager.AddOnRightMove(RightMove);
         InputManager.AddOnSwitchItemState(UseEquip);
+        InputManager.AddOnSkill(UseSkill);
         lastPositionX = this.transform.position.x;
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = audioTorchSwitch;
@@ -61,86 +65,99 @@ public class PlayerManager : MonoBehaviour {
 
     void LeftMove()
     {
-        float playerX = transform.localPosition.x;
-        float bg_1_x = minX[floorLayer];
-        //transform.LookAt(new Vector3(transform.position.x-5,transform.position.y,transform.position.z));
-        if (!isLeft)
+        if (canMove)
         {
-            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-            isLeft = true;
-        }
-        if (playerX >= bg_1_x)
-        {
-            transform.Translate(Time.deltaTime * Vector3.left * moveSpeed, Space.World);
+            float playerX = transform.localPosition.x;
+            float bg_1_x = minX[floorLayer];
+            //transform.LookAt(new Vector3(transform.position.x-5,transform.position.y,transform.position.z));
+            if (!isLeft)
+            {
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                isLeft = true;
+            }
+            if (playerX >= bg_1_x)
+            {
+                transform.Translate(Time.deltaTime * Vector3.left * moveSpeed, Space.World);
+            }
         }
         
     }
 
     void RightMove()
     {
-        float playerX = transform.localPosition.x;
-        float bg_1_x = maxX[floorLayer];
-        //transform.LookAt(new Vector3(transform.position.x + 5, transform.position.y, transform.position.z));
-        if (isLeft)
+        if (canMove)
         {
-            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-            isLeft = false;
+            float playerX = transform.localPosition.x;
+            float bg_1_x = maxX[floorLayer];
+            //transform.LookAt(new Vector3(transform.position.x + 5, transform.position.y, transform.position.z));
+            if (isLeft)
+            {
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                isLeft = false;
+            }
+            if (playerX <= bg_1_x)
+            {
+                transform.Translate(Time.deltaTime * Vector3.right * moveSpeed, Space.World);
+            }
         }
-        if (playerX <= bg_1_x)
-        {
-            transform.Translate(Time.deltaTime * Vector3.right * moveSpeed, Space.World);
-        }
-        
     }
 
 
     public void setEquip(EquipmentType equipmentType)
     {
-        var existedTorch = transform.Find("Torch(Clone)");
-        if (existedTorch != null)
+        if (canMove)
         {
-            Destroy(existedTorch.gameObject);
-        }
-        itemOn = true;
-        switch (equipmentType) {
-            case EquipmentType.FlashLight:
-                currentEquipType = EquipmentType.FlashLight;
-                GameObject torch = Instantiate(torchPrefab) as GameObject;
-                if(!isLeft)
-                    torch.transform.position = new Vector3(transform.position.x + 3.1f, transform.position.y, transform.position.z);
-                else
-                    torch.transform.position = new Vector3(transform.position.x - 3.1f, transform.position.y, transform.position.z);
-                torch.transform.parent = transform;
-                if (itemOn)
-                {
-                    turnOffTorch();
-                    itemOn = false;
-                }
-                else
-                {
-                    turnOnTorch();
-                    itemOn = true;
-                }
-                break;
+            var existedTorch = transform.Find("Torch(Clone)");
+            if (existedTorch != null)
+            {
+                Destroy(existedTorch.gameObject);
+            }
+            itemOn = true;
+            switch (equipmentType)
+            {
+                case EquipmentType.FlashLight:
+                    currentEquipType = EquipmentType.FlashLight;
+                    GameObject torch = Instantiate(torchPrefab) as GameObject;
+                    if (!isLeft)
+                        torch.transform.position = new Vector3(transform.position.x + 3.1f, transform.position.y, transform.position.z);
+                    else
+                        torch.transform.position = new Vector3(transform.position.x - 3.1f, transform.position.y, transform.position.z);
+                    torch.transform.parent = transform;
+                    if (itemOn)
+                    {
+                        turnOffTorch();
+                        itemOn = false;
+                    }
+                    else
+                    {
+                        turnOnTorch();
+                        itemOn = true;
+                    }
+                    break;
+            }
         }
     }
 
     void UseEquip()
     {
-        switch (currentEquipType) {
-            case EquipmentType.FlashLight:
-                audioSource.Play();
-                if (itemOn)
-                {
-                    turnOffTorch();
-                    itemOn = false;
-                }
-                else
-                {
-                    turnOnTorch();
-                    itemOn = true;
-                }
-                break;
+        if (canMove)
+        {
+            switch (currentEquipType)
+            {
+                case EquipmentType.FlashLight:
+                    audioSource.Play();
+                    if (itemOn)
+                    {
+                        turnOffTorch();
+                        itemOn = false;
+                    }
+                    else
+                    {
+                        turnOnTorch();
+                        itemOn = true;
+                    }
+                    break;
+            }
         }
     }
 
@@ -151,6 +168,30 @@ public class PlayerManager : MonoBehaviour {
     void turnOffTorch()
     {
         transform.Find("Torch(Clone)").GetComponent<FlashLightEquipment>().TurnOffTorch();
+    }
+
+    void UseSkill()
+    {
+        if (canMove == true)
+        {
+            canMove = false;
+            Debug.Log("skill");
+            GameObject SkillCharacter = Instantiate(SkillPrefab) as GameObject;
+            if (!isLeft)
+                SkillCharacter.transform.position = new Vector3(transform.position.x + 3.1f, transform.position.y, transform.position.z);
+            else
+                SkillCharacter.transform.position = new Vector3(transform.position.x - 3.1f, transform.position.y, transform.position.z);
+            SkillCharacter.transform.parent = transform;
+        }
+        else
+        {
+            canMove = true;
+            var existedSkill = transform.Find("SkillCharacter(Clone)");
+            if (existedSkill != null)
+            {
+                Destroy(existedSkill.gameObject);
+            }
+        }
     }
 
     private PlayerSave CreateSavePlayer()
@@ -217,5 +258,19 @@ public class PlayerManager : MonoBehaviour {
         };
 
         return root.ToString();
+    }
+
+    public bool getCanMoved()
+    {
+        return isLeft;
+    }
+
+    public Transform getSkillTransform()
+    {
+        if (transform.Find("SkillCharacter(Clone)") != null)
+        {
+            return transform.Find("SkillCharacter(Clone)").transform;
+        }
+        return null;
     }
 }
