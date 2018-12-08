@@ -10,10 +10,10 @@ public class Interoperable : MonoBehaviour {
     [HideInInspector]
     public bool generated = false;
 
-    //是否可与玩家交互
+    //是否可与玩家交互（机关，魔法阵等范围强制触发认为不可交互）
     public bool interoperable = true;
 
-    //判定在主角附近的检测范围，交错按比例计算
+    //判定在主角附近的检测范围，交错按比例计算（范围强制触发即使交错仍是全范围的）
     public int detectDist = 2;
 
     //高度层，最低为0，向上递增，用于判断是否与主角在同一层从而判断是否可交互。
@@ -44,4 +44,11 @@ public class Interoperable : MonoBehaviour {
     {
 
     }
+
+    //在检测范围内强制每帧触发
+    public virtual void WithinRange()
+    {
+
+    }
+
 }

@@ -10,14 +10,14 @@ public class DialogLoader {
     
     public void loadData()
     {
-        dialogDataPath = Application.dataPath + "/Resources/" + SceneItemManager.GetLevelName() + "-Dialog.txt";
-        Debug.Log(File.Exists(dialogDataPath));
-        if (File.Exists(dialogDataPath))
+        var dialogText = Resources.Load<TextAsset>(SceneItemManager.GetLevelName() + "-Dialog");
+        dialogDataPath = Application.persistentDataPath + SceneItemManager.GetLevelName() + "-Dialog.txt";
+        if (dialogText != null)
         {
-            string[] strs = File.ReadAllLines(dialogDataPath);
+            string[] strs = dialogText.text.Split('\n');
             foreach (string rawData in strs)
             {
-                if (rawData == "")
+                if (rawData == "" || rawData == "\r")
                     continue;
                 string[] data = rawData.Replace("\\", "\n").Split('|');
                 Dialog dialog = new Dialog
@@ -28,8 +28,11 @@ public class DialogLoader {
                     text = data[3],
                     imagePath = data[4],
                     branchNum = int.Parse(data[5]),
-                    branches = new List<Dialog.branch>()
+                    branches = new List<Dialog.branch>(),
+                    sounds = new List<string>()
                 };
+                if (dialog.characterName == "0")
+                    dialog.characterName = "";
                 if (dialog.branchNum > 0)
                 {
                     for (int i=0; i<dialog.branchNum; i++)
@@ -39,6 +42,17 @@ public class DialogLoader {
                         branch.text = data[6 + i * 2 + 1];
                         dialog.branches.Add(branch);
                     }
+                }
+                if (dialog.text.Length - dialog.text.Replace("$","").Length > 0)
+                {
+                    for (int i = 6 + dialog.branchNum * 2; i < 6 + dialog.branchNum * 2 + dialog.text.Length - dialog.text.Replace("$", "").Length; i++)
+                        if (data.Length > i)
+                        {
+                            dialog.sounds.Add(data[i].Replace("\r", ""));
+                        } else
+                        {
+                            dialog.sounds.Add("");
+                        }
                 }
                 context.Add(dialog);
             }

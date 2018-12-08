@@ -9,12 +9,21 @@ public class NoteInstance : Interoperable {
     public SpriteRenderer hintSprite;
     public bool if_picked = false;
     public string diaologsection1;
+    public string noteKey;
+
+    private float hintAlpha = 0f;
+    private bool showHint = false;
     
-	// Use this for initialization
-	void Start () {
+    public AudioClip audioNote;
+    private AudioSource audioSource;
+
+    // Use this for initialization
+    void Start () {
         InputManager.AddOnInteract(OnInteract);
         interoperable = false;
-	}
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = audioNote;
+    }
 	
 	// Update is called once per frame
 	void Update () { 
@@ -23,29 +32,47 @@ public class NoteInstance : Interoperable {
             interoperable = true;
         }
         else interoperable = false;
-	}
+
+        if (showHint && hintAlpha < 1.0f)
+        {
+            hintAlpha += Time.deltaTime * 4;
+            if (hintAlpha > 1.0f)
+                hintAlpha = 1.0f;
+            hintSprite.color = new Color(hintSprite.color.r, hintSprite.color.g, hintSprite.color.b, hintAlpha);
+        }
+        if (!showHint && hintAlpha > 0f)
+        {
+            hintAlpha -= Time.deltaTime * 4;
+            if (hintAlpha < 0f)
+                hintAlpha = 0.0f;
+            hintSprite.color = new Color(hintSprite.color.r, hintSprite.color.g, hintSprite.color.b, hintAlpha);
+        }
+    }
 
 
     void OnInteract()
     {
         if (NearPlayer&&interoperable)
         {
+            audioSource.Play();
             DialogManager.ShowDialog(diaologsection1);
             interoperable = false;
             if_picked = true;
             transform.position = new Vector3(48.0f, -10.0f, 0.0f);
             hintSprite.transform.position = new Vector3(48.0f, -8.0f, 0.0f);
+
+            CollectionArchive.NoteCollect(noteKey);
         }
     }
     public override void ShowHint()
     {
-        if(interoperable)
-            hintSprite.color = new Color(hintSprite.color.r, hintSprite.color.g, hintSprite.color.b, 1f);
+        if (interoperable)
+            showHint = true;
     }
 
     public override void UnshowHint()
     {
-            hintSprite.color = new Color(hintSprite.color.r, hintSprite.color.g, hintSprite.color.b, 0f);
+        showHint = false;
     }
 
     public override string GetArchive()

@@ -10,6 +10,7 @@ public class SceneItemManager : MonoBehaviour {
     public static SceneItemManager instance;
     public List<Interoperable> interoperables;
     public PlayerManager player;
+    [HideInInspector]
     public bool paused = false;
 
     private void Awake()
@@ -32,6 +33,7 @@ public class SceneItemManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         SetNearPlayer();
+        TriggerRangeCompel();
 	}
 
     private void OnApplicationQuit()
@@ -49,6 +51,7 @@ public class SceneItemManager : MonoBehaviour {
         float radio = 2;
         Interoperable tempNearest = null;
 
+        //选出可触发的距离主角最近的可交互物体
         foreach (Interoperable interoperable in interoperables)
         {
             float distance = Mathf.Abs(player.transform.position.x - interoperable.transform.position.x);
@@ -60,6 +63,7 @@ public class SceneItemManager : MonoBehaviour {
                 tempNearest = interoperable;
             }
         }
+        //显示提示或是关闭提示
         foreach (Interoperable interoperable in interoperables)
         {
             if (interoperable == tempNearest)
@@ -68,7 +72,6 @@ public class SceneItemManager : MonoBehaviour {
                 {
                     interoperable.ShowHint();
                     interoperable.NearPlayer = true;
-                    Debug.Log("ShowHintAbout:" + interoperable);
                 }
             }
             else
@@ -82,12 +85,27 @@ public class SceneItemManager : MonoBehaviour {
         }
     }
 
+    //触发范围内强制触发机关
+    void TriggerRangeCompel()
+    {
+        foreach (Interoperable interoperable in interoperables)
+        {
+            float distance = Mathf.Abs(player.transform.position.x - interoperable.transform.position.x);
+
+            if (interoperable.floorLayer == player.floorLayer && distance <= interoperable.detectDist)
+            {
+                interoperable.WithinRange();
+            }
+        }
+    }
+
     void OnEscape()
     {
         if (!paused)
         {
             SceneManager.LoadScene("Setting", LoadSceneMode.Additive);
             Pause();
+            Debug.Log("Pause");
         }
     }
 

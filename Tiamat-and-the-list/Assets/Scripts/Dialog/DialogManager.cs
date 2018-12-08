@@ -19,6 +19,11 @@ public class DialogManager : MonoBehaviour
     private bool dialogFlag;                   // 判断是否在逐字显示
     private double timer;
     private bool animationLock;                // 在播放特定动画的时候锁死交互
+    private float pauseTime = 0f;              // 用于会话停顿
+    private int soundIndex = 0;
+
+    public AudioClip typingSound;
+    private AudioSource audioSource;
 
     //委托，当对话结束时调用
     public delegate void NoneParaVoid();
@@ -36,6 +41,8 @@ public class DialogManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = typingSound;
     }
 
     //显示对话栏
@@ -120,21 +127,49 @@ public class DialogManager : MonoBehaviour
 
     void Update()
     {
-        if (DialogBox != null) { 
+        if (DialogBox != null) {
+            var s = GameObject.Find("SpecialTextSound");
+            if (s != null && !s.GetComponent<AudioSource>().isPlaying)
+                Destroy(s.gameObject);
             if (tempDialog == currentDialog.text)
             {
                 dialogFlag = false;
             }
             if (dialogFlag)
             {
-                Text dialogText = DialogBox.transform.Find("DialogPanel").Find("DialogText").GetComponent<Text>();
-                if (timer > textSpeed)
+                if (pauseTime > 0f)
                 {
-                    timer = 0;
-                    tempDialog = currentDialog.text.Substring(0, tempDialog.Length + 1);
+                    pauseTime -= Time.deltaTime;
+                } else { 
+                    Text dialogText = DialogBox.transform.Find("DialogPanel").Find("DialogText").GetComponent<Text>();
+                    if (timer > textSpeed)
+                    {
+                        timer = 0;
+                        if (currentDialog.text[tempDialog.Length] == '#')
+                            pauseTime = 0.3f;
+                        tempDialog = currentDialog.text.Substring(0, tempDialog.Length + 1);
+                    }
+                    dialogText.text = tempDialog.Replace("#","").Replace("$","");
+                    timer += Time.deltaTime;
+                   
+                    // 播放音效
+                    if (!audioSource.isPlaying && (tempDialog.Length == 0 || (tempDialog.Length > 0 && tempDialog[tempDialog.Length-1]!='#')))
+                    {
+                        audioSource.Play();
+                    }
+
+                    // 播放特定音效
+                    if (tempDialog.Length > 0 && tempDialog[tempDialog.Length - 1] == '$' && soundIndex < currentDialog.sounds.Count)
+                    {
+                        GameObject specialSound = new GameObject();
+                        specialSound.name = "SpecialTextSound";
+                        AudioSource specialAudio = specialSound.AddComponent<AudioSource>();
+                        AudioClip specialClip = Resources.Load<AudioClip>("DynamicAudios\\" + currentDialog.sounds[soundIndex]);
+                        soundIndex++;
+                        specialAudio.clip = specialClip;
+                        specialAudio.Play();
+                    }
                 }
-                dialogText.text = tempDialog;
-                timer += Time.deltaTime;
             }
         }
     }
@@ -168,6 +203,7 @@ public class DialogManager : MonoBehaviour
     {
         GameObject replacedName = Instantiate(DialogBox.transform.Find("NamePanel").Find("NameText").gameObject) as GameObject;
         replacedName.transform.position = DialogBox.transform.Find("NamePanel").Find("NameText").position - new Vector3(20f, 0, 0);
+        replacedName.transform.localScale = DialogBox.transform.localScale;
         replacedName.GetComponent<Text>().text = name2;
         Color c1 = DialogBox.transform.Find("NamePanel").Find("NameText").GetComponent<Text>().color;
         Color c2 = replacedName.GetComponent<Text>().color;
@@ -241,6 +277,7 @@ public class DialogManager : MonoBehaviour
     {
         string name1 = currentDialog.characterName;
         id++;
+        soundIndex = 0;
         if (id >= currentDialogSection.Count)
         {
             animationLock = true;
@@ -267,7 +304,7 @@ public class DialogManager : MonoBehaviour
             else { 
                 tempDialog = currentDialog.text;
                 Text dialogText = DialogBox.transform.Find("DialogPanel").Find("DialogText").GetComponent<Text>();
-                dialogText.text = tempDialog;
+                dialogText.text = tempDialog.Replace("#", "").Replace("$", "");
             }
         }
     }

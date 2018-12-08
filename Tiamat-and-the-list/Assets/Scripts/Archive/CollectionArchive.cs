@@ -39,6 +39,7 @@ public class CollectionArchive {
         collections.Add("Flashlight", new CollectionPiece("手电筒", "一个有一些年份的手电筒，不过竟然还能亮",
             "EquipmentSprite/Stage00_shoudiantong", false));
         cgs.Add("Apkal_serious", new CGPiece("Apkal", "CharacterTachie/Apkal_serious", false));
+        cgs.Add("A_default", new CGPiece("A", "CharacterTachie/A_default", false));
     }
 
     public static void LoadArchive()

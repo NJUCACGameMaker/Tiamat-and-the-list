@@ -1,0 +1,341 @@
+fileFormatVersion: 2
+guid: 9180c9fa11b865f40be72e88982822dc
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Apkal_package
+    21300002: Apkal_Sprites_00
+    21300004: Apkal_Sprites_01
+    21300006: Apkal_Sprites_02
+    21300008: Apkal_Sprites_03
+    21300010: Apkal_Sprites_04
+    21300012: Apkal_Sprites_05
+    21300014: Apkal_Sprites_06
+    21300016: Apkal_Sprites_07
+    21300018: Apkal_Sprites_08
+    21300020: Apkal_Sprites_09
+    21300022: Apkal_Sprites_10
+    21300024: Apkal_Sprites_11
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Apkal_Sprites_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 483
+        width: 40
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5397ec67643a30a499a37f36590b315e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Apkal_Sprites_01
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 483
+        width: 34
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc8f1f395f13dff48831bbabb9069977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Apkal_Sprites_02
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 465
+        width: 46
+        height: 47
+      alignment: 9
+      pivot: {x: 0.5217391, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b4ee7d7f54d09843b36d749cb0f82ef
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Apkal_Sprites_03
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 303
+        width: 46
+        height: 108
+      alignment: 9
+      pivot: {x: 0.5, y: 0.49074075}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f3b4a844f288784e97f86989d6cdb4e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Apkal_Sprites_04
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 275
+        width: 53
+        height: 136
+      alignment: 9
+      pivot: {x: 0.4811321, y: 0.48897058}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da08008ee8d5bbb4eba1c82510a9b258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Apkal_Sprites_05
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 132
+        width: 45
+        height: 143
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4965035}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17799a1caa26d734d99ae0b33816ebb0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Apkal_Sprites_06
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 297
+        width: 80
+        height: 114
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4868421}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00a88374af59878488e410df1ed9f54a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Apkal_Sprites_07
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 110
+        width: 76
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 486ced7f3f7afcb4c9a06fbdf722a659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Apkal_Sprites_08
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 110
+        width: 90
+        height: 165
+      alignment: 9
+      pivot: {x: 0.49444443, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56b94edd081a58246816c19c9ad80985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Apkal_Sprites_09
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 275
+        width: 58
+        height: 136
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4852941}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63c8c453a5b8eb0458dadf35d8da4239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Apkal_Sprites_10
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 457
+        width: 30
+        height: 55
+      alignment: 9
+      pivot: {x: 0.46666667, y: 0.5181818}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dae69e748ead91142a0c9d406350e9a5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Apkal_Sprites_11
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 411
+        width: 67
+        height: 101
+      alignment: 9
+      pivot: {x: 0.51492536, y: 0.509901}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5023b3bb20a65f0498477165b2405cfc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 0e6c93d367082334c8a1a2546b954b72
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
