@@ -2746,6 +2746,7 @@ MonoBehaviour:
     type: 2}
   DialogBox: {fileID: 0}
   textSpeed: 0.04
+  typingSound: {fileID: 0}
 --- !u!1 &2059322428
 GameObject:
   m_ObjectHideFlags: 0
