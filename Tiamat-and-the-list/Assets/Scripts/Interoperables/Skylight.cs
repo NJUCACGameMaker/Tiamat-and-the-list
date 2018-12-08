@@ -2,37 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ball : Interoperable
-{
-    public Switch lightSwitch;
-    public Skylight skylight;
-    public PlayerManager player;
-    //手电筒光所能照到的向前距离
-    public float lightLength;
-    //判定人物位置的宽容度
-    public float tolerance;
+public class Skylight : Interoperable {
+
 
     public SpriteRenderer hintSprite;
-    public string dialogSection;
+    private Animator skylightAnima;
+    public bool opened = false;
     private float hintAlpha = 0f;
     private bool showHint = false;
-    // Use this for initialization
-    void Start()
-    {
-        InputManager.AddOnInteract(OnInteract);
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (((Mathf.Abs(transform.position.x - player.transform.position.x - lightLength) < tolerance && 
-            !player.isLeft) || 
-            (Mathf.Abs(transform.position.x - player.transform.position.x + lightLength) < tolerance &&
-            player.isLeft)) && 
-            player.currentEquipType == EquipmentType.FlashLight && player.itemOn && !lightSwitch.on)
-        {
-            skylight.Open();
-        }
+    // Use this for initialization
+    void Start () {
+        interoperable = false;
+        skylightAnima = GetComponent<Animator>();
+	}
+	
+	// Update is called once per frame
+	void Update () {
+
 
         if (showHint && hintAlpha < 1.0f)
         {
@@ -49,19 +36,46 @@ public class Ball : Interoperable
             hintSprite.color = new Color(hintSprite.color.r, hintSprite.color.g, hintSprite.color.b, hintAlpha);
         }
     }
+
+    public void Open()
+    {
+        if (!opened)
+        {
+            skylightAnima.SetTrigger("open");
+            opened = true;
+            interoperable = true;
+        }
+    }
+
     public override void ShowHint()
     {
         showHint = true;
     }
+
     public override void UnshowHint()
     {
         showHint = false;
     }
-    void OnInteract()
+
+    public override string GetArchive()
     {
-        if (NearPlayer)
+        if (opened)
         {
-            DialogManager.ShowDialog(dialogSection);
+            return "opened";
+        }
+        else
+        {
+            return "closed";
+        }
+    }
+
+    public override void LoadArchive(string archiveLine)
+    {
+        if (archiveLine == "opened")
+        {
+            skylightAnima.SetTrigger("State:open");
+            opened = true;
+            interoperable = true;
         }
     }
 }

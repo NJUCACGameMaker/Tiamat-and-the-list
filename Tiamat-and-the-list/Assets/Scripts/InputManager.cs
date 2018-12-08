@@ -6,8 +6,6 @@ public class InputManager : MonoBehaviour {
 
     public static InputManager instance;
     public static bool gamePaused = false;
-    //人物停止(如因为使用技能)
-    public static bool playerPaused = false;
 
     //键盘按下时委托
     public delegate void KeyInputDown();
@@ -49,38 +47,38 @@ public class InputManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         bool dialogOn = DialogManager.IsDialogOn();
-		if (Input.GetKeyDown(KeyCode.F) && OnPick != null && !dialogOn && !gamePaused && !playerPaused)
+		if (Input.GetKeyDown(KeyCode.F) && OnPick != null && !dialogOn && !gamePaused)
         {
             OnPick();
         }
-        if (Input.GetKeyDown(KeyCode.E) && OnInteract != null && !dialogOn && !gamePaused && !playerPaused)
+        if (Input.GetKeyDown(KeyCode.E) && OnInteract != null && !dialogOn && !gamePaused)
         {
             OnInteract();
         }
-        if (Input.GetKeyDown(KeyCode.Q) && OnSwitchItemState != null && !dialogOn && !gamePaused && !playerPaused)
+        if (Input.GetKeyDown(KeyCode.Q) && OnSwitchItemState != null && !dialogOn && !gamePaused)
         {
             OnSwitchItemState();
         }
-        if (Input.GetKeyDown(KeyCode.W) && OnUpStair != null && !dialogOn && !gamePaused && !playerPaused)
+        if (Input.GetKeyDown(KeyCode.W) && OnUpStair != null && !dialogOn && !gamePaused)
         {
             OnUpStair();
         }
-        if (Input.GetKeyDown(KeyCode.S) && OnDownStair != null && !dialogOn && !gamePaused && !playerPaused)
+        if (Input.GetKeyDown(KeyCode.S) && OnDownStair != null && !dialogOn && !gamePaused)
         {
             OnDownStair();
         }
-        if (Input.GetKey(KeyCode.A) && OnLeftMove != null && !dialogOn && !gamePaused && !playerPaused)
+        if (Input.GetKey(KeyCode.A) && OnLeftMove != null && !dialogOn && !gamePaused)
         {
             OnLeftMove();
         }
-        if (Input.GetKey(KeyCode.D) && OnRightMove !=null && !dialogOn && !gamePaused && !playerPaused)
+        if (Input.GetKey(KeyCode.D) && OnRightMove !=null && !dialogOn && !gamePaused)
         {
             OnRightMove();
         }
-        if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)) && BeforeMove != null && !dialogOn && !gamePaused && !playerPaused){
+        if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)) && BeforeMove != null && !dialogOn && !gamePaused){
             BeforeMove();
         }
-        if ((Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D)) && AfterMove != null && !dialogOn && !gamePaused && !playerPaused)
+        if ((Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D)) && AfterMove != null && !dialogOn && !gamePaused)
         {
             AfterMove();
         }
@@ -88,7 +86,7 @@ public class InputManager : MonoBehaviour {
         {
             OnEscape();
         }
-        if ((Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.E)) && OnNextDialog != null && dialogOn && !gamePaused && !playerPaused)
+        if ((Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.E)) && OnNextDialog != null && dialogOn && !gamePaused)
         {
             OnNextDialog();
         }
