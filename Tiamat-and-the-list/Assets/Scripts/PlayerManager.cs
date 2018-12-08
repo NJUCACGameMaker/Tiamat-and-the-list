@@ -20,9 +20,11 @@ public class PlayerManager : MonoBehaviour {
     //技能分身
     public GameObject SkillPrefab;
     //判断是否使用道具
-    bool itemOn = false;
+    [HideInInspector]
+    public bool itemOn = false;
     //当前道具
-    private EquipmentType currentEquipType = EquipmentType.None;
+    [HideInInspector]
+    public EquipmentType currentEquipType = EquipmentType.None;
 
     //高度层，最低为0，向上递增，用于判断是否与道具在同一层从而判断是否可交互。
     public int floorLayer = 0;
@@ -38,7 +40,8 @@ public class PlayerManager : MonoBehaviour {
     //角色动画控制器
     public Animator playerAnima;
 
-    private bool isLeft = false;
+    [HideInInspector]
+    public bool isLeft = false;
     private bool canMove = true;
     // Use this for initialization
     void Start () {
