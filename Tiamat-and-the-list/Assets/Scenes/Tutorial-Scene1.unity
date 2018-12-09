@@ -1453,7 +1453,7 @@ MonoBehaviour:
   maxX: 48
   minX: 0
   maxH: 0.04
-  player: {fileID: 0}
+  player: {fileID: 1780015562}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -5542,6 +5542,16 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
+        type: 2}
+      propertyPath: maxX.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
+        type: 2}
+      propertyPath: minX.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4924522905735598, guid: f15da11235f2fd54f96d50331022f7f1, type: 2}
       propertyPath: m_LocalPosition.x
       value: -7
@@ -5634,6 +5644,31 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
+        type: 2}
+      propertyPath: scenario
+      value: 
+      objectReference: {fileID: 933761379}
+    - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
+        type: 2}
+      propertyPath: maxX.Array.data[1]
+      value: 26.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
+        type: 2}
+      propertyPath: minX.Array.data[1]
+      value: 13.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
+        type: 2}
+      propertyPath: minX.Array.data[0]
+      value: -8.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
+        type: 2}
+      propertyPath: maxX.Array.data[0]
+      value: 56.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da11235f2fd54f96d50331022f7f1, type: 2}
   m_IsPrefabAsset: 0
@@ -5646,6 +5681,11 @@ MonoBehaviour:
 --- !u!1 &1780015561 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1510240826436764, guid: f15da11235f2fd54f96d50331022f7f1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1780015559}
+--- !u!4 &1780015562 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4924522905735598, guid: f15da11235f2fd54f96d50331022f7f1,
     type: 2}
   m_PrefabInternal: {fileID: 1780015559}
 --- !u!1 &1786123555

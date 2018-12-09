@@ -2609,7 +2609,7 @@ MonoBehaviour:
   detectDist: 2
   floorLayer: 0
   player: {fileID: 1751808922}
-  targetPos: {x: 14, y: 1.42, z: 0}
+  targetPos: {x: 14.5, y: 1.42, z: 0}
   hintSprite: {fileID: 455247196}
   stairSprite: {fileID: 89635874}
 --- !u!1 &1144574709
@@ -3211,6 +3211,18 @@ Prefab:
         type: 2}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132366837308712, guid: f15da11235f2fd54f96d50331022f7f1, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132366837308712, guid: f15da11235f2fd54f96d50331022f7f1, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132366837308712, guid: f15da11235f2fd54f96d50331022f7f1, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 4.88
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da11235f2fd54f96d50331022f7f1, type: 2}

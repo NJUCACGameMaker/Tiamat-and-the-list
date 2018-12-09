@@ -8,6 +8,8 @@ using SimpleJSON;
 
 public class PlayerManager : MonoBehaviour {
 
+    public delegate void NoneParaFunc();
+
     public List<float> maxX;
     public List<float> minX;
     //剧本，作用是获得进入关卡后初始位置
@@ -102,6 +104,19 @@ public class PlayerManager : MonoBehaviour {
         }
     }
 
+    public void SetLeft(bool isLeft)
+    {
+        if (isLeft)
+        {
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            this.isLeft = true;
+        }
+        else
+        {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            this.isLeft = false;
+        }
+    }
 
     public void setEquip(EquipmentType equipmentType)
     {
@@ -272,5 +287,72 @@ public class PlayerManager : MonoBehaviour {
             return transform.Find("SkillCharacter(Clone)").transform;
         }
         return null;
+    }
+
+    public IEnumerator MoveTo(Vector2 target)
+    {
+        if (target.x > transform.position.x)
+        {
+            SetLeft(false);
+            float offsetX = target.x - transform.position.x;
+            float offsetY = target.y - transform.position.y;
+            while (target.x > transform.position.x)
+            {
+                RightMove();
+                float deltaX = moveSpeed * Time.deltaTime;
+                transform.position = new Vector3(transform.position.x,
+                    deltaX / offsetX * offsetY + transform.position.y);
+                yield return null;
+            }
+            transform.position = target;
+        }
+        else
+        {
+            SetLeft(true);
+            float offsetX = transform.position.x - target.x;
+            float offsetY = target.y - transform.position.y;
+            while (target.x < transform.position.x)
+            {
+                LeftMove();
+                float deltaX = moveSpeed * Time.deltaTime;
+                transform.position = new Vector3(transform.position.x,
+                    deltaX / offsetX * offsetY + transform.position.y);
+                yield return null;
+            }
+            transform.position = target;
+        }
+    }
+
+    public IEnumerator MoveTo(Vector2 target, NoneParaFunc noneParaFunc)
+    {
+        if (target.x > transform.position.x)
+        {
+            float offsetX = target.x - transform.position.x;
+            float offsetY = target.y - transform.position.y;
+            while (target.x > transform.position.x)
+            {
+                RightMove();
+                float deltaX = moveSpeed * Time.deltaTime;
+                transform.position = new Vector3(transform.position.x, 
+                    deltaX / offsetX * offsetY + transform.position.y);
+                yield return null;
+            }
+            transform.position = target;
+        }
+        else
+        {
+            float offsetX = transform.position.x - target.x;
+            float offsetY = target.y - transform.position.y;
+            while (target.x < transform.position.x)
+            {
+                LeftMove();
+                float deltaX = moveSpeed * Time.deltaTime;
+                transform.position = new Vector3(transform.position.x,
+                    deltaX / offsetX * offsetY + transform.position.y);
+                yield return null;
+            }
+            transform.position = target;
+        }
+        noneParaFunc();
     }
 }
