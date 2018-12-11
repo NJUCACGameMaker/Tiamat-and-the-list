@@ -3656,6 +3656,7 @@ MonoBehaviour:
   detectDist: 2
   floorLayer: 1
   hintSprite: {fileID: 526213598}
+  dialogSection: Scence2
   opened: 0
 --- !u!1 &1786185293
 GameObject:

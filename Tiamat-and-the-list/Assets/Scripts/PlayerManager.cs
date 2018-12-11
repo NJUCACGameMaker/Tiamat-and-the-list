@@ -252,7 +252,7 @@ public class PlayerManager : MonoBehaviour {
         string lastSceneName = PlayerPrefs.GetString("LastSceneName");
         if (lastSceneName != SceneItemManager.GetLevelName() + "-" + SceneItemManager.GetSceneName())
         {
-            transform.position = scenario.getPlayerInitPos(lastSceneName);
+            transform.position = scenario.GetPlayerInitPos(lastSceneName);
         }
     }
 
