@@ -4,31 +4,55 @@ using UnityEngine;
 
 class CameraManagerForLevelOne : MonoBehaviour
 {
-    PlayerManager MainPlayer;
-    public float maxX;
-    public float minX;
+    public PlayerManager MainPlayer;
+    private int moveSpeed = 4;
+    public float size;
 
-    public float maxH;
-    private int moveSpeed = 8;
+    private float targetLeft;
+    private float targetRight;
 
-    void LateUpdate()
+    private void Start()
+    {
+        targetLeft =- size / 2;
+        targetRight = size / 2;
+    }
+
+    void Update()
     {
         if (!MainPlayer.getCanMoved())
         {
             Transform player = MainPlayer.getSkillTransform();
-            Vector3 targetCamPos = new Vector3(player.position.x, player.position.y + 2.54f, 0);
-            if (transform.position.x != player.position.x)
+            if (player != null)
             {
-                Vector3 lerp = Vector3.Lerp(new Vector3(transform.position.x, transform.position.y, 0), targetCamPos, moveSpeed * Time.deltaTime);
-                transform.position = new Vector3(lerp.x, lerp.y, transform.position.z);
-            }
-            if (transform.position.x < minX)
-                transform.position = new Vector3(minX, transform.position.y, transform.position.z);
-            if (transform.position.x > maxX)
-                transform.position = new Vector3(maxX, transform.position.y, transform.position.z);
-            if (transform.position.y > maxH)
-            {
-                transform.position = new Vector3(transform.position.x, maxH, transform.position.z);
+                if (player.position.x >= targetRight)
+                {
+                    Vector3 targetCamPos = new Vector3(targetRight + size/2, 0, 0);
+                    if (Mathf.Abs(transform.position.x - targetRight-size/2f)>=0.001)
+                    {
+                        Vector3 lerp = Vector3.Lerp(new Vector3(transform.position.x, 0, 0), targetCamPos, moveSpeed * Time.deltaTime);
+                        transform.position = new Vector3(lerp.x, transform.position.y, transform.position.z);
+                    }
+                    else
+                    {
+                        targetRight = targetRight + size;
+                        targetLeft = targetLeft + size;
+                        Debug.Log("ok");
+                    }
+                }
+                else if (player.position.x <= targetLeft)
+                {
+                    Vector3 targetCamPos = new Vector3(targetLeft-size/2, 0, 0);
+                    if (Mathf.Abs(transform.position.x - targetLeft + size / 2f) >= 0.001)
+                    {
+                        Vector3 lerp = Vector3.Lerp(new Vector3(transform.position.x, 0, 0), targetCamPos, moveSpeed * Time.deltaTime);
+                        transform.position = new Vector3(lerp.x, transform.position.y, transform.position.z);
+                    }
+                    else
+                    {
+                        targetRight = targetRight - size;
+                        targetLeft = targetLeft - size;
+                    }
+                }
             }
         }
     }

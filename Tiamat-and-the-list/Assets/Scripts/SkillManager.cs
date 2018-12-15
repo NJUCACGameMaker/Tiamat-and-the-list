@@ -52,12 +52,8 @@ public class SkillManager : MonoBehaviour
 
     void SkillLeftMove()
     {
-        Debug.Log(isLeft);
-        Debug.Log("Leftmove");
         float playerX = transform.localPosition.x;
-        Debug.Log(playerX);
         float bg_1_x = minX[floorLayer];
-        Debug.Log(bg_1_x);
         //transform.LookAt(new Vector3(transform.position.x-5,transform.position.y,transform.position.z));
         if (!isLeft)
         {
@@ -73,7 +69,6 @@ public class SkillManager : MonoBehaviour
 
     void SkillRightMove()
     {
-        Debug.Log("Rightmove");
         float playerX = transform.localPosition.x;
         float bg_1_x = maxX[floorLayer];
         //transform.LookAt(new Vector3(transform.position.x + 5, transform.position.y, transform.position.z));
