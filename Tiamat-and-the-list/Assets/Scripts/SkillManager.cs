@@ -50,6 +50,12 @@ public class SkillManager : MonoBehaviour
         playerAnima.SetFloat("MoveSpeed", currentSpeed);
     }
 
+    private void OnDestroy()
+    {
+        InputManager.RemoveLeftMove(SkillLeftMove);
+        InputManager.RemoveRightMove(SkillRightMove);
+    }
+
     void SkillLeftMove()
     {
         float playerX = transform.localPosition.x;

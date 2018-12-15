@@ -742,16 +742,13 @@ Prefab:
         type: 2}
       propertyPath: scenario
       value: 
-      objectReference: {fileID: 687864949}
+      objectReference: {fileID: 0}
     - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
         type: 2}
       propertyPath: SkillPrefab
       value: 
       objectReference: {fileID: 1952334848792818, guid: 34bc8fdfa87e7124584307720d92e807,
         type: 2}
-      propertyPath: minX.Array.data[0]
-      value: -27.5
-      objectReference: {fileID: 0}
     - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
         type: 2}
       propertyPath: maxX.Array.data[0]
@@ -3830,11 +3827,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 687864947}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dc35038bb547ac4faf62a12851c8424, type: 3}
+  m_Script: {fileID: 11500000, guid: b47296e067bd6404680b9106cbd0aa83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scenarioHintOn: 0
-  player: {fileID: 226091802}
 --- !u!1 &693426072
 GameObject:
   m_ObjectHideFlags: 0
@@ -8521,7 +8517,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.627102
+  orthographic size: 5.38
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

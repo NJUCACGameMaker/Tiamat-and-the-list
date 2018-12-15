@@ -135,10 +135,22 @@ public class InputManager : MonoBehaviour {
         this.OnLeftMove += onLeft;
     }
 
+    public static void RemoveLeftMove(KeyInputDown onLeft) { instance._RemoveLeftMove(onLeft); }
+    private void _RemoveLeftMove(KeyInputDown onLeft)
+    {
+        this.OnLeftMove -= onLeft;
+    }
+
     public static void AddOnRightMove(KeyInputDown onRight) { instance._AddOnRightMove(onRight); }
     private void _AddOnRightMove(KeyInputDown onRight)
     {
         this.OnRightMove += onRight;
+    }
+
+    public static void RemoveRightMove(KeyInputDown onRight) { instance._RemoveRightMove(onRight); }
+    private void _RemoveRightMove(KeyInputDown onRight)
+    {
+        this.OnRightMove -= onRight;
     }
 
     public static void AddBeforMove(KeyInputDown beforeMove) { instance._AddBeforeMove(beforeMove); }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Apkal_Sprites_02
   m_EditorClassIdentifier: 
   m_ApiVersion: 4
-  m_Sprite: {fileID: 21300006, guid: 9180c9fa11b865f40be72e88982822dc, type: 3}
+  m_Sprite: {fileID: 21300004, guid: 9180c9fa11b865f40be72e88982822dc, type: 3}
   m_SharedMesh: {fileID: 43572728252695696}
   pivotPoint: {x: 0, y: 0}
   texVertices: []

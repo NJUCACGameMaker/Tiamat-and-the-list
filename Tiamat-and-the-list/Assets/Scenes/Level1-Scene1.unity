@@ -695,6 +695,7 @@ GameObject:
   - component: {fileID: 460226125}
   - component: {fileID: 460226124}
   - component: {fileID: 460226123}
+  - component: {fileID: 460226126}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -762,6 +763,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &460226126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 460226122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2e764f3a04d4944e83431d6e1e8f0f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxX: 4.5
+  minX: -1.5
+  maxH: 0
+  player: {fileID: 1317697396}
 --- !u!1 &527267142
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,6 +1717,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1317697396 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4924522905735598, guid: f15da11235f2fd54f96d50331022f7f1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1529435473}
 --- !u!1 &1332068386
 GameObject:
   m_ObjectHideFlags: 0
@@ -2090,6 +2111,12 @@ Prefab:
       propertyPath: maxX.Array.data[0]
       value: 12.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
+        type: 2}
+      propertyPath: SkillPrefab
+      value: 
+      objectReference: {fileID: 1952334848792818, guid: 34bc8fdfa87e7124584307720d92e807,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da11235f2fd54f96d50331022f7f1, type: 2}
   m_IsPrefabAsset: 0
