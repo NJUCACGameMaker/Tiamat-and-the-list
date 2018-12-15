@@ -2609,7 +2609,7 @@ MonoBehaviour:
   detectDist: 2
   floorLayer: 0
   player: {fileID: 1751808922}
-  targetPos: {x: 14, y: 1.42, z: 0}
+  targetPos: {x: 14.5, y: 1.42, z: 0}
   hintSprite: {fileID: 455247196}
   stairSprite: {fileID: 89635874}
 --- !u!1 &1144574709
@@ -3115,6 +3115,16 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
+        type: 2}
+      propertyPath: minX.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
+        type: 2}
+      propertyPath: maxX.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4924522905735598, guid: f15da11235f2fd54f96d50331022f7f1, type: 2}
       propertyPath: m_LocalPosition.x
       value: 6
@@ -3211,6 +3221,38 @@ Prefab:
         type: 2}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132366837308712, guid: f15da11235f2fd54f96d50331022f7f1, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132366837308712, guid: f15da11235f2fd54f96d50331022f7f1, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132366837308712, guid: f15da11235f2fd54f96d50331022f7f1, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 4.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
+        type: 2}
+      propertyPath: minX.Array.data[1]
+      value: 13.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
+        type: 2}
+      propertyPath: maxX.Array.data[1]
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
+        type: 2}
+      propertyPath: minX.Array.data[0]
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
+        type: 2}
+      propertyPath: maxX.Array.data[0]
+      value: 29.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da11235f2fd54f96d50331022f7f1, type: 2}
@@ -3644,6 +3686,7 @@ MonoBehaviour:
   detectDist: 2
   floorLayer: 1
   hintSprite: {fileID: 526213598}
+  dialogSection: Scence2
   opened: 0
 --- !u!1 &1786185293
 GameObject:

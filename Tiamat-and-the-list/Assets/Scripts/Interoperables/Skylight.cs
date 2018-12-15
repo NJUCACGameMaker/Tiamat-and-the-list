@@ -1,26 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Skylight : Interoperable {
 
 
     public SpriteRenderer hintSprite;
     private Animator skylightAnima;
+    public string dialogSection;
     public bool opened = false;
     private float hintAlpha = 0f;
     private bool showHint = false;
-
-    // Use this for initialization
+    
     void Start () {
         interoperable = false;
         skylightAnima = GetComponent<Animator>();
+        InputManager.AddOnPick(OnPick);
 	}
 	
-	// Update is called once per frame
 	void Update () {
-
-
         if (showHint && hintAlpha < 1.0f)
         {
             hintAlpha += Time.deltaTime * 4;
@@ -45,6 +44,19 @@ public class Skylight : Interoperable {
             opened = true;
             interoperable = true;
         }
+    }
+
+    void OnPick()
+    {
+        if (NearPlayer)
+        {
+            DialogManager.ShowDialog(dialogSection, Depart);
+        }
+    }
+
+    void Depart()
+    {
+        SceneManager.LoadScene("Level1-Scene1", LoadSceneMode.Single);
     }
 
     public override void ShowHint()
