@@ -187,8 +187,10 @@ public class PlayerManager : MonoBehaviour {
         {
             canMove = true;
             var existedSkill = transform.Find("SkillCharacter(Clone)");
+            transform.position=existedSkill.position;
             if (existedSkill != null)
             {
+                Debug.Log(existedSkill.name);
                 Destroy(existedSkill.gameObject);
             }
         }
@@ -262,7 +264,7 @@ public class PlayerManager : MonoBehaviour {
 
     public bool getCanMoved()
     {
-        return isLeft;
+        return canMove;
     }
 
     public Transform getSkillTransform()
