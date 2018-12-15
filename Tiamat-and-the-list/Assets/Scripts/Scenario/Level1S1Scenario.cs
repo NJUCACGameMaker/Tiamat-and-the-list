@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Level1S1Scenario : Scenario {
 
+    private bool beforeFateShown = false;
+    private bool goToTheTrapShown = false;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -11,8 +14,33 @@ public class Level1S1Scenario : Scenario {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (!beforeFateShown)
+        {
+            beforeFateShown = true;
+            scenarioHintOn = true;
+            DialogManager.ShowDialog("Before_Fate", OnBeforeFateShownEnd);
+        }
 	}
+
+    public void goToTrap()
+    {
+        if (!goToTheTrapShown)
+        {
+            goToTheTrapShown = true;
+            scenarioHintOn = true;
+            DialogManager.ShowDialog("Go_the_trap", OnGoToTheTrapShownEnd);
+        }
+    }
+
+    void OnBeforeFateShownEnd()
+    {
+        scenarioHintOn = false;
+    }
+
+    void OnGoToTheTrapShownEnd()
+    {
+        scenarioHintOn = false;
+    }
 
     public override Vector3 GetPlayerInitPos(string lastSceneName)
     {
