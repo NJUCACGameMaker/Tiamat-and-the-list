@@ -58,7 +58,7 @@ public class TutorialS2Scenario : Scenario {
         scenarioHintOn = false;
     }
 
-    public override Vector3 getPlayerInitPos(string lastSceneName)
+    public override Vector3 GetPlayerInitPos(string lastSceneName)
     {
         return new Vector3(6f, -5f, 0f);
     }

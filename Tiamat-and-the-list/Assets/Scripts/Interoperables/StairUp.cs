@@ -50,12 +50,38 @@ public class StairUp : Interoperable {
     {
         if (NearPlayer)
         {
-            player.floorLayer++;
-            player.transform.position = targetPos;
-            stairSprite.sortingLayerName = "ForeItem";
-           
+            InputManager.onAnimated = true;
+            StartCoroutine(player.MoveTo(new Vector2(8.0f, -5.0f), 
+                () => StartCoroutine(MoveSmooth(new Vector2(8.0f, -5.0f), new Vector2(13.5f, 1.32f), 5.15f))));
         }
     }
+    
+    IEnumerator MoveSmooth(Vector2 from, Vector2 target, float duration)
+    {
+        stairSprite.sortingLayerName = "ForeItem";
+        player.playerAnima.SetTrigger("UpStair");
+        if (from.x < target.x)
+        {
+            player.SetLeft(false);
+        }
+        else
+        {
+            player.SetLeft(true);
+        }
+        float time = 0.0f;
+        player.transform.position = from;
+        while (time < duration)
+        {
+            player.transform.position = new Vector3(Mathf.Lerp(from.x, target.x, time / duration),
+                Mathf.Lerp(from.y, target.y, time / duration));
+            time += Time.deltaTime;
+            yield return null;
+        }
+        player.transform.position = target;
+        player.floorLayer++;
+        StartCoroutine(player.MoveTo(targetPos, () => InputManager.onAnimated = false));
+    }
+
     public override string GetArchive()
     {
         var Stair = new JSONClass

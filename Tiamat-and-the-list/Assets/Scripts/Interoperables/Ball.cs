@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Ball : Interoperable
 {
+    public Switch lightSwitch;
+    public Skylight skylight;
+    public PlayerManager player;
+    //手电筒光所能照到的向前距离
+    public float lightLength;
+    //判定人物位置的宽容度
+    public float tolerance;
 
     public SpriteRenderer hintSprite;
     public string dialogSection;
@@ -18,6 +25,15 @@ public class Ball : Interoperable
     // Update is called once per frame
     void Update()
     {
+        if (((Mathf.Abs(transform.position.x - player.transform.position.x - lightLength) < tolerance && 
+            !player.isLeft) || 
+            (Mathf.Abs(transform.position.x - player.transform.position.x + lightLength) < tolerance &&
+            player.isLeft)) && 
+            player.currentEquipType == EquipmentType.FlashLight && player.itemOn && !lightSwitch.on)
+        {
+            skylight.Open();
+        }
+
         if (showHint && hintAlpha < 1.0f)
         {
             hintAlpha += Time.deltaTime * 4;

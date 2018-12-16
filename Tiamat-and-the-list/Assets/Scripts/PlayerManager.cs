@@ -8,6 +8,8 @@ using SimpleJSON;
 
 public class PlayerManager : MonoBehaviour {
 
+    public delegate void NoneParaFunc();
+
     public List<float> maxX;
     public List<float> minX;
     //剧本，作用是获得进入关卡后初始位置
@@ -17,10 +19,14 @@ public class PlayerManager : MonoBehaviour {
     public float moveSpeed = 8.0f;
     //手电筒
     public GameObject torchPrefab;
+    //技能分身
+    public GameObject SkillPrefab;
     //判断是否使用道具
-    bool itemOn = false;
+    [HideInInspector]
+    public bool itemOn = false;
     //当前道具
-    private EquipmentType currentEquipType = EquipmentType.None;
+    [HideInInspector]
+    public EquipmentType currentEquipType = EquipmentType.None;
 
     //高度层，最低为0，向上递增，用于判断是否与道具在同一层从而判断是否可交互。
     public int floorLayer = 0;
@@ -36,12 +42,15 @@ public class PlayerManager : MonoBehaviour {
     //角色动画控制器
     public Animator playerAnima;
 
-    private bool isLeft = false;
+    [HideInInspector]
+    public bool isLeft = false;
+    private bool canMove = true;
     // Use this for initialization
     void Start () {
         InputManager.AddOnLeftMove(LeftMove);
         InputManager.AddOnRightMove(RightMove);
         InputManager.AddOnSwitchItemState(UseEquip);
+        InputManager.AddOnSkill(UseSkill);
         lastPositionX = this.transform.position.x;
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = audioTorchSwitch;
@@ -58,86 +67,112 @@ public class PlayerManager : MonoBehaviour {
 
     void LeftMove()
     {
-        float playerX = transform.localPosition.x;
-        float bg_1_x = minX[floorLayer];
-        //transform.LookAt(new Vector3(transform.position.x-5,transform.position.y,transform.position.z));
-        if (!isLeft)
+        if (canMove)
         {
-            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-            isLeft = true;
-        }
-        if (playerX >= bg_1_x)
-        {
-            transform.Translate(Time.deltaTime * Vector3.left * moveSpeed, Space.World);
+            float playerX = transform.localPosition.x;
+            float bg_1_x = minX[floorLayer];
+            //transform.LookAt(new Vector3(transform.position.x-5,transform.position.y,transform.position.z));
+            if (!isLeft)
+            {
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                isLeft = true;
+            }
+            if (playerX >= bg_1_x)
+            {
+                transform.Translate(Time.deltaTime * Vector3.left * moveSpeed, Space.World);
+            }
         }
         
     }
 
     void RightMove()
     {
-        float playerX = transform.localPosition.x;
-        float bg_1_x = maxX[floorLayer];
-        //transform.LookAt(new Vector3(transform.position.x + 5, transform.position.y, transform.position.z));
-        if (isLeft)
+        if (canMove)
         {
-            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-            isLeft = false;
+            float playerX = transform.localPosition.x;
+            float bg_1_x = maxX[floorLayer];
+            //transform.LookAt(new Vector3(transform.position.x + 5, transform.position.y, transform.position.z));
+            if (isLeft)
+            {
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                isLeft = false;
+            }
+            if (playerX <= bg_1_x)
+            {
+                transform.Translate(Time.deltaTime * Vector3.right * moveSpeed, Space.World);
+            }
         }
-        if (playerX <= bg_1_x)
-        {
-            transform.Translate(Time.deltaTime * Vector3.right * moveSpeed, Space.World);
-        }
-        
     }
 
+    public void SetLeft(bool isLeft)
+    {
+        if (isLeft)
+        {
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            this.isLeft = true;
+        }
+        else
+        {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            this.isLeft = false;
+        }
+    }
 
     public void setEquip(EquipmentType equipmentType)
     {
-        var existedTorch = transform.Find("Torch(Clone)");
-        if (existedTorch != null)
+        if (canMove)
         {
-            Destroy(existedTorch.gameObject);
-        }
-        itemOn = true;
-        switch (equipmentType) {
-            case EquipmentType.FlashLight:
-                currentEquipType = EquipmentType.FlashLight;
-                GameObject torch = Instantiate(torchPrefab) as GameObject;
-                if(!isLeft)
-                    torch.transform.position = new Vector3(transform.position.x + 3.1f, transform.position.y, transform.position.z);
-                else
-                    torch.transform.position = new Vector3(transform.position.x - 3.1f, transform.position.y, transform.position.z);
-                torch.transform.parent = transform;
-                if (itemOn)
-                {
-                    turnOffTorch();
-                    itemOn = false;
-                }
-                else
-                {
-                    turnOnTorch();
-                    itemOn = true;
-                }
-                break;
+            var existedTorch = transform.Find("Torch(Clone)");
+            if (existedTorch != null)
+            {
+                Destroy(existedTorch.gameObject);
+            }
+            itemOn = true;
+            switch (equipmentType)
+            {
+                case EquipmentType.FlashLight:
+                    currentEquipType = EquipmentType.FlashLight;
+                    GameObject torch = Instantiate(torchPrefab) as GameObject;
+                    if (!isLeft)
+                        torch.transform.position = new Vector3(transform.position.x + 3.1f, transform.position.y, transform.position.z);
+                    else
+                        torch.transform.position = new Vector3(transform.position.x - 3.1f, transform.position.y, transform.position.z);
+                    torch.transform.parent = transform;
+                    if (itemOn)
+                    {
+                        turnOffTorch();
+                        itemOn = false;
+                    }
+                    else
+                    {
+                        turnOnTorch();
+                        itemOn = true;
+                    }
+                    break;
+            }
         }
     }
 
     void UseEquip()
     {
-        switch (currentEquipType) {
-            case EquipmentType.FlashLight:
-                audioSource.Play();
-                if (itemOn)
-                {
-                    turnOffTorch();
-                    itemOn = false;
-                }
-                else
-                {
-                    turnOnTorch();
-                    itemOn = true;
-                }
-                break;
+        if (canMove)
+        {
+            switch (currentEquipType)
+            {
+                case EquipmentType.FlashLight:
+                    audioSource.Play();
+                    if (itemOn)
+                    {
+                        turnOffTorch();
+                        itemOn = false;
+                    }
+                    else
+                    {
+                        turnOnTorch();
+                        itemOn = true;
+                    }
+                    break;
+            }
         }
     }
 
@@ -148,6 +183,32 @@ public class PlayerManager : MonoBehaviour {
     void turnOffTorch()
     {
         transform.Find("Torch(Clone)").GetComponent<FlashLightEquipment>().TurnOffTorch();
+    }
+
+    void UseSkill()
+    {
+        if (canMove == true)
+        {
+            canMove = false;
+            Debug.Log("skill");
+            GameObject SkillCharacter = Instantiate(SkillPrefab) as GameObject;
+            if (!isLeft)
+                SkillCharacter.transform.position = new Vector3(transform.position.x + 3.1f, transform.position.y, transform.position.z);
+            else
+                SkillCharacter.transform.position = new Vector3(transform.position.x - 3.1f, transform.position.y, transform.position.z);
+            SkillCharacter.transform.parent = transform;
+        }
+        else
+        {
+            canMove = true;
+            var existedSkill = transform.Find("SkillCharacter(Clone)");
+            transform.position=existedSkill.position;
+            if (existedSkill != null)
+            {
+                Debug.Log(existedSkill.name);
+                Destroy(existedSkill.gameObject);
+            }
+        }
     }
 
     private PlayerSave CreateSavePlayer()
@@ -193,7 +254,7 @@ public class PlayerManager : MonoBehaviour {
         string lastSceneName = PlayerPrefs.GetString("LastSceneName");
         if (lastSceneName != SceneItemManager.GetLevelName() + "-" + SceneItemManager.GetSceneName())
         {
-            transform.position = scenario.getPlayerInitPos(lastSceneName);
+            transform.position = scenario.GetPlayerInitPos(lastSceneName);
         }
     }
 
@@ -214,5 +275,86 @@ public class PlayerManager : MonoBehaviour {
         };
 
         return root.ToString();
+    }
+
+    public bool getCanMoved()
+    {
+        return canMove;
+    }
+
+    public Transform getSkillTransform()
+    {
+        if (transform.Find("SkillCharacter(Clone)") != null)
+        {
+            return transform.Find("SkillCharacter(Clone)").transform;
+        }
+        return null;
+    }
+
+    public IEnumerator MoveTo(Vector2 target)
+    {
+        if (target.x > transform.position.x)
+        {
+            SetLeft(false);
+            float offsetX = target.x - transform.position.x;
+            float offsetY = target.y - transform.position.y;
+            while (target.x > transform.position.x)
+            {
+                RightMove();
+                float deltaX = moveSpeed * Time.deltaTime;
+                transform.position = new Vector3(transform.position.x,
+                    deltaX / offsetX * offsetY + transform.position.y);
+                yield return null;
+            }
+            transform.position = target;
+        }
+        else
+        {
+            SetLeft(true);
+            float offsetX = transform.position.x - target.x;
+            float offsetY = target.y - transform.position.y;
+            while (target.x < transform.position.x)
+            {
+                LeftMove();
+                float deltaX = moveSpeed * Time.deltaTime;
+                transform.position = new Vector3(transform.position.x,
+                    deltaX / offsetX * offsetY + transform.position.y);
+                yield return null;
+            }
+            transform.position = target;
+        }
+    }
+
+    public IEnumerator MoveTo(Vector2 target, NoneParaFunc noneParaFunc)
+    {
+        if (target.x > transform.position.x)
+        {
+            float offsetX = target.x - transform.position.x;
+            float offsetY = target.y - transform.position.y;
+            while (target.x > transform.position.x)
+            {
+                RightMove();
+                float deltaX = moveSpeed * Time.deltaTime;
+                transform.position = new Vector3(transform.position.x, 
+                    deltaX / offsetX * offsetY + transform.position.y);
+                yield return null;
+            }
+            transform.position = target;
+        }
+        else
+        {
+            float offsetX = transform.position.x - target.x;
+            float offsetY = target.y - transform.position.y;
+            while (target.x < transform.position.x)
+            {
+                LeftMove();
+                float deltaX = moveSpeed * Time.deltaTime;
+                transform.position = new Vector3(transform.position.x,
+                    deltaX / offsetX * offsetY + transform.position.y);
+                yield return null;
+            }
+            transform.position = target;
+        }
+        noneParaFunc();
     }
 }

@@ -1,0 +1,38 @@
+﻿1|Before_Fate|Apkal|唔姆，结果还是不由自主的来到这里了。|Apkal_serious|0
+2|Before_Fate|Apkal|马尔杜克名单上指示的地点就在这附近了。|Apkal_serious|0
+3|Before_Fate|Apkal|虽然还不知道那个存在是否可以信任，但那充满神性的声音令人无法怀疑。|Apkal_serious|0
+4|Before_Fate|Apkal|修正世界什么的，也不赖嘛。|Apkal_serious|0
+5|Before_Fate|Apkal|让我看看这次的目标。|Apkal_serious|0
+6|Before_Fate|Apkal|Stone of Fate，#改变命运的石头吗。|Apkal_serious|0
+7|Before_Fate|Apkal|因为意外而产生的，会给持有者带来好运的石头吗……|Apkal_serious|0
+8|Before_Fate|Apkal|原来只是一个普通人，#接触到这块石头就中了彩票一夜暴富了吗……|Apkal_serious|0
+9|Before_Fate|Apkal|之后带着奖金去了赌场，#短短几天就翻了好几翻……|Apkal_serious|0
+10|Before_Fate|Apkal|功成身退之后还成立了信托公司进行投资？#即使在前段时间的金融风暴里也保持高额盈利吗……|Apkal_serious|0
+11|Before_Fate|Apkal|现在被他藏在了附近吗……|Apkal_serious|0
+12|Before_Fate|Apkal|明明只是一块小石头，还挺厉害的。放着不管的话会扭曲普通的人间生活吧。|Apkal_serious|0
+13|Before_Fate|Apkal|那么，#就让我来毁掉你吧。|Apkal_serious|0
+
+14|Go_the_trap|Apkal|切。居然在地下埋了机关吗，要怎么才能回避呢……|Apkal_serious|0
+
+15|Touch_the_stone|Apkal|哼，防卫也不过如此。|Apkal_serious|0
+16|Touch_the_stone|Apkal|哦？居然还能散发出感情吗。在害怕……？|Apkal_serious|0
+17|Touch_the_stone|Apkal|但是这个世界留不得越界的你。再见了，小家伙……|Apkal_serious|0
+18|Touch_the_stone|? ? ?|不要碰那个东西，它很危险——|0|0
+19|Touch_the_stone|Apkal|？？|Apkal_shock|0
+20|Touch_the_stone|stone|危机。结界。展开。名Fate。目标。确认。|0|0
+21|Touch_the_stone|Apkal|该死——|Apkal_shock|0
+22|Touch_the_stone|stone|目标。捕捉。完毕。|0|0
+23|Touch_the_stone|? ? ?|来不及阻止术式了。##\大哥哥，#记住，世界永远比你看到的要大——|0|0
+
+24|To_the_magic|Apkal|唔姆——#被摆了一道吗……|Apkal_serious|0
+25|To_the_magic|Apkal|这是阵法内部吗，得快点想办法出去才行。|Apkal_serious|0
+
+26|First_time_touch|Apkal|居然是传送法阵吗……？但好像除了房间号没什么变化|Apkal_serious|0
+
+27|Touch_the_bookcase|Apkal|《白雪公主和10个小矮人》。《10宗罪》。#这都是些什么奇怪的书？|Apkal_serious|0
+
+28|reach_point|Apkal|这就是七号房间吗？看来出口就在前方了。|Apkal_serious|0
+
+29|Touch_the_script_left|0|写有制作人名单的纸条|0|0
+
+30|Touch_the_script_right|0|写有制作人名单的纸条|0|0

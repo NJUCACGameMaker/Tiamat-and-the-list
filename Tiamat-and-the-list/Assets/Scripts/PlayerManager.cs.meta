@@ -3,7 +3,13 @@ guid: ff5998679f82dd040b87dd044179f9cb
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - scenario: {instanceID: 0}
+  - torchPrefab: {instanceID: 0}
+  - SkillPrefab: {fileID: 1952334848792818, guid: 34bc8fdfa87e7124584307720d92e807,
+      type: 2}
+  - audioTorchSwitch: {instanceID: 0}
+  - playerAnima: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

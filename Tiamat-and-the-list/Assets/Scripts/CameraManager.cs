@@ -25,7 +25,7 @@ public class CameraManager : MonoBehaviour {
     private void LateUpdate()
     {
         Vector3 targetCamPos = new Vector3(player.position.x, player.position.y+2.54f, 0);
-        if (transform.position.x != player.position.x)
+        if (Mathf.Abs(transform.position.x- player.position.x)>=0.001)
         {
             Vector3 lerp = Vector3.Lerp(new Vector3(transform.position.x, transform.position.y, 0), targetCamPos, moveSpeed * Time.deltaTime);
             transform.position = new Vector3(lerp.x, lerp.y, transform.position.z);
