@@ -2723,14 +2723,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1695774712}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e504febad2add6a40bd38708241f45f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ea2bd835c5b7c649a6e60f5b59b35b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   generated: 0
   interoperable: 1
-  detectDist: 2.2
-  floorLayer: 00000000
+  detectDist: 2
+  floorLayer: 0000000001000000
   Apkal: {fileID: 1529435474}
+  flag: 1
+  dialogSection: Go_the_trap
 --- !u!1 &1717725595
 GameObject:
   m_ObjectHideFlags: 0
