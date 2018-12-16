@@ -96,6 +96,7 @@ public class SceneItemManager : MonoBehaviour {
             {
                 interoperable.WithinRange();
             }
+
         }
     }
 
