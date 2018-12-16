@@ -3254,6 +3254,16 @@ Prefab:
       propertyPath: maxX.Array.data[0]
       value: 29.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114170007878451464, guid: f15da11235f2fd54f96d50331022f7f1,
+        type: 2}
+      propertyPath: walkLeft
+      value: 
+      objectReference: {fileID: 8300000, guid: 10649262db30c204d8f36408016ff6a6, type: 3}
+    - target: {fileID: 114170007878451464, guid: f15da11235f2fd54f96d50331022f7f1,
+        type: 2}
+      propertyPath: walkRight
+      value: 
+      objectReference: {fileID: 8300000, guid: 05acd820e6d22854c97238b1f1754a93, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da11235f2fd54f96d50331022f7f1, type: 2}
   m_IsPrefabAsset: 0

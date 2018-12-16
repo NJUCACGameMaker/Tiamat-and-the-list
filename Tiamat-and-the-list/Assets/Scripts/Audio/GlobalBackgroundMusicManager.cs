@@ -13,8 +13,10 @@ public class GlobalBackgroundMusicManager : MonoBehaviour {
         string name = this.gameObject.scene.name;
         if (name == "Setting")
             name = "Cover";
-        if (name == "Tutorial-Scene2")
-            name = "Tutorial-Scene1";
+        if ((name == "Tutorial-Scene2") || (name == "Tutorial-Scene1"))
+            name = "Tutorial";
+        if ((name == "Level1-Scene1") || (name == "Level1-Scene2") || (name == "Level1-Scene3"))
+            name = "Level1";
         myMusic = GameObject.Find("BackgroundMusic_" + name);
         if (myMusic == null)
         {

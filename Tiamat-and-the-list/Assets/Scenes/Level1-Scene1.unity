@@ -1417,6 +1417,58 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1075037653
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4533687771922588, guid: 98be1102a6738384fb7723ec1859ae8a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 7.3739705
+      objectReference: {fileID: 0}
+    - target: {fileID: 4533687771922588, guid: 98be1102a6738384fb7723ec1859ae8a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.013019953
+      objectReference: {fileID: 0}
+    - target: {fileID: 4533687771922588, guid: 98be1102a6738384fb7723ec1859ae8a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -9.964844
+      objectReference: {fileID: 0}
+    - target: {fileID: 4533687771922588, guid: 98be1102a6738384fb7723ec1859ae8a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4533687771922588, guid: 98be1102a6738384fb7723ec1859ae8a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4533687771922588, guid: 98be1102a6738384fb7723ec1859ae8a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4533687771922588, guid: 98be1102a6738384fb7723ec1859ae8a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4533687771922588, guid: 98be1102a6738384fb7723ec1859ae8a, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 82788867568010384, guid: 98be1102a6738384fb7723ec1859ae8a,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7075d410968a8f744a5e04f96ff0a6d1, type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 98be1102a6738384fb7723ec1859ae8a, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!1 &1075037654 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1381709292502976, guid: 98be1102a6738384fb7723ec1859ae8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1075037653}
 --- !u!1 &1099083946
 GameObject:
   m_ObjectHideFlags: 0
@@ -2742,10 +2794,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -2791,6 +2843,48 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1818427757
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1818427758}
+  - component: {fileID: 1818427759}
+  m_Layer: 0
+  m_Name: BackgroundMusicController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1818427758
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1818427757}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2103690121}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1818427759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1818427757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8c10a39653044248a753973c7873d84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BackgroundMusic: {fileID: 1075037654}
+  clip: {fileID: 8300000, guid: 7075d410968a8f744a5e04f96ff0a6d1, type: 3}
 --- !u!1 &1885640602
 GameObject:
   m_ObjectHideFlags: 0
@@ -3156,6 +3250,7 @@ Transform:
   - {fileID: 302572294}
   - {fileID: 183040003}
   - {fileID: 156261928}
+  - {fileID: 1818427758}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

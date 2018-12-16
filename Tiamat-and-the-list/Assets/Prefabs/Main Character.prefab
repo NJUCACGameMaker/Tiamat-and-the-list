@@ -539,6 +539,7 @@ GameObject:
   - component: {fileID: 4132366837308712}
   - component: {fileID: 114037292214459280}
   - component: {fileID: 95371047196903676}
+  - component: {fileID: 114170007878451464}
   m_Layer: 0
   m_Name: Apkal
   m_TagString: Untagged
@@ -2189,6 +2190,19 @@ MonoBehaviour:
   - {fileID: 4301081547553708}
   - {fileID: 4735177265170952}
   - {fileID: 4171638401738458}
+--- !u!114 &114170007878451464
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1516158464949534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8abcc016a73e368449b7964e799306ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkLeft: {fileID: 0}
+  walkRight: {fileID: 0}
 --- !u!114 &114192842037610618
 MonoBehaviour:
   m_ObjectHideFlags: 1
