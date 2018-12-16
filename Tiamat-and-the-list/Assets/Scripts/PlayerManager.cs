@@ -193,9 +193,9 @@ public class PlayerManager : MonoBehaviour {
             Debug.Log("skill");
             GameObject SkillCharacter = Instantiate(SkillPrefab) as GameObject;
             if (!isLeft)
-                SkillCharacter.transform.position = new Vector3(transform.position.x + 3.1f, transform.position.y, transform.position.z);
+                SkillCharacter.transform.position = new Vector3(transform.position.x + 0.1f, transform.position.y, transform.position.z);
             else
-                SkillCharacter.transform.position = new Vector3(transform.position.x - 3.1f, transform.position.y, transform.position.z);
+                SkillCharacter.transform.position = new Vector3(transform.position.x - 0.1f, transform.position.y, transform.position.z);
             SkillCharacter.transform.parent = transform;
         }
         else

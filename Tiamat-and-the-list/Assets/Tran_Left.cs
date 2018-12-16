@@ -6,7 +6,6 @@ public class Tran_Left : Interoperable
 {
 
     public PlayerManager Apkal;
-    public SpriteRenderer Mask;
     public Tran_Right Right;
     public MazeController Maze;
     public bool Tran = true;
@@ -30,11 +29,11 @@ public class Tran_Left : Interoperable
         if (Tran)
         {
             Maze.GetLeft();
-            Mask.color = new Color(0, 0, 0, 1);
-            Apkal.transform.position = new Vector3(8, 2.5f, 0);
+            Apkal.transform.position = new Vector3(6, Apkal.transform.position.y, 0);
             Right.Tran = false;
-            Mask.color = new Color(0, 0, 0, 0);
            
         }
     }
+
+    
 }

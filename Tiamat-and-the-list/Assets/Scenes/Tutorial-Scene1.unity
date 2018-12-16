@@ -547,7 +547,7 @@ MonoBehaviour:
   generated: 0
   interoperable: 1
   detectDist: 2
-  floorLayer: 0
+  floorLayer: 00000000
   dialogSection: Pic6
   hintSprite: {fileID: 1428382460}
   audioPainting: {fileID: 8300000, guid: 4213f7c5fb377744694130e513a226e5, type: 3}
@@ -1140,7 +1140,7 @@ MonoBehaviour:
   generated: 0
   interoperable: 1
   detectDist: 2
-  floorLayer: 0
+  floorLayer: 00000000
   dialogSection1: Pic3-1
   dialogSection2: Pic3-2
   dialogSection3: Pic3-3
@@ -1315,7 +1315,7 @@ MonoBehaviour:
   generated: 0
   interoperable: 1
   detectDist: 2
-  floorLayer: 0
+  floorLayer: 00000000
   dialogSection: Pic4
   hintSprite: {fileID: 1304928006}
   audioPainting: {fileID: 8300000, guid: 4213f7c5fb377744694130e513a226e5, type: 3}
@@ -1410,7 +1410,7 @@ MonoBehaviour:
   generated: 0
   interoperable: 1
   detectDist: 2
-  floorLayer: 0
+  floorLayer: 00000000
   dialogSection: Pic1
   hintSprite: {fileID: 1052528561}
   audioPainting: {fileID: 8300000, guid: 4213f7c5fb377744694130e513a226e5, type: 3}
@@ -4026,7 +4026,7 @@ MonoBehaviour:
   generated: 0
   interoperable: 0
   detectDist: 2
-  floorLayer: 0
+  floorLayer: 00000000
   temp_paint: {fileID: 441231645}
   hintSprite: {fileID: 2119729301}
   if_picked: 0
@@ -4389,7 +4389,7 @@ MonoBehaviour:
   generated: 0
   interoperable: 1
   detectDist: 2
-  floorLayer: 0
+  floorLayer: 00000000
   dialogSection: Pic5
   hintSprite: {fileID: 1887460898}
   audioPainting: {fileID: 8300000, guid: 4213f7c5fb377744694130e513a226e5, type: 3}
@@ -5191,7 +5191,7 @@ MonoBehaviour:
   generated: 0
   interoperable: 1
   detectDist: 2
-  floorLayer: 0
+  floorLayer: 00000000
   nextSceneName: Tutorial-Scene2
   dialogSection: 
   test: 0
@@ -5824,7 +5824,7 @@ MonoBehaviour:
   generated: 0
   interoperable: 1
   detectDist: 2
-  floorLayer: 0
+  floorLayer: 00000000
   dialogSection: Pic2
   hintSprite: {fileID: 1287610705}
   audioPainting: {fileID: 8300000, guid: 4213f7c5fb377744694130e513a226e5, type: 3}
@@ -6778,7 +6778,7 @@ MonoBehaviour:
   generated: 0
   interoperable: 1
   detectDist: 2
-  floorLayer: 0
+  floorLayer: 00000000
   resourcesPath: EquipablePrefabs/flashlight
   equipmentType: 0
   dialogSection: 

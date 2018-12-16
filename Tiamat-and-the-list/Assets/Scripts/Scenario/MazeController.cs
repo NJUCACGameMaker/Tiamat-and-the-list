@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MazeController {
+public class MazeController : MonoBehaviour{
 
-    public MazeController()
+    void Start()
     {
         previousNum = Random.Range(0, 7) + Random.Range(0, 7) * 10;
         anotherNum = Random.Range(0, 7) + Random.Range(0, 7) * 10;
@@ -26,6 +26,7 @@ public class MazeController {
     //是否完成一次来回
     private bool roundFinish = true;
 
+    [HideInInspector]
     public bool puzzleFinish = false;
 
     private void Wander()

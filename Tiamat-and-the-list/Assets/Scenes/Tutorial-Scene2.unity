@@ -205,7 +205,7 @@ MonoBehaviour:
   generated: 0
   interoperable: 1
   detectDist: 2
-  floorLayer: 0
+  floorLayer: 00000000
   hintSprite: {fileID: 470550020}
   lightController: {fileID: 1613430737}
   dialogSection: 
@@ -392,7 +392,6 @@ GameObject:
   m_Component:
   - component: {fileID: 89635875}
   - component: {fileID: 89635874}
-  - component: {fileID: 89635876}
   m_Layer: 0
   m_Name: stair
   m_TagString: Untagged
@@ -459,17 +458,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &89635876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 89635873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be8ddd8b081ed2a419de001508e8d7d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &93564121
 GameObject:
   m_ObjectHideFlags: 0
@@ -991,7 +979,7 @@ MonoBehaviour:
   generated: 0
   interoperable: 1
   detectDist: 2
-  floorLayer: 0
+  floorLayer: 00000000
   nextSceneName: Tutorial-Scene1
   dialogSection: 
   test: 0
@@ -2436,7 +2424,7 @@ MonoBehaviour:
   generated: 0
   interoperable: 1
   detectDist: 2
-  floorLayer: 1
+  floorLayer: 01000000
   player: {fileID: 1751808922}
   targetPos: {x: 6.97, y: -5, z: 0}
   hintSprite: {fileID: 291876439}
@@ -2607,7 +2595,7 @@ MonoBehaviour:
   generated: 0
   interoperable: 1
   detectDist: 2
-  floorLayer: 0
+  floorLayer: 00000000
   player: {fileID: 1751808922}
   targetPos: {x: 14.5, y: 1.42, z: 0}
   hintSprite: {fileID: 455247196}
@@ -2781,7 +2769,7 @@ MonoBehaviour:
   generated: 0
   interoperable: 1
   detectDist: 2
-  floorLayer: 0
+  floorLayer: 00000000
   lightSwitch: {fileID: 63751518}
   skylight: {fileID: 1771201584}
   player: {fileID: 1751808922}
@@ -3684,7 +3672,7 @@ MonoBehaviour:
   generated: 0
   interoperable: 1
   detectDist: 2
-  floorLayer: 1
+  floorLayer: 01000000
   hintSprite: {fileID: 526213598}
   dialogSection: Scence2
   opened: 0
@@ -4097,7 +4085,7 @@ MonoBehaviour:
   generated: 0
   interoperable: 1
   detectDist: 4
-  floorLayer: 1
+  floorLayer: 01000000
   dialogSection1: Word-L
   dialogSection2: Word-D
   hintSprite: {fileID: 81888320}

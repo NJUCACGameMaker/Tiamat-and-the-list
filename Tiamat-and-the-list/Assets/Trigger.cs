@@ -13,14 +13,14 @@ public class Trigger : Interoperable {
 	// Update is called once per frame
 	void Update () {
         float distance = Mathf.Abs(Apkal.transform.position.x - transform.position.x);
-        if (distance>detectDist)
+        if (distance > detectDist)
         {
             Apkal.floorLayer = 0;
         }
 	}
     public override void WithinRange()
     {
-        Apkal.floorLayer = 2;
+        Apkal.floorLayer = 1;
 
     }
 }

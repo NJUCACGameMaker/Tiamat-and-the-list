@@ -637,7 +637,7 @@ Transform:
   m_Children:
   - {fileID: 1814459555}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &226091801
 Prefab:
@@ -742,7 +742,7 @@ Prefab:
         type: 2}
       propertyPath: scenario
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 687864949}
     - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
         type: 2}
       propertyPath: SkillPrefab
@@ -752,7 +752,12 @@ Prefab:
     - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
         type: 2}
       propertyPath: maxX.Array.data[0]
-      value: 27.5
+      value: 28.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
+        type: 2}
+      propertyPath: minX.Array.data[0]
+      value: -28.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da11235f2fd54f96d50331022f7f1, type: 2}
@@ -3426,7 +3431,7 @@ RectTransform:
   m_Children:
   - {fileID: 1612280687}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4298,7 +4303,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &751316693
 GameObject:
@@ -4763,7 +4768,7 @@ RectTransform:
   m_Children:
   - {fileID: 1198623243}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5412,7 +5417,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: Level1
   sceneName: Scene2
-  interoperables: []
+  interoperables:
+  - {fileID: 1926363089}
+  - {fileID: 1792125135}
   player: {fileID: 226091802}
   paused: 0
 --- !u!1 &1017207973
@@ -7168,7 +7175,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1398286938
 GameObject:
@@ -7802,8 +7809,9 @@ Transform:
   - {fileID: 1283368757}
   - {fileID: 491529649}
   - {fileID: 687864948}
+  - {fileID: 1814237584}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1547976996
 GameObject:
@@ -10283,7 +10291,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1792125135
 MonoBehaviour:
@@ -10296,6 +10304,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77a983f7d93f89447844963e99bfe8e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  generated: 0
+  interoperable: 1
+  detectDist: 1
+  floorLayer: 00000000
+  Apkal: {fileID: 226091802}
+  Left: {fileID: 1926363089}
+  Maze: {fileID: 1814237585}
+  Tran: 1
 --- !u!1 &1813780980
 GameObject:
   m_ObjectHideFlags: 0
@@ -10371,6 +10387,47 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1814237583
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1814237584}
+  - component: {fileID: 1814237585}
+  m_Layer: 0
+  m_Name: MazeController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1814237584
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1814237583}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1521542697}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1814237585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1814237583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbecaa5319f8aed48939699f63386de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzleFinish: 0
 --- !u!1 &1814459550
 GameObject:
   m_ObjectHideFlags: 0
@@ -10721,7 +10778,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1821062701
 GameObject:
@@ -10752,7 +10809,7 @@ Transform:
   - {fileID: 647417100}
   - {fileID: 1398286939}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1836312193
 GameObject:
@@ -11353,7 +11410,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1926363089
 MonoBehaviour:
@@ -11366,6 +11423,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b0820e3eac3b954d8c173718f6cbf1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  generated: 0
+  interoperable: 1
+  detectDist: 1
+  floorLayer: 00000000
+  Apkal: {fileID: 226091802}
+  Right: {fileID: 1792125135}
+  Maze: {fileID: 1814237585}
+  Tran: 1
 --- !u!1 &1929383776
 GameObject:
   m_ObjectHideFlags: 0
