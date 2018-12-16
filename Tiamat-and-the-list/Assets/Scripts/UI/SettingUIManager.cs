@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class SettingUIManager : MonoBehaviour {
@@ -10,6 +11,10 @@ public class SettingUIManager : MonoBehaviour {
     public GameObject collectionSection;
     public GameObject cgSection;
     public GameObject musicSection;
+
+    public Slider backgroundMusicVolumeSlider;
+    public Slider effectMusicVolumeSlider;
+    public Slider typingSpeedSlider;
 
     public RectTransform mainRightTrans;
 
@@ -41,7 +46,14 @@ public class SettingUIManager : MonoBehaviour {
             cgList.AddCGButton(cgPiece.shortLine, cgPiece.picPath);
         }
 
-        
+        backgroundMusicVolumeSlider.value = PlayerPrefs.GetFloat("BackgroundMusicVolume", 1.0f);
+        AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        audioManager.backgroundMusicVolume = backgroundMusicVolumeSlider.value;
+
+        effectMusicVolumeSlider.value = PlayerPrefs.GetFloat("EffectMusicVolume", 1.0f);
+        audioManager.effectSoundVolume = effectMusicVolumeSlider.value;
+
+        typingSpeedSlider.value = 1 / PlayerPrefs.GetFloat("TypingSpeed", 0.04f);
     }
 
     private void Update()
@@ -101,6 +113,33 @@ public class SettingUIManager : MonoBehaviour {
             sceneManager.GetComponent<SceneItemManager>().Resume();
         }
         SceneManager.UnloadSceneAsync("Setting");
+    }
+
+    public void OnBackgroundMusicVolumeChanged()
+    {
+        PlayerPrefs.SetFloat("BackgroundMusicVolume", backgroundMusicVolumeSlider.value);
+        AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        audioManager.backgroundMusicVolume = backgroundMusicVolumeSlider.value;
+        PlayerPrefs.Save();
+    }
+
+    public void OnEffectMusicVolumeChanged()
+    {
+        PlayerPrefs.SetFloat("EffectMusicVolume", effectMusicVolumeSlider.value);
+        AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        audioManager.effectSoundVolume = effectMusicVolumeSlider.value;
+        PlayerPrefs.Save();
+    }
+
+    public void OnTypingSpeedChanged()
+    {
+        PlayerPrefs.SetFloat("TypingSpeed", 1 / typingSpeedSlider.value);
+        GameObject dialogManager = GameObject.Find("DialogController");
+        if (dialogManager != null && dialogManager.GetComponent<DialogManager>() != null)
+        {
+            dialogManager.GetComponent<DialogManager>().textSpeed = 1 / typingSpeedSlider.value;
+        }
+        PlayerPrefs.Save();
     }
 
     private void ShowSectionLeft(RectTransform section)

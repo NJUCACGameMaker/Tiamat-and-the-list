@@ -8,7 +8,7 @@ public class DialogManager : MonoBehaviour
     private static DialogManager instance;
     public GameObject DialogPrefab;
     public GameObject DialogBox;               // 对话框+立绘整体
-    public double textSpeed = 0.04;            // 文字显示速度
+    public float textSpeed = 0.04f;            // 文字显示速度
     
     private Dialog currentDialog;              // 当前对话
     private int id;                            // temp 测试用
@@ -17,7 +17,7 @@ public class DialogManager : MonoBehaviour
 
     private string tempDialog;                 // 逐字显示用
     private bool dialogFlag;                   // 判断是否在逐字显示
-    private double timer;
+    private float timer;
     private bool animationLock;                // 在播放特定动画的时候锁死交互
     private float pauseTime = 0f;              // 用于会话停顿
     private int soundIndex = 0;
@@ -123,6 +123,8 @@ public class DialogManager : MonoBehaviour
         loader = new DialogLoader();
         loader.loadData();
         //initDialog("Scene1");
+
+        textSpeed = PlayerPrefs.GetFloat("TypingSpeed", 0.04f);
     }
 
     void Update()
