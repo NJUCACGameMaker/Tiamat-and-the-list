@@ -1264,7 +1264,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: Level1
   sceneName: Scene1
-  interoperables: []
+  interoperables:
+  - {fileID: 1695774715}
+  - {fileID: 2098527641}
   player: {fileID: 1529435474}
   paused: 0
 --- !u!1 &977164004
@@ -2044,12 +2046,12 @@ Prefab:
     - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
         type: 2}
       propertyPath: maxX.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
         type: 2}
       propertyPath: minX.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4924522905735598, guid: f15da11235f2fd54f96d50331022f7f1, type: 2}
       propertyPath: m_LocalPosition.x
@@ -2146,12 +2148,12 @@ Prefab:
     - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
         type: 2}
       propertyPath: maxX.Array.data[1]
-      value: 26.5
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
         type: 2}
       propertyPath: minX.Array.data[1]
-      value: 13.6
+      value: -9.2
       objectReference: {fileID: 0}
     - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
         type: 2}
@@ -2169,6 +2171,21 @@ Prefab:
       value: 
       objectReference: {fileID: 1952334848792818, guid: 34bc8fdfa87e7124584307720d92e807,
         type: 2}
+    - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
+        type: 2}
+      propertyPath: maxX.Array.data[2]
+      value: 12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
+        type: 2}
+      propertyPath: minX.Array.data[2]
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
+        type: 2}
+      propertyPath: scenario
+      value: 
+      objectReference: {fileID: 156261929}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da11235f2fd54f96d50331022f7f1, type: 2}
   m_IsPrefabAsset: 0
@@ -2631,6 +2648,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1695774714}
   - component: {fileID: 1695774713}
+  - component: {fileID: 1695774715}
   m_Layer: 0
   m_Name: trigger
   m_TagString: Untagged
@@ -2691,12 +2709,28 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1695774712}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.1, y: -4.3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -3.375, y: -4.3, z: 0}
+  m_LocalScale: {x: 1.48393, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1695774715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1695774712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e504febad2add6a40bd38708241f45f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generated: 0
+  interoperable: 1
+  detectDist: 2.2
+  floorLayer: 00000000
+  Apkal: {fileID: 1529435474}
 --- !u!1 &1717725595
 GameObject:
   m_ObjectHideFlags: 0
@@ -3142,7 +3176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1529435474}
-  scenario: {fileID: 0}
+  scenario: {fileID: 156261929}
   archiveName: Normal-Archive
 --- !u!1 &2098527637
 GameObject:
@@ -3153,6 +3187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2098527639}
   - component: {fileID: 2098527638}
+  - component: {fileID: 2098527641}
   m_Layer: 0
   m_Name: stone
   m_TagString: Untagged
@@ -3213,12 +3248,28 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2098527637}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.6251006, y: 0.94247174, z: 0}
+  m_LocalPosition: {x: 7.6, y: 0.95, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2098527641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2098527637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02fd609ed38b5204ba3123ed654892e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generated: 0
+  interoperable: 1
+  detectDist: 2
+  floorLayer: 00000000
+  dialogSection: Touch_the_stone
 --- !u!1 &2103690120
 GameObject:
   m_ObjectHideFlags: 0

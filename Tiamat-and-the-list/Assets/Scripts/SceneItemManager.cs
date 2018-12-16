@@ -56,7 +56,7 @@ public class SceneItemManager : MonoBehaviour {
         {
             float distance = Mathf.Abs(player.transform.position.x - interoperable.transform.position.x);
             
-            if (interoperable.floorLayer == player.floorLayer && interoperable.interoperable && 
+            if (interoperable.floorLayer.Contains(player.floorLayer) && interoperable.interoperable && 
                 distance <= interoperable.detectDist && radio > (distance / interoperable.detectDist))
             {
                 radio = distance / interoperable.detectDist;
@@ -92,10 +92,11 @@ public class SceneItemManager : MonoBehaviour {
         {
             float distance = Mathf.Abs(player.transform.position.x - interoperable.transform.position.x);
 
-            if (interoperable.floorLayer == player.floorLayer && distance <= interoperable.detectDist)
+            if (interoperable.floorLayer.Contains(player.floorLayer) && distance <= interoperable.detectDist)
             {
                 interoperable.WithinRange();
             }
+
         }
     }
 

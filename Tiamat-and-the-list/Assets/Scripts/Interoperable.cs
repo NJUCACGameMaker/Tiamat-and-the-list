@@ -14,10 +14,10 @@ public class Interoperable : MonoBehaviour {
     public bool interoperable = true;
 
     //判定在主角附近的检测范围，交错按比例计算（范围强制触发即使交错仍是全范围的）
-    public int detectDist = 2;
+    public float detectDist = 2;
 
     //高度层，最低为0，向上递增，用于判断是否与主角在同一层从而判断是否可交互。
-    public int floorLayer = 0;
+    public List<int> floorLayer;
 
     //是否在主角附近
     private bool nearPlayer = false;
