@@ -18,6 +18,6 @@ public class Stone : Interoperable {
     {
         DialogManager.ShowDialog(dialogSection);
         interoperable = false;
-        GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0);
+        transform.position = new Vector3(25, 9, 0);
     }
 }

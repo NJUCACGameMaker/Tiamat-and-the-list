@@ -29,10 +29,14 @@
 
 26|First_time_touch|Apkal|居然是传送法阵吗……？但好像除了房间号没什么变化|Apkal_serious|0
 
-27|Touch_the_bookcase|Apkal|《白雪公主和10个小矮人》。《10宗罪》。#这都是些什么奇怪的书？|Apkal_serious|0
+27|Board_left|0|在个位的最大于最小间徘徊者，他将能突破这个世界。|0|0
 
-28|reach_point|Apkal|这就是七号房间吗？看来出口就在前方了。|Apkal_serious|0
+28|Board_right|0|并非所有人都和你一样数数。|0|0
 
-29|Touch_the_script_left|0|写有制作人名单的纸条|0|0
+29|Touch_the_bookcase|Apkal|《白雪公主和10个小矮人》。《10宗罪》。#这都是些什么奇怪的书？|Apkal_serious|0
 
-30|Touch_the_script_right|0|写有制作人名单的纸条|0|0
+30|reach_point|Apkal|这就是七号房间吗？看来出口就在前方了。|Apkal_serious|0
+
+31|Touch_the_script_left|0|写有制作人名单的纸条|0|0
+
+32|Touch_the_script_right|0|写有制作人名单的纸条|0|0

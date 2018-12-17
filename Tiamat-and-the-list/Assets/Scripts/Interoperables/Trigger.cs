@@ -5,6 +5,8 @@ using UnityEngine;
 public class Trigger : Interoperable {
 
     public PlayerManager Apkal;
+    public bool flag = true;
+    public string dialogSection;
 	// Use this for initialization
 	void Start () {
 		
@@ -21,6 +23,10 @@ public class Trigger : Interoperable {
     public override void WithinRange()
     {
         Apkal.floorLayer = 1;
-
+        if (flag)
+        {
+            DialogManager.ShowDialog(dialogSection);
+            flag = false;
+        }
     }
 }
