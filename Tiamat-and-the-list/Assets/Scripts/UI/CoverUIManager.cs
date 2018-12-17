@@ -35,7 +35,9 @@ public class CoverUIManager : MonoBehaviour {
         else
         {
             backgroundMusic.GetComponent<BackgroundAudioManager>().SceneChange();
-            SceneManager.LoadScene("Tutorial-Scene1");
+            //SceneManager.LoadScene("Tutorial-Scene1");
+            Debug.Log("loading");
+            GameObject.Find("SceneLoader").GetComponent<SceneLoader>().loadScene("Tutorial-Scene1");
         }
     }
 
@@ -64,7 +66,8 @@ public class CoverUIManager : MonoBehaviour {
         PlayerPrefs.SetInt("HasArchive", 0);
         PlayerPrefs.Save();
         backgroundMusic.GetComponent<BackgroundAudioManager>().SceneChange();
-        SceneManager.LoadScene("Tutorial-Scene1");
+        GameObject.Find("SceneLoader").GetComponent<SceneLoader>().loadScene("Tutorial-Scene1");
+        //SceneManager.LoadScene("Tutorial-Scene1");
     }
 
     //退出游戏button

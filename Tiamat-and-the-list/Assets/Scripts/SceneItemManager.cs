@@ -35,7 +35,7 @@ public class SceneItemManager : MonoBehaviour {
         SetNearPlayer();
         TriggerRangeCompel();
 	}
-
+    
     private void OnApplicationQuit()
     {
         ArchiveManager.SaveArchive(interoperables);

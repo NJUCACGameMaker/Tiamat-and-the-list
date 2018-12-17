@@ -261,7 +261,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 441231644}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &38867554
 GameObject:
@@ -878,7 +878,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 441231644}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &329239458
 SpriteRenderer:
@@ -1084,7 +1084,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 441231644}
-  - component: {fileID: 441231645}
   - component: {fileID: 441231643}
   m_Layer: 0
   m_Name: paintC
@@ -1117,38 +1116,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 441231642}
-  m_LocalRotation: {x: 0, y: 0, z: -0.88047737, w: 0.47408828}
-  m_LocalPosition: {x: 30.4, y: 0.9, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.88047737, w: 0.47408828}
+  m_LocalPosition: {x: -1.6, y: -1.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 329239457}
   - {fileID: 38141787}
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  - {fileID: 329239457}
+  m_Father: {fileID: 1909935529}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -123.4}
---- !u!114 &441231645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 441231642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d7f4208711a7834aa7a6865658dfb6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  generated: 0
-  interoperable: 1
-  detectDist: 2
-  floorLayer: 00000000
-  dialogSection1: Pic3-1
-  dialogSection2: Pic3-2
-  dialogSection3: Pic3-3
-  section: 0
-  dropAnimator: {fileID: 441231643}
-  hintSprite: {fileID: 38141786}
-  audioPainting: {fileID: 8300000, guid: 4213f7c5fb377744694130e513a226e5, type: 3}
-  audioPaintingDrop: {fileID: 8300000, guid: 5a9c1b0502cb4434db0fb7b349d3d141, type: 3}
 --- !u!1 &443552551
 GameObject:
   m_ObjectHideFlags: 0
@@ -2356,7 +2332,7 @@ MonoBehaviour:
   interoperables:
   - {fileID: 502646027}
   - {fileID: 1814738700}
-  - {fileID: 441231645}
+  - {fileID: 1909935530}
   - {fileID: 468697067}
   - {fileID: 1457842504}
   - {fileID: 121517530}
@@ -4027,7 +4003,7 @@ MonoBehaviour:
   interoperable: 0
   detectDist: 2
   floorLayer: 00000000
-  temp_paint: {fileID: 441231645}
+  temp_paint: {fileID: 1909935530}
   hintSprite: {fileID: 2119729301}
   if_picked: 0
   diaologsection1: Coll
@@ -6278,6 +6254,59 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1909935528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1909935529}
+  - component: {fileID: 1909935530}
+  m_Layer: 0
+  m_Name: paintC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1909935529
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1909935528}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 32, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 441231644}
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1909935530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1909935528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7f4208711a7834aa7a6865658dfb6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generated: 0
+  interoperable: 1
+  detectDist: 2
+  floorLayer: 00000000
+  dialogSection1: Pic3-1
+  dialogSection2: Pic3-2
+  dialogSection3: Pic3-3
+  section: 0
+  dropAnimator: {fileID: 441231643}
+  hintSprite: {fileID: 38141786}
+  audioPainting: {fileID: 8300000, guid: 4213f7c5fb377744694130e513a226e5, type: 3}
+  audioPaintingDrop: {fileID: 8300000, guid: 5a9c1b0502cb4434db0fb7b349d3d141, type: 3}
 --- !u!1 &1928900174
 GameObject:
   m_ObjectHideFlags: 0
