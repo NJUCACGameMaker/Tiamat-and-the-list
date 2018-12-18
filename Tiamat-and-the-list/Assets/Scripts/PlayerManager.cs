@@ -187,7 +187,7 @@ public class PlayerManager : MonoBehaviour {
 
     void UseSkill()
     {
-        if (canMove == true)
+        if (canMove)
         {
             canMove = false;
             GameObject SkillCharacter = Instantiate(SkillPrefab) as GameObject;
@@ -205,9 +205,9 @@ public class PlayerManager : MonoBehaviour {
         {
             canMove = true;
             var existedSkill = transform.Find("SkillCharacter(Clone)");
-            transform.position=existedSkill.transform.position;
-            transform.localScale = existedSkill.transform.localScale;
-            isLeft = existedSkill.GetComponent<SkillManager>().isLeft;
+            transform.position=existedSkill.position;
+            transform.localScale = existedSkill.localScale;
+            SetLeft(existedSkill.GetComponent<SkillManager>().isLeft);
             if (existedSkill != null)
             {
                 Destroy(existedSkill.gameObject);
@@ -224,7 +224,7 @@ public class PlayerManager : MonoBehaviour {
         floorLayer = root["floorLayer"].AsInt;
         setEquip((EquipmentType)Enum.Parse(typeof(EquipmentType), root["currentEquipType"]));
         itemOn = root["itemOn"].AsBool;
-        isLeft = root["isLeft"].AsBool;
+        SetLeft(root["isLeft"].AsBool);
 
         switch (currentEquipType)
         {
@@ -244,9 +244,11 @@ public class PlayerManager : MonoBehaviour {
         if (!canMove)
         {
             GameObject skill = Instantiate(SkillPrefab) as GameObject;
-            skill.transform.parent = transform;
             skill.transform.localScale = new Vector3(root["skillScale"][0].AsFloat, root["skillScale"][1].AsFloat, root["skillScale"][2].AsFloat);
             skill.transform.position = new Vector3(root["skillPosition"][0].AsFloat, root["skillPosition"][1].AsFloat, root["skillPosition"][2].AsFloat);
+            skill.transform.parent = transform;
+            skill.GetComponent<SkillManager>().maxX = maxX[floorLayer];
+            skill.GetComponent<SkillManager>().minX = minX[floorLayer];
             skill.GetComponent<SkillManager>().isLeft = root["skillIsLeft"].AsBool;
         }
     }
