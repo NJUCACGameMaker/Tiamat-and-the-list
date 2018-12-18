@@ -196,6 +196,7 @@ public class PlayerManager : MonoBehaviour {
                 SkillCharacter.transform.position = new Vector3(transform.position.x + 0.1f, transform.position.y, transform.position.z);
             else
                 SkillCharacter.transform.position = new Vector3(transform.position.x - 0.1f, transform.position.y, transform.position.z);
+            SkillCharacter.transform.parent = transform;
             SkillCharacter.GetComponent<SkillManager>().maxX = maxX[floorLayer];
             SkillCharacter.GetComponent<SkillManager>().minX = minX[floorLayer];
             SkillCharacter.GetComponent<SkillManager>().isLeft =isLeft;
@@ -243,6 +244,7 @@ public class PlayerManager : MonoBehaviour {
         if (!canMove)
         {
             GameObject skill = Instantiate(SkillPrefab) as GameObject;
+            skill.transform.parent = transform;
             skill.transform.localScale = new Vector3(root["skillScale"][0].AsFloat, root["skillScale"][1].AsFloat, root["skillScale"][2].AsFloat);
             skill.transform.position = new Vector3(root["skillPosition"][0].AsFloat, root["skillPosition"][1].AsFloat, root["skillPosition"][2].AsFloat);
             skill.GetComponent<SkillManager>().isLeft = root["skillIsLeft"].AsBool;
