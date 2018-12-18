@@ -8835,6 +8835,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainPlayer: {fileID: 226091802}
   size: 19.2
+  targetLeft: -9.6
+  targetRight: 9.6
 --- !u!1 &1656695405
 GameObject:
   m_ObjectHideFlags: 0
