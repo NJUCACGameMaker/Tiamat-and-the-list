@@ -53,6 +53,20 @@ public class SkillManager : MonoBehaviour
         InputManager.RemoveRightMove(SkillRightMove);
     }
 
+    public void SetLeft(bool isLeft)
+    {
+        if (isLeft)
+        {
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            this.isLeft = true;
+        }
+        else
+        {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            this.isLeft = false;
+        }
+    }
+
     void SkillLeftMove()
     {
         float playerX = transform.position.x;
