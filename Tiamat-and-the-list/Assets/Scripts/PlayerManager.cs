@@ -191,6 +191,7 @@ public class PlayerManager : MonoBehaviour {
         {
             canMove = false;
             GameObject SkillCharacter = Instantiate(SkillPrefab) as GameObject;
+            SkillCharacter.transform.localScale = transform.localScale;
             if (!isLeft)
                 SkillCharacter.transform.position = new Vector3(transform.position.x + 0.1f, transform.position.y, transform.position.z);
             else
@@ -216,6 +217,7 @@ public class PlayerManager : MonoBehaviour {
     {
         var root = JSON.Parse(archiveLine);
         transform.position = new Vector3(root["position"][0].AsFloat, root["position"][1].AsFloat, root["position"][2].AsFloat);
+        transform.localScale = new Vector3(root["scale"][0].AsFloat, root["scale"][1].AsFloat, root["scale"][2].AsFloat);
         floorLayer = root["floorLayer"].AsInt;
         setEquip((EquipmentType)Enum.Parse(typeof(EquipmentType), root["currentEquipType"]));
         itemOn = root["itemOn"].AsBool;
@@ -237,9 +239,9 @@ public class PlayerManager : MonoBehaviour {
 
         if (!canMove)
         {
-            UseSkill();
-            Transform skill = getSkillTransform();
-            skill.position = new Vector3(root["skillPosition"][0].AsFloat, root["skillPosition"][1].AsFloat, root["skillPosition"][2].AsFloat);
+            GameObject skill = Instantiate(SkillPrefab) as GameObject;
+            skill.transform.localScale = new Vector3(root["skillScale"][0].AsFloat, root["skillScale"][1].AsFloat, root["skillScale"][2].AsFloat);
+            skill.transform.position = new Vector3(root["skillPosition"][0].AsFloat, root["skillPosition"][1].AsFloat, root["skillPosition"][2].AsFloat);
         }
     }
 
@@ -251,12 +253,19 @@ public class PlayerManager : MonoBehaviour {
             { new JSONData(transform.position.y) },
             { new JSONData(transform.position.z) }
         };
+        var scale = new JSONArray()
+        {
+            { new JSONData(transform.localScale.x) },
+            { new JSONData(transform.localScale.y) },
+            { new JSONData(transform.localScale.z) }
+        };
         if (canMove)
         {
             JSONClass root = new JSONClass()
             {
                 { "canMove",new JSONData(canMove) },
                 { "position", pos },
+                { "scale",scale },
                 { "floorLayer", new JSONData(floorLayer) },
                 { "currentEquipType", new JSONData(currentEquipType.ToString()) },
                 { "itemOn", new JSONData(itemOn) }
@@ -271,12 +280,19 @@ public class PlayerManager : MonoBehaviour {
                 { new JSONData(getSkillTransform().position.y) },
                 { new JSONData(getSkillTransform().position.z) }
             };
-
+            var skillScale = new JSONArray()
+            {
+                { new JSONData(getSkillTransform().localScale.x) },
+                { new JSONData(getSkillTransform().localScale.y) },
+                { new JSONData(getSkillTransform().localScale.z) }
+            };
             JSONClass root = new JSONClass()
             {
                 { "canMove",new JSONData(canMove) },
                 {"skillPosition",skillPos },
+                { "skillScale",skillScale },
                 { "position", pos },
+                { "scale",scale },
                 { "floorLayer", new JSONData(floorLayer) },
                 { "currentEquipType", new JSONData(currentEquipType.ToString()) },
                 { "itemOn", new JSONData(itemOn) }
