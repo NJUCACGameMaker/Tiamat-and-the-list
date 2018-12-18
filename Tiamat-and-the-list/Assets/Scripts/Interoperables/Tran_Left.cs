@@ -48,19 +48,12 @@ public class Tran_Left : Interoperable
 
     IEnumerator SetBackLight()
     {
-        for (int seconds = 0; seconds < 16; seconds++)
-            yield return 0;
-        while (image.color.a>0)
+        while (image.color.a > 0.05f)
         {
-            float A = (image.color.a)*0.9f;
-            if (A > 0.02)
-            {
-                image.color = new Color(0, 0, 0, A);
-            }
-            else
-                image.color = new Color(0,0,0, 0);
+            image.color = new Color(0.0f, 0.0f, 0.0f, Mathf.Lerp(image.color.a, 0.0f, 0.02f));
             yield return null;
         }
+        image.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
     }
     
 }
