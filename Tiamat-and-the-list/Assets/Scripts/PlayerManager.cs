@@ -196,15 +196,17 @@ public class PlayerManager : MonoBehaviour {
                 SkillCharacter.transform.position = new Vector3(transform.position.x + 0.1f, transform.position.y, transform.position.z);
             else
                 SkillCharacter.transform.position = new Vector3(transform.position.x - 0.1f, transform.position.y, transform.position.z);
-            SkillCharacter.transform.parent = transform;
             SkillCharacter.GetComponent<SkillManager>().maxX = maxX[floorLayer];
             SkillCharacter.GetComponent<SkillManager>().minX = minX[floorLayer];
+            SkillCharacter.GetComponent<SkillManager>().isLeft =isLeft;
         }
         else
         {
             canMove = true;
             var existedSkill = transform.Find("SkillCharacter(Clone)");
-            transform.position=existedSkill.position;
+            transform.position=existedSkill.transform.position;
+            transform.localScale = existedSkill.transform.localScale;
+            isLeft = existedSkill.GetComponent<SkillManager>().isLeft;
             if (existedSkill != null)
             {
                 Destroy(existedSkill.gameObject);
@@ -221,6 +223,7 @@ public class PlayerManager : MonoBehaviour {
         floorLayer = root["floorLayer"].AsInt;
         setEquip((EquipmentType)Enum.Parse(typeof(EquipmentType), root["currentEquipType"]));
         itemOn = root["itemOn"].AsBool;
+        isLeft = root["isLeft"].AsBool;
 
         switch (currentEquipType)
         {
@@ -242,6 +245,7 @@ public class PlayerManager : MonoBehaviour {
             GameObject skill = Instantiate(SkillPrefab) as GameObject;
             skill.transform.localScale = new Vector3(root["skillScale"][0].AsFloat, root["skillScale"][1].AsFloat, root["skillScale"][2].AsFloat);
             skill.transform.position = new Vector3(root["skillPosition"][0].AsFloat, root["skillPosition"][1].AsFloat, root["skillPosition"][2].AsFloat);
+            skill.GetComponent<SkillManager>().isLeft = root["skillIsLeft"].AsBool;
         }
     }
 
@@ -268,7 +272,8 @@ public class PlayerManager : MonoBehaviour {
                 { "scale",scale },
                 { "floorLayer", new JSONData(floorLayer) },
                 { "currentEquipType", new JSONData(currentEquipType.ToString()) },
-                { "itemOn", new JSONData(itemOn) }
+                { "itemOn", new JSONData(itemOn) },
+                { "isLeft",new JSONData(isLeft) }
             };
             return root.ToString();
         }
@@ -286,6 +291,7 @@ public class PlayerManager : MonoBehaviour {
                 { new JSONData(getSkillTransform().localScale.y) },
                 { new JSONData(getSkillTransform().localScale.z) }
             };
+            var existedSkill = transform.Find("SkillCharacter(Clone)");
             JSONClass root = new JSONClass()
             {
                 { "canMove",new JSONData(canMove) },
@@ -295,7 +301,9 @@ public class PlayerManager : MonoBehaviour {
                 { "scale",scale },
                 { "floorLayer", new JSONData(floorLayer) },
                 { "currentEquipType", new JSONData(currentEquipType.ToString()) },
-                { "itemOn", new JSONData(itemOn) }
+                { "itemOn", new JSONData(itemOn) },
+                { "isLeft",new JSONData(isLeft) },
+                { "skillIsLeft",new JSONData(existedSkill.GetComponent<SkillManager>().isLeft) }
             };
             return root.ToString();
         }
