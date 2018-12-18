@@ -69,7 +69,7 @@ public class PlayerManager : MonoBehaviour {
     {
         if (canMove)
         {
-            float playerX = transform.localPosition.x;
+            float playerX = transform.position.x;
             float bg_1_x = minX[floorLayer];
             //transform.LookAt(new Vector3(transform.position.x-5,transform.position.y,transform.position.z));
             if (!isLeft)
@@ -89,7 +89,7 @@ public class PlayerManager : MonoBehaviour {
     {
         if (canMove)
         {
-            float playerX = transform.localPosition.x;
+            float playerX = transform.position.x;
             float bg_1_x = maxX[floorLayer];
             //transform.LookAt(new Vector3(transform.position.x + 5, transform.position.y, transform.position.z));
             if (isLeft)
@@ -190,13 +190,14 @@ public class PlayerManager : MonoBehaviour {
         if (canMove == true)
         {
             canMove = false;
-            Debug.Log("skill");
             GameObject SkillCharacter = Instantiate(SkillPrefab) as GameObject;
             if (!isLeft)
                 SkillCharacter.transform.position = new Vector3(transform.position.x + 0.1f, transform.position.y, transform.position.z);
             else
                 SkillCharacter.transform.position = new Vector3(transform.position.x - 0.1f, transform.position.y, transform.position.z);
             SkillCharacter.transform.parent = transform;
+            SkillCharacter.GetComponent<SkillManager>().maxX = maxX[floorLayer];
+            SkillCharacter.GetComponent<SkillManager>().minX = minX[floorLayer];
         }
         else
         {
@@ -205,36 +206,11 @@ public class PlayerManager : MonoBehaviour {
             transform.position=existedSkill.position;
             if (existedSkill != null)
             {
-                Debug.Log(existedSkill.name);
                 Destroy(existedSkill.gameObject);
             }
         }
     }
 
-    private PlayerSave CreateSavePlayer()
-    {
-        PlayerSave save = new PlayerSave();
-        save.x = transform.position.x;
-        save.y = transform.position.y;
-        save.z = transform.position.z;
-        save.floorLayer = floorLayer;
-
-        save.currentEquipType = currentEquipType;
-        save.itemOn = itemOn;
-
-        return save;
-    }
-
-    public void SavePlayer()
-    {
-        PlayerSave save = new PlayerSave();
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath+"/player.save");
-        bf.Serialize(file, save);
-        file.Close();
-
-        Debug.Log("Player Saved");
-    }
 
     public void LoadArchive(string archiveLine)
     {
@@ -256,6 +232,15 @@ public class PlayerManager : MonoBehaviour {
         {
             transform.position = scenario.GetPlayerInitPos(lastSceneName);
         }
+
+        canMove = root["canMove"].AsBool;
+
+        if (!canMove)
+        {
+            UseSkill();
+            Transform skill = getSkillTransform();
+            skill.position = new Vector3(root["skillPosition"][0].AsFloat, root["skillPosition"][1].AsFloat, root["skillPosition"][2].AsFloat);
+        }
     }
 
     public string SaveArchive()
@@ -266,15 +251,39 @@ public class PlayerManager : MonoBehaviour {
             { new JSONData(transform.position.y) },
             { new JSONData(transform.position.z) }
         };
-        JSONClass root = new JSONClass()
+        if (canMove)
         {
-            { "position", pos },
-            { "floorLayer", new JSONData(floorLayer) },
-            { "currentEquipType", new JSONData(currentEquipType.ToString()) },
-            { "itemOn", new JSONData(itemOn) }
-        };
+            JSONClass root = new JSONClass()
+            {
+                { "canMove",new JSONData(canMove) },
+                { "position", pos },
+                { "floorLayer", new JSONData(floorLayer) },
+                { "currentEquipType", new JSONData(currentEquipType.ToString()) },
+                { "itemOn", new JSONData(itemOn) }
+            };
+            return root.ToString();
+        }
+        else
+        {
+            var skillPos = new JSONArray()
+            {
+                { new JSONData(getSkillTransform().position.x) },
+                { new JSONData(getSkillTransform().position.y) },
+                { new JSONData(getSkillTransform().position.z) }
+            };
 
-        return root.ToString();
+            JSONClass root = new JSONClass()
+            {
+                { "canMove",new JSONData(canMove) },
+                {"skillPosition",skillPos },
+                { "position", pos },
+                { "floorLayer", new JSONData(floorLayer) },
+                { "currentEquipType", new JSONData(currentEquipType.ToString()) },
+                { "itemOn", new JSONData(itemOn) }
+            };
+            return root.ToString();
+        }
+
     }
 
     public bool getCanMoved()

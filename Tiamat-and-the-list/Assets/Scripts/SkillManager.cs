@@ -9,14 +9,11 @@ using SimpleJSON;
 public class SkillManager : MonoBehaviour
 {
 
-    public List<float> maxX;
-    public List<float> minX;
+    public float maxX;
+    public float minX;
 
     //移动速度
     public float moveSpeed = 8.0f;
-
-    //高度层，最低为0，向上递增，用于判断是否与道具在同一层从而判断是否可交互。
-    public int floorLayer = 0;
 
     //当前移动速度
     private float currentSpeed = 0f;
@@ -58,8 +55,8 @@ public class SkillManager : MonoBehaviour
 
     void SkillLeftMove()
     {
-        float playerX = transform.localPosition.x;
-        float bg_1_x = minX[floorLayer];
+        float playerX = transform.position.x;
+        float bg_1_x = minX;
         //transform.LookAt(new Vector3(transform.position.x-5,transform.position.y,transform.position.z));
         if (!isLeft)
         {
@@ -75,8 +72,8 @@ public class SkillManager : MonoBehaviour
 
     void SkillRightMove()
     {
-        float playerX = transform.localPosition.x;
-        float bg_1_x = maxX[floorLayer];
+        float playerX = transform.position.x;
+        float bg_1_x = maxX;
         //transform.LookAt(new Vector3(transform.position.x + 5, transform.position.y, transform.position.z));
         if (isLeft)
         {
