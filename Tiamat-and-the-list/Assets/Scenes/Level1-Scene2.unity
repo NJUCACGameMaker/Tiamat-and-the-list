@@ -10619,7 +10619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbecaa5319f8aed48939699f63386de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleFinish: 0
+  puzzleFinished: 0
 --- !u!1 &1814459550
 GameObject:
   m_ObjectHideFlags: 0
@@ -11638,8 +11638,9 @@ MonoBehaviour:
   floorLayer: 00000000
   Apkal: {fileID: 226091802}
   right: {fileID: 1792125135}
-  Maze: {fileID: 1814237585}
   image: {fileID: 1704673670}
+  number: {fileID: 1814459551}
+  nextSceneName: Level1-Scene3
   tran: 1
 --- !u!1 &1929383776
 GameObject:

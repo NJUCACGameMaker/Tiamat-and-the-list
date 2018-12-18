@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class MazeController : MonoBehaviour{
 
+    public static MazeController instance;
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
     void Start()
     {
         previousNum = Random.Range(0, 7) + Random.Range(0, 7) * 10;
@@ -27,7 +35,7 @@ public class MazeController : MonoBehaviour{
     private bool roundFinish = true;
 
     [HideInInspector]
-    public bool puzzleFinish = false;
+    public bool puzzleFinished = false;
 
     private void Wander()
     {
@@ -42,7 +50,7 @@ public class MazeController : MonoBehaviour{
         }
         if (wanderCount >= 7)
         {
-            puzzleFinish = true;
+            puzzleFinished = true;
         }
     }
 
@@ -58,7 +66,8 @@ public class MazeController : MonoBehaviour{
         else return previousNum;
     }
 
-    public int GoRight()
+    public static int GoRight() { return instance._GoRight(); }
+    public int _GoRight()
     {
         int tempCurrent = currentNum;
         currentNum = GetRight();
@@ -73,7 +82,8 @@ public class MazeController : MonoBehaviour{
         return currentNum;
     }
 
-    public int GoLeft()
+    public static int GoLeft() { return instance._GoLeft(); }
+    public int _GoLeft()
     {
         int tempCurrent = currentNum;
         currentNum = GetLeft();
@@ -88,4 +98,7 @@ public class MazeController : MonoBehaviour{
         return currentNum;
     }
 
+    public static bool PuzzleFinished() { return instance.puzzleFinished; }
+
+    public static int GetCurrentNumber() { return instance.CurrentNum; }
 }

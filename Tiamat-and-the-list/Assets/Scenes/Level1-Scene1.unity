@@ -3349,6 +3349,7 @@ MonoBehaviour:
   detectDist: 2
   floorLayer: 00000000
   dialogSection: Touch_the_stone
+  nextSceneName: Level1-Scene2
 --- !u!1 &2103690120
 GameObject:
   m_ObjectHideFlags: 0
