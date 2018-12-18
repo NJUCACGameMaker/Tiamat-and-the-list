@@ -26,7 +26,7 @@ public class SkillManager : MonoBehaviour
     //角色动画控制器
     public Animator playerAnima;
 
-    public bool isLeft = false;
+    public bool isLeft;
     // Use this for initialization
     void Start()
     {
