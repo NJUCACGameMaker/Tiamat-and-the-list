@@ -79,6 +79,7 @@ public class MazeController : MonoBehaviour{
         {
             Wander();
         }
+        Debug.Log(previousNum + " " + currentNum + " " + anotherNum);
         return currentNum;
     }
 
@@ -95,6 +96,7 @@ public class MazeController : MonoBehaviour{
         {
             Wander();
         }
+        Debug.Log(previousNum + " " + currentNum + " " + anotherNum);
         return currentNum;
     }
 

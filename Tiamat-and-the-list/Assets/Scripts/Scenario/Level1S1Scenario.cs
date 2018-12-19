@@ -17,7 +17,7 @@ public class Level1S1Scenario : Scenario {
         }
 	}
 
-    public void goToTrap()
+    public void GoToTrap()
     {
         if (!goToTheTrapShown)
         {

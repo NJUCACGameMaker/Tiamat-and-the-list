@@ -56,7 +56,7 @@ public class Skylight : Interoperable {
 
     void Depart()
     {
-        SceneManager.LoadScene("Level1-Scene1", LoadSceneMode.Single);
+        GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadScene("Level1-Scene1");
     }
 
     public override void ShowHint()
@@ -85,7 +85,7 @@ public class Skylight : Interoperable {
     {
         if (archiveLine == "opened")
         {
-            skylightAnima.SetTrigger("State:open");
+            skylightAnima.SetTrigger("StateOpen");
             opened = true;
             interoperable = true;
         }
