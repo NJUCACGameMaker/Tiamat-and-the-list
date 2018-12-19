@@ -2652,14 +2652,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c35c2ee01b67a44833874fc5b7ac22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxX:
-  - 50
-  minX:
-  - -20
+  maxX: NaN
+  minX: NaN
   moveSpeed: 8
-  floorLayer: 0
   audioTorchSwitch: {fileID: 8300000, guid: 41b8cccea8b749a4680070cb548560ef, type: 3}
   playerAnima: {fileID: 95942061906835678}
+  isLeft: 0
 --- !u!114 &114605083718231182
 MonoBehaviour:
   m_ObjectHideFlags: 1
