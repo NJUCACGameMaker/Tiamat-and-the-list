@@ -2443,6 +2443,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: 
   loadingTime: 1
+  loadingObject: {fileID: 1397386636646168, guid: f7e676e209a101f43a57787f38800c35,
+    type: 2}
 --- !u!1 &925665509
 GameObject:
   m_ObjectHideFlags: 0
@@ -4120,9 +4122,7 @@ MonoBehaviour:
   interoperable: 0
   detectDist: 2
   floorLayer: 00000000
-  temp_paint: {fileID: 1909935530}
   hintSprite: {fileID: 596649150}
-  if_picked: 0
   diaologsection1: Coll
   noteKey: L1S1Note1
   audioNote: {fileID: 8300000, guid: 378eed9ccab70d2449c34fa50eaeeecc, type: 3}

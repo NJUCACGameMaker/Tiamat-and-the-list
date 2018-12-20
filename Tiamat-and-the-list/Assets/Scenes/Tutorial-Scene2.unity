@@ -3264,6 +3264,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: 
   loadingTime: 1
+  loadingObject: {fileID: 1397386636646168, guid: f7e676e209a101f43a57787f38800c35,
+    type: 2}
 --- !u!1 &1539374839
 GameObject:
   m_ObjectHideFlags: 0

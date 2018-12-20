@@ -34,7 +34,7 @@ public class SceneLoader : MonoBehaviour {
 		currentSceneName = SceneManager.GetActiveScene().name;
 		Debug.Log(currentSceneName);
         GameObject obj = Instantiate(loadingObject) as GameObject;
-        obj.GetComponent<Loading>().targetTime = loadingTime - 0.3f;
+        obj.GetComponent<Loading>().targetTime = loadingTime + 0.3f;
 
         StartCoroutine(AsyncLoadingScene());
 		timer = loadingTime;
