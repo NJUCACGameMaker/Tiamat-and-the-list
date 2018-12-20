@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Loading : MonoBehaviour {
     private float timer;
-    private float targetTime = 4.0f;
+    public float targetTime = 4.0f;
     private GameObject loadImage;
     private GameObject loadText;
 
@@ -31,18 +31,18 @@ public class Loading : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (timer < 0.5f)
+        if (timer < 0.25f)
         {
             timer += Time.deltaTime;
-            if (timer > 0.5f)
-                timer = 0.5f;
-            setAlpha(timer * 2);
-        } else if (timer >= targetTime - 0.5f)
+            if (timer > 0.25f)
+                timer = 0.25f;
+            setAlpha(timer * 4);
+        } else if (timer >= targetTime - 0.25f)
         {
             timer += Time.deltaTime;
             if (timer > targetTime)
                 Destroy(this.gameObject);
-            setAlpha((targetTime - timer) * 2);
+            setAlpha((targetTime - timer) * 4);
         } else
         {
             timer += Time.deltaTime;
