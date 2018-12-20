@@ -22,9 +22,7 @@ public class SkillManager : MonoBehaviour
     //音效控制器
     public AudioClip audioTorchSwitch;
     private AudioSource audioSource;
-
-    //角色动画控制器
-    public Animator playerAnima;
+    
 
     public bool isLeft;
     // Use this for initialization
@@ -35,16 +33,6 @@ public class SkillManager : MonoBehaviour
         lastPositionX = this.transform.position.x;
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = audioTorchSwitch;
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        float currentPositionX = this.transform.position.x;
-        currentSpeed = Math.Abs(currentPositionX - lastPositionX) / Time.deltaTime;
-        lastPositionX = currentPositionX;
-        playerAnima.SetFloat("MoveSpeed", currentSpeed);
     }
 
     private void OnDestroy()

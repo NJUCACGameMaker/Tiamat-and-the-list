@@ -7,6 +7,7 @@ public class Trigger : Interoperable {
     public PlayerManager Apkal;
     public string dialogSection;
     public Level1S1Scenario scenario;
+    public Animator doorAnimator;
     
 	// Use this for initialization
 	void Start () {
@@ -19,11 +20,13 @@ public class Trigger : Interoperable {
         if (distance > detectDist)
         {
             Apkal.floorLayer = 0;
+            doorAnimator.SetBool("open", true);
         }
 	}
     public override void WithinRange()
     {
         scenario.GoToTrap();
         Apkal.floorLayer = 1;
+        doorAnimator.SetBool("open", false);
     }
 }

@@ -3,6 +3,9 @@ importPivots: 1
 tpsheetFileNames:
 - Assets/Sprites/Apkal/Apkal_package.tpsheet
 - Assets/Sprites/Level1/Level1-Scene1-0.tpsheet
+- Assets/Sprites/Level1/Level1-Scene2-0.tpsheet
+- Assets/Sprites/Level1/Level1-Scene2-1.tpsheet
+- Assets/Sprites/Level1/Level1-Scene2-2.tpsheet
 - Assets/Sprites/Setting.tpsheet
 - Assets/Sprites/Tutorial/scene01-sheet-0.tpsheet
 - Assets/Sprites/Tutorial/scene01-sheet-1.tpsheet
@@ -13,6 +16,9 @@ tpsheetFileNames:
 textureFileNames:
 - Assets/Sprites/Apkal/Apkal_package.png
 - Assets/Sprites/Level1/Level1-Scene1-0.png
+- Assets/Sprites/Level1/Level1-Scene2-0.png
+- Assets/Sprites/Level1/Level1-Scene2-1.png
+- Assets/Sprites/Level1/Level1-Scene2-2.png
 - Assets/Sprites/Setting.png
 - Assets/Sprites/Tutorial/scene01-sheet-0.png
 - Assets/Sprites/Tutorial/scene01-sheet-1.png
@@ -21,6 +27,9 @@ textureFileNames:
 - Assets/Sprites/Tutorial/scene02-sheet-1.png
 - Assets/Sprites/Tutorial/scene02-sheet-2.png
 normalmapFileNames:
+- 
+- 
+- 
 - 
 - 
 - 
