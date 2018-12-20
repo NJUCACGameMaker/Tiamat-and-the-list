@@ -210,7 +210,6 @@ MonoBehaviour:
   minX: NaN
   moveSpeed: 8
   audioTorchSwitch: {fileID: 8300000, guid: 41b8cccea8b749a4680070cb548560ef, type: 3}
-  playerAnima: {fileID: 0}
   isLeft: 0
 --- !u!212 &212798331272657752
 SpriteRenderer:
