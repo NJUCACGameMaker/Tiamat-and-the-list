@@ -5668,6 +5668,12 @@ Prefab:
       propertyPath: walkRight
       value: 
       objectReference: {fileID: 8300000, guid: 05acd820e6d22854c97238b1f1754a93, type: 3}
+    - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
+        type: 2}
+      propertyPath: SkillPrefab
+      value: 
+      objectReference: {fileID: 1952334848792818, guid: 34bc8fdfa87e7124584307720d92e807,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da11235f2fd54f96d50331022f7f1, type: 2}
   m_IsPrefabAsset: 0
@@ -6346,6 +6352,7 @@ MonoBehaviour:
   dialogSection2: Pic3-2
   dialogSection3: Pic3-3
   section: 0
+  note: {fileID: 1407011581}
   dropAnimator: {fileID: 441231643}
   hintSprite: {fileID: 38141786}
   audioPainting: {fileID: 8300000, guid: 4213f7c5fb377744694130e513a226e5, type: 3}

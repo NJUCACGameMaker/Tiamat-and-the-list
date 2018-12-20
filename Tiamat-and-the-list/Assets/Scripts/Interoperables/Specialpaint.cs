@@ -11,6 +11,7 @@ public class Specialpaint : Interoperable
     public string dialogSection3;
     public int section = 0;
 
+    public NoteInstance note;
     public Animator dropAnimator;
     public SpriteRenderer hintSprite;
 
@@ -66,6 +67,7 @@ public class Specialpaint : Interoperable
                 DialogManager.ShowDialog(dialogSection3);
                 interoperable = false;
                 dropAnimator.SetBool("drop", true);
+                note.interoperable = true;
             }
         }
     }
