@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour {
 	public string sceneName = "";
-    public float loadingTime = 1.0f;
+    public float loadingTime = 3.0f;
 	private string currentSceneName;
 	private AsyncOperation operation;
 	private bool loading = false;
 	private float timer = 0;
+
+    public GameObject loadingObject;
 	// Use this for initialization
 	void Awake () {
 		//DontDestroyOnLoad(this.gameObject);
@@ -21,7 +23,6 @@ public class SceneLoader : MonoBehaviour {
 			timer -= Time.deltaTime;
 			if (timer <= 0){
 				operation.allowSceneActivation = true;
-				SceneManager.UnloadSceneAsync("Loading");
 				SceneManager.UnloadSceneAsync(currentSceneName);
 				timer = 0;
 			}
@@ -32,7 +33,7 @@ public class SceneLoader : MonoBehaviour {
 		sceneName = name;
 		currentSceneName = SceneManager.GetActiveScene().name;
 		Debug.Log(currentSceneName);
-		SceneManager.LoadSceneAsync("Loading", LoadSceneMode.Additive);
+        GameObject obj = Instantiate(loadingObject) as GameObject;
 		StartCoroutine(AsyncLoadingScene());
 		timer = loadingTime;
 	}
