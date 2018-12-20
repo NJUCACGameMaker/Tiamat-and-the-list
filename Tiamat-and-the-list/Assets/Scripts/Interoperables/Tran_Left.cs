@@ -12,8 +12,8 @@ public class Tran_Left : Interoperable
     public Image image;
     public TextMeshPro number;
     public string nextSceneName;
-
-    public bool tran = true;
+    
+    public Coroutine lightCoroutine;
 
     // Use this for initialization
     void Start()
@@ -21,28 +21,17 @@ public class Tran_Left : Interoperable
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        float distance = Mathf.Abs(Apkal.transform.position.x - transform.position.x);
-        if (!tran && distance > detectDist)
-            tran = true;
-
-    }
     public override void WithinRange()
     {
-        if (tran)
+        image.color = new Color(0, 0, 0, 1);
+        Apkal.transform.position = new Vector3(6, Apkal.transform.position.y, 0);
+        lightCoroutine = StartCoroutine(SetBackLight());
+        int currentNum = MazeController.GoLeft();
+        if (currentNum < 10) number.text = "0" + currentNum.ToString();
+        else number.text = currentNum.ToString();
+        if (MazeController.PuzzleFinished())
         {
-            image.color = new Color(0, 0, 0, 1);
-            Apkal.transform.position = new Vector3(6, Apkal.transform.position.y, 0);
-            StartCoroutine(SetBackLight());
-            right.tran = false;
-            MazeController.GoLeft();
-            number.text = MazeController.GetCurrentNumber().ToString();
-            if (MazeController.PuzzleFinished())
-            {
-                SceneManager.LoadScene(nextSceneName);
-            }
+            GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadScene(nextSceneName);
         }
     }
 

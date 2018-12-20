@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour {
 	public string sceneName = "";
+    public float loadingTime = 3.0f;
 	private string currentSceneName;
 	private AsyncOperation operation;
 	private bool loading = false;
@@ -28,13 +29,13 @@ public class SceneLoader : MonoBehaviour {
 		}
 	}
 
-	public void loadScene(string name){
+	public void LoadScene(string name){
 		sceneName = name;
 		currentSceneName = SceneManager.GetActiveScene().name;
 		Debug.Log(currentSceneName);
         GameObject obj = Instantiate(loadingObject) as GameObject;
 		StartCoroutine(AsyncLoadingScene());
-		timer = 3.5f;
+		timer = loadingTime;
 	}
 
 	IEnumerator AsyncLoadingScene(){

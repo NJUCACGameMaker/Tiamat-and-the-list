@@ -133,11 +133,19 @@ public class PlayerManager : MonoBehaviour {
                 case EquipmentType.FlashLight:
                     currentEquipType = EquipmentType.FlashLight;
                     GameObject torch = Instantiate(torchPrefab) as GameObject;
+
                     if (!isLeft)
-                        torch.transform.position = new Vector3(transform.position.x + 3.1f, transform.position.y, transform.position.z);
+                    {
+                        torch.transform.position = new Vector3(transform.position.x + 3.1f, transform.position.y + 0.9f, transform.position.z);
+                        torch.transform.localScale = new Vector3(Mathf.Abs(torch.transform.localScale.x), torch.transform.localScale.y, torch.transform.localScale.z);
+                    }
                     else
-                        torch.transform.position = new Vector3(transform.position.x - 3.1f, transform.position.y, transform.position.z);
+                    {
+                        torch.transform.position = new Vector3(transform.position.x - 3.1f, transform.position.y + 0.9f, transform.position.z);
+                        torch.transform.localScale = new Vector3(-Mathf.Abs(torch.transform.localScale.x), torch.transform.localScale.y, torch.transform.localScale.z);
+                    }
                     torch.transform.parent = transform;
+                    
                     if (itemOn)
                     {
                         turnOffTorch();
@@ -221,9 +229,9 @@ public class PlayerManager : MonoBehaviour {
         transform.position = new Vector3(root["position"][0].AsFloat, root["position"][1].AsFloat, root["position"][2].AsFloat);
         transform.localScale = new Vector3(root["scale"][0].AsFloat, root["scale"][1].AsFloat, root["scale"][2].AsFloat);
         floorLayer = root["floorLayer"].AsInt;
-        setEquip((EquipmentType)Enum.Parse(typeof(EquipmentType), root["currentEquipType"]));
         itemOn = root["itemOn"].AsBool;
         SetLeft(root["isLeft"].AsBool);
+        setEquip((EquipmentType)Enum.Parse(typeof(EquipmentType), root["currentEquipType"]));
 
         switch (currentEquipType)
         {
