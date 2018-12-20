@@ -7,6 +7,7 @@ class CameraManagerForLevelOne : MonoBehaviour
     public PlayerManager MainPlayer;
     private int moveSpeed = 4;
     public float size;
+    public float maxH;
 
     public float targetLeft;
     public float targetRight;
@@ -64,5 +65,7 @@ class CameraManagerForLevelOne : MonoBehaviour
                 transform.position = new Vector3(lerp.x, transform.position.y, transform.position.z);
             }
         }
+        if (transform.position.y > maxH)
+            transform.position = new Vector3(transform.position.x, maxH,transform.position.z);
     }
 }
