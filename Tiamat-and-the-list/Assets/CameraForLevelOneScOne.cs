@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class CameraForLevelOneScOne : MonoBehaviour {
 
-    public float targetRight;
-    public float distanceRight;
-    public float distanceLeft;
     public float maxH;
+
+    public float maxX;
+    public float minX;
 
     public PlayerManager MainPlayer;
 
@@ -25,37 +25,32 @@ public class CameraForLevelOneScOne : MonoBehaviour {
             Transform player = MainPlayer.getSkillTransform();
             if (player != null)
             {
-                if (player.position.x >= targetRight)
+                Vector3 targetCamPos = new Vector3(player.position.x, player.position.y + 2.54f, 0);
+                if (Mathf.Abs(transform.position.x - player.position.x) >= 0.001)
                 {
-                    Vector3 targetCamPos = new Vector3(targetRight + distanceRight, 0, 0);
-                    Vector3 lerp = Vector3.Lerp(new Vector3(transform.position.x, 0, 0), targetCamPos, moveSpeed * Time.deltaTime);
-                    transform.position = new Vector3(lerp.x, transform.position.y, transform.position.z);
-
+                    Vector3 lerp = Vector3.Lerp(new Vector3(transform.position.x, transform.position.y, 0), targetCamPos, moveSpeed * Time.deltaTime);
+                    transform.position = new Vector3(lerp.x, lerp.y, transform.position.z);
                 }
-                else if (player.position.x < targetRight)
-                {
-                    Vector3 targetCamPos = new Vector3(targetRight-distanceLeft, 0, 0);
-                    Vector3 lerp = Vector3.Lerp(new Vector3(transform.position.x, 0, 0), targetCamPos, moveSpeed * Time.deltaTime);
-                    transform.position = new Vector3(lerp.x, transform.position.y, transform.position.z);
-                }
+                
             }
         }
         else
         {
-            if (MainPlayer.transform.position.x < targetRight)
+            Vector3 targetCamPos = new Vector3(MainPlayer.transform.position.x, MainPlayer.transform.position.y + 2.54f, 0);
+            if (Mathf.Abs(transform.position.x - MainPlayer.transform.position.x) >= 0.001)
             {
-                Vector3 targetCamPos = new Vector3(targetRight - distanceLeft, 0, 0);
-                Vector3 lerp = Vector3.Lerp(new Vector3(transform.position.x, 0, 0), targetCamPos, moveSpeed * Time.deltaTime);
-                transform.position = new Vector3(lerp.x, transform.position.y, transform.position.z);
+                Vector3 lerp = Vector3.Lerp(new Vector3(transform.position.x, transform.position.y, 0), targetCamPos, moveSpeed * Time.deltaTime);
+                transform.position = new Vector3(lerp.x, lerp.y, transform.position.z);
             }
-            else
-            {
-                Vector3 targetCamPos = new Vector3(targetRight + distanceRight, 0, 0);
-                Vector3 lerp = Vector3.Lerp(new Vector3(transform.position.x, 0, 0), targetCamPos, moveSpeed * Time.deltaTime);
-                transform.position = new Vector3(lerp.x, transform.position.y, transform.position.z);
-            }
+            
         }
+        if (transform.position.x < minX)
+            transform.position = new Vector3(minX, transform.position.y, transform.position.z);
+        if (transform.position.x > maxX)
+            transform.position = new Vector3(maxX, transform.position.y, transform.position.z);
         if (transform.position.y > maxH)
+        {
             transform.position = new Vector3(transform.position.x, maxH, transform.position.z);
+        }
     }
 }

@@ -776,7 +776,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRight: 5
   distanceRight: 0
-  distanceLeft: 3.8
+  distanceLeft: 7.2
   maxH: 0
   MainPlayer: {fileID: 1529435474}
 --- !u!1 &527267142
