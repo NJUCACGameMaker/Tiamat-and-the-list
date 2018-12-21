@@ -94,7 +94,7 @@ public class ButtonUnderline : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         mouseOnTime = 0;
         onButton = false;
-        UILine.GetComponent<RectTransform>().localScale = new Vector3(0, 1, 0);
+        UILine.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 0);
     }
 
     int CalculateLengthOfText(Text tex)
