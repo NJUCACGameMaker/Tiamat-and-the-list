@@ -68,7 +68,6 @@ public class TutorialS1Scenario : Scenario {
 
     public override void LoadArchive(string archiveLine)
     {
-        Debug.Log("ScenarioLoadArchive");
         JSONNode root = JSON.Parse(archiveLine);
         scene1Shown = root["Scene1Shown"].AsBool;
         pressEHint = root["PressEHint"].AsBool;
