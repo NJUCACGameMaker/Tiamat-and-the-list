@@ -56,6 +56,8 @@ public class Skylight : Interoperable {
 
     void Depart()
     {
+        GameObject backgroundMusic = GameObject.FindGameObjectWithTag("BackgroundMusic");
+        backgroundMusic.GetComponent<BackgroundAudioManager>().SceneChange();
         GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadScene("Level1-Scene1");
     }
 
