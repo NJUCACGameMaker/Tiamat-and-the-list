@@ -1830,6 +1830,7 @@ MonoBehaviour:
   - {fileID: 264231583}
   - {fileID: 1771201584}
   player: {fileID: 1751808922}
+  equipmentUI: {fileID: 0}
   paused: 0
 --- !u!1 &848759579
 GameObject:
@@ -3175,7 +3176,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1431038804}
   m_LocalRotation: {x: -0, y: -0, z: -0.60069925, w: 0.79947513}
-  m_LocalPosition: {x: -1.8, y: -0.36, z: 0}
+  m_LocalPosition: {x: -0.88, y: -2.39, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1771201583}
