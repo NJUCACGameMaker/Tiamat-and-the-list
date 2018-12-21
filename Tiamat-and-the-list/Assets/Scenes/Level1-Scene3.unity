@@ -4594,15 +4594,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 834570cb88f3d524c97b1ca066d74240, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c297ba4f61eacb343aa15384cbf7269d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.24, y: 4.1}
+  m_Size: {x: 1.26, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &735830602
@@ -5761,7 +5761,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: Level1
   sceneName: Scene3
-  interoperables: []
+  interoperables:
+  - {fileID: 1209361642}
+  - {fileID: 1371962446}
   player: {fileID: 226091802}
   paused: 0
 --- !u!1 &985505405
@@ -8170,7 +8172,7 @@ MonoBehaviour:
   generated: 0
   interoperable: 1
   detectDist: 2
-  floorLayer: 
+  floorLayer: 00000000
   hintSprite: {fileID: 1398527621}
   diaologsection1: 
   noteKey: 
@@ -8464,15 +8466,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 834570cb88f3d524c97b1ca066d74240, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c297ba4f61eacb343aa15384cbf7269d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.24, y: 4.1}
+  m_Size: {x: 1.26, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1442710273
@@ -10571,7 +10573,7 @@ SpriteRenderer:
   m_SortingLayerID: -1330987047
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300090, guid: f5835ba28923bdc418086fbe6dc5c769, type: 3}
+  m_Sprite: {fileID: 21300094, guid: f5835ba28923bdc418086fbe6dc5c769, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -10589,8 +10591,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1792125132}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.29, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -3.48, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
