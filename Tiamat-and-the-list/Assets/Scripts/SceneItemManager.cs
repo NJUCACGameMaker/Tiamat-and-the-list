@@ -10,6 +10,7 @@ public class SceneItemManager : MonoBehaviour {
     public static SceneItemManager instance;
     public List<Interoperable> interoperables;
     public PlayerManager player;
+    public RectTransform equipmentUI;
     [HideInInspector]
     public bool paused = false;
 
@@ -107,6 +108,11 @@ public class SceneItemManager : MonoBehaviour {
             SceneManager.LoadScene("Setting", LoadSceneMode.Additive);
             Pause();
             Debug.Log("Pause");
+            equipmentUI.anchoredPosition = new Vector3(-1000.0f, 0.0f, 0.0f);
+        }
+        else
+        {
+            equipmentUI.anchoredPosition = Vector3.zero;
         }
     }
 

@@ -22,20 +22,18 @@ public class Stone : Interoperable {
     {
         if (NearPlayer)
         {
-            DialogManager.ShowDialog(dialogSection);
+            DialogManager.ShowDialog(dialogSection, LoadNextScene);
             interoperable = false;
             transform.position = new Vector3(25, 9, 0);
             isdestroy = true;
-
-            SceneItemManager.SaveArchive();
-            GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadScene(nextSceneName);
         }
     }
 
-    IEnumerator LoadAnotherScene(string name)
+    void LoadNextScene()
     {
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(name);
-        yield return asyncOperation;
+
+        SceneItemManager.SaveArchive();
+        GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadScene(nextSceneName);
     }
 
     public override string GetArchive()

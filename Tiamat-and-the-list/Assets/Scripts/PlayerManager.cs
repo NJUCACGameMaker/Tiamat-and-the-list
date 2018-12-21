@@ -195,29 +195,32 @@ public class PlayerManager : MonoBehaviour {
 
     void UseSkill()
     {
-        if (canMove)
+        if (SceneItemManager.GetLevelName() != "Tutorial")
         {
-            canMove = false;
-            GameObject SkillCharacter = Instantiate(SkillPrefab) as GameObject;
-            if (!isLeft)
-                SkillCharacter.transform.position = new Vector3(transform.position.x + 0.1f, transform.position.y, transform.position.z);
-            else
-                SkillCharacter.transform.position = new Vector3(transform.position.x - 0.1f, transform.position.y, transform.position.z);          
-            SkillCharacter.GetComponent<SkillManager>().maxX = maxX[floorLayer];
-            SkillCharacter.GetComponent<SkillManager>().minX = minX[floorLayer];
-            SkillCharacter.GetComponent<SkillManager>().SetLeft(isLeft);
-            SkillCharacter.transform.localScale = transform.localScale;
-        }
-        else
-        {
-            canMove = true;
-            var existedSkill = GameObject.Find("SkillCharacter(Clone)");
-            transform.position=existedSkill.transform.position;
-            transform.localScale = existedSkill.transform.localScale;
-            SetLeft(existedSkill.GetComponent<SkillManager>().isLeft);
-            if (existedSkill != null)
+            if (canMove)
             {
-                Destroy(existedSkill.gameObject);
+                canMove = false;
+                GameObject SkillCharacter = Instantiate(SkillPrefab) as GameObject;
+                if (!isLeft)
+                    SkillCharacter.transform.position = new Vector3(transform.position.x + 0.1f, transform.position.y, transform.position.z);
+                else
+                    SkillCharacter.transform.position = new Vector3(transform.position.x - 0.1f, transform.position.y, transform.position.z);
+                SkillCharacter.GetComponent<SkillManager>().maxX = maxX[floorLayer];
+                SkillCharacter.GetComponent<SkillManager>().minX = minX[floorLayer];
+                SkillCharacter.GetComponent<SkillManager>().SetLeft(isLeft);
+                SkillCharacter.transform.localScale = transform.localScale;
+            }
+            else
+            {
+                canMove = true;
+                var existedSkill = GameObject.Find("SkillCharacter(Clone)");
+                transform.position = existedSkill.transform.position;
+                transform.localScale = existedSkill.transform.localScale;
+                SetLeft(existedSkill.GetComponent<SkillManager>().isLeft);
+                if (existedSkill != null)
+                {
+                    Destroy(existedSkill.gameObject);
+                }
             }
         }
     }
