@@ -92,7 +92,6 @@ public class ButtonUnderline : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void OnPointerClick(PointerEventData data)
     {
-        mouseOnTime = 0;
         onButton = false;
         UILine.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 0);
     }

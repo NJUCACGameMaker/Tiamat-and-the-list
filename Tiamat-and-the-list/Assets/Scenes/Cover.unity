@@ -5824,7 +5824,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newGameConfirmTrans: {fileID: 528735107}
   continueButton: {fileID: 1787257524}
-  backgroundMusic: {fileID: 0}
 --- !u!1 &1040469222
 GameObject:
   m_ObjectHideFlags: 0
