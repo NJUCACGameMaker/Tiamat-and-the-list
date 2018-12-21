@@ -13,7 +13,11 @@ public class SkillManager : MonoBehaviour
     public float minX;
 
     //移动速度
-    public float moveSpeed = 8.0f;
+    public float targetMoveSpeed = 8.0f;
+    public float acceleration = 40.0f;
+    private float currentMoveSpeed;
+    private float moveTime = 0.0f;
+    private bool isMoving;
 
     //当前移动速度
     private float currentSpeed = 0f;
@@ -30,9 +34,25 @@ public class SkillManager : MonoBehaviour
     {
         InputManager.AddOnLeftMove(SkillLeftMove);
         InputManager.AddOnRightMove(SkillRightMove);
+        InputManager.AddAfterMove(SkillAfterMove);
         lastPositionX = this.transform.position.x;
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = audioTorchSwitch;
+        currentMoveSpeed = 0;
+    }
+
+    private void Update()
+    {
+        if (isMoving)
+        {
+            if (currentMoveSpeed < targetMoveSpeed)
+                currentMoveSpeed += acceleration * Time.deltaTime;
+            if (currentMoveSpeed > targetMoveSpeed)
+                currentMoveSpeed = targetMoveSpeed;
+        } else
+        {
+            currentMoveSpeed = 0;
+        }
     }
 
     private void OnDestroy()
@@ -67,8 +87,9 @@ public class SkillManager : MonoBehaviour
         }
         if (playerX >= bg_1_x)
         {
-            transform.Translate(Time.deltaTime * Vector3.left * moveSpeed, Space.World);
+            transform.Translate(Time.deltaTime * Vector3.left * currentMoveSpeed, Space.World);
         }
+        isMoving = true;
 
     }
 
@@ -84,8 +105,13 @@ public class SkillManager : MonoBehaviour
         }
         if (playerX <= bg_1_x)
         {
-            transform.Translate(Time.deltaTime * Vector3.right * moveSpeed, Space.World);
+            transform.Translate(Time.deltaTime * Vector3.right * currentMoveSpeed, Space.World);
         }
+        isMoving = true;
+    }
 
+    void SkillAfterMove()
+    {
+        isMoving = false;
     }
 }
