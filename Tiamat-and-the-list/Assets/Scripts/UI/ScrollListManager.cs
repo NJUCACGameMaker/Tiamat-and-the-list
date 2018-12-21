@@ -109,4 +109,20 @@ public class ScrollListManager : MonoBehaviour {
         cgDetail.transform.Find("Panel").Find("Image").GetComponent<Image>().sprite = picSprite;
     }
 
+    public void AddMusicButton(string shortLine, string musicPath)
+    {
+        GameObject pureTextBtnInstance = Instantiate(pureTextBtn) as GameObject;
+        if (pureTextBtnInstance != null)
+        {
+            pureTextBtnInstance.transform.Find("Text").GetComponent<Text>().text = shortLine;
+            pureTextBtnInstance.GetComponent<Button>().onClick.AddListener(() => MusicOnClick(musicPath));
+            Add(pureTextBtnInstance);
+        }
+    }
+
+    public void MusicOnClick(string musicFileName)
+    {
+
+    }
+
 }

@@ -9,7 +9,7 @@ public class CoverUIManager : MonoBehaviour {
 
     public RectTransform newGameConfirmTrans;
     public Button continueButton;
-    public GameObject backgroundMusic;
+    private GameObject backgroundMusic;
 
 	// Use this for initialization
 	void Start () {

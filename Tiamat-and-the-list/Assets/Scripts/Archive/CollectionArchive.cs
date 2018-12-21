@@ -40,6 +40,9 @@ public class CollectionArchive {
             "EquipmentSprite/Stage00_shoudiantong", false));
         cgs.Add("Apkal_serious", new CGPiece("Apkal", "CharacterTachie/Apkal_serious", false));
         cgs.Add("A_default", new CGPiece("A", "CharacterTachie/A_default", false));
+        musics.Add("THE PIANO LADY", new MusicPiece("The Piano Lady", "ThePianoLady", true));
+        musics.Add("MAYA FILIPI", new MusicPiece("Maya Filipi", "MayaFilipi-Rose", true));
+        musics.Add("GARSUMENE", new MusicPiece("GarsuMene", "GarsuMene", true));
     }
 
     public static void LoadArchive()
