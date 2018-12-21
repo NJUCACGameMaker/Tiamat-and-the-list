@@ -118,6 +118,18 @@ public class SettingUIManager : MonoBehaviour {
 
     public void Game()
     {
+        if (SceneManager.GetSceneByName("Cover") != null)
+        {
+            GameObject coverCanvas = GameObject.Find("CoverCanvas");
+            if (coverCanvas != null)
+            {
+                coverCanvas.GetComponent<CoverUIManager>().RecoverButtons();
+            }
+            else
+            {
+                Debug.Log("Cover Canvas Not Found");
+            }
+        }
         GameObject sceneManager = GameObject.Find("SceneController");
         if (sceneManager != null)
         {

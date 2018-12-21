@@ -5724,7 +5724,7 @@ GameObject:
   - component: {fileID: 994499086}
   - component: {fileID: 994499090}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: CoverCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5822,6 +5822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c17c649ed9c0544cbe6389bdcc51d66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  btns: {fileID: 1951990954}
   newGameConfirmTrans: {fileID: 528735107}
   continueButton: {fileID: 1787257524}
 --- !u!1 &1040469222
