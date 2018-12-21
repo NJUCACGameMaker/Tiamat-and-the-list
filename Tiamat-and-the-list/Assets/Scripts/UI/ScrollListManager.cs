@@ -122,7 +122,9 @@ public class ScrollListManager : MonoBehaviour {
 
     public void MusicOnClick(string musicFileName)
     {
-
+        GameObject bgm = GameObject.FindGameObjectWithTag("BackgroundMusic");
+        bgm.GetComponent<AudioSource>().clip = Resources.Load<AudioClip>(musicFileName);
+        bgm.GetComponent<AudioSource>().Play();
     }
 
 }
