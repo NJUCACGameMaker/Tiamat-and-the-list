@@ -48,7 +48,7 @@ public class MazeController : MonoBehaviour{
             roundFinish = true;
             wanderCount++;
         }
-        if (wanderCount >= 7)
+        if (wanderCount >= 2)
         {
             puzzleFinished = true;
         }

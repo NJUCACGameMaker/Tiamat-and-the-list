@@ -29,7 +29,7 @@ public class Ball : Interoperable
             !player.isLeft) || 
             (Mathf.Abs(transform.position.x - player.transform.position.x + lightLength) < tolerance &&
             player.isLeft)) && 
-            player.currentEquipType == EquipmentType.FlashLight && player.itemOn && !lightSwitch.on)
+            player.currentEquipType == EquipmentType.FlashLight && player.itemOn && player.floorLayer == 0 && !lightSwitch.on)
         {
             skylight.Open();
         }

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class DialogManager : MonoBehaviour
 {
     private static DialogManager instance;
+    public Camera uiCamera;
     public GameObject BranchPrefab;
     public GameObject DialogPrefab;
     public GameObject DialogBox;               // 对话框+立绘整体

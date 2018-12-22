@@ -7,6 +7,7 @@ TagManager:
   - Torch
   - BackgroundMusic
   - AudioManager
+  - Branch
   layers:
   - Default
   - TransparentFX
@@ -61,4 +62,7 @@ TagManager:
     locked: 0
   - name: Hint
     uniqueID: 676568959
+    locked: 0
+  - name: UI
+    uniqueID: 655272935
     locked: 0

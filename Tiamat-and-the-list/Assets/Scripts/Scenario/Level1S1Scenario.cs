@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using SimpleJSON;
 
 public class Level1S1Scenario : Scenario {
 
     public SupportingRoleController roleController;
 
-    private bool beforeFateShown = true;
+    private bool beforeFateShown = false;
     private bool goToTheTrapShown = false;
     private bool afterFateShown = false;
 	
@@ -86,5 +87,6 @@ public class Level1S1Scenario : Scenario {
     void OnAfterFateShown()
     {
         scenarioHintOn = false;
+        SceneManager.LoadScene("Cast");
     }
 }
