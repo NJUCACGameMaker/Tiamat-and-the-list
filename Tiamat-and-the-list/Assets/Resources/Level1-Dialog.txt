@@ -42,7 +42,7 @@
 
 33|After_Fate|Apkal|呼，总算出来了。被摆了一道呢。|Apkal_serious|0
 34|After_Fate|???|哇，大哥哥你总算出来了！|Geshta_default|0
-35|After_Fate|Apkal|（反射性的拉开距离）是谁？|Apkal_serious|0
+35|After_Fate|Apkal|是谁？|Apkal_serious|0
 36|After_Fate|Apkal|小孩子可不适合在这种地方玩。|Apkal_serious|0
 37|After_Fate|???|不适合在这的明明就是大哥哥你吧。#连那么明显的触发式结界都看不出来，还要一个小孩子来提醒。|Geshta_Tsundere|0
 38|After_Fate|Apkal|……那个时候提醒我的就是你吗？|Apkal_serious|0
