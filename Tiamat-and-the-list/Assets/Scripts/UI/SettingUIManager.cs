@@ -141,10 +141,15 @@ public class SettingUIManager : MonoBehaviour {
                 Color c = text.color;
                 text.color = new Color(c.r, c.g, c.b, 1);
             }
-            foreach (var image in dialogBox.transform.GetComponentsInChildren<Image>()){
-                Color c = image.color;
-                image.color = new Color(c.r, c.g, c.b, 100.0f/255.0f);
-            }
+
+            Color targetNamePanelColor = dialogBox.transform.Find("NamePanel").GetComponent<Image>().color;
+            Color targetDialogPanelColor = dialogBox.transform.Find("DialogPanel").GetComponent<Image>().color;
+            Color targetCharacterColor = dialogBox.transform.Find("Character").GetComponent<Image>().color;
+
+            dialogBox.transform.Find("NamePanel").GetComponent<Image>().color = new Color(targetNamePanelColor.r, targetNamePanelColor.g, targetNamePanelColor.b, 100.0f/255f);
+            dialogBox.transform.Find("DialogPanel").GetComponent<Image>().color = new Color(targetDialogPanelColor.r, targetDialogPanelColor.g, targetDialogPanelColor.b, 100f/255f);
+            dialogBox.transform.Find("Character").GetComponent<Image>().color = new Color(targetCharacterColor.r, targetCharacterColor.g, targetCharacterColor.b, 1);
+            
         }
 
         SceneManager.UnloadSceneAsync("Setting");
