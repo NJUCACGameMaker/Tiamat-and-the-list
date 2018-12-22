@@ -139,7 +139,7 @@ public class DialogManager : MonoBehaviour
         branchButtons = new List<GameObject>();
         for (int i = 0; i < currentDialog.branchNum; i++) {
             GameObject btn = Instantiate(BranchPrefab) as GameObject;
-            btn.transform.position = new Vector3(width/2, Mathf.Lerp(height * 0.75f, height * 0.4f, i*1.0f / (currentDialog.branchNum - 1)), 0);
+            btn.transform.position = new Vector3(width/2, Mathf.Lerp(height * 0.7f, height * 0.5f, i*1.0f / (currentDialog.branchNum - 1)), 0);
             Color c = btn.GetComponent<Image>().color;
             btn.GetComponent<Image>().color = new Color(c.r, c.g, c.b, 0);
             btn.GetComponent<Branch>().switch_section = currentDialog.branches[i].switch_section;
@@ -150,7 +150,7 @@ public class DialogManager : MonoBehaviour
             btn.transform.Find("Text").GetComponent<Text>().color = new Color(c.r, c.g, c.b, 0);
 
             btn.GetComponent<Button>().onClick.AddListener(BranchOnClick);
-            
+
             btn.transform.SetParent(DialogBox.transform);
             branchButtons.Add(btn);
         }
@@ -350,7 +350,7 @@ public class DialogManager : MonoBehaviour
         for (float t=0; t<=1f; t += 0.05f)
         {
             currentButton.transform.position = Vector3.Lerp(targetPos - new Vector3(20f, 0, 0), targetPos, EasingFuncs.QuartInOut(t));
-            currentButton.GetComponent<Image>().color = Color.Lerp(targetColor, new Color(targetColor.r, targetColor.g, targetColor.b, 1), EasingFuncs.QuartInOut(t));
+            currentButton.GetComponent<Image>().color = Color.Lerp(targetColor, new Color(targetColor.r, targetColor.g, targetColor.b, 0.5f), EasingFuncs.QuartInOut(t));
             currentButton.transform.Find("Text").GetComponent<Text>().color = Color.Lerp(targetTextColor, new Color(targetTextColor.r, targetTextColor.g, targetTextColor.b, 1), EasingFuncs.QuartInOut(t));
             yield return null;
             yield return new WaitForSeconds(0.006f);
