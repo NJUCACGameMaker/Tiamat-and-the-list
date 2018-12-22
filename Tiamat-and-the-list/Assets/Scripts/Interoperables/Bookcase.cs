@@ -2,19 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Board_side : Interoperable {
+public class Bookcase : Interoperable
+{
 
     public SpriteRenderer hintSprite;
     public string dialogSection;
     private float hintAlpha = 0f;
     private bool showHint = false;
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         InputManager.AddOnInteract(OnInteract);
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         if (showHint && hintAlpha < 1.0f)
         {
             hintAlpha += Time.deltaTime * 4;
@@ -33,7 +36,7 @@ public class Board_side : Interoperable {
 
     void OnInteract()
     {
-        if(NearPlayer)
+        if (NearPlayer)
             DialogManager.ShowDialog(dialogSection);
     }
 
