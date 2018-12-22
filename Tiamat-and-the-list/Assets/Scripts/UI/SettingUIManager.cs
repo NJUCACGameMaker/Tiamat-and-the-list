@@ -98,7 +98,7 @@ public class SettingUIManager : MonoBehaviour {
 
     public void Title()
     {
-        if (SceneManager.GetSceneByName("Cover") != null)
+        if (GameObject.Find("CoverCanvas") != null)
         {
             Game();
             return;

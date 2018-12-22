@@ -7,7 +7,8 @@ using UnityEngine;
 using SimpleJSON;
 using Anima2D;
 
-public class PlayerManager : MonoBehaviour {
+public class PlayerManager : MonoBehaviour
+{
 
     public delegate void NoneParaFunc();
 
@@ -54,7 +55,8 @@ public class PlayerManager : MonoBehaviour {
     private bool canMove = true;
     private GameObject existedTorch;
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         InputManager.AddOnLeftMove(LeftMove);
         InputManager.AddOnRightMove(RightMove);
         InputManager.AddOnSwitchItemState(UseEquip);
@@ -64,9 +66,10 @@ public class PlayerManager : MonoBehaviour {
         audioSource.clip = audioTorchSwitch;
     }
 
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         float currentPositionX = this.transform.position.x;
         currentSpeed = Math.Abs(currentPositionX - lastPositionX) / Time.deltaTime;
         lastPositionX = currentPositionX;
@@ -90,7 +93,7 @@ public class PlayerManager : MonoBehaviour {
                 transform.Translate(Time.deltaTime * Vector3.left * moveSpeed, Space.World);
             }
         }
-        
+
     }
 
     void RightMove()
@@ -128,7 +131,7 @@ public class PlayerManager : MonoBehaviour {
 
     public void setEquip(EquipmentType equipmentType)
     {
-        if (canMove)
+        if (canMove && equipmentType != EquipmentType.None)
         {
             if (existedTorch != null)
             {
@@ -158,7 +161,7 @@ public class PlayerManager : MonoBehaviour {
                     torch.transform.localEulerAngles = new Vector3(0.0f, 0.0f, -2.34f);
                     torch.transform.localScale = new Vector3(Mathf.Abs(torch.transform.localScale.x),
                         torch.transform.localScale.y, torch.transform.localScale.z);
-                    
+
                     if (itemOn)
                     {
                         turnOffTorch();
@@ -255,6 +258,7 @@ public class PlayerManager : MonoBehaviour {
         transform.localScale = new Vector3(root["scale"][0].AsFloat, root["scale"][1].AsFloat, root["scale"][2].AsFloat);
         floorLayer = root["floorLayer"].AsInt;
         itemOn = root["itemOn"].AsBool;
+        Debug.Log(itemOn);
         SetLeft(root["isLeft"].AsBool);
         setEquip((EquipmentType)Enum.Parse(typeof(EquipmentType), root["currentEquipType"]));
         playerAnima.SetBool("WithTorch", itemOn);
@@ -276,13 +280,14 @@ public class PlayerManager : MonoBehaviour {
 
         if (!canMove)
         {
-            GameObject skill = Instantiate(SkillPrefab) as GameObject;            
+            GameObject skill = Instantiate(SkillPrefab) as GameObject;
             skill.GetComponent<SkillManager>().SetLeft(root["skillIsLeft"].AsBool);
             skill.transform.localScale = new Vector3(root["skillScale"][0].AsFloat, root["skillScale"][1].AsFloat, root["skillScale"][2].AsFloat);
             skill.transform.position = new Vector3(root["skillPosition"][0].AsFloat, root["skillPosition"][1].AsFloat, root["skillPosition"][2].AsFloat);
             skill.GetComponent<SkillManager>().maxX = maxX[floorLayer];
             skill.GetComponent<SkillManager>().minX = minX[floorLayer];
         }
+        Debug.Log(itemOn);
     }
 
     public string SaveArchive()
@@ -311,6 +316,7 @@ public class PlayerManager : MonoBehaviour {
                 { "itemOn", new JSONData(itemOn) },
                 { "isLeft",new JSONData(isLeft) }
             };
+            Debug.Log(itemOn);
             return root.ToString();
         }
         else
@@ -404,7 +410,7 @@ public class PlayerManager : MonoBehaviour {
             {
                 RightMove();
                 float deltaX = moveSpeed * Time.deltaTime;
-                transform.position = new Vector3(transform.position.x, 
+                transform.position = new Vector3(transform.position.x,
                     deltaX / offsetX * offsetY + transform.position.y);
                 yield return null;
             }
