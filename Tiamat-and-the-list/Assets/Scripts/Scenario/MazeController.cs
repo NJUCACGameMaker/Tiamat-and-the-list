@@ -48,7 +48,7 @@ public class MazeController : MonoBehaviour{
             roundFinish = true;
             wanderCount++;
         }
-        if (wanderCount >= 2)
+        if (wanderCount >= 3)
         {
             puzzleFinished = true;
         }
@@ -78,6 +78,8 @@ public class MazeController : MonoBehaviour{
             (previousNum % 10 == 6 && currentNum % 10 == 0))
         {
             Wander();
+        } else {
+            wanderCount = 0;
         }
         Debug.Log(previousNum + " " + currentNum + " " + anotherNum);
         return currentNum;
