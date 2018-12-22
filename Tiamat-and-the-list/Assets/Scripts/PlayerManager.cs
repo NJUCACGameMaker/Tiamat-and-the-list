@@ -169,6 +169,7 @@ public class PlayerManager : MonoBehaviour {
             switch (currentEquipType)
             {
                 case EquipmentType.FlashLight:
+                    audioSource.clip = audioTorchSwitch;
                     audioSource.Play();
                     if (itemOn)
                     {
