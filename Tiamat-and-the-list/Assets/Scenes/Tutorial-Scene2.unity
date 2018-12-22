@@ -1841,7 +1841,7 @@ MonoBehaviour:
   - {fileID: 264231583}
   - {fileID: 1771201584}
   player: {fileID: 1751808922}
-  equipmentUI: {fileID: 0}
+  equipmentUI: {fileID: 439766945}
   paused: 0
 --- !u!1 &848759579
 GameObject:
