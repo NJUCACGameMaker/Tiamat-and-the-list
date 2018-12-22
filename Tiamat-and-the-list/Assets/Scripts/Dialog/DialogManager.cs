@@ -73,6 +73,8 @@ public class DialogManager : MonoBehaviour
             dialogFlag = false;
             DialogBox.transform.Find("NamePanel").Find("NameText").GetComponent<Text>().text = "";
             DialogBox.transform.Find("DialogPanel").Find("DialogText").GetComponent<Text>().text = "";
+            Image characterImage = DialogBox.transform.Find("Character").GetComponent<Image>();
+            characterImage.color = new Color(1, 1, 1, 0);
             animationLock = true;
             StartCoroutine(initializeAnimation());
         }

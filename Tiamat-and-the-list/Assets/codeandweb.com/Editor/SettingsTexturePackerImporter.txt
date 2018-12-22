@@ -41,4 +41,5 @@ normalmapFileNames:
 - 
 - 
 - 
+- 
 enableDebugOutput: 0

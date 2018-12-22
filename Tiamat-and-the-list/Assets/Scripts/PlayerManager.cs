@@ -156,6 +156,8 @@ public class PlayerManager : MonoBehaviour {
 
                     torch.transform.localPosition = new Vector3(3.27f, 0.06f, 0.0f);
                     torch.transform.localEulerAngles = new Vector3(0.0f, 0.0f, -2.34f);
+                    torch.transform.localScale = new Vector3(Mathf.Abs(torch.transform.localScale.x),
+                        torch.transform.localScale.y, torch.transform.localScale.z);
                     
                     if (itemOn)
                     {

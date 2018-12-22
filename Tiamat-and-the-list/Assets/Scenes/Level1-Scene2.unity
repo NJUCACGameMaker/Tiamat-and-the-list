@@ -4382,7 +4382,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1793762998}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &746940893
 GameObject:
@@ -4551,7 +4551,7 @@ MonoBehaviour:
   interoperable: 1
   detectDist: 6
   floorLayer: 00000000
-  hintSprite: {fileID: 0}
+  hintSprite: {fileID: 1506837875}
   dialogSection: Board_right
 --- !u!1 &751316693
 GameObject:
@@ -11024,6 +11024,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1577051833}
+  - {fileID: 746348482}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

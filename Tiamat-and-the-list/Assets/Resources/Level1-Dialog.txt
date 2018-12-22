@@ -18,9 +18,9 @@
 16|Touch_the_stone|Apkal|哦？居然还能散发出感情吗。在害怕……？|Apkal_serious|0
 17|Touch_the_stone|Apkal|但是这个世界留不得越界的你。再见了，小家伙……|Apkal_serious|0
 18|Touch_the_stone|? ? ?|不要碰那个东西，它很危险——|0|0
-19|Touch_the_stone|Apkal|？？|Apkal_shock|0
+19|Touch_the_stone|Apkal|？？|Apkal_serious|0
 20|Touch_the_stone|stone|危机。结界。展开。名Fate。目标。确认。|0|0
-21|Touch_the_stone|Apkal|该死——|Apkal_shock|0
+21|Touch_the_stone|Apkal|该死——|Apkal_serious|0
 22|Touch_the_stone|stone|目标。捕捉。完毕。|0|0
 23|Touch_the_stone|? ? ?|来不及阻止术式了。##\大哥哥，#记住，世界永远比你看到的要大——|0|0
 
