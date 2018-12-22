@@ -63,7 +63,7 @@ public class Stone : Interoperable {
     {
         showHint = false;
     }
- /*
+ 
     public override string GetArchive()
     {
         JSONClass archive = new JSONClass
@@ -83,5 +83,5 @@ public class Stone : Interoperable {
             interoperable = false;
         }
     }
-    */
+    
 }
