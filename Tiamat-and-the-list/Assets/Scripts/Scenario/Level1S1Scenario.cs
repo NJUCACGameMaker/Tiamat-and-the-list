@@ -28,6 +28,8 @@ public class Level1S1Scenario : Scenario {
         {
             goToTheTrapShown = true;
             scenarioHintOn = true;
+            CollectionArchive.CGCollect("Geshta_default");
+            CollectionArchive.CGCollect("Geshta_smile");
             DialogManager.ShowDialog("Go_the_trap", OnGoToTheTrapShownEnd);
         }
     }
