@@ -2151,6 +2151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd7347140e605c42a93929f39befb54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BranchPrefab: {fileID: 0}
   DialogPrefab: {fileID: 1649189823253264, guid: b1b49cd72c6132941b60ddcf1143b446,
     type: 2}
   DialogBox: {fileID: 0}
@@ -10806,6 +10807,7 @@ MonoBehaviour:
   detectDist: 2
   floorLayer: 00000000
   nextSceneName: Level1-Scene1
+  triggered: 0
 --- !u!1 &1797989305
 GameObject:
   m_ObjectHideFlags: 0

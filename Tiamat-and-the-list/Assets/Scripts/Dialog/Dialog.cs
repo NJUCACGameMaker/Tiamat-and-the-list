@@ -10,7 +10,7 @@ public class Dialog
     // #代表停顿，$代表有音效
     public struct branch                    // 对分支进行定义
     {
-        public int switch_id;               // 跳转对话id号
+        public string switch_section;               // 跳转对话id号
         public string text;                 // 分支选项
     }
     public int id;                   // Dialog的唯一指定id
