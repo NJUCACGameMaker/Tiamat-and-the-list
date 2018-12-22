@@ -46,6 +46,12 @@ public class SettingUIManager : MonoBehaviour {
             cgList.AddCGButton(cgPiece.shortLine, cgPiece.picPath);
         }
 
+        var musicList = musicSection.transform.Find("Panel").Find("Content Panel").GetComponent<ScrollListManager>();
+        foreach (MusicPiece musicPiece in CollectionArchive.GetMusics())
+        {
+            musicList.AddMusicButton(musicPiece.shortLine, musicPiece.path);
+        }
+
         backgroundMusicVolumeSlider.value = PlayerPrefs.GetFloat("BackgroundMusicVolume", 1.0f);
         AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         audioManager.backgroundMusicVolume = backgroundMusicVolumeSlider.value;
@@ -92,14 +98,19 @@ public class SettingUIManager : MonoBehaviour {
 
     public void Title()
     {
+        if (SceneManager.GetSceneByName("Cover") != null)
+        {
+            Game();
+            return;
+        }
         backgroundMusic = GameObject.FindGameObjectWithTag("BackgroundMusic");
         Debug.Log(backgroundMusic.name);
         if (backgroundMusic.name != "BackgroundMusic_Cover")
             backgroundMusic.GetComponent<BackgroundAudioManager>().SceneChange();
-        SceneItemManager.SaveArchive();
         GameObject sceneManager = GameObject.Find("SceneController");
         if (sceneManager != null)
         {
+            SceneItemManager.SaveArchive();
             sceneManager.GetComponent<SceneItemManager>().Resume();
         }
         SceneManager.LoadScene("Cover");
@@ -107,6 +118,18 @@ public class SettingUIManager : MonoBehaviour {
 
     public void Game()
     {
+        if (SceneManager.GetSceneByName("Cover") != null)
+        {
+            GameObject coverCanvas = GameObject.Find("CoverCanvas");
+            if (coverCanvas != null)
+            {
+                coverCanvas.GetComponent<CoverUIManager>().RecoverButtons();
+            }
+            else
+            {
+                Debug.Log("Cover Canvas Not Found");
+            }
+        }
         GameObject sceneManager = GameObject.Find("SceneController");
         if (sceneManager != null)
         {

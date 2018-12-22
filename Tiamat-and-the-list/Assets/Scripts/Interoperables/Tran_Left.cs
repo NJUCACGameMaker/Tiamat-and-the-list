@@ -12,13 +12,16 @@ public class Tran_Left : Interoperable
     public Image image;
     public TextMeshPro number;
     public string nextSceneName;
-    
+
+    private AudioSource audioSource;
+    public AudioClip transferAudio;
+
     public Coroutine lightCoroutine;
 
     // Use this for initialization
     void Start()
     {
-
+        audioSource = GetComponent<AudioSource>();
     }
 
     public override void WithinRange()
@@ -29,6 +32,8 @@ public class Tran_Left : Interoperable
         int currentNum = MazeController.GoLeft();
         if (currentNum < 10) number.text = "0" + currentNum.ToString();
         else number.text = currentNum.ToString();
+        audioSource.clip = transferAudio;
+        audioSource.Play();
         if (MazeController.PuzzleFinished())
         {
             GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadScene(nextSceneName);

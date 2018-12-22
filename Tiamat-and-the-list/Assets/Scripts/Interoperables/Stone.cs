@@ -39,14 +39,12 @@ public class Stone : Interoperable {
     {
         if (NearPlayer)
         {
-
             DialogManager.ShowDialog(dialogSection, LoadNextScene);
             interoperable = false;
             transform.position = new Vector3(25, 9, 0);
             isdestroy = true;
         }
     }
-
 
     void LoadNextScene()
     {

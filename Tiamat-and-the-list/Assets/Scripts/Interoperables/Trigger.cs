@@ -8,11 +8,11 @@ public class Trigger : Interoperable {
     public string dialogSection;
     public Level1S1Scenario scenario;
     public Animator doorAnimator;
-    
-	// Use this for initialization
-	void Start () {
-		
-	}
+
+    // Use this for initialization
+    void Start () {
+
+    }
 	
 	// Update is called once per frame
 	void Update () {

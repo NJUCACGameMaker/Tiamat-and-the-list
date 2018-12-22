@@ -7,9 +7,12 @@ using UnityEngine.SceneManagement;
 
 public class CoverUIManager : MonoBehaviour {
 
+    public RectTransform btns;
+
     public RectTransform newGameConfirmTrans;
     public Button continueButton;
-    public GameObject backgroundMusic;
+    private GameObject backgroundMusic;
+    private Vector3 normalBtnsPosition;
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +20,7 @@ public class CoverUIManager : MonoBehaviour {
         {
             continueButton.interactable = false;
         }
+        normalBtnsPosition = btns.localPosition;
         backgroundMusic = GameObject.FindGameObjectWithTag("BackgroundMusic");
 	}
 	
@@ -31,6 +35,7 @@ public class CoverUIManager : MonoBehaviour {
         if (PlayerPrefs.GetInt("HasArchive", 0) == 1)
         {
             newGameConfirmTrans.localPosition = Vector3.zero;
+            MoveButtons();
         }
         else
         {
@@ -51,6 +56,7 @@ public class CoverUIManager : MonoBehaviour {
     public void Setting()
     {
         SceneManager.LoadScene("Setting", LoadSceneMode.Additive);
+        MoveButtons();
     }
 
     //退出游戏button
@@ -70,10 +76,20 @@ public class CoverUIManager : MonoBehaviour {
         //SceneManager.LoadScene("Tutorial-Scene1");
     }
 
-    //退出游戏button
+    //不开始新游戏button
     public void NewGameConfirmFalse()
     {
         newGameConfirmTrans.localPosition = new Vector3(2000.0f, 0.0f, 0.0f);
+        RecoverButtons();
     }
 
+    public void MoveButtons()
+    {
+        btns.localPosition = new Vector3(-2000.0f, 0.0f, 0.0f);
+    }
+
+    public void RecoverButtons()
+    {
+        btns.localPosition = normalBtnsPosition;
+    }
 }

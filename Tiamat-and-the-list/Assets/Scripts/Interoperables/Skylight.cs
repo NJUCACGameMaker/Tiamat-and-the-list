@@ -12,10 +12,14 @@ public class Skylight : Interoperable {
     public bool opened = false;
     private float hintAlpha = 0f;
     private bool showHint = false;
+
+    private AudioSource audioSource;
+    public AudioClip skylightOpen;
     
     void Start () {
         interoperable = false;
         skylightAnima = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         InputManager.AddOnPick(OnPick);
 	}
 	
@@ -43,6 +47,8 @@ public class Skylight : Interoperable {
             skylightAnima.SetTrigger("open");
             opened = true;
             interoperable = true;
+            audioSource.clip = skylightOpen;
+            audioSource.Play();
         }
     }
 
@@ -56,6 +62,8 @@ public class Skylight : Interoperable {
 
     void Depart()
     {
+        GameObject backgroundMusic = GameObject.FindGameObjectWithTag("BackgroundMusic");
+        backgroundMusic.GetComponent<BackgroundAudioManager>().SceneChange();
         GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadScene("Level1-Scene1");
     }
 

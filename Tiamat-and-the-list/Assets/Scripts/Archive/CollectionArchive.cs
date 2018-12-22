@@ -40,6 +40,9 @@ public class CollectionArchive {
             "EquipmentSprite/Stage00_shoudiantong", false));
         cgs.Add("Apkal_serious", new CGPiece("Apkal", "CharacterTachie/Apkal_serious", false));
         cgs.Add("A_default", new CGPiece("A", "CharacterTachie/A_default", false));
+        musics.Add("THE PIANO LADY", new MusicPiece("<size=32>THE PIANO LADY (LENA ORSA) - \r\n Water Sparks in a Sunbeam</size>", "DynamicAudios/ThePianoLady", true));
+        musics.Add("MAYA FILIPI", new MusicPiece("MAYA FILIPIC - Rose", "DynamicAudios/MayaFilipi-Rose", true));
+        musics.Add("GARSUMENE", new MusicPiece("<size=32>GARSUMENE - Chopin Piano Waltz \r\n in B minor, Op. 69, No. 2</size>", "DynamicAudios/GarsuMene", true));
     }
 
     public static void LoadArchive()

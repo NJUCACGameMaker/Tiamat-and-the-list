@@ -8,6 +8,7 @@ public class MenuItems : MonoBehaviour {
     public static void ClearArchive()
     {
         File.Delete(Application.persistentDataPath + "\\" + "Normal-Archive.json");
+        File.Delete(Application.persistentDataPath + "\\" + "\\collectionArchive.json");
         PlayerPrefs.DeleteAll();
     }
 }
