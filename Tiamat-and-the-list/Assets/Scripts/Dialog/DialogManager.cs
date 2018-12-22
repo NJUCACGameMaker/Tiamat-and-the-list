@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class DialogManager : MonoBehaviour
 {
     private static DialogManager instance;
+    public GameObject BranchPrefab;
     public GameObject DialogPrefab;
     public GameObject DialogBox;               // 对话框+立绘整体
     public float textSpeed = 0.04f;            // 文字显示速度
@@ -14,11 +15,15 @@ public class DialogManager : MonoBehaviour
     private int id;                            // temp 测试用
     private DialogLoader loader;
     private List<Dialog> currentDialogSection; // 当前加载的section
+    
+    private List<GameObject> branchButtons;    // 用于加载分支选项的按钮
 
     private string tempDialog;                 // 逐字显示用
     private bool dialogFlag;                   // 判断是否在逐字显示
     private float timer;
     private bool animationLock;                // 在播放特定动画的时候锁死交互
+    
+    private bool branchLock;                   // 在出现选项支的时候锁死交互
     private float pauseTime = 0f;              // 用于会话停顿
     private int soundIndex = 0;
 
@@ -71,6 +76,7 @@ public class DialogManager : MonoBehaviour
             currentDialog = currentDialogSection[0];
             id = 0;
             dialogFlag = false;
+            branchLock = false;
             DialogBox.transform.Find("NamePanel").Find("NameText").GetComponent<Text>().text = "";
             DialogBox.transform.Find("DialogPanel").Find("DialogText").GetComponent<Text>().text = "";
             Image characterImage = DialogBox.transform.Find("Character").GetComponent<Image>();
@@ -96,6 +102,12 @@ public class DialogManager : MonoBehaviour
         tempDialog = "";
         timer = 0;
         dialogFlag = true;
+
+        if (currentDialog.branchNum > 0)
+        {
+            branchLock = true;
+            initBranches();
+        }
     }
 
     public void DestoryDialog()
@@ -119,6 +131,47 @@ public class DialogManager : MonoBehaviour
 
     }
 
+    private void initBranches()
+    {
+        int width = Screen.width;
+        int height = Screen.height;
+        branchLock = true;
+        branchButtons = new List<GameObject>();
+        for (int i = 0; i < currentDialog.branchNum; i++) {
+            GameObject btn = Instantiate(BranchPrefab) as GameObject;
+            btn.transform.position = new Vector3(width/2, Mathf.Lerp(height * 0.8f, height * 0.4f, i*1.0f / (currentDialog.branchNum - 1)), 0);
+            Color c = btn.GetComponent<Image>().color;
+            btn.GetComponent<Image>().color = new Color(c.r, c.g, c.b, 0);
+            btn.GetComponent<Branch>().switch_section = currentDialog.branches[i].switch_section;
+            btn.GetComponent<Branch>().text = currentDialog.branches[i].text;
+
+            btn.transform.Find("Text").GetComponent<Text>().text = currentDialog.branches[i].text;
+            c = btn.transform.Find("Text").GetComponent<Text>().color;
+            btn.transform.Find("Text").GetComponent<Text>().color = new Color(c.r, c.g, c.b, 0);
+
+            btn.GetComponent<Button>().onClick.AddListener(BranchOnClick);
+            btn.transform.SetParent(DialogBox.transform);
+            branchButtons.Add(btn);
+        }
+        StartCoroutine(initializeBranchAnimation());
+    }
+
+    private void BranchOnClick()
+    {
+        currentDialogSection = new List<Dialog>();
+        foreach (Dialog d in loader.context)
+        {
+            GameObject buttonSelf = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
+            if (d.section == buttonSelf.GetComponent<Branch>().switch_section)
+                currentDialogSection.Add(d);
+        }
+        id = -1;
+
+        StartCoroutine(destroyBranchAnimation());
+
+        setNextDialog();
+        branchLock = false;
+    }
     void Start()
     {
         InputManager.AddOnNextDialog(OnNextDialog);
@@ -275,6 +328,59 @@ public class DialogManager : MonoBehaviour
             OnEnd();
             OnEnd = null;
         }
+    }
+
+    private IEnumerator initializeBranchAnimation()
+    {
+        for (int i = 0; i < branchButtons.Count; i++)
+        {
+            GameObject currentButton = branchButtons[i];
+            StartCoroutine(initializeSingleBranchAnimation(currentButton));
+            yield return null;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    private IEnumerator initializeSingleBranchAnimation(GameObject currentButton)
+    {
+        Vector3 targetPos = currentButton.transform.position;
+        Color targetColor = currentButton.GetComponent<Image>().color;
+        Color targetTextColor = currentButton.transform.Find("Text").GetComponent<Text>().color;
+        for (float t=0; t<=1f; t += 0.05f)
+        {
+            currentButton.transform.position = Vector3.Lerp(targetPos - new Vector3(20f, 0, 0), targetPos, EasingFuncs.QuartInOut(t));
+            currentButton.GetComponent<Image>().color = Color.Lerp(targetColor, new Color(targetColor.r, targetColor.g, targetColor.b, 1), EasingFuncs.QuartInOut(t));
+            currentButton.transform.Find("Text").GetComponent<Text>().color = Color.Lerp(targetTextColor, new Color(targetTextColor.r, targetTextColor.g, targetTextColor.b, 1), EasingFuncs.QuartInOut(t));
+            yield return null;
+            yield return new WaitForSeconds(0.006f);
+        }
+    }
+
+    private IEnumerator destroyBranchAnimation()
+    {
+        for (int i = 0; i < branchButtons.Count; i++)
+        {
+            GameObject currentButton = branchButtons[i];
+            StartCoroutine(destroySingleBranchAnimation(currentButton));
+            yield return null;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    private IEnumerator destroySingleBranchAnimation(GameObject currentButton)
+    {
+        Vector3 targetPos = currentButton.transform.position;
+        Color targetColor = currentButton.GetComponent<Image>().color;
+        Color targetTextColor = currentButton.transform.Find("Text").GetComponent<Text>().color;
+        for (float t = 0; t <= 1f; t += 0.05f)
+        {
+            currentButton.transform.position = Vector3.Lerp(targetPos, targetPos + new Vector3(20f, 0, 0), EasingFuncs.QuartInOut(t));
+            currentButton.GetComponent<Image>().color = Color.Lerp(targetColor, new Color(targetColor.r, targetColor.g, targetColor.b, 0), EasingFuncs.QuartInOut(t));
+            currentButton.transform.Find("Text").GetComponent<Text>().color = Color.Lerp(targetTextColor, new Color(targetTextColor.r, targetTextColor.g, targetTextColor.b, 0), EasingFuncs.QuartInOut(t));
+            yield return null;
+            yield return new WaitForSeconds(0.006f);
+        }
+        Destroy(currentButton);
     }
 
     private void setNextDialog()

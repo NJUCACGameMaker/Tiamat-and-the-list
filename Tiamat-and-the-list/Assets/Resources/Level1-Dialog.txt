@@ -40,6 +40,9 @@
 
 32|Touch_the_script_right|0|写有制作人名单的纸条|0|0
 
+
+
+
 33|After_Fate|Apkal|呼，总算出来了。被摆了一道呢。|Apkal_serious|0
 34|After_Fate|???|哇，大哥哥你总算出来了！|Geshta_default|0
 35|After_Fate|Apkal|是谁？|Apkal_serious|0

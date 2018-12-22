@@ -38,7 +38,7 @@ public class DialogLoader {
                     for (int i=0; i<dialog.branchNum; i++)
                     {
                         Dialog.branch branch = new Dialog.branch();
-                        branch.switch_id = int.Parse(data[6 + i * 2]);
+                        branch.switch_section = data[6 + i * 2];
                         branch.text = data[6 + i * 2 + 1];
                         dialog.branches.Add(branch);
                     }
