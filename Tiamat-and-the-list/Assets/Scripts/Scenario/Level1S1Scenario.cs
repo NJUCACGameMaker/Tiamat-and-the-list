@@ -17,6 +17,7 @@ public class Level1S1Scenario : Scenario {
         {
             beforeFateShown = true;
             scenarioHintOn = true;
+            CollectionArchive.MusicCollect("GARSUMENE");
             DialogManager.ShowDialog("Before_Fate", OnBeforeFateShownEnd);
         }
 	}
