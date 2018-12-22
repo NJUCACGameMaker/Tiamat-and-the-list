@@ -36,10 +36,14 @@ public class CollectionArchive {
     private void ContentInit()
     {
         notes.Add("L1S1Note1", new NotePiece("教学关纸片1", "人本身没有罪，而是有人觉得他们有罪。", false));
+        notes.Add("L1S3NoteLeft", new NotePiece("第一关左展示台纸条", "待定", false));
+        notes.Add("L1S3NoteRight", new NotePiece("第一关右展示台纸条", "待定", false));
         collections.Add("Flashlight", new CollectionPiece("手电筒", "一个有一些年份的手电筒，不过竟然还能亮",
             "EquipmentSprite/Stage00_shoudiantong", false));
         cgs.Add("Apkal_serious", new CGPiece("Apkal", "CharacterTachie/Apkal_serious", false));
         cgs.Add("A_default", new CGPiece("A", "CharacterTachie/A_default", false));
+        cgs.Add("Geshta_default", new CGPiece("Geshta", "CharacterTachie/Geshta_default", false));
+        cgs.Add("Geshta_smile", new CGPiece("Geshta", "CharacterTachie/Geshta_smile", false));
         musics.Add("THE PIANO LADY", new MusicPiece("<size=32>THE PIANO LADY (LENA ORSA) - \r\n Water Sparks in a Sunbeam</size>", "DynamicAudios/ThePianoLady", true));
         musics.Add("MAYA FILIPI", new MusicPiece("MAYA FILIPIC - Rose", "DynamicAudios/MayaFilipi-Rose", false));
         musics.Add("GARSUMENE", new MusicPiece("<size=32>GARSUMENE - Chopin Piano Waltz \r\n in B minor, Op. 69, No. 2</size>", "DynamicAudios/GarsuMene", false));
