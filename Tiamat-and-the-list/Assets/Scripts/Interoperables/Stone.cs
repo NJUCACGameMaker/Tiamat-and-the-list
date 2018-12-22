@@ -8,7 +8,10 @@ public class Stone : Interoperable {
 
     public string dialogSection;
     public string nextSceneName = "";
-    bool isdestroy = false;
+    public SpriteRenderer hintSprite;
+    private float hintAlpha = 0f;
+    private bool showHint = false;
+    private bool isdestroy = false;
     // Use this for initialization
     void Start () {
         InputManager.AddOnInteract(OnInteract);
@@ -16,28 +19,53 @@ public class Stone : Interoperable {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        if (showHint && hintAlpha < 1.0f)
+        {
+            hintAlpha += Time.deltaTime * 4;
+            if (hintAlpha > 1.0f)
+                hintAlpha = 1.0f;
+            hintSprite.color = new Color(hintSprite.color.r, hintSprite.color.g, hintSprite.color.b, hintAlpha);
+        }
+        if (!showHint && hintAlpha > 0f)
+        {
+            hintAlpha -= Time.deltaTime * 4;
+            if (hintAlpha < 0f)
+                hintAlpha = 0.0f;
+            hintSprite.color = new Color(hintSprite.color.r, hintSprite.color.g, hintSprite.color.b, hintAlpha);
+        }
+    }
+
     void OnInteract()
     {
         if (NearPlayer)
         {
-            DialogManager.ShowDialog(dialogSection);
+
+            DialogManager.ShowDialog(dialogSection, LoadNextScene);
             interoperable = false;
             transform.position = new Vector3(25, 9, 0);
             isdestroy = true;
-
-            SceneItemManager.SaveArchive();
-            GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadScene(nextSceneName);
         }
     }
 
-    IEnumerator LoadAnotherScene(string name)
+
+    void LoadNextScene()
     {
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(name);
-        yield return asyncOperation;
+
+        SceneItemManager.SaveArchive();
+        GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadScene(nextSceneName);
     }
 
+
+    public override void ShowHint()
+    {
+        showHint = true;
+    }
+
+    public override void UnshowHint()
+    {
+        showHint = false;
+    }
+ /*
     public override string GetArchive()
     {
         JSONClass archive = new JSONClass
@@ -57,4 +85,5 @@ public class Stone : Interoperable {
             interoperable = false;
         }
     }
+    */
 }

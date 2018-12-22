@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bookstore : Interoperable
+public class Bookcase : Interoperable
 {
 
     public string dialogSection;

@@ -31,9 +31,8 @@
 
 27|Board_left|0|在个位的最大于最小间徘徊者，他将能突破这个世界。|0|0
 
-28|Board_right|0|并非所有人都和你一样数数。|0|0
-
-29|Touch_the_bookcase|Apkal|《白雪公主和10个小矮人》。《10宗罪》。#这都是些什么奇怪的书？|Apkal_serious|0
+28|Board_right|0|不是所有人都和你一样数数。|0|0
+29|Board_right|Apkal|《白雪公主和10个小矮人》。《10宗罪》。#这都是些什么奇怪的书？|Apkal_serious|0
 
 30|reach_point|Apkal|这就是七号房间吗？看来出口就在前方了。|Apkal_serious|0
 

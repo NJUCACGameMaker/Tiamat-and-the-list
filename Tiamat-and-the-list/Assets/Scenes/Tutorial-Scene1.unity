@@ -2003,7 +2003,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c297ba4f61eacb343aa15384cbf7269d, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4120,9 +4120,7 @@ MonoBehaviour:
   interoperable: 0
   detectDist: 2
   floorLayer: 00000000
-  temp_paint: {fileID: 1909935530}
   hintSprite: {fileID: 596649150}
-  if_picked: 0
   diaologsection1: Coll
   noteKey: L1S1Note1
   audioNote: {fileID: 8300000, guid: 378eed9ccab70d2449c34fa50eaeeecc, type: 3}
