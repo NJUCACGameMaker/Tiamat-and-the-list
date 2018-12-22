@@ -135,6 +135,18 @@ public class SettingUIManager : MonoBehaviour {
         {
             sceneManager.GetComponent<SceneItemManager>().Resume();
         }
+        GameObject dialogBox = GameObject.FindGameObjectWithTag("DialogBox");
+        if (dialogBox != null){
+            foreach (var text in dialogBox.transform.GetComponentsInChildren<Text>()){
+                Color c = text.color;
+                text.color = new Color(c.r, c.g, c.b, 1);
+            }
+            foreach (var image in dialogBox.transform.GetComponentsInChildren<Image>()){
+                Color c = image.color;
+                image.color = new Color(c.r, c.g, c.b, 100.0f/255.0f);
+            }
+        }
+
         SceneManager.UnloadSceneAsync("Setting");
     }
 

@@ -8,6 +8,8 @@ TagManager:
   - BackgroundMusic
   - AudioManager
   - Branch
+  - Undefined
+  - DialogBox
   layers:
   - Default
   - TransparentFX
