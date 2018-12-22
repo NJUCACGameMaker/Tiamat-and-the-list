@@ -79,13 +79,13 @@ public class CoverUIManager : MonoBehaviour {
     //不开始新游戏button
     public void NewGameConfirmFalse()
     {
-        newGameConfirmTrans.localPosition = new Vector3(2000.0f, 0.0f, 0.0f);
+        newGameConfirmTrans.localPosition = new Vector3(0.0f, 2000.0f, 0.0f);
         RecoverButtons();
     }
 
     public void MoveButtons()
     {
-        btns.localPosition = new Vector3(-2000.0f, 0.0f, 0.0f);
+        btns.localPosition = new Vector3(0.0f, -2000.0f, 0.0f);
     }
 
     public void RecoverButtons()

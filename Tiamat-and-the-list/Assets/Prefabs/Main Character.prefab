@@ -2767,15 +2767,10 @@ MonoBehaviour:
   itemOn: 0
   currentEquipType: 0
   floorLayer: 0
-  currentSpeed: 0
-  lastPositionX: 0
   audioTorchSwitch: {fileID: 8300000, guid: 41b8cccea8b749a4680070cb548560ef, type: 3}
   audioGhostSkill: {fileID: 0}
-  audioSource: {fileID: 0}
   playerAnima: {fileID: 95371047196903676}
   isLeft: 0
-  canMove: 1
-  existedTorch: {fileID: 0}
 --- !u!114 &114744187087919886
 MonoBehaviour:
   m_ObjectHideFlags: 1
