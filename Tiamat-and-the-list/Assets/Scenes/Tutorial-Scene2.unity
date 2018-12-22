@@ -1146,6 +1146,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &371432980 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114243204678205426, guid: f15da11235f2fd54f96d50331022f7f1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1424900867}
+  m_Script: {fileID: 11500000, guid: 5ec17ceaa560940e9bf0dbeafc3a1971, type: 3}
 --- !u!1 &377393379
 GameObject:
   m_ObjectHideFlags: 0
@@ -1479,6 +1485,11 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 541884261}
   m_CullTransparentMesh: 0
+--- !u!4 &601504087 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4281871110310854, guid: f15da11235f2fd54f96d50331022f7f1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1424900867}
 --- !u!1 &613825488
 GameObject:
   m_ObjectHideFlags: 0
@@ -3109,6 +3120,16 @@ Prefab:
       propertyPath: audioGhostSkill
       value: 
       objectReference: {fileID: 8300000, guid: 979e85c462a42d84baf3dddab079321b, type: 3}
+    - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
+        type: 2}
+      propertyPath: rightArm
+      value: 
+      objectReference: {fileID: 371432980}
+    - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
+        type: 2}
+      propertyPath: torchParent
+      value: 
+      objectReference: {fileID: 601504087}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da11235f2fd54f96d50331022f7f1, type: 2}
   m_IsPrefabAsset: 0

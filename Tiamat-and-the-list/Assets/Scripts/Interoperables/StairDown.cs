@@ -46,7 +46,14 @@ public class StairDown : Interoperable {
 
     IEnumerator MoveSmooth(Vector2 from, Vector2 target, float duration)
     {
-        player.playerAnima.SetTrigger("DownStair");
+        if (!player.itemOn)
+        {
+            player.playerAnima.SetTrigger("DownStairNormal");
+        }
+        else
+        {
+            player.playerAnima.SetTrigger("DownStairTorch");
+        }
         if (from.x < target.x)
         {
             player.SetLeft(false);

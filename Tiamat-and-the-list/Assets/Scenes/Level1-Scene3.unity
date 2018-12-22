@@ -1405,6 +1405,16 @@ Prefab:
       propertyPath: audioGhostSkill
       value: 
       objectReference: {fileID: 8300000, guid: 979e85c462a42d84baf3dddab079321b, type: 3}
+    - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
+        type: 2}
+      propertyPath: rightArm
+      value: 
+      objectReference: {fileID: 226091804}
+    - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
+        type: 2}
+      propertyPath: torchParent
+      value: 
+      objectReference: {fileID: 226091803}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da11235f2fd54f96d50331022f7f1, type: 2}
   m_IsPrefabAsset: 0
@@ -1414,6 +1424,17 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 226091801}
   m_Script: {fileID: 11500000, guid: ff5998679f82dd040b87dd044179f9cb, type: 3}
+--- !u!4 &226091803 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4281871110310854, guid: f15da11235f2fd54f96d50331022f7f1,
+    type: 2}
+  m_PrefabInternal: {fileID: 226091801}
+--- !u!114 &226091804 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114243204678205426, guid: f15da11235f2fd54f96d50331022f7f1,
+    type: 2}
+  m_PrefabInternal: {fileID: 226091801}
+  m_Script: {fileID: 11500000, guid: 5ec17ceaa560940e9bf0dbeafc3a1971, type: 3}
 --- !u!1 &226488258
 GameObject:
   m_ObjectHideFlags: 0

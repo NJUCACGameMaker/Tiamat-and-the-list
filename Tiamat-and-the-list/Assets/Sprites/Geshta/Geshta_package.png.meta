@@ -1,0 +1,467 @@
+fileFormatVersion: 2
+guid: ca147db2b4536424da94cec4701fe457
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Geshta_package
+    21300002: Geshta_Sprites_01
+    21300004: Geshta_Sprites_02
+    21300006: Geshta_Sprites_03
+    21300008: Geshta_Sprites_04
+    21300010: Geshta_Sprites_05
+    21300012: Geshta_Sprites_06
+    21300014: Geshta_Sprites_07
+    21300016: Geshta_Sprites_08
+    21300018: Geshta_Sprites_09
+    21300020: Geshta_Sprites_10
+    21300022: Geshta_Sprites_11
+    21300024: Geshta_Sprites_12
+    21300026: Geshta_Sprites_13
+    21300028: Geshta_Sprites_14
+    21300030: Geshta_Sprites_15
+    21300032: Geshta_Sprites_16
+    21300034: Geshta_Sprites_17
+    21300036: Geshta_Sprites_18
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Geshta_Sprites_01
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 423
+        width: 107
+        height: 139
+      alignment: 9
+      pivot: {x: 0.47196263, y: 0.48920864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Geshta_Sprites_02
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 774
+        width: 136
+        height: 554
+      alignment: 9
+      pivot: {x: 0.4742647, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Geshta_Sprites_03
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 897
+        width: 409
+        height: 435
+      alignment: 9
+      pivot: {x: 0.4987775, y: 0.50344825}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Geshta_Sprites_04
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 17
+        width: 58
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Geshta_Sprites_05
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 560
+        width: 206
+        height: 335
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Geshta_Sprites_06
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 14
+        width: 244
+        height: 730
+      alignment: 9
+      pivot: {x: 0.5, y: 0.49931508}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Geshta_Sprites_07
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1330
+        width: 256
+        height: 717
+      alignment: 9
+      pivot: {x: 0.5, y: 0.49930266}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Geshta_Sprites_08
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 1381
+        width: 277
+        height: 666
+      alignment: 9
+      pivot: {x: 0.48736462, y: 0.503003}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Geshta_Sprites_09
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 598
+        width: 128
+        height: 174
+      alignment: 9
+      pivot: {x: 0.4921875, y: 0.50287354}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Geshta_Sprites_10
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 131
+        width: 103
+        height: 427
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Geshta_Sprites_11
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 99
+        width: 470
+        height: 426
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4988263}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Geshta_Sprites_12
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 527
+        width: 161
+        height: 801
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Geshta_Sprites_13
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 564
+        width: 203
+        height: 331
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Geshta_Sprites_14
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 1334
+        width: 206
+        height: 713
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Geshta_Sprites_15
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 253
+        width: 44
+        height: 168
+      alignment: 9
+      pivot: {x: 0.42045453, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Geshta_Sprites_16
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 746
+        width: 259
+        height: 1301
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Geshta_Sprites_17
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 746
+        width: 259
+        height: 1301
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Geshta_Sprites_18
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 253
+        width: 44
+        height: 168
+      alignment: 9
+      pivot: {x: 0.42045453, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: a3b13e4272424fb4896c16ea28590f05
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
