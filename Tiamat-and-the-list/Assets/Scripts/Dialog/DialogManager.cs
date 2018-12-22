@@ -139,7 +139,7 @@ public class DialogManager : MonoBehaviour
         branchButtons = new List<GameObject>();
         for (int i = 0; i < currentDialog.branchNum; i++) {
             GameObject btn = Instantiate(BranchPrefab) as GameObject;
-            btn.transform.position = new Vector3(width/2, Mathf.Lerp(height * 0.8f, height * 0.4f, i*1.0f / (currentDialog.branchNum - 1)), 0);
+            btn.transform.position = new Vector3(width/2, Mathf.Lerp(height * 0.75f, height * 0.4f, i*1.0f / (currentDialog.branchNum - 1)), 0);
             Color c = btn.GetComponent<Image>().color;
             btn.GetComponent<Image>().color = new Color(c.r, c.g, c.b, 0);
             btn.GetComponent<Branch>().switch_section = currentDialog.branches[i].switch_section;
@@ -150,6 +150,7 @@ public class DialogManager : MonoBehaviour
             btn.transform.Find("Text").GetComponent<Text>().color = new Color(c.r, c.g, c.b, 0);
 
             btn.GetComponent<Button>().onClick.AddListener(BranchOnClick);
+            
             btn.transform.SetParent(DialogBox.transform);
             branchButtons.Add(btn);
         }
@@ -405,7 +406,7 @@ public class DialogManager : MonoBehaviour
 
     private void OnNextDialog()
     {
-        if (!animationLock && DialogBox != null) {
+        if (!branchLock &&!animationLock && DialogBox != null) {
             // 如果当前文字已经全部出现，则进入下一句
             // 否则将当前这句话直接显示出来
             if (tempDialog == currentDialog.text) {
