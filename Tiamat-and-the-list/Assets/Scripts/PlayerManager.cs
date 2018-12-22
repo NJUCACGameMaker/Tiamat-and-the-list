@@ -37,6 +37,7 @@ public class PlayerManager : MonoBehaviour {
 
     //音效控制器
     public AudioClip audioTorchSwitch;
+    public AudioClip audioGhostSkill;
     private AudioSource audioSource;
 
     //角色动画控制器
@@ -209,6 +210,10 @@ public class PlayerManager : MonoBehaviour {
                 SkillCharacter.GetComponent<SkillManager>().minX = minX[floorLayer];
                 SkillCharacter.GetComponent<SkillManager>().SetLeft(isLeft);
                 SkillCharacter.transform.localScale = transform.localScale;
+
+                audioSource.clip = audioGhostSkill;
+                audioSource.Play();
+
             }
             else
             {

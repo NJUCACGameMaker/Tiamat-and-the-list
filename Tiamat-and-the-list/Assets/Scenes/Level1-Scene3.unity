@@ -1400,6 +1400,11 @@ Prefab:
       propertyPath: scenario
       value: 
       objectReference: {fileID: 687864949}
+    - target: {fileID: 114709625536163408, guid: f15da11235f2fd54f96d50331022f7f1,
+        type: 2}
+      propertyPath: audioGhostSkill
+      value: 
+      objectReference: {fileID: 8300000, guid: 979e85c462a42d84baf3dddab079321b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da11235f2fd54f96d50331022f7f1, type: 2}
   m_IsPrefabAsset: 0
@@ -5765,6 +5770,7 @@ MonoBehaviour:
   - {fileID: 1209361642}
   - {fileID: 1371962446}
   player: {fileID: 226091802}
+  equipmentUI: {fileID: 0}
   paused: 0
 --- !u!1 &985505405
 GameObject:
