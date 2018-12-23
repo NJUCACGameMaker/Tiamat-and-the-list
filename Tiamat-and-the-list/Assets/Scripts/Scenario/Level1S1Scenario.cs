@@ -6,6 +6,7 @@ using SimpleJSON;
 
 public class Level1S1Scenario : Scenario {
 
+    public PlayerManager player;
     public SupportingRoleController roleController;
 
     private bool beforeFateShown = false;
@@ -67,9 +68,9 @@ public class Level1S1Scenario : Scenario {
     public override Vector3 GetPlayerInitPos(string lastSceneName)
     {
         if (lastSceneName == "Level1-Scene3") {
-            Debug.Log("GetPlayerInitPos");
             if (!afterFateShown)
             {
+                player.SetLeft(false);
                 StartCoroutine(roleController.MoveTo(new Vector3(10.0f, -3.0f, 0.0f), AfterFate));
             }
             return new Vector3(6.0f, -3f, 0.0f);
@@ -87,6 +88,7 @@ public class Level1S1Scenario : Scenario {
     void OnAfterFateShown()
     {
         scenarioHintOn = false;
+        ArchiveManager.ClearNormalArchive();
         SceneManager.LoadScene("Cast");
     }
 }

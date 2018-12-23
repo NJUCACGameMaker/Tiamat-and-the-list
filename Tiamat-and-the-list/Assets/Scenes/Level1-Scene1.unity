@@ -939,6 +939,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenarioHintOn: 0
+  player: {fileID: 1529435474}
   roleController: {fileID: 278970075}
 --- !u!1 &158552854
 GameObject:
@@ -1562,7 +1563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff56e30d68ac8ce4e9ebd5790fc7b30d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 8
+  moveSpeed: 4
   playerAnima: {fileID: 278970073}
   isLeft: 0
 --- !u!1 &302572293
@@ -8196,6 +8197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd7347140e605c42a93929f39befb54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiCamera: {fileID: 0}
   BranchPrefab: {fileID: 1596098596606774, guid: d1ae699062ef69b4fb395cde115001b7,
     type: 2}
   DialogPrefab: {fileID: 1649189823253264, guid: b1b49cd72c6132941b60ddcf1143b446,

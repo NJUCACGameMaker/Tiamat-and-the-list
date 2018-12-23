@@ -24,6 +24,8 @@ public class CastList : MonoBehaviour {
         else
         {
             list.anchoredPosition = to;
+            GameObject backgroundMusic = GameObject.FindGameObjectWithTag("BackgroundMusic");
+            backgroundMusic.GetComponent<BackgroundAudioManager>().SceneChange();
             SceneManager.LoadScene("Cover");
         }
 	}

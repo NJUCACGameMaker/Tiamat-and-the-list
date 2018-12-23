@@ -17,6 +17,7 @@ public class Tran_Left : Interoperable
     public AudioClip transferAudio;
 
     public Coroutine lightCoroutine;
+    private bool transLocked = false;
 
     // Use this for initialization
     void Start()
@@ -34,9 +35,10 @@ public class Tran_Left : Interoperable
         else number.text = currentNum.ToString();
         audioSource.clip = transferAudio;
         audioSource.Play();
-        if (MazeController.PuzzleFinished())
+        if (MazeController.PuzzleFinished() && !transLocked)
         {
             GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadScene(nextSceneName);
+            transLocked = true;
         }
     }
 

@@ -205,4 +205,11 @@ public class ArchiveManager : MonoBehaviour {
         CollectionArchive.SaveArchive();
     }
 
+    public static void ClearNormalArchive() { instance._ClearNormalArchive(); }
+    private void _ClearNormalArchive()
+    {
+        File.Delete(filePath);
+        PlayerPrefs.SetInt("HasArchive", 0);
+    }
+
 }
