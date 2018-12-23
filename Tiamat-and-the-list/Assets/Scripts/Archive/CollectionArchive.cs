@@ -35,9 +35,9 @@ public class CollectionArchive {
     //在这里记录所有出现在笔记里的内容
     private void ContentInit()
     {
-        notes.Add("L1S1Note1", new NotePiece("教学关纸片1", "人本身没有罪，而是有人觉得他们有罪。", false));
-        notes.Add("L1S3NoteLeft", new NotePiece("第一关左展示台纸条", "待定", false));
-        notes.Add("L1S3NoteRight", new NotePiece("第一关右展示台纸条", "待定", false));
+        notes.Add("L1S1Note1", new NotePiece("教学关纸条1", "人本身没有罪，而是有人觉得他们有罪。", false));
+        notes.Add("L1S3NoteLeft", new NotePiece("第一关左展示台纸条", "神生而为父，便觉得自己无事不知，子自当言听计从。殊不知，其子也有成为父亲的一天，神民同等。", false));
+        notes.Add("L1S3NoteRight", new NotePiece("第一关右展示台纸条", "断罪者终断去自己的罪。断罪者终无法断去自己的罪。", false));
         collections.Add("Flashlight", new CollectionPiece("手电筒", "一个有一些年份的手电筒，不过竟然还能亮",
             "EquipmentSprite/Stage00_shoudiantong", false));
         cgs.Add("Apkal_serious", new CGPiece("Apkal", "CharacterTachie/Apkal_serious", false));

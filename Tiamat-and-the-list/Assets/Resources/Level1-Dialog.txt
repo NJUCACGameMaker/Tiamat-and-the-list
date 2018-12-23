@@ -36,9 +36,9 @@
 
 30|reach_point|Apkal|这就是七号房间吗？看来出口就在前方了。|Apkal_serious|0
 
-31|Touch_the_script_left|0|写有制作人名单的纸条|0|0
+31|Touch_the_script_left|0|神生而为父，便觉得自己无事不知，子自当言听计从。殊不知，其子也有成为父亲的一天，神民同等。|0|0
 
-32|Touch_the_script_right|0|写有制作人名单的纸条|0|0
+32|Touch_the_script_right|0|断罪者终断去自己的罪。断罪者终无法断去自己的罪。|0|0
 
 
 
