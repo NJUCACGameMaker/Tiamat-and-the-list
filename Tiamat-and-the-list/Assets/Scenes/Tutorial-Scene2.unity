@@ -2172,6 +2172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd7347140e605c42a93929f39befb54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiCamera: {fileID: 0}
   BranchPrefab: {fileID: 0}
   DialogPrefab: {fileID: 1649189823253264, guid: b1b49cd72c6132941b60ddcf1143b446,
     type: 2}
@@ -3835,6 +3836,7 @@ MonoBehaviour:
   detectDist: 2
   floorLayer: 01000000
   hintSprite: {fileID: 1431038805}
+  skylightAnima: {fileID: 1771201582}
   dialogSection: Scence2
   opened: 0
   skylightOpen: {fileID: 8300000, guid: 765f134566364c6429fe0e7fad031364, type: 3}

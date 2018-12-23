@@ -7,7 +7,7 @@ public class Skylight : Interoperable {
 
 
     public SpriteRenderer hintSprite;
-    private Animator skylightAnima;
+    public Animator skylightAnima;
     public string dialogSection;
     public bool opened = false;
     private float hintAlpha = 0f;
@@ -18,7 +18,6 @@ public class Skylight : Interoperable {
     
     void Start () {
         interoperable = false;
-        skylightAnima = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         InputManager.AddOnPick(OnPick);
 	}
