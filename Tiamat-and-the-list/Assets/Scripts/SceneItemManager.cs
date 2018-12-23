@@ -104,6 +104,7 @@ public class SceneItemManager : MonoBehaviour {
 
     void OnEscape()
     {
+        Debug.Log("OnEscape-SceneItemManager");
         if (!paused)
         {
             SceneManager.LoadScene("Setting", LoadSceneMode.Additive);

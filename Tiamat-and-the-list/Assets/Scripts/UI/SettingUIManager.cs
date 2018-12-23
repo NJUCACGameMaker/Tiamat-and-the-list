@@ -98,6 +98,7 @@ public class SettingUIManager : MonoBehaviour {
 
     public void Title()
     {
+        Debug.Log("Title");
         if (GameObject.Find("CoverCanvas") != null)
         {
             Game();

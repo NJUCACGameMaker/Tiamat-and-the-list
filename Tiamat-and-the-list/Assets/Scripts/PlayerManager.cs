@@ -316,7 +316,6 @@ public class PlayerManager : MonoBehaviour
                 { "itemOn", new JSONData(itemOn) },
                 { "isLeft",new JSONData(isLeft) }
             };
-            Debug.Log(itemOn);
             return root.ToString();
         }
         else

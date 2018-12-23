@@ -39,45 +39,48 @@ public class ArchiveManager : MonoBehaviour {
         Debug.Log("_LoadArchive");
         try
         {
-            StreamReader streamReader = new StreamReader(filePath, System.Text.Encoding.UTF8);
-            JSONNode root = JSON.Parse(streamReader.ReadToEnd());
-            streamReader.Close();
-            //加载场景物件
-            if (root != null)
+            if (File.Exists(filePath))
             {
-                //加载角色信息
-                var playerNode = root["Player"];
-                player.LoadArchive(playerNode["archive"]);
-
-                JSONNode sceneNode = root[levelTag][sceneTag];
-
-
-                foreach (JSONNode itemNode in sceneNode["Items"].Childs)
+                StreamReader streamReader = new StreamReader(filePath, System.Text.Encoding.UTF8);
+                JSONNode root = JSON.Parse(streamReader.ReadToEnd());
+                streamReader.Close();
+                //加载场景物件
+                if (root != null)
                 {
-                    int index = itemNode["index"].AsInt;
-                    string archiveLine = itemNode["archive"];
-                    //正常物品则令其加载存档
-                    if (index != -1 && index < interoperables.Count)
-                    {
-                        interoperables[index].LoadArchive(archiveLine);
-                    }
-                    //游戏中生成物品额外生成，然后加载存档
-                    else if (index == -1)
-                    {
-                        string resourcesPath = itemNode["resources-path"];
-                        GameObject pickableItem = Object.Instantiate(Resources.Load(resourcesPath)) as GameObject;
-                        pickableItem.GetComponent<Interoperable>().LoadArchive(archiveLine);
-                        pickableItem.GetComponent<Interoperable>().generated = true;
-                    }
-                }
+                    //加载角色信息
+                    var playerNode = root["Player"];
+                    player.LoadArchive(playerNode["archive"]);
 
-                JSONNode scenarioNode = sceneNode["Scenario"];
-                if (scenarioNode != null)
-                {
-                    Debug.Log("scenarioNode !=null");
-                    scenario.LoadArchive(scenarioNode["archive"]);
-                }
+                    JSONNode sceneNode = root[levelTag][sceneTag];
 
+
+                    foreach (JSONNode itemNode in sceneNode["Items"].Childs)
+                    {
+                        int index = itemNode["index"].AsInt;
+                        string archiveLine = itemNode["archive"];
+                        //正常物品则令其加载存档
+                        if (index != -1 && index < interoperables.Count)
+                        {
+                            interoperables[index].LoadArchive(archiveLine);
+                        }
+                        //游戏中生成物品额外生成，然后加载存档
+                        else if (index == -1)
+                        {
+                            string resourcesPath = itemNode["resources-path"];
+                            GameObject pickableItem = Object.Instantiate(Resources.Load(resourcesPath)) as GameObject;
+                            pickableItem.GetComponent<Interoperable>().LoadArchive(archiveLine);
+                            pickableItem.GetComponent<Interoperable>().generated = true;
+                        }
+                    }
+
+                    JSONNode scenarioNode = sceneNode["Scenario"];
+                    if (scenarioNode != null)
+                    {
+                        Debug.Log("scenarioNode !=null");
+                        scenario.LoadArchive(scenarioNode["archive"]);
+                    }
+
+                }
             }
         }
         catch (IOException e)
