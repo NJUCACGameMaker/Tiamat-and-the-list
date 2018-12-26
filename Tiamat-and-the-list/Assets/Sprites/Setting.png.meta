@@ -7,6 +7,9 @@ TextureImporter:
     21300004: setting-background
     21300006: setting-sdk
     21300008: setting-tjk
+    21300010: Slider_01
+    21300012: Slider_02
+    21300014: Slider_03
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -92,7 +95,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1591e7c229cf77f40b77f07a8e082855
+      spriteID: a1f92b5c01501a24e8edb91279adc7d6
       vertices: []
       indices: 
       edges: []
@@ -112,7 +115,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 388531d1efc41bb47ae2508b3f24ba56
+      spriteID: dcc31f5653887ea428e93d0fa1ba47d3
       vertices: []
       indices: 
       edges: []
@@ -132,7 +135,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6c1d21563b5fa844dbf137e784fd1c2a
+      spriteID: cfbdaed9b2d88e448a04a03f3f987fe7
       vertices: []
       indices: 
       edges: []
@@ -152,7 +155,67 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 46036749a71e1a147b46da9a0a40c5b0
+      spriteID: ea5e2de7e5b968347975335149b7db99
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slider_01
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 800
+        width: 413
+        height: 18
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5555556}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 555ae30b563800849a81ddc38a83770d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slider_02
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 790
+        width: 405
+        height: 8
+      alignment: 9
+      pivot: {x: 0.5, y: 0.625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c5fc918bc81d10469aad87f9795fcbb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slider_03
+      rect:
+        serializedVersion: 2
+        x: 1923
+        y: 2025
+        width: 22
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5681818, y: 0.54545456}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbd7551be33e5ef49bcf17903c7efad8
       vertices: []
       indices: 
       edges: []
@@ -160,7 +223,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: b36f4b777ecba494b800a45425b549aa
+    spriteID: 593c058d341c84a4bb487bd5937d3131
     vertices: []
     indices: 
     edges: []

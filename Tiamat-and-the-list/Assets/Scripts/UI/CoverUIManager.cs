@@ -7,9 +7,12 @@ using UnityEngine.SceneManagement;
 
 public class CoverUIManager : MonoBehaviour {
 
+    public RectTransform btns;
+
     public RectTransform newGameConfirmTrans;
     public Button continueButton;
-    public GameObject backgroundMusic;
+    private GameObject backgroundMusic;
+    private Vector3 normalBtnsPosition;
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +20,7 @@ public class CoverUIManager : MonoBehaviour {
         {
             continueButton.interactable = false;
         }
+        normalBtnsPosition = btns.localPosition;
         backgroundMusic = GameObject.FindGameObjectWithTag("BackgroundMusic");
 	}
 	
@@ -31,11 +35,14 @@ public class CoverUIManager : MonoBehaviour {
         if (PlayerPrefs.GetInt("HasArchive", 0) == 1)
         {
             newGameConfirmTrans.localPosition = Vector3.zero;
+            MoveButtons();
         }
         else
         {
             backgroundMusic.GetComponent<BackgroundAudioManager>().SceneChange();
-            SceneManager.LoadScene("Tutorial-Scene1");
+            //SceneManager.LoadScene("Tutorial-Scene1");
+            Debug.Log("loading");
+            GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadScene("Tutorial-Scene1");
         }
     }
 
@@ -49,6 +56,7 @@ public class CoverUIManager : MonoBehaviour {
     public void Setting()
     {
         SceneManager.LoadScene("Setting", LoadSceneMode.Additive);
+        MoveButtons();
     }
 
     //退出游戏button
@@ -64,13 +72,24 @@ public class CoverUIManager : MonoBehaviour {
         PlayerPrefs.SetInt("HasArchive", 0);
         PlayerPrefs.Save();
         backgroundMusic.GetComponent<BackgroundAudioManager>().SceneChange();
-        SceneManager.LoadScene("Tutorial-Scene1");
+        GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadScene("Tutorial-Scene1");
+        //SceneManager.LoadScene("Tutorial-Scene1");
     }
 
-    //退出游戏button
+    //不开始新游戏button
     public void NewGameConfirmFalse()
     {
-        newGameConfirmTrans.localPosition = new Vector3(2000.0f, 0.0f, 0.0f);
+        newGameConfirmTrans.localPosition = new Vector3(0.0f, 2000.0f, 0.0f);
+        RecoverButtons();
     }
 
+    public void MoveButtons()
+    {
+        btns.localPosition = new Vector3(0.0f, -2000.0f, 0.0f);
+    }
+
+    public void RecoverButtons()
+    {
+        btns.localPosition = normalBtnsPosition;
+    }
 }

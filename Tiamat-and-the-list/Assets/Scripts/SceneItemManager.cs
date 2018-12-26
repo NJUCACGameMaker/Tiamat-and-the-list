@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class SceneItemManager : MonoBehaviour {
@@ -10,6 +11,7 @@ public class SceneItemManager : MonoBehaviour {
     public static SceneItemManager instance;
     public List<Interoperable> interoperables;
     public PlayerManager player;
+    public RectTransform equipmentUI;
     [HideInInspector]
     public bool paused = false;
 
@@ -102,11 +104,28 @@ public class SceneItemManager : MonoBehaviour {
 
     void OnEscape()
     {
+        Debug.Log("OnEscape-SceneItemManager");
         if (!paused)
         {
             SceneManager.LoadScene("Setting", LoadSceneMode.Additive);
+            GameObject dialogBox = GameObject.FindGameObjectWithTag("DialogBox");
+            if (dialogBox != null){
+                foreach (var text in dialogBox.transform.GetComponentsInChildren<Text>()){
+                    Color c = text.color;
+                    text.color = new Color(c.r, c.g, c.b, 0);
+                }
+                foreach (var image in dialogBox.transform.GetComponentsInChildren<Image>()){
+                    Color c = image.color;
+                    image.color = new Color(c.r, c.g, c.b, 0);
+                }
+            }
             Pause();
             Debug.Log("Pause");
+            equipmentUI.anchoredPosition = new Vector3(-1000.0f, 0.0f, 0.0f);
+        }
+        else
+        {
+            equipmentUI.anchoredPosition = Vector3.zero;
         }
     }
 

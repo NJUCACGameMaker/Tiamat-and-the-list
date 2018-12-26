@@ -7,14 +7,14 @@ class CameraManagerForLevelOne : MonoBehaviour
     public PlayerManager MainPlayer;
     private int moveSpeed = 4;
     public float size;
+    public float maxH;
 
-    private float targetLeft;
-    private float targetRight;
+    public float targetLeft;
+    public float targetRight;
 
     private void Start()
     {
-        targetLeft =- size / 2;
-        targetRight = size / 2;
+       
     }
 
     void Update()
@@ -27,33 +27,45 @@ class CameraManagerForLevelOne : MonoBehaviour
                 if (player.position.x >= targetRight)
                 {
                     Vector3 targetCamPos = new Vector3(targetRight + size/2, 0, 0);
-                    if (Mathf.Abs(transform.position.x - targetRight-size/2f)>=0.001)
-                    {
-                        Vector3 lerp = Vector3.Lerp(new Vector3(transform.position.x, 0, 0), targetCamPos, moveSpeed * Time.deltaTime);
-                        transform.position = new Vector3(lerp.x, transform.position.y, transform.position.z);
-                    }
-                    else
-                    {
-                        targetRight = targetRight + size;
-                        targetLeft = targetLeft + size;
-                        Debug.Log("ok");
-                    }
+                    Vector3 lerp = Vector3.Lerp(new Vector3(transform.position.x, 0, 0), targetCamPos, moveSpeed * Time.deltaTime);
+                    transform.position = new Vector3(lerp.x, transform.position.y, transform.position.z);
+                }
+                else if (player.position.x < targetRight && player.position.x > targetLeft)
+                {
+                    Vector3 targetCamPos = new Vector3((targetLeft +targetRight) / 2, 0, 0);
+                    Vector3 lerp = Vector3.Lerp(new Vector3(transform.position.x, 0, 0), targetCamPos, moveSpeed * Time.deltaTime);
+                    transform.position = new Vector3(lerp.x, transform.position.y, transform.position.z);
                 }
                 else if (player.position.x <= targetLeft)
                 {
                     Vector3 targetCamPos = new Vector3(targetLeft-size/2, 0, 0);
-                    if (Mathf.Abs(transform.position.x - targetLeft + size / 2f) >= 0.001)
-                    {
-                        Vector3 lerp = Vector3.Lerp(new Vector3(transform.position.x, 0, 0), targetCamPos, moveSpeed * Time.deltaTime);
-                        transform.position = new Vector3(lerp.x, transform.position.y, transform.position.z);
-                    }
-                    else
-                    {
-                        targetRight = targetRight - size;
-                        targetLeft = targetLeft - size;
-                    }
+                    Vector3 lerp = Vector3.Lerp(new Vector3(transform.position.x, 0, 0), targetCamPos, moveSpeed * Time.deltaTime);
+                    transform.position = new Vector3(lerp.x, transform.position.y, transform.position.z);
                 }
             }
         }
+        else
+        {
+            if (MainPlayer.transform.position.x >= targetRight)
+            {
+                Vector3 targetCamPos = new Vector3(targetRight + size / 2, 0, 0);
+                Vector3 lerp = Vector3.Lerp(new Vector3(transform.position.x, 0, 0), targetCamPos, moveSpeed * Time.deltaTime);
+                transform.position = new Vector3(lerp.x, transform.position.y, transform.position.z);
+            }
+            else if (MainPlayer.transform.position.x < targetRight && MainPlayer.transform.position.x > targetLeft)
+            {
+                Vector3 targetCamPos = new Vector3((targetLeft + targetRight) / 2, 0, 0);
+                Vector3 lerp = Vector3.Lerp(new Vector3(transform.position.x, 0, 0), targetCamPos, moveSpeed * Time.deltaTime);
+                transform.position = new Vector3(lerp.x, transform.position.y, transform.position.z);
+            }
+            else if (MainPlayer.transform.position.x <= targetLeft)
+            {
+                Vector3 targetCamPos = new Vector3(targetLeft - size / 2, 0, 0);
+                Vector3 lerp = Vector3.Lerp(new Vector3(transform.position.x, 0, 0), targetCamPos, moveSpeed * Time.deltaTime);
+                transform.position = new Vector3(lerp.x, transform.position.y, transform.position.z);
+            }
+        }
+        if (transform.position.y > maxH)
+            transform.position = new Vector3(transform.position.x, maxH,transform.position.z);
     }
 }

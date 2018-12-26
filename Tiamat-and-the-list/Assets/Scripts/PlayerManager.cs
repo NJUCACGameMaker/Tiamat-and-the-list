@@ -5,8 +5,10 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System;
 using UnityEngine;
 using SimpleJSON;
+using Anima2D;
 
-public class PlayerManager : MonoBehaviour {
+public class PlayerManager : MonoBehaviour
+{
 
     public delegate void NoneParaFunc();
 
@@ -14,6 +16,11 @@ public class PlayerManager : MonoBehaviour {
     public List<float> minX;
     //剧本，作用是获得进入关卡后初始位置
     public Scenario scenario;
+
+    public SpriteMesh normalRightArm;
+    public SpriteMesh torchRightArm;
+    public SpriteMeshInstance rightArm;
+    public Transform torchParent;
 
     //移动速度
     public float moveSpeed = 8.0f;
@@ -37,6 +44,7 @@ public class PlayerManager : MonoBehaviour {
 
     //音效控制器
     public AudioClip audioTorchSwitch;
+    public AudioClip audioGhostSkill;
     private AudioSource audioSource;
 
     //角色动画控制器
@@ -45,8 +53,10 @@ public class PlayerManager : MonoBehaviour {
     [HideInInspector]
     public bool isLeft = false;
     private bool canMove = true;
+    private GameObject existedTorch;
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         InputManager.AddOnLeftMove(LeftMove);
         InputManager.AddOnRightMove(RightMove);
         InputManager.AddOnSwitchItemState(UseEquip);
@@ -56,9 +66,10 @@ public class PlayerManager : MonoBehaviour {
         audioSource.clip = audioTorchSwitch;
     }
 
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         float currentPositionX = this.transform.position.x;
         currentSpeed = Math.Abs(currentPositionX - lastPositionX) / Time.deltaTime;
         lastPositionX = currentPositionX;
@@ -69,7 +80,7 @@ public class PlayerManager : MonoBehaviour {
     {
         if (canMove)
         {
-            float playerX = transform.localPosition.x;
+            float playerX = transform.position.x;
             float bg_1_x = minX[floorLayer];
             //transform.LookAt(new Vector3(transform.position.x-5,transform.position.y,transform.position.z));
             if (!isLeft)
@@ -82,14 +93,14 @@ public class PlayerManager : MonoBehaviour {
                 transform.Translate(Time.deltaTime * Vector3.left * moveSpeed, Space.World);
             }
         }
-        
+
     }
 
     void RightMove()
     {
         if (canMove)
         {
-            float playerX = transform.localPosition.x;
+            float playerX = transform.position.x;
             float bg_1_x = maxX[floorLayer];
             //transform.LookAt(new Vector3(transform.position.x + 5, transform.position.y, transform.position.z));
             if (isLeft)
@@ -120,9 +131,8 @@ public class PlayerManager : MonoBehaviour {
 
     public void setEquip(EquipmentType equipmentType)
     {
-        if (canMove)
+        if (canMove && equipmentType != EquipmentType.None)
         {
-            var existedTorch = transform.Find("Torch(Clone)");
             if (existedTorch != null)
             {
                 Destroy(existedTorch.gameObject);
@@ -133,11 +143,25 @@ public class PlayerManager : MonoBehaviour {
                 case EquipmentType.FlashLight:
                     currentEquipType = EquipmentType.FlashLight;
                     GameObject torch = Instantiate(torchPrefab) as GameObject;
-                    if (!isLeft)
-                        torch.transform.position = new Vector3(transform.position.x + 3.1f, transform.position.y, transform.position.z);
-                    else
-                        torch.transform.position = new Vector3(transform.position.x - 3.1f, transform.position.y, transform.position.z);
-                    torch.transform.parent = transform;
+                    existedTorch = torch;
+
+                    //if (!isLeft)
+                    //{
+                    //    torch.transform.position = new Vector3(transform.position.x + 3.1f, transform.position.y + 0.9f, transform.position.z);
+                    //    torch.transform.localScale = new Vector3(Mathf.Abs(torch.transform.localScale.x), torch.transform.localScale.y, torch.transform.localScale.z);
+                    //}
+                    //else
+                    //{
+                    //    torch.transform.position = new Vector3(transform.position.x - 3.1f, transform.position.y + 0.9f, transform.position.z);
+                    //    torch.transform.localScale = new Vector3(-Mathf.Abs(torch.transform.localScale.x), torch.transform.localScale.y, torch.transform.localScale.z);
+                    //}
+                    torch.transform.parent = torchParent;
+
+                    torch.transform.localPosition = new Vector3(3.27f, 0.06f, 0.0f);
+                    torch.transform.localEulerAngles = new Vector3(0.0f, 0.0f, -2.34f);
+                    torch.transform.localScale = new Vector3(Mathf.Abs(torch.transform.localScale.x),
+                        torch.transform.localScale.y, torch.transform.localScale.z);
+
                     if (itemOn)
                     {
                         turnOffTorch();
@@ -160,16 +184,21 @@ public class PlayerManager : MonoBehaviour {
             switch (currentEquipType)
             {
                 case EquipmentType.FlashLight:
+                    audioSource.clip = audioTorchSwitch;
                     audioSource.Play();
                     if (itemOn)
                     {
                         turnOffTorch();
                         itemOn = false;
+                        playerAnima.SetBool("WithTorch", false);
+                        rightArm.spriteMesh = normalRightArm;
                     }
                     else
                     {
                         turnOnTorch();
                         itemOn = true;
+                        playerAnima.SetBool("WithTorch", true);
+                        rightArm.spriteMesh = torchRightArm;
                     }
                     break;
             }
@@ -178,71 +207,61 @@ public class PlayerManager : MonoBehaviour {
 
     void turnOnTorch()
     {
-        transform.Find("Torch(Clone)").GetComponent<FlashLightEquipment>().TurnOnTorch();
+        existedTorch.GetComponent<FlashLightEquipment>().TurnOnTorch();
     }
     void turnOffTorch()
     {
-        transform.Find("Torch(Clone)").GetComponent<FlashLightEquipment>().TurnOffTorch();
+        existedTorch.GetComponent<FlashLightEquipment>().TurnOffTorch();
     }
 
     void UseSkill()
     {
-        if (canMove == true)
+        if (SceneItemManager.GetLevelName() != "Tutorial")
         {
-            canMove = false;
-            Debug.Log("skill");
-            GameObject SkillCharacter = Instantiate(SkillPrefab) as GameObject;
-            if (!isLeft)
-                SkillCharacter.transform.position = new Vector3(transform.position.x + 0.1f, transform.position.y, transform.position.z);
-            else
-                SkillCharacter.transform.position = new Vector3(transform.position.x - 0.1f, transform.position.y, transform.position.z);
-            SkillCharacter.transform.parent = transform;
-        }
-        else
-        {
-            canMove = true;
-            var existedSkill = transform.Find("SkillCharacter(Clone)");
-            transform.position=existedSkill.position;
-            if (existedSkill != null)
+            if (canMove)
             {
-                Debug.Log(existedSkill.name);
-                Destroy(existedSkill.gameObject);
+                canMove = false;
+                GameObject SkillCharacter = Instantiate(SkillPrefab) as GameObject;
+                if (!isLeft)
+                    SkillCharacter.transform.position = new Vector3(transform.position.x + 0.1f, transform.position.y, transform.position.z);
+                else
+                    SkillCharacter.transform.position = new Vector3(transform.position.x - 0.1f, transform.position.y, transform.position.z);
+                SkillCharacter.GetComponent<SkillManager>().maxX = maxX[floorLayer];
+                SkillCharacter.GetComponent<SkillManager>().minX = minX[floorLayer];
+                SkillCharacter.GetComponent<SkillManager>().SetLeft(isLeft);
+                SkillCharacter.transform.localScale = transform.localScale;
+
+                audioSource.clip = audioGhostSkill;
+                audioSource.Play();
+
+            }
+            else
+            {
+                canMove = true;
+                var existedSkill = GameObject.Find("SkillCharacter(Clone)");
+                transform.position = existedSkill.transform.position;
+                transform.localScale = existedSkill.transform.localScale;
+                SetLeft(existedSkill.GetComponent<SkillManager>().isLeft);
+                if (existedSkill != null)
+                {
+                    Destroy(existedSkill.gameObject);
+                }
             }
         }
     }
 
-    private PlayerSave CreateSavePlayer()
-    {
-        PlayerSave save = new PlayerSave();
-        save.x = transform.position.x;
-        save.y = transform.position.y;
-        save.z = transform.position.z;
-        save.floorLayer = floorLayer;
-
-        save.currentEquipType = currentEquipType;
-        save.itemOn = itemOn;
-
-        return save;
-    }
-
-    public void SavePlayer()
-    {
-        PlayerSave save = new PlayerSave();
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath+"/player.save");
-        bf.Serialize(file, save);
-        file.Close();
-
-        Debug.Log("Player Saved");
-    }
 
     public void LoadArchive(string archiveLine)
     {
         var root = JSON.Parse(archiveLine);
         transform.position = new Vector3(root["position"][0].AsFloat, root["position"][1].AsFloat, root["position"][2].AsFloat);
+        transform.localScale = new Vector3(root["scale"][0].AsFloat, root["scale"][1].AsFloat, root["scale"][2].AsFloat);
         floorLayer = root["floorLayer"].AsInt;
-        setEquip((EquipmentType)Enum.Parse(typeof(EquipmentType), root["currentEquipType"]));
         itemOn = root["itemOn"].AsBool;
+        Debug.Log(itemOn);
+        SetLeft(root["isLeft"].AsBool);
+        setEquip((EquipmentType)Enum.Parse(typeof(EquipmentType), root["currentEquipType"]));
+        playerAnima.SetBool("WithTorch", itemOn);
 
         switch (currentEquipType)
         {
@@ -256,6 +275,19 @@ public class PlayerManager : MonoBehaviour {
         {
             transform.position = scenario.GetPlayerInitPos(lastSceneName);
         }
+
+        canMove = root["canMove"].AsBool;
+
+        if (!canMove)
+        {
+            GameObject skill = Instantiate(SkillPrefab) as GameObject;
+            skill.GetComponent<SkillManager>().SetLeft(root["skillIsLeft"].AsBool);
+            skill.transform.localScale = new Vector3(root["skillScale"][0].AsFloat, root["skillScale"][1].AsFloat, root["skillScale"][2].AsFloat);
+            skill.transform.position = new Vector3(root["skillPosition"][0].AsFloat, root["skillPosition"][1].AsFloat, root["skillPosition"][2].AsFloat);
+            skill.GetComponent<SkillManager>().maxX = maxX[floorLayer];
+            skill.GetComponent<SkillManager>().minX = minX[floorLayer];
+        }
+        Debug.Log(itemOn);
     }
 
     public string SaveArchive()
@@ -266,15 +298,57 @@ public class PlayerManager : MonoBehaviour {
             { new JSONData(transform.position.y) },
             { new JSONData(transform.position.z) }
         };
-        JSONClass root = new JSONClass()
+        var scale = new JSONArray()
         {
-            { "position", pos },
-            { "floorLayer", new JSONData(floorLayer) },
-            { "currentEquipType", new JSONData(currentEquipType.ToString()) },
-            { "itemOn", new JSONData(itemOn) }
+            { new JSONData(transform.localScale.x) },
+            { new JSONData(transform.localScale.y) },
+            { new JSONData(transform.localScale.z) }
         };
+        if (canMove)
+        {
+            JSONClass root = new JSONClass()
+            {
+                { "canMove",new JSONData(canMove) },
+                { "position", pos },
+                { "scale",scale },
+                { "floorLayer", new JSONData(floorLayer) },
+                { "currentEquipType", new JSONData(currentEquipType.ToString()) },
+                { "itemOn", new JSONData(itemOn) },
+                { "isLeft",new JSONData(isLeft) }
+            };
+            return root.ToString();
+        }
+        else
+        {
+            var skillPos = new JSONArray()
+            {
+                { new JSONData(getSkillTransform().position.x) },
+                { new JSONData(getSkillTransform().position.y) },
+                { new JSONData(getSkillTransform().position.z) }
+            };
+            var skillScale = new JSONArray()
+            {
+                { new JSONData(getSkillTransform().localScale.x) },
+                { new JSONData(getSkillTransform().localScale.y) },
+                { new JSONData(getSkillTransform().localScale.z) }
+            };
+            var existedSkill = GameObject.Find("SkillCharacter(Clone)");
+            JSONClass root = new JSONClass()
+            {
+                { "canMove",new JSONData(canMove) },
+                {"skillPosition",skillPos },
+                { "skillScale",skillScale },
+                { "position", pos },
+                { "scale",scale },
+                { "floorLayer", new JSONData(floorLayer) },
+                { "currentEquipType", new JSONData(currentEquipType.ToString()) },
+                { "itemOn", new JSONData(itemOn) },
+                { "isLeft",new JSONData(isLeft) },
+                { "skillIsLeft",new JSONData(existedSkill.GetComponent<SkillManager>().isLeft) }
+            };
+            return root.ToString();
+        }
 
-        return root.ToString();
     }
 
     public bool getCanMoved()
@@ -284,9 +358,9 @@ public class PlayerManager : MonoBehaviour {
 
     public Transform getSkillTransform()
     {
-        if (transform.Find("SkillCharacter(Clone)") != null)
+        if (GameObject.Find("SkillCharacter(Clone)") != null)
         {
-            return transform.Find("SkillCharacter(Clone)").transform;
+            return GameObject.Find("SkillCharacter(Clone)").transform;
         }
         return null;
     }
@@ -335,7 +409,7 @@ public class PlayerManager : MonoBehaviour {
             {
                 RightMove();
                 float deltaX = moveSpeed * Time.deltaTime;
-                transform.position = new Vector3(transform.position.x, 
+                transform.position = new Vector3(transform.position.x,
                     deltaX / offsetX * offsetY + transform.position.y);
                 yield return null;
             }

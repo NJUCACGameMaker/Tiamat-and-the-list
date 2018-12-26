@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class SettingUIManager : MonoBehaviour {
@@ -10,6 +11,10 @@ public class SettingUIManager : MonoBehaviour {
     public GameObject collectionSection;
     public GameObject cgSection;
     public GameObject musicSection;
+
+    public Slider backgroundMusicVolumeSlider;
+    public Slider effectMusicVolumeSlider;
+    public Slider typingSpeedSlider;
 
     public RectTransform mainRightTrans;
 
@@ -41,7 +46,20 @@ public class SettingUIManager : MonoBehaviour {
             cgList.AddCGButton(cgPiece.shortLine, cgPiece.picPath);
         }
 
-        
+        var musicList = musicSection.transform.Find("Panel").Find("Content Panel").GetComponent<ScrollListManager>();
+        foreach (MusicPiece musicPiece in CollectionArchive.GetMusics())
+        {
+            musicList.AddMusicButton(musicPiece.shortLine, musicPiece.path);
+        }
+
+        backgroundMusicVolumeSlider.value = PlayerPrefs.GetFloat("BackgroundMusicVolume", 1.0f);
+        AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        audioManager.backgroundMusicVolume = backgroundMusicVolumeSlider.value;
+
+        effectMusicVolumeSlider.value = PlayerPrefs.GetFloat("EffectMusicVolume", 1.0f);
+        audioManager.effectSoundVolume = effectMusicVolumeSlider.value;
+
+        typingSpeedSlider.value = 1 / PlayerPrefs.GetFloat("TypingSpeed", 0.04f);
     }
 
     private void Update()
@@ -80,14 +98,20 @@ public class SettingUIManager : MonoBehaviour {
 
     public void Title()
     {
+        Debug.Log("Title");
+        if (GameObject.Find("CoverCanvas") != null)
+        {
+            Game();
+            return;
+        }
         backgroundMusic = GameObject.FindGameObjectWithTag("BackgroundMusic");
         Debug.Log(backgroundMusic.name);
         if (backgroundMusic.name != "BackgroundMusic_Cover")
             backgroundMusic.GetComponent<BackgroundAudioManager>().SceneChange();
-        SceneItemManager.SaveArchive();
         GameObject sceneManager = GameObject.Find("SceneController");
         if (sceneManager != null)
         {
+            SceneItemManager.SaveArchive();
             sceneManager.GetComponent<SceneItemManager>().Resume();
         }
         SceneManager.LoadScene("Cover");
@@ -95,12 +119,68 @@ public class SettingUIManager : MonoBehaviour {
 
     public void Game()
     {
+        if (SceneManager.GetSceneByName("Cover") != null)
+        {
+            GameObject coverCanvas = GameObject.Find("CoverCanvas");
+            if (coverCanvas != null)
+            {
+                coverCanvas.GetComponent<CoverUIManager>().RecoverButtons();
+            }
+            else
+            {
+                Debug.Log("Cover Canvas Not Found");
+            }
+        }
         GameObject sceneManager = GameObject.Find("SceneController");
         if (sceneManager != null)
         {
             sceneManager.GetComponent<SceneItemManager>().Resume();
         }
+        GameObject dialogBox = GameObject.FindGameObjectWithTag("DialogBox");
+        if (dialogBox != null){
+            foreach (var text in dialogBox.transform.GetComponentsInChildren<Text>()){
+                Color c = text.color;
+                text.color = new Color(c.r, c.g, c.b, 1);
+            }
+
+            Color targetNamePanelColor = dialogBox.transform.Find("NamePanel").GetComponent<Image>().color;
+            Color targetDialogPanelColor = dialogBox.transform.Find("DialogPanel").GetComponent<Image>().color;
+            Color targetCharacterColor = dialogBox.transform.Find("Character").GetComponent<Image>().color;
+
+            dialogBox.transform.Find("NamePanel").GetComponent<Image>().color = new Color(targetNamePanelColor.r, targetNamePanelColor.g, targetNamePanelColor.b, 100.0f/255f);
+            dialogBox.transform.Find("DialogPanel").GetComponent<Image>().color = new Color(targetDialogPanelColor.r, targetDialogPanelColor.g, targetDialogPanelColor.b, 100f/255f);
+            dialogBox.transform.Find("Character").GetComponent<Image>().color = new Color(targetCharacterColor.r, targetCharacterColor.g, targetCharacterColor.b, 1);
+            
+        }
+
         SceneManager.UnloadSceneAsync("Setting");
+    }
+
+    public void OnBackgroundMusicVolumeChanged()
+    {
+        PlayerPrefs.SetFloat("BackgroundMusicVolume", backgroundMusicVolumeSlider.value);
+        AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        audioManager.backgroundMusicVolume = backgroundMusicVolumeSlider.value;
+        PlayerPrefs.Save();
+    }
+
+    public void OnEffectMusicVolumeChanged()
+    {
+        PlayerPrefs.SetFloat("EffectMusicVolume", effectMusicVolumeSlider.value);
+        AudioManager audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        audioManager.effectSoundVolume = effectMusicVolumeSlider.value;
+        PlayerPrefs.Save();
+    }
+
+    public void OnTypingSpeedChanged()
+    {
+        PlayerPrefs.SetFloat("TypingSpeed", 1 / typingSpeedSlider.value);
+        GameObject dialogManager = GameObject.Find("DialogController");
+        if (dialogManager != null && dialogManager.GetComponent<DialogManager>() != null)
+        {
+            dialogManager.GetComponent<DialogManager>().textSpeed = 1 / typingSpeedSlider.value;
+        }
+        PlayerPrefs.Save();
     }
 
     private void ShowSectionLeft(RectTransform section)

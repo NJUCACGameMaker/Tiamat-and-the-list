@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 222777278584788950}
   - component: {fileID: 114910563190589618}
   - component: {fileID: 114547841439942610}
+  - component: {fileID: 114862022391467404}
   m_Layer: 5
   m_Name: PicTextButton
   m_TagString: Untagged
@@ -164,7 +165,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 9c275fffc8dbd8840956e1789810070e, type: 3}
     m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
@@ -177,6 +178,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Button
+--- !u!114 &114862022391467404
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1951994346315856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a55123dfa971f5146b5339e104fa1f45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioButtonSlide: {fileID: 8300000, guid: da7776590c068bd449a2632b7ef2d7d7, type: 3}
+  audioButtonClick: {fileID: 8300000, guid: 3ba4bd7a131390c47b5ae2efd3ea7b7b, type: 3}
 --- !u!114 &114910563190589618
 MonoBehaviour:
   m_ObjectHideFlags: 1

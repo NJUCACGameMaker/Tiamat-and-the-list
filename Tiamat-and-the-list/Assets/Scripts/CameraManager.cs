@@ -15,6 +15,7 @@ public class CameraManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        transform.position = new Vector3(player.position.x, player.position.y + 2.54f, transform.position.z);
 	}
 	
 	// Update is called once per frame

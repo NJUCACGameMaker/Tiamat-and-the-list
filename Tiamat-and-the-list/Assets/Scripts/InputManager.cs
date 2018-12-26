@@ -32,6 +32,8 @@ public class InputManager : MonoBehaviour {
     private event KeyInputDown OnEscape;
     //对话下一句事件
     private event KeyInputDown OnNextDialog;
+    //对话下一句事件
+    private event KeyInputDown OnSkipDialog;
     //使用技能事件
     private event KeyInputDown OnSkill;
 
@@ -88,9 +90,13 @@ public class InputManager : MonoBehaviour {
         {
             OnEscape();
         }
-        if ((Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.E)) && OnNextDialog != null && dialogOn && !gamePaused && !onAnimated)
+        if ((Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Pause)) && OnNextDialog != null && dialogOn && !gamePaused && !onAnimated)
         {
             OnNextDialog();
+        }
+        if ((Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)) && OnNextDialog != null && dialogOn && !gamePaused && !onAnimated)
+        {
+            OnSkipDialog();
         }
         if (Input.GetKeyDown(KeyCode.R) && OnSkill != null && !dialogOn && !gamePaused && !onAnimated)
         {
@@ -175,6 +181,12 @@ public class InputManager : MonoBehaviour {
     private void _AddOnNextDialog(KeyInputDown onNextDialog)
     {
         this.OnNextDialog += onNextDialog;
+    }
+
+    public static void AddOnSkipDialog(KeyInputDown onSkipDialog) { instance._AddOnSkipDialog(onSkipDialog); }
+    private void _AddOnSkipDialog(KeyInputDown onSkipDialog)
+    {
+        this.OnSkipDialog += onSkipDialog;
     }
 
     public static void AddOnSkill(KeyInputDown onSkill) { instance._AddOnSkill(onSkill); }

@@ -1,0 +1,1769 @@
+fileFormatVersion: 2
+guid: 9e2528a1c7fcc38419842d4150275654
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Level1-Scene2-1
+    21300002: Stage01_bg02-2-0
+    21300004: Stage01_bg02-2-1
+    21300006: Stage01_bg02-2-2
+    21300008: Stage01_bg02-2-3
+    21300010: Stage01_bg02-2-4
+    21300012: Stage01_bg02-2-5
+    21300014: Stage01_bg02-3-0
+    21300016: Stage01_bg02-3-1
+    21300018: Stage01_bg02-3-2
+    21300020: Stage01_bg02-3-3
+    21300022: Stage01_bg02-3-4
+    21300024: Stage01_bg02-3-5
+    21300026: Stage01_bg02-4-0
+    21300028: Stage01_bg02-4-1
+    21300030: Stage01_bg02-4-2
+    21300032: Stage01_bg02-13-1
+    21300034: Stage01_bg02-13-2
+    21300036: Stage01_bg02-13-3
+    21300038: Stage01_bg02-13-4
+    21300040: Stage01_bg02-13-5
+    21300042: Stage01_bg02-14-0
+    21300044: Stage01_bg02-14-1
+    21300046: Stage01_bg02-14-2
+    21300048: Stage01_bg02-14-3
+    21300050: Stage01_bg02-14-4
+    21300052: Stage01_bg02-14-5
+    21300054: Stage01_bg02-15-0
+    21300056: Stage01_bg02-15-1
+    21300058: Stage01_bg02-15-2
+    21300060: Stage01_bg02-15-3
+    21300062: Stage01_bg02-15-4
+    21300064: Stage01_bg02-15-5
+    21300066: Stage01_bg02-16-0
+    21300068: Stage01_bg02-16-1
+    21300070: Stage01_bg02-16-2
+    21300072: Stage01_bg02-16-3
+    21300074: Stage01_bg02-16-4
+    21300076: Stage01_bg02-16-5
+    21300078: Stage01_bg02-17-0
+    21300080: Stage01_bg02-17-1
+    21300082: Stage01_bg02-17-2
+    21300084: Stage01_bg02-17-3
+    21300086: Stage01_bg02-17-4
+    21300088: Stage01_bg02-17-5
+    21300090: Stage01_bg02-18-0
+    21300092: Stage01_bg02-18-1
+    21300094: Stage01_bg02-18-2
+    21300096: Stage01_bg02-18-3
+    21300098: Stage01_bg02-18-4
+    21300100: Stage01_bg02-18-5
+    21300102: Stage01_bg02-19-0
+    21300104: Stage01_bg02-19-1
+    21300106: Stage01_bg02-19-2
+    21300108: Stage01_bg02-19-3
+    21300110: Stage01_bg02-19-4
+    21300112: Stage01_bg02-19-5
+    21300114: Stage01_bg02-20-0
+    21300116: Stage01_bg02-20-1
+    21300118: Stage01_bg02-20-2
+    21300120: Stage01_bg02-20-3
+    21300122: Stage01_bg02-20-4
+    21300124: Stage01_bg02-20-5
+    21300126: Stage01_bg02-21-0
+    21300128: Stage01_bg02-21-1
+    21300130: Stage01_bg02-21-2
+    21300132: Stage01_bg02-21-3
+    21300134: Stage01_bg02-21-4
+    21300136: Stage01_bg02-21-5
+    21300138: Stage01_bg02-22-0
+    21300140: Stage01_bg02-22-1
+    21300142: Stage01_bg02-22-2
+    21300144: Stage01_bg02-22-3
+    21300146: Stage01_bg02-22-4
+    21300148: Stage01_bg02-22-5
+    21300150: Stage01_bg02-23-0
+    21300152: Stage01_bg02-23-1
+    21300154: Stage01_bg02-23-2
+    21300156: Stage01_bg02-23-3
+    21300158: Stage01_bg02-23-4
+    21300160: Stage01_bg02-23-5
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Stage01_bg02-2-0
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 1298
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7511a871500c4741bf45e65eccc9e4f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-2-1
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 1298
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbbe02cc6148df94eb6ae8f2df6618d1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-2-2
+      rect:
+        serializedVersion: 2
+        x: 1742
+        y: 1298
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2017668ae7f3d9141a7683662179bb88
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-2-3
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 1110
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3751ea948dfb1c74f894fb3ebf5a86fe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-2-4
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 922
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b798d2afd82e3e41af083f217d95f00
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-2-5
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 734
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87f7001eb95cb8b45a0b486a20df0a00
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-3-0
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 546
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdbd79cf77542d543ac8ca7631d1a1aa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-3-1
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 546
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e524def2ff503243a3177b4991ec5e5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-3-2
+      rect:
+        serializedVersion: 2
+        x: 1742
+        y: 546
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 915d7d6f93690e44dad76c754f5eb981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-3-3
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 358
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7605bce28a5f504e9374d3ac7d64373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-3-4
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 170
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0a363e9bf44bb14987c4e7f1a31f5ed
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-3-5
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 358
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8b4f25932e64144aa8282f722f139c8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-4-0
+      rect:
+        serializedVersion: 2
+        x: 1742
+        y: 358
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa312a2156768864e840280c4d72d891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-4-1
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 170
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b899d660ae3f314fb57ab402f25b990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-4-2
+      rect:
+        serializedVersion: 2
+        x: 1742
+        y: 170
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3b390b2b577acd4a98e734aa4f182d9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-13-1
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1862
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da34cfc48fc2a12418d1f2ef561f41a4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-13-2
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 1862
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c20c31442d24e204d830d3e61a3a1012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-13-3
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 1862
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e54c778a0172bf34f88584fa1a6035c0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-13-4
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1862
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c774f06d6302fb4a983f5123bbbeb5b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-13-5
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 1862
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f49aa18651977ff4cbd77195739707d3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-14-0
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 1862
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c283b94d5b369045b8f41b046dfcd83
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-14-1
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 1862
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ce2be85aa0b3b8458ce854ea2ab75cb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-14-2
+      rect:
+        serializedVersion: 2
+        x: 1742
+        y: 1862
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8cbed02101f9bd4babaf2a768277a59
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-14-3
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1674
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e58b6d300f0f5044a663c749183a290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-14-4
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1486
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c5e4db550371294e926450aeab0f39b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-14-5
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1298
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd9d4872153bd7d4db218a3852d6eddb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-15-0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1110
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f553edd0291f7a48b13474c2bf314a9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-15-1
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 922
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 309efede6c780d940824996399837d72
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-15-2
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 734
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc4b1d176a4213c4e948a147c45a42e4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-15-3
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 546
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ce907d4a5dc98942a628ac16396d619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-15-4
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 358
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3517eca64a890e5429ec5286bde4d5f5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-15-5
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 170
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1f7f52770ab6064788c1ff8e029e026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-16-0
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 1674
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec1c3a7d44ff8b64b89b5f93603cf3e9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-16-1
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 1674
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00247d68d66834346a03eba5970035ad
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-16-2
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1674
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 772b865c579550d40a0fb5cbbe18541b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-16-3
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 1674
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24799aef63e108243a7c7e6875ef26c4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-16-4
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 1674
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bcbf48b38f3ac74991f366d73442a3c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-16-5
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 1674
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bcc43a3f5ae93041a3e1fd046adc8a4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-17-0
+      rect:
+        serializedVersion: 2
+        x: 1742
+        y: 1674
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f7b41ca85a77784b91fac8d68f795b0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-17-1
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 1486
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dad591e2e9e5a574a9d44779bacc614a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-17-2
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 1298
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38acff3eca0a1ed4fbf7feece4c62250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-17-3
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 1110
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afc7d0dc8bb293e448f1b5ff5d75f4d4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-17-4
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 922
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36ee04d5327f8d942929dc1359dfac31
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-17-5
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 734
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 005235b38123a024a99d1e121246f18f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-18-0
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 546
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ad030ea012ea854c81fa5dc1b3d647a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-18-1
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 358
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6923cb695a8f93f4c906eaaad65a8ad7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-18-2
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 170
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f44c4e88f95b9914989ae222b376c275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-18-3
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 1486
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 179ae037b79dc164da1fe6b630ecafd0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-18-4
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1486
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30636d3453b8f2f489b097fc95daf6d2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-18-5
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 1486
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25991d64ff948d444ad4519a9150abef
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-19-0
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 1486
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86f58d46bba035f49b65934a2b5267ad
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-19-1
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 1486
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d81ad227f7cb544da5f3970d950f5a2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-19-2
+      rect:
+        serializedVersion: 2
+        x: 1742
+        y: 1486
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8dd92e1be9dba348ba06350a33e1022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-19-3
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 1298
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81106778e4b6e5a40ab65b7b026562ab
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-19-4
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1298
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdadb214afc7f474080b0ed1dc88b6ff
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-19-5
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 1298
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 382cda17734c2f54290cfab35445aa91
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-20-0
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 546
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62b92792aae296a4cb57c3607d923faa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-20-1
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 358
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7447cf5ea1565bd49b4a3a6a83b712e0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-20-2
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 170
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6326715c0e8ffce4898f3ae1421cb911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-20-3
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1110
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f702db174b6caf49adfc833936cade5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-20-4
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 1110
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f8e58e15a3375446a12d01857ff81fd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-20-5
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 1110
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fad0bfc7946a4e149ae1553736690c41
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-21-0
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 1110
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb1682d69a07af24296a03a4c1caa75a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-21-1
+      rect:
+        serializedVersion: 2
+        x: 1742
+        y: 1110
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a8f4c34d2cf81e4eb887bd3d0b34790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-21-2
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 922
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fee0b3fa4ccaba4d9efa9134a3e4d28
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-21-3
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 734
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47baeafddfa83e34389fc00775223eea
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-21-4
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 546
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 861a2934c1dd4c34b917cb1f635bfa18
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-21-5
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 358
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31e3631856281da4b9b8cec41b7bca0a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-22-0
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 170
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84075208efaa2fa4ab3abd0d4ebe0205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-22-1
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 922
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb50e55f00fb3bc4eb557fd3e4ba2b3a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-22-2
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 922
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7c098aece2b3b34f96f3a9926777b17
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-22-3
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 922
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22766ac7ada621f42b83ba213b5a161f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-22-4
+      rect:
+        serializedVersion: 2
+        x: 1742
+        y: 922
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be35c20ee5a57f24fa164162c65fd991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-22-5
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 734
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4bb2977d7cedae42aa9b90c977daa45
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-23-0
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 546
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c04ec907517e75d4dbc92dfa37165618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-23-1
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 358
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b90ed96ba16d2974793829c3e5baa92d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-23-2
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 170
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5c9a6de9942cfa46b29495cd2dd9545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-23-3
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 734
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85757049cbd64304e840c37dcb729451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-23-4
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 734
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a27c4ebea88c7f0429f20bd7836f3f59
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stage01_bg02-23-5
+      rect:
+        serializedVersion: 2
+        x: 1742
+        y: 734
+        width: 240
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39e89d92ef6ec6f479a978b81ea5d07a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: dd09b0473f70d23498e5a37dd85cd7af
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

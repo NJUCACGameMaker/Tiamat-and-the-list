@@ -2756,6 +2756,10 @@ MonoBehaviour:
   minX:
   - -8.5
   scenario: {fileID: 0}
+  normalRightArm: {fileID: 11400000, guid: 4776a6e4760849147b175b15333cf4ef, type: 2}
+  torchRightArm: {fileID: 11400000, guid: 3bcfffab4dd88954eb184e2a657b5d05, type: 2}
+  rightArm: {fileID: 0}
+  torchParent: {fileID: 0}
   moveSpeed: 3
   torchPrefab: {fileID: 1053981596962310, guid: 0dcac60b19d3d034793e371c3bed4da1,
     type: 2}
@@ -2764,6 +2768,7 @@ MonoBehaviour:
   currentEquipType: 0
   floorLayer: 0
   audioTorchSwitch: {fileID: 8300000, guid: 41b8cccea8b749a4680070cb548560ef, type: 3}
+  audioGhostSkill: {fileID: 0}
   playerAnima: {fileID: 95371047196903676}
   isLeft: 0
 --- !u!114 &114744187087919886

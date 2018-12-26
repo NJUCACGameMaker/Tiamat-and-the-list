@@ -59,7 +59,14 @@ public class StairUp : Interoperable {
     IEnumerator MoveSmooth(Vector2 from, Vector2 target, float duration)
     {
         stairSprite.sortingLayerName = "ForeItem";
-        player.playerAnima.SetTrigger("UpStair");
+        if (!player.itemOn)
+        {
+            player.playerAnima.SetTrigger("UpStairNormal");
+        }
+        else
+        {
+            player.playerAnima.SetTrigger("UpStairTorch");
+        }
         if (from.x < target.x)
         {
             player.SetLeft(false);

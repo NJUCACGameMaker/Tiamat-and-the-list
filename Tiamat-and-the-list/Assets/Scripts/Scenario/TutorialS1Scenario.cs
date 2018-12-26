@@ -29,6 +29,7 @@ public class TutorialS1Scenario : Scenario {
             deadBody.transform.position = new Vector3(0.0f, -100.0f);
             CollectionArchive.CGCollect("Apkal_serious");
             CollectionArchive.CGCollect("A_default");
+            CollectionArchive.MusicCollect("MAYA FILIPI");
             DialogManager.ShowDialog("Scence1", OnScene1End);
         }
 
@@ -68,7 +69,6 @@ public class TutorialS1Scenario : Scenario {
 
     public override void LoadArchive(string archiveLine)
     {
-        Debug.Log("ScenarioLoadArchive");
         JSONNode root = JSON.Parse(archiveLine);
         scene1Shown = root["Scene1Shown"].AsBool;
         pressEHint = root["PressEHint"].AsBool;
