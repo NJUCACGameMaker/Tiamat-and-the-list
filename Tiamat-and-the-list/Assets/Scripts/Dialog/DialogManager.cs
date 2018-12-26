@@ -177,6 +177,7 @@ public class DialogManager : MonoBehaviour
     void Start()
     {
         InputManager.AddOnNextDialog(OnNextDialog);
+        InputManager.AddOnSkipDialog(OnSkipDialog);
         loader = new DialogLoader();
         loader.loadData();
         //initDialog("Scene1");
@@ -414,6 +415,34 @@ public class DialogManager : MonoBehaviour
                 setNextDialog();
             }
             else { 
+                tempDialog = currentDialog.text;
+                Text dialogText = DialogBox.transform.Find("DialogPanel").Find("DialogText").GetComponent<Text>();
+                dialogText.text = tempDialog.Replace("#", "").Replace("$", "");
+            }
+        }
+    }
+
+    private void OnSkipDialog()
+    {
+        if (!branchLock && !animationLock && DialogBox != null)
+        {
+            if (tempDialog == currentDialog.text)
+            {
+                string name1 = currentDialog.characterName;
+                id++;
+                soundIndex = 0;
+                if (id >= currentDialogSection.Count)
+                {
+                    animationLock = true;
+                    DestoryDialog();
+                    return;
+                }
+                currentDialog = currentDialogSection[id];
+                displayDialog(currentDialog);
+                DialogBox.transform.Find("NamePanel").Find("NameText").GetComponent<Text>().text = currentDialog.characterName;
+            }
+            else
+            {
                 tempDialog = currentDialog.text;
                 Text dialogText = DialogBox.transform.Find("DialogPanel").Find("DialogText").GetComponent<Text>();
                 dialogText.text = tempDialog.Replace("#", "").Replace("$", "");
