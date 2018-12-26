@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using SimpleJSON;
@@ -39,49 +38,43 @@ public class ArchiveManager : MonoBehaviour {
         Debug.Log("_LoadArchive");
         try
         {
-            if (File.Exists(filePath))
+            if (!File.Exists(filePath)) return;
+            var streamReader = new StreamReader(filePath, System.Text.Encoding.UTF8);
+            var root = JSON.Parse(streamReader.ReadToEnd());
+            streamReader.Close();
+            //加载场景物件
+            if (root == null) return;
+            //加载角色信息
+            var playerNode = root["Player"];
+            player.LoadArchive(playerNode["archive"]);
+
+            var sceneNode = root[levelTag][sceneTag];
+
+
+            foreach (var itemNode in sceneNode["Items"].Childs)
             {
-                StreamReader streamReader = new StreamReader(filePath, System.Text.Encoding.UTF8);
-                JSONNode root = JSON.Parse(streamReader.ReadToEnd());
-                streamReader.Close();
-                //加载场景物件
-                if (root != null)
+                var index = itemNode["index"].AsInt;
+                string archiveLine = itemNode["archive"];
+                //正常物品则令其加载存档
+                if (index != -1 && index < interoperables.Count)
                 {
-                    //加载角色信息
-                    var playerNode = root["Player"];
-                    player.LoadArchive(playerNode["archive"]);
-
-                    JSONNode sceneNode = root[levelTag][sceneTag];
-
-
-                    foreach (JSONNode itemNode in sceneNode["Items"].Childs)
-                    {
-                        int index = itemNode["index"].AsInt;
-                        string archiveLine = itemNode["archive"];
-                        //正常物品则令其加载存档
-                        if (index != -1 && index < interoperables.Count)
-                        {
-                            interoperables[index].LoadArchive(archiveLine);
-                        }
-                        //游戏中生成物品额外生成，然后加载存档
-                        else if (index == -1)
-                        {
-                            string resourcesPath = itemNode["resources-path"];
-                            GameObject pickableItem = Object.Instantiate(Resources.Load(resourcesPath)) as GameObject;
-                            pickableItem.GetComponent<Interoperable>().LoadArchive(archiveLine);
-                            pickableItem.GetComponent<Interoperable>().generated = true;
-                        }
-                    }
-
-                    JSONNode scenarioNode = sceneNode["Scenario"];
-                    if (scenarioNode != null)
-                    {
-                        Debug.Log("scenarioNode !=null");
-                        scenario.LoadArchive(scenarioNode["archive"]);
-                    }
-
+                    interoperables[index].LoadArchive(archiveLine);
+                }
+                //游戏中生成物品额外生成，然后加载存档
+                else if (index == -1)
+                {
+                    string resourcesPath = itemNode["resources-path"];
+                    var pickableItem = Instantiate(Resources.Load(resourcesPath)) as GameObject;
+                    if (pickableItem == null) continue;
+                    pickableItem.GetComponent<Interoperable>().LoadArchive(archiveLine);
+                    pickableItem.GetComponent<Interoperable>().generated = true;
                 }
             }
+
+            var scenarioNode = sceneNode["Scenario"];
+            if (scenarioNode == null) return;
+            Debug.Log("scenarioNode !=null");
+            scenario.LoadArchive(scenarioNode["archive"]);
         }
         catch (IOException e)
         {
@@ -103,9 +96,8 @@ public class ArchiveManager : MonoBehaviour {
         var sceneItemArchive = new JSONArray();
         sceneArchive.Add("Items", sceneItemArchive);
         //存储每一个物件的存档
-        for (int i = 0; i < objectsToSave.Count; i++)
+        foreach (var interoperable in objectsToSave)
         {
-            Interoperable interoperable = objectsToSave[i];
             if (!interoperable.generated)
             {
                 if (interoperable.GetArchive() != null)
@@ -130,17 +122,15 @@ public class ArchiveManager : MonoBehaviour {
             //后续生成的物件额外存储
             else
             {
-                Pickable pickable = interoperable as Pickable;
-                if (pickable != null)
+                var pickable = interoperable as Pickable;
+                if (pickable == null) continue;
+                var archivePiece = new JSONClass
                 {
-                    var archivePiece = new JSONClass
-                    {
-                        { "index", new JSONData(-1) },
-                        { "resources-path", new JSONData(pickable.resourcesPath) },
-                        { "archive", new JSONData(interoperable.GetArchive()) }
-                    };
-                    sceneItemArchive.Add(archivePiece);
-                }
+                    { "index", new JSONData(-1) },
+                    { "resources-path", new JSONData(pickable.resourcesPath) },
+                    { "archive", new JSONData(interoperable.GetArchive()) }
+                };
+                sceneItemArchive.Add(archivePiece);
             }
         }
 
@@ -154,8 +144,8 @@ public class ArchiveManager : MonoBehaviour {
         //更新节点信息
         if (PlayerPrefs.GetInt("HasArchive", 0) == 1)
         {
-            StreamReader streamReader = new StreamReader(filePath, System.Text.Encoding.UTF8);
-            JSONNode root = JSON.Parse(streamReader.ReadToEnd());
+            var streamReader = new StreamReader(filePath, System.Text.Encoding.UTF8);
+            var root = JSON.Parse(streamReader.ReadToEnd());
             if (root != null)
             {
                 root.Remove("Player");
@@ -176,26 +166,23 @@ public class ArchiveManager : MonoBehaviour {
             {
                 root = new JSONClass();
                 root.Add("Player", playerNode);
-                JSONClass levelNode = new JSONClass();
-                levelNode.Add(sceneTag, sceneArchive);
+                var levelNode = new JSONClass {{sceneTag, sceneArchive}};
                 root.Add(levelTag, levelNode);
             }
             streamReader.Close();
 
-            StreamWriter streamWriter = new StreamWriter(filePath, false, System.Text.Encoding.UTF8);
+            var streamWriter = new StreamWriter(filePath, false, System.Text.Encoding.UTF8);
             streamWriter.WriteLine(root.ToString());
             streamWriter.Flush();
             streamWriter.Close();
         }
         else
         {
-            JSONClass root = new JSONClass();
-            root.Add("Player", playerNode);
-            JSONClass levelNode = new JSONClass();
-            levelNode.Add(sceneTag, sceneArchive);
+            var root = new JSONClass {{"Player", playerNode}};
+            var levelNode = new JSONClass {{sceneTag, sceneArchive}};
             root.Add(levelTag, levelNode);
             
-            StreamWriter streamWriter = new StreamWriter(filePath, false, System.Text.Encoding.UTF8);
+            var streamWriter = new StreamWriter(filePath, false, System.Text.Encoding.UTF8);
             streamWriter.WriteLine(root.ToString());
             streamWriter.Flush();
             streamWriter.Close();

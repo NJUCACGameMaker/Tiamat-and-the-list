@@ -41,7 +41,7 @@ public class SettingUIManager : MonoBehaviour {
         }
 
         var cgList = cgSection.transform.Find("Panel").Find("Content Panel").GetComponent<ScrollListManager>();
-        foreach (CGPiece cgPiece in CollectionArchive.GetCGs())
+        foreach (CgPiece cgPiece in CollectionArchive.GetCGs())
         {
             cgList.AddCGButton(cgPiece.shortLine, cgPiece.picPath);
         }

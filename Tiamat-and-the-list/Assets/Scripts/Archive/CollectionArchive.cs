@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using SimpleJSON;
@@ -17,18 +16,18 @@ public class CollectionArchive {
         return instance;
     }
     private static CollectionArchive instance;
-    private static string archivePath = Application.persistentDataPath + "\\collectionArchive.json";
+    private static readonly string ArchivePath = Application.persistentDataPath + "\\collectionArchive.json";
 
-    private Dictionary<string, NotePiece> notes;
-    private Dictionary<string, CollectionPiece> collections;
-    private Dictionary<string, CGPiece> cgs;
-    private Dictionary<string, MusicPiece> musics;
+    private readonly Dictionary<string, NotePiece> notes;
+    private readonly Dictionary<string, CollectionPiece> collections;
+    private readonly Dictionary<string, CgPiece> cgs;
+    private readonly Dictionary<string, MusicPiece> musics;
 
     private CollectionArchive()
     {
         notes = new Dictionary<string, NotePiece>();
         collections = new Dictionary<string, CollectionPiece>();
-        cgs = new Dictionary<string, CGPiece>();
+        cgs = new Dictionary<string, CgPiece>();
         musics = new Dictionary<string, MusicPiece>();
     }
 
@@ -40,20 +39,20 @@ public class CollectionArchive {
         notes.Add("L1S3NoteRight", new NotePiece("第一关右展示台纸条", "断罪者终断去自己的罪。断罪者终无法断去自己的罪。", false));
         collections.Add("Flashlight", new CollectionPiece("手电筒", "一个有一些年份的手电筒，不过竟然还能亮",
             "EquipmentSprite/Stage00_shoudiantong", false));
-        cgs.Add("Apkal_serious", new CGPiece("Apkal", "CharacterTachie/Apkal_serious", false));
-        cgs.Add("A_default", new CGPiece("A", "CharacterTachie/A_default", false));
-        cgs.Add("Geshta_default", new CGPiece("Geshta", "CharacterTachie/Geshta_default", false));
-        cgs.Add("Geshta_smile", new CGPiece("Geshta", "CharacterTachie/Geshta_smile", false));
+        cgs.Add("Apkal_serious", new CgPiece("Apkal", "CharacterTachie/Apkal_serious", false));
+        cgs.Add("A_default", new CgPiece("A", "CharacterTachie/A_default", false));
+        cgs.Add("Geshta_default", new CgPiece("Geshta", "CharacterTachie/Geshta_default", false));
+        cgs.Add("Geshta_smile", new CgPiece("Geshta", "CharacterTachie/Geshta_smile", false));
         musics.Add("THE PIANO LADY", new MusicPiece("<size=32>THE PIANO LADY (LENA ORSA) - \r\n Water Sparks in a Sunbeam</size>", "DynamicAudios/ThePianoLady", true));
         musics.Add("MAYA FILIPI", new MusicPiece("MAYA FILIPIC - Rose", "DynamicAudios/MayaFilipi-Rose", false));
         musics.Add("GARSUMENE", new MusicPiece("<size=32>GARSUMENE - Chopin Piano Waltz \r\n in B minor, Op. 69, No. 2</size>", "DynamicAudios/GarsuMene", false));
     }
 
-    public static void LoadArchive()
+    private static void LoadArchive()
     {
         try
         {
-            var reader = new StreamReader(archivePath, System.Text.Encoding.UTF8);
+            var reader = new StreamReader(ArchivePath, System.Text.Encoding.UTF8);
             LoadArchive(reader.ReadToEnd());
             reader.Close();
         }catch(IOException e)
@@ -61,38 +60,38 @@ public class CollectionArchive {
             Debug.Log("CollectionArchive doesn't Exist");
         }
     }
-    public static void LoadArchive(string archiveLine)
+
+    private static void LoadArchive(string archiveLine)
     {
         var root = JSON.Parse(archiveLine);
-        if (root != null)
+        if (root == null) return;
+        foreach (var node in root["Notes"].Childs)
         {
-            foreach (var node in root["Notes"].Childs)
-            {
-                instance.notes[node].collected = true;
-            }
-            foreach (var node in root["Collections"].Childs)
-            {
-                instance.collections[node].collected = true;
-            }
-            foreach (var node in root["CGs"].Childs)
-            {
-                instance.cgs[node].collected = true;
-            }
-            foreach (var node in root["Musics"].Childs)
-            {
-                instance.musics[node].collected = true;
-            }
+            instance.notes[node].collected = true;
+        }
+        foreach (var node in root["Collections"].Childs)
+        {
+            instance.collections[node].collected = true;
+        }
+        foreach (var node in root["CGs"].Childs)
+        {
+            instance.cgs[node].collected = true;
+        }
+        foreach (var node in root["Musics"].Childs)
+        {
+            instance.musics[node].collected = true;
         }
     }
 
     public static void SaveArchive()
     {
-        var writer = new StreamWriter(archivePath, false, System.Text.Encoding.UTF8);
+        var writer = new StreamWriter(ArchivePath, false, System.Text.Encoding.UTF8);
         writer.WriteLine(GetArchive());
         writer.Flush();
         writer.Close();
     }
-    public static string GetArchive()
+
+    private static string GetArchive()
     {
         if (instance == null) { Init(); }
         var noteNode = new JSONArray();
@@ -107,6 +106,7 @@ public class CollectionArchive {
             { "Musics", musicNode }
         };
 
+        if (instance == null) return root.ToString();
         foreach (var key in instance.notes.Keys)
         {
             if (instance.notes[key].collected)
@@ -114,6 +114,7 @@ public class CollectionArchive {
                 noteNode.Add(new JSONData(key));
             }
         }
+
         foreach (var key in instance.collections.Keys)
         {
             if (instance.collections[key].collected)
@@ -121,6 +122,7 @@ public class CollectionArchive {
                 collectionNode.Add(new JSONData(key));
             }
         }
+
         foreach (var key in instance.cgs.Keys)
         {
             if (instance.cgs[key].collected)
@@ -128,6 +130,7 @@ public class CollectionArchive {
                 cgNode.Add(new JSONData(key));
             }
         }
+
         foreach (var key in instance.musics.Keys)
         {
             if (instance.musics[key].collected)
@@ -139,10 +142,11 @@ public class CollectionArchive {
         return root.ToString();
     }
 
-    public static List<NotePiece> GetNotes()
+    public static IEnumerable<NotePiece> GetNotes()
     {
         if (instance == null) { Init(); }
-        List<NotePiece> result = new List<NotePiece>();
+        var result = new List<NotePiece>();
+        if (instance == null) return result;
         foreach (NotePiece notePiece in instance.notes.Values)
         {
             if (notePiece.collected)
@@ -150,54 +154,61 @@ public class CollectionArchive {
                 result.Add(notePiece);
             }
         }
+
         return result;
     }
 
-    public static List<CollectionPiece> GetCollections()
+    public static IEnumerable<CollectionPiece> GetCollections()
     {
         if (instance == null) { Init(); }
         var result = new List<CollectionPiece>();
-        foreach (CollectionPiece collectionPiece in instance.collections.Values)
+        if (instance == null) return result;
+        foreach (var collectionPiece in instance.collections.Values)
         {
             if (collectionPiece.collected)
             {
                 result.Add(collectionPiece);
             }
         }
+
         return result;
     }
 
-    public static List<CGPiece> GetCGs()
+    public static IEnumerable<CgPiece> GetCGs()
     {
         if (instance == null) { Init(); }
-        var result = new List<CGPiece>();
-        foreach (CGPiece cgPiece in instance.cgs.Values)
+        var result = new List<CgPiece>();
+        if (instance == null) return result;
+        foreach (var cgPiece in instance.cgs.Values)
         {
             if (cgPiece.collected)
             {
                 result.Add(cgPiece);
             }
         }
+
         return result;
     }
 
-    public static List<MusicPiece> GetMusics()
+    public static IEnumerable<MusicPiece> GetMusics()
     {
         if (instance == null) { Init(); }
         var result = new List<MusicPiece>();
-        foreach (MusicPiece musicPiece in instance.musics.Values)
+        if (instance == null) return result;
+        foreach (var musicPiece in instance.musics.Values)
         {
             if (musicPiece.collected)
             {
                 result.Add(musicPiece);
             }
         }
+
         return result;
     }
     public static void NoteCollect(string key)
     {
         if (instance == null) { Init(); }
-        if (instance.notes[key] != null)
+        if (instance != null && instance.notes[key] != null)
         {
             instance.notes[key].collected = true;
         }
@@ -206,16 +217,16 @@ public class CollectionArchive {
     public static void CollectionCollect(string key)
     {
         if (instance == null) { Init(); }
-        if (instance.collections[key] != null)
+        if (instance != null && instance.collections[key] != null)
         {
             instance.collections[key].collected = true;
         }
     }
 
-    public static void CGCollect(string key)
+    public static void CgCollect(string key)
     {
         if (instance == null) { Init(); }
-        if (instance.cgs[key] != null)
+        if (instance != null && instance.cgs[key] != null)
         {
             instance.cgs[key].collected = true;
         }
@@ -224,7 +235,7 @@ public class CollectionArchive {
     public static void MusicCollect(string key)
     {
         if (instance == null) { Init(); }
-        if (instance.musics[key] != null)
+        if (instance != null && instance.musics[key] != null)
         {
             instance.musics[key].collected = true;
         }
@@ -239,8 +250,8 @@ public class NotePiece
         this.detail = detail;
         this.collected = collected;
     }
-    public string shortLine;
-    public string detail;
+    public readonly string shortLine;
+    public readonly string detail;
     public bool collected;
 }
 
@@ -253,22 +264,22 @@ public class CollectionPiece
         this.picPath = picPath;
         this.collected = collected;
     }
-    public string shortLine;
-    public string detail;
-    public string picPath;
+    public readonly string shortLine;
+    public readonly string detail;
+    public readonly string picPath;
     public bool collected;
 }
 
-public class CGPiece
+public class CgPiece
 {
-    public CGPiece(string shortLine, string picPath, bool collected)
+    public CgPiece(string shortLine, string picPath, bool collected)
     {
         this.shortLine = shortLine;
         this.picPath = picPath;
         this.collected = collected;
     }
-    public string shortLine;
-    public string picPath;
+    public readonly string shortLine;
+    public readonly string picPath;
     public bool collected;
 }
 
@@ -280,7 +291,7 @@ public class MusicPiece
         this.path = path;
         this.collected = collected;
     }
-    public string shortLine;
-    public string path;
+    public readonly string shortLine;
+    public readonly string path;
     public bool collected;
 }

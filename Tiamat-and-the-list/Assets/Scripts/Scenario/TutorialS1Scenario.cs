@@ -27,8 +27,8 @@ public class TutorialS1Scenario : Scenario {
             scenarioHintOn = true;
             deadBodyOriginalPos = deadBody.transform.position;
             deadBody.transform.position = new Vector3(0.0f, -100.0f);
-            CollectionArchive.CGCollect("Apkal_serious");
-            CollectionArchive.CGCollect("A_default");
+            CollectionArchive.CgCollect("Apkal_serious");
+            CollectionArchive.CgCollect("A_default");
             CollectionArchive.MusicCollect("MAYA FILIPI");
             DialogManager.ShowDialog("Scence1", OnScene1End);
         }
