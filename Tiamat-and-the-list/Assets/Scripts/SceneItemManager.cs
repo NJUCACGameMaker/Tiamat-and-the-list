@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -14,6 +15,8 @@ public class SceneItemManager : MonoBehaviour {
     public RectTransform equipmentUI;
     [HideInInspector]
     public bool paused = false;
+
+    public List<GameObject> blockingCanvas; 
 
     private void Awake()
     {
@@ -110,14 +113,20 @@ public class SceneItemManager : MonoBehaviour {
             SceneManager.LoadScene("Setting", LoadSceneMode.Additive);
             GameObject dialogBox = GameObject.FindGameObjectWithTag("DialogBox");
             if (dialogBox != null){
-                foreach (var text in dialogBox.transform.GetComponentsInChildren<Text>()){
+                /*foreach (var text in dialogBox.transform.GetComponentsInChildren<Text>()){
                     Color c = text.color;
                     text.color = new Color(c.r, c.g, c.b, 0);
                 }
                 foreach (var image in dialogBox.transform.GetComponentsInChildren<Image>()){
                     Color c = image.color;
                     image.color = new Color(c.r, c.g, c.b, 0);
-                }
+                }*/
+                blockingCanvas.Add(dialogBox);
+            }
+
+            foreach (var canvas in blockingCanvas)
+            {
+                canvas.SetActive(false);
             }
             Pause();
             Debug.Log("Pause");
@@ -126,6 +135,17 @@ public class SceneItemManager : MonoBehaviour {
         else
         {
             equipmentUI.anchoredPosition = Vector3.zero;
+            var canvasToRemoved = new List<GameObject>();
+            foreach (var canvas in blockingCanvas)
+            {
+                if (canvas != null) canvas.SetActive(true);
+                else canvasToRemoved.Add(canvas);
+            }
+
+            foreach (var canvas in canvasToRemoved)
+            {
+                blockingCanvas.Remove(canvas);
+            }
         }
     }
 

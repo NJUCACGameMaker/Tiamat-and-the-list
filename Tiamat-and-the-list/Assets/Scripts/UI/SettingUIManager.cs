@@ -137,7 +137,7 @@ public class SettingUIManager : MonoBehaviour {
             sceneManager.GetComponent<SceneItemManager>().Resume();
         }
         GameObject dialogBox = GameObject.FindGameObjectWithTag("DialogBox");
-        if (dialogBox != null){
+        if (dialogBox != null){/*
             foreach (var text in dialogBox.transform.GetComponentsInChildren<Text>()){
                 Color c = text.color;
                 text.color = new Color(c.r, c.g, c.b, 1);
@@ -150,7 +150,7 @@ public class SettingUIManager : MonoBehaviour {
             dialogBox.transform.Find("NamePanel").GetComponent<Image>().color = new Color(targetNamePanelColor.r, targetNamePanelColor.g, targetNamePanelColor.b, 100.0f/255f);
             dialogBox.transform.Find("DialogPanel").GetComponent<Image>().color = new Color(targetDialogPanelColor.r, targetDialogPanelColor.g, targetDialogPanelColor.b, 100f/255f);
             dialogBox.transform.Find("Character").GetComponent<Image>().color = new Color(targetCharacterColor.r, targetCharacterColor.g, targetCharacterColor.b, 1);
-            
+            */
         }
 
         SceneManager.UnloadSceneAsync("Setting");
