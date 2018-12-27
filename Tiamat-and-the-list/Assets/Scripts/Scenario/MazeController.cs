@@ -73,7 +73,10 @@ public class MazeController : MonoBehaviour{
         currentNum = GetRight();
         previousNum = tempCurrent;
         previousRight = false;
-        anotherNum = RandomOne() + Random.Range(0, 7) * 10;
+        do
+        {
+            anotherNum = RandomOne() + Random.Range(0, 7) * 10;
+        } while (anotherNum == currentNum);
         if ((previousNum % 10 == 0 && currentNum % 10 == 6) || 
             (previousNum % 10 == 6 && currentNum % 10 == 0))
         {
