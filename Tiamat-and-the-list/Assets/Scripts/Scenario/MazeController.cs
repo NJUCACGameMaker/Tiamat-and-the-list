@@ -73,7 +73,7 @@ public class MazeController : MonoBehaviour{
         currentNum = GetRight();
         previousNum = tempCurrent;
         previousRight = false;
-        anotherNum = Random.Range(0, 7) + Random.Range(0, 7) * 10;
+        anotherNum = RandomOne() + Random.Range(0, 7) * 10;
         if ((previousNum % 10 == 0 && currentNum % 10 == 6) || 
             (previousNum % 10 == 6 && currentNum % 10 == 0))
         {
@@ -92,7 +92,7 @@ public class MazeController : MonoBehaviour{
         currentNum = GetLeft();
         previousNum = tempCurrent;
         previousRight = true;
-        anotherNum = Random.Range(0, 7) + Random.Range(0, 7) * 10;
+        anotherNum = RandomOne() + Random.Range(0, 7) * 10;
         if ((previousNum % 10 == 0 && currentNum % 10 == 6) ||
             (previousNum % 10 == 6 && currentNum % 10 == 0))
         {
@@ -105,4 +105,18 @@ public class MazeController : MonoBehaviour{
     public static bool PuzzleFinished() { return instance.puzzleFinished; }
 
     public static int GetCurrentNumber() { return instance.CurrentNum; }
+
+    private int RandomOne()
+    {
+        int temp = Random.Range(0, 8);
+        if (temp <= 6) return temp;
+        else
+        {
+            if (currentNum % 10 == 6) return 0;
+            else
+            {
+                return 6;
+            }
+        }
+    }
 }

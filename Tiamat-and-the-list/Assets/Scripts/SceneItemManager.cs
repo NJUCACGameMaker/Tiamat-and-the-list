@@ -134,18 +134,27 @@ public class SceneItemManager : MonoBehaviour {
         }
         else
         {
-            equipmentUI.anchoredPosition = Vector3.zero;
-            var canvasToRemoved = new List<GameObject>();
-            foreach (var canvas in blockingCanvas)
-            {
-                if (canvas != null) canvas.SetActive(true);
-                else canvasToRemoved.Add(canvas);
-            }
+            var setting = GameObject.Find("SettingMainCanvas");
+            if (setting == null) return;
+            var settingManager = setting.GetComponent<SettingUIManager>();
+            if (settingManager == null) return;
+            settingManager.Game();
+        }
+    }
 
-            foreach (var canvas in canvasToRemoved)
-            {
-                blockingCanvas.Remove(canvas);
-            }
+    public void SettingRecover()
+    {
+        equipmentUI.anchoredPosition = Vector3.zero;
+        var canvasToRemoved = new List<GameObject>();
+        foreach (var canvas in blockingCanvas)
+        {
+            if (canvas != null) canvas.SetActive(true);
+            else canvasToRemoved.Add(canvas);
+        }
+
+        foreach (var canvas in canvasToRemoved)
+        {
+            blockingCanvas.Remove(canvas);
         }
     }
 

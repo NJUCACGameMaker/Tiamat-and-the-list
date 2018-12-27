@@ -64,10 +64,6 @@ public class SettingUIManager : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Game();
-        }
     }
 
     public void ShowNote()
@@ -126,15 +122,12 @@ public class SettingUIManager : MonoBehaviour {
             {
                 coverCanvas.GetComponent<CoverUIManager>().RecoverButtons();
             }
-            else
-            {
-                Debug.Log("Cover Canvas Not Found");
-            }
         }
         GameObject sceneManager = GameObject.Find("SceneController");
         if (sceneManager != null)
         {
             sceneManager.GetComponent<SceneItemManager>().Resume();
+            sceneManager.GetComponent<SceneItemManager>().SettingRecover();
         }
         GameObject dialogBox = GameObject.FindGameObjectWithTag("DialogBox");
         if (dialogBox != null){/*
